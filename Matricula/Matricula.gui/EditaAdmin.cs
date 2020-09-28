@@ -18,6 +18,7 @@ namespace Matricula.gui
     {
         AdminBO log;
         ValidaDatos validar;
+
         string usuarioBuscar;
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace Matricula.gui
             }
             else
             {
-                log.modificar(txtUsuario.Text, txtNombre.Text, txtCorreo.Text, chkAdmin.Checked, chkActivo.Checked);
+                log.modificar(usuarioBuscar,txtUsuario.Text, txtNombre.Text, txtCorreo.Text, chkAdmin.Checked, chkActivo.Checked);
                 log.crearArchivo();
                 this.Close();
             }
@@ -136,11 +137,12 @@ namespace Matricula.gui
             bool busca = false;
             if (log.buscarUsuario(usu) != -1)
             {
+                txtContrasena.Text = log.enviarContrasena(usu);
+                txtContrasena1.Text = log.enviarContrasena(usu);
                 busca = true;
             }
             return busca;
         }
-
 
         public EditaAdmin()
         {

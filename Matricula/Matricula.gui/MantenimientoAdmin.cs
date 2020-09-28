@@ -24,18 +24,22 @@ namespace Matricula.gui
         /// </summary>
         private void verDatos()
         {
+            log.limpiarLista();
             lista = log.getLista();
+            tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
                 tblTabla.Rows.Add(lista[i].usuario, lista[i].nombre, lista[i].correo, lista[i].admin, lista[i].activo);
             }
         }
 
+
         public MantenimientoAdmin()
         {
             InitializeComponent();
             log = new AdminBO();
             lista = new List<Admin>();
+            verDatos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -107,6 +111,7 @@ namespace Matricula.gui
                         log.modificarContrasena(usuario, frm.aceptarButton());
                     }
                     log.crearArchivo();
+                    verDatos();
                 }
                 else
                 {
@@ -122,7 +127,6 @@ namespace Matricula.gui
 
         private void btnVerDatos_Click(object sender, EventArgs e)
         {
-           
             verDatos();
         }
 

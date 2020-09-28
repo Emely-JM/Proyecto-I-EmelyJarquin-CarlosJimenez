@@ -58,18 +58,19 @@ namespace Matricula.bo
         /// <summary>
         /// Modifica los datos del administrador especificado por el nombre de usuario
         /// </summary>
-        /// <param name="usuario"> usuario que se desea modificar y nuevo usuario</param>
+        /// <param name="usuario"> usuario que se desea modificar </param>
+        /// /// <param name="usuarioCambiar"> nuevo dato de usuario </param>
         /// <param name="nombre"> nuevo nombre </param>
         /// <param name="correo"> nuevo correo </param>
         /// <param name="admin"> asigna si es o deja de ser administrador </param>
         /// <param name="activo"> asigna si está o deja de estar activo </param>
-        public void modificar(string usuario, string nombre, string correo, bool admin, bool activo)
+        public void modificar(string usuario,string usuarioCambiar, string nombre, string correo, bool admin, bool activo)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
                 if (usuario.Equals(proceso[i].usuario.ToString()))
                 {
-                    proceso[i].usuario = usuario;
+                    proceso[i].usuario = usuarioCambiar;
                     proceso[i].nombre = nombre;
                     proceso[i].correo = correo;
                     proceso[i].admin = admin;
@@ -115,13 +116,13 @@ namespace Matricula.bo
         /// <summary>
         /// Busca en la lista si el usuario ingresado ya existe
         /// </summary>
-        /// <param name="usuario"> representa al usuario que se desea buscar </param>
+        /// <param name="usuarioBuscar"> representa al usuario que se desea buscar </param>
         /// <returns> retorna el indice si encuentra al usuario o un -1 sino </returns>
-        public int buscarUsuario(string usuario)
+        public int buscarUsuario(string usuarioBuscar)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (usuario.Equals(proceso[i].Usuario))
+                if (proceso[i].Usuario.Equals(usuarioBuscar))
                 {
                     return i;
                 }
@@ -157,10 +158,37 @@ namespace Matricula.bo
         /// <summary>
         /// Método que retorna la lista con los datos que contiene
         /// </summary>
-        /// <returns> retorna la lista proceso </returns>
+        /// <returns> retorna la lista proceso con la lectura del archivo </returns>
         public List<Admin> getLista()
         {
-            return proceso;
+            return proceso = objArchivo.leerArchivo();
+
+        }
+
+        /// <summary>
+        /// Limpia la lista 
+        /// </summary>
+        public void limpiarLista()
+        {
+            proceso.Clear();
+        }
+
+        /// <summary>
+        /// Busca al usuario y la contraseña encriptada para enviarla.
+        /// </summary>
+        /// <param name="usuarioBuscar"> representa al usuario a buscar </param>
+        /// <returns> retorna la contraseña del usuario </returns>
+        public string enviarContrasena(string usuarioBuscar)
+        {
+            string contrasena = "";
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].Usuario.Equals(usuarioBuscar))
+                {
+                    contrasena = proceso[i].Contrasena;
+                }
+            }
+            return contrasena;
         }
 
     }
