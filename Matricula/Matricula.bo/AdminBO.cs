@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Collections;
 
 namespace Matricula.bo
 {
@@ -17,6 +19,7 @@ namespace Matricula.bo
 
         public AdminBO()
         {
+            encripta = new Encripta();
             proceso = new List<Admin>();
             objArchivo = new AdminDAO();
             proceso = objArchivo.leerArchivo();
@@ -104,7 +107,7 @@ namespace Matricula.bo
             {
                 if (usuario.Equals(proceso[i].usuario.ToString()))
                 {
-                    proceso[i].activo = dato;
+                    proceso[i].Activo = dato;
                 }
             }
         }
@@ -141,6 +144,23 @@ namespace Matricula.bo
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Llama al método para escribir en el archivo lo que hay en la lista 
+        /// </summary>
+        public void crearArchivo()
+        {
+            objArchivo.crearArchivo(proceso);
+        }
+
+        /// <summary>
+        /// Método que retorna la lista con los datos que contiene
+        /// </summary>
+        /// <returns> retorna la lista proceso </returns>
+        public List<Admin> getLista()
+        {
+            return proceso;
         }
 
     }

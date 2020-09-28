@@ -67,15 +67,6 @@ namespace Matricula.entities
             set { this.activo = value; }
         }
 
-        /// <summary>
-        /// Retorna el nombre y entre parentesis el usuario
-        /// </summary>
-        /// <returns>strign nombre(usuario)</returns>
-        public string mensajeAdmin()
-        {
-            return string.Format("%s (%s)", this.nombre, this.usuario);
-        }
-
         public string toString()
         {
             return this.usuario + "," + this.nombre + "," + this.correo +

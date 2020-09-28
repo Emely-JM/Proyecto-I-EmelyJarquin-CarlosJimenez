@@ -57,12 +57,12 @@ namespace Matricula.dao
                 while (line != null)
                 {
                     string[] items = line.Trim().Split(',');
-                    string usuario = items[1].Trim();
-                    string nombre = items[2].Trim();
-                    string correo = items[3].Trim();
-                    string contrasenna = items[4].Trim();
-                    bool admins = bool.Parse(items[5].Trim());
-                    bool activo = bool.Parse(items[6].Trim());
+                    string usuario = items[0].Trim();
+                    string nombre = items[1].Trim();
+                    string correo = items[2].Trim();
+                    string contrasenna = items[3].Trim();
+                    bool admins = bool.Parse(items[4].Trim());
+                    bool activo = bool.Parse(items[5].Trim());
 
                     Admin objAdmin = new Admin(usuario, nombre, correo, contrasenna, admins, activo);
                     admin.Add(objAdmin);
