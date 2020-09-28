@@ -53,6 +53,12 @@
     <Compile Include="EditaAdmin.Designer.cs">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="ValidaDatos.cs" />
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoAdmin.resx">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
@@ -113,6 +122,10 @@
       <Project>{69D12F4E-7722-421B-85F6-CD6F1C5D5172}</Project>
       <Name>Matricula.entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Matricula.utilitario\Matricula.utilitario.csproj">
+      <Project>{5639699D-2B39-4089-89D2-33A302039FA5}</Project>
+      <Name>Matricula.utilitario</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_ok_25px.png" />
@@ -137,6 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_cancel_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -191,5 +191,26 @@ namespace Matricula.bo
             return contrasena;
         }
 
+        /// <summary>
+        /// Método que recibe un usuario y contraseña y lo compará con los datos ingresados
+        /// de ser iguales permite que se loguee, en caso contrario no
+        /// </summary>
+        /// <param name="usuarioBuscar"> representa el usuario ingresado para loguear </param>
+        /// <param name="passBuscar"> representa la contraseña ingresada para loguar </param>
+        /// <returns> retorna true si encuentra los datos y false sino </returns>
+        public bool loguarse(string usuarioBuscar, string passBuscar)
+        {
+            bool loguear = false;
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].Usuario.Equals(usuarioBuscar) && proceso[i].Contrasena.Equals(passBuscar) && proceso[i].Activo == true)
+                {
+                    loguear = true;
+                }
+            }
+            return loguear;
+        }
+
+
     }
 }

@@ -33,7 +33,6 @@ namespace Matricula.gui
             }
         }
 
-
         public MantenimientoAdmin()
         {
             InitializeComponent();
@@ -46,6 +45,7 @@ namespace Matricula.gui
         {
             EditaAdmin frm = new EditaAdmin();
             frm.ShowDialog();
+            verDatos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -109,6 +109,7 @@ namespace Matricula.gui
                     if (frm.isAceptar())
                     {
                         log.modificarContrasena(usuario, frm.aceptarButton());
+                        MessageBox.Show("Contraseña cambiada", "Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     log.crearArchivo();
                     verDatos();
