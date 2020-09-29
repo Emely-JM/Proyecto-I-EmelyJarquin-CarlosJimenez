@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AdminBO.cs" />
     <Compile Include="CarreraBO.cs" />
+    <Compile Include="MateriaBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
