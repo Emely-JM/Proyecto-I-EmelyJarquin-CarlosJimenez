@@ -57,7 +57,7 @@ namespace Matricula.dao
                 while (line != null)
                 {
                     string[] items = line.Trim().Split(',');
-                    int idCarrera = int.Parse(items[0].Trim());
+                    string idCarrera = items[0].Trim();
                     string nombre = items[1].Trim();
                     int creditosTotales = int.Parse(items[2].Trim());
                     string estado = items[3].Trim();

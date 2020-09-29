@@ -30,7 +30,7 @@ namespace Matricula.bo
         /// <param name="estado"> estado de la carrera; en oferta o cerrada </param>
         /// <param name="fechaApertura"> fecha de apertura de la carrera </param>
         /// <param name="fechaCierre"> fecha en la que termina la fecha de apertura </param>
-        public void agregar(int idCarrera, string nombre, int creditosTotales, string estado, DateTime fechaApertura, DateTime fechaCierre)
+        public void agregar(string idCarrera, string nombre, int creditosTotales, string estado, DateTime fechaApertura, DateTime fechaCierre)
         {
             proceso.Add(new Carrera(idCarrera,nombre,creditosTotales,estado,fechaApertura,fechaCierre));
         }
@@ -39,11 +39,11 @@ namespace Matricula.bo
         /// Elimina todos los datos ligados al id de la carrera pasada por parámetro
         /// </summary>
         /// <param name="idCarrera"> representa el id de la carrera que se desea eliminar </param>
-        public void eliminar(int idCarrera)
+        public void eliminar(string idCarrera)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (idCarrera == proceso[i].idCarrera)
+                if (idCarrera.Equals(proceso[i].idCarrera))
                 {
                     proceso.RemoveAt(i);
                 }
@@ -60,12 +60,13 @@ namespace Matricula.bo
         /// <param name="estado"> nuevo estado asignado a la carrera </param>
         /// <param name="fechaApertura"> representa la nueva fecha de apertura asignada a la carrera </param>
         /// <param name="fechaCierre"> representa la nueva fecha de cierre asignada a la carrera </param>
-        public void modificar(int idCarrera, string nombre, int creditosTotales, string estado, DateTime fechaApertura, DateTime fechaCierre)
+        public void modificar(string idBuscar,string idCarrera, string nombre, int creditosTotales, string estado, DateTime fechaApertura, DateTime fechaCierre)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (idCarrera == proceso[i].idCarrera)
+                if (idBuscar.Equals(proceso[i].idCarrera))
                 {
+                    proceso[i].idCarrera = idCarrera;
                     proceso[i].nombre = nombre;
                     proceso[i].creditosTotales = creditosTotales;
                     proceso[i].estado = estado;
@@ -87,6 +88,23 @@ namespace Matricula.bo
             for (int i = 0; i < proceso.Count; i++)
             {
                 if (proceso[i].nombre.Equals(nombre))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// Recorre la lista y busca el id ingresado
+        /// </summary>
+        /// <param name="id"> id de carrera que se desea buscar </param>
+        /// <returns> retorna el indice de la carrera perteneciente al id ingresado o un -1 si no está registrado </returns>
+        public int buscarId(string id)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idCarrera.Equals(id))
                 {
                     return i;
                 }

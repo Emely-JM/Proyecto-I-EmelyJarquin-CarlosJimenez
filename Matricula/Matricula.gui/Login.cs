@@ -45,8 +45,8 @@ namespace Matricula.gui
                     string contrasena = encripta.Encriptar(txtPassAdmin.Text);
                     if (log.loguarse(txtUsuAdmin.Text, contrasena))
                     {
-                        MantenimientoAdmin frm = new MantenimientoAdmin();
-                        frm.Show();
+                        MenuAdmin frm = new MenuAdmin();
+                        frm.ShowDialog();
                         txtUsuAdmin.Text = "";
                         txtPassAdmin.Text = "";
                     }

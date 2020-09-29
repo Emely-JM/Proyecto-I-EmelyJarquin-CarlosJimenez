@@ -53,6 +53,12 @@
     <Compile Include="EditaAdmin.Designer.cs">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditaCarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditaCarrera.Designer.cs">
+      <DependentUpon>EditaCarrera.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,18 @@
     </Compile>
     <Compile Include="MantenimientoAdmin.Designer.cs">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoCarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoCarrera.Designer.cs">
+      <DependentUpon>MantenimientoCarrera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAdmin.Designer.cs">
+      <DependentUpon>MenuAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevaContrasena.cs">
       <SubType>Form</SubType>
@@ -77,11 +95,20 @@
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditaCarrera.resx">
+      <DependentUpon>EditaCarrera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoAdmin.resx">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoCarrera.resx">
+      <DependentUpon>MantenimientoCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdmin.resx">
+      <DependentUpon>MenuAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevaContrasena.resx">
       <DependentUpon>NuevaContrasena.cs</DependentUpon>
@@ -156,6 +183,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LoginForm2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_business_group_125px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_course_assign_125px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_mortarboard_125px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@ namespace Matricula.entities
 {
     public class Carrera
     {
-        public int idCarrera { get; set; }
+        public string idCarrera { get; set; }
         public string nombre { get; set; }
         public int creditosTotales { get; set; }
         public string estado { get; set; }
@@ -20,7 +20,7 @@ namespace Matricula.entities
         {
         }
 
-        public Carrera(int idCarrera, string nombre, int creditosTotales, string estado, DateTime fechaApertura, DateTime fechaCierre)
+        public Carrera(string idCarrera, string nombre, int creditosTotales, string estado, DateTime fechaApertura, DateTime fechaCierre)
         {
             this.idCarrera = idCarrera;
             this.nombre = nombre;
@@ -55,9 +55,9 @@ namespace Matricula.entities
 
             set
             {
-                if (value > DateTime.Now)
+                if (value < DateTime.Now)
                 {
-                    throw new Exception("La fecha ingresada no puede ser mayor a hoy");
+                    throw new Exception("La fecha ingresada no puede ser menor a hoy");
 
                 }
                 else
