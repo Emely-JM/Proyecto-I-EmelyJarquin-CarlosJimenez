@@ -34,6 +34,7 @@
             this.btnCRUDCarreras = new System.Windows.Forms.Button();
             this.btnCRUDAdmin = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCRUDMateria = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,11 +83,22 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
+            // btnCRUDMateria
+            // 
+            this.btnCRUDMateria.Image = global::Matricula.gui.Properties.Resources.icons8_course_assign_125px;
+            this.btnCRUDMateria.Location = new System.Drawing.Point(364, 78);
+            this.btnCRUDMateria.Name = "btnCRUDMateria";
+            this.btnCRUDMateria.Size = new System.Drawing.Size(159, 138);
+            this.btnCRUDMateria.TabIndex = 3;
+            this.btnCRUDMateria.UseVisualStyleBackColor = true;
+            this.btnCRUDMateria.Click += new System.EventHandler(this.btnCRUDMateria_Click);
+            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCRUDMateria);
             this.Controls.Add(this.btnCRUDCarreras);
             this.Controls.Add(this.btnCRUDAdmin);
             this.Controls.Add(this.panel1);
@@ -106,5 +118,6 @@
         private System.Windows.Forms.Button btnCRUDAdmin;
         private System.Windows.Forms.Button btnCRUDCarreras;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnCRUDMateria;
     }
 }

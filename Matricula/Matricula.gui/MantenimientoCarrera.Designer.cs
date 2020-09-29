@@ -138,13 +138,13 @@
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 22);
+            this.label2.Size = new System.Drawing.Size(96, 22);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Carrera:";
+            this.label2.Text = "Id carrera:";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(96, 78);
+            this.txtFiltro.Location = new System.Drawing.Point(109, 78);
             this.txtFiltro.Multiline = true;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(292, 36);
@@ -153,7 +153,7 @@
             // btnVerDatos
             // 
             this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnVerDatos.Location = new System.Drawing.Point(394, 78);
+            this.btnVerDatos.Location = new System.Drawing.Point(407, 78);
             this.btnVerDatos.Name = "btnVerDatos";
             this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
             this.btnVerDatos.TabIndex = 4;

@@ -59,6 +59,12 @@
     <Compile Include="EditaCarrera.Designer.cs">
       <DependentUpon>EditaCarrera.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditaMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditaMateria.Designer.cs">
+      <DependentUpon>EditaMateria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="MantenimientoCarrera.Designer.cs">
       <DependentUpon>MantenimientoCarrera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoMateria.Designer.cs">
+      <DependentUpon>MantenimientoMateria.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuAdmin.cs">
       <SubType>Form</SubType>
@@ -98,6 +110,9 @@
     <EmbeddedResource Include="EditaCarrera.resx">
       <DependentUpon>EditaCarrera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditaMateria.resx">
+      <DependentUpon>EditaMateria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCarrera.resx">
       <DependentUpon>MantenimientoCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoMateria.resx">
+      <DependentUpon>MantenimientoMateria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using Matricula.bo;
+using Matricula.entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace Matricula.gui
     {
         CarreraBO log;
         ValidaDatos validar;
+
         private string estado;
         private string Id;
 
