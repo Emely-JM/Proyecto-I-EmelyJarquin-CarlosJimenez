@@ -72,8 +72,8 @@ namespace Matricula.gui
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
                 string nombre = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
                 int creditos = int.Parse(this.tblTabla.CurrentRow.Cells[2].Value.ToString());
@@ -84,11 +84,11 @@ namespace Matricula.gui
                 frm.ShowDialog();
                 verDatos();
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

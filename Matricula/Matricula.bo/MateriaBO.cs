@@ -130,6 +130,7 @@ namespace Matricula.bo
         /// <returns> retorna la lista cargada con los datos del archivo </returns>
         public List<Materias> getLista()
         {
+            limpiarLista();
             return proceso = objArchivo.leerArchivo();
 
         }
@@ -137,7 +138,7 @@ namespace Matricula.bo
         /// <summary>
         /// Limpia los datos de la lista
         /// </summary>
-        public void limpiarLista()
+        private void limpiarLista()
         {
             proceso.Clear();
         }

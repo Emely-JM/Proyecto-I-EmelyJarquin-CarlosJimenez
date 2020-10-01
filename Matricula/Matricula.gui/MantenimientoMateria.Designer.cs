@@ -32,19 +32,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tblTabla = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnVerDatos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,23 +86,23 @@
             this.textBox1.Size = new System.Drawing.Size(292, 36);
             this.textBox1.TabIndex = 2;
             // 
-            // dataGridView1
+            // tblTabla
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tblTabla.AllowUserToAddRows = false;
+            this.tblTabla.AllowUserToDeleteRows = false;
+            this.tblTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 143);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(772, 336);
-            this.dataGridView1.TabIndex = 7;
+            this.tblTabla.Location = new System.Drawing.Point(16, 143);
+            this.tblTabla.Name = "tblTabla";
+            this.tblTabla.ReadOnly = true;
+            this.tblTabla.Size = new System.Drawing.Size(772, 336);
+            this.tblTabla.TabIndex = 7;
             // 
             // Column1
             // 
@@ -148,53 +148,56 @@
             this.Column6.ReadOnly = true;
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // button4
+            // btnEliminar
             // 
-            this.button4.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
-            this.button4.Location = new System.Drawing.Point(740, 89);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(48, 36);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
+            this.btnEliminar.Location = new System.Drawing.Point(740, 89);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(48, 36);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // button3
+            // btnEditar
             // 
-            this.button3.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.button3.Location = new System.Drawing.Point(686, 89);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 36);
-            this.button3.TabIndex = 5;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
+            this.btnEditar.Location = new System.Drawing.Point(686, 89);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(48, 36);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // button2
+            // btnAgregar
             // 
-            this.button2.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.button2.Location = new System.Drawing.Point(632, 89);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 36);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
+            this.btnAgregar.Location = new System.Drawing.Point(632, 89);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(48, 36);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // button1
+            // btnVerDatos
             // 
-            this.button1.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.button1.Location = new System.Drawing.Point(425, 89);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 36);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
+            this.btnVerDatos.Location = new System.Drawing.Point(425, 89);
+            this.btnVerDatos.Name = "btnVerDatos";
+            this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
+            this.btnVerDatos.TabIndex = 3;
+            this.btnVerDatos.UseVisualStyleBackColor = true;
+            this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
             // 
             // MantenimientoMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 491);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tblTabla);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -203,7 +206,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,11 +218,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnVerDatos;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView tblTabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
