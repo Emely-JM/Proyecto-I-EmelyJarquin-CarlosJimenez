@@ -52,8 +52,6 @@ namespace Matricula.gui
                     }
                     else
                     {
-                        txtUsuAdmin.Text = "";
-                        txtPassAdmin.Text = "";
                         MessageBox.Show("Credenciales inválidos","Error de credenciales",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                     
@@ -75,6 +73,8 @@ namespace Matricula.gui
             InitializeComponent();
             log = new AdminBO();
             encripta = new Encripta();
+            txtUsuAdmin.Text = "Admin";
+            txtPassAdmin.Text = "Admin123*";
         }
 
         private void btnAceptarAdmin_Click(object sender, EventArgs e)

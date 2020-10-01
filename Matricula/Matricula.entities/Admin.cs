@@ -31,42 +31,6 @@ namespace Matricula.entities
             this.activo = activo;
         }
 
-        public String Usuario
-        {
-            get { return this.usuario; }
-            set { this.usuario = value; }
-        }
-
-        public String Nombre
-        {
-            get { return this.nombre; }
-            set { this.nombre = value; }
-        }
-
-        public String Correo
-        {
-            get { return this.correo; }
-            set { this.correo = value; }
-        }
-
-        public String Contrasena
-        {
-            get { return this.contrasena; }
-            set { this.contrasena = value; }
-        }
-
-        public Boolean Administrador
-        {
-            get { return this.admin; }
-            set { this.admin = value; }
-        }
-
-        public Boolean Activo
-        {
-            get { return this.activo; }
-            set { this.activo = value; }
-        }
-
         public string toString()
         {
             return this.usuario + "," + this.nombre + "," + this.correo +

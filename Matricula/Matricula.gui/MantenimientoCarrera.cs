@@ -24,7 +24,6 @@ namespace Matricula.gui
         /// </summary>
         private void verDatos()
         {
-            log.limpiarLista();
             lista = log.getLista();
             tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
@@ -56,9 +55,9 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
             try
             {
+                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
                 log.eliminar(id);
                 log.crearArchivo();
                 verDatos();

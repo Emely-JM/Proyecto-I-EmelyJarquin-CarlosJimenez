@@ -28,7 +28,6 @@ namespace Matricula.gui
         /// </summary>
         private void cargarCombo()
         {
-            logCarrera.limpiarLista();
             listaCarrera = logCarrera.getLista();
             cmbCarrera.Items.Clear();
             for (int i = 0; i < listaCarrera.Count; i++)

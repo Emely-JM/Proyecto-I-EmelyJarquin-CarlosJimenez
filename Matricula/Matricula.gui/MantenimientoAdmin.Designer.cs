@@ -137,6 +137,7 @@
             // 
             // txtFiltro
             // 
+            this.txtFiltro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltro.Location = new System.Drawing.Point(97, 79);
             this.txtFiltro.Multiline = true;
             this.txtFiltro.Name = "txtFiltro";
