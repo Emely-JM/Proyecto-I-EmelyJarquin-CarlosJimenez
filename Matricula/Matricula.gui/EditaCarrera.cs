@@ -19,6 +19,9 @@ namespace Matricula.gui
 
         private string estado;
         private string Id;
+        private int creditos;
+        private DateTime apertura;
+        private DateTime cierre;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -68,9 +71,9 @@ namespace Matricula.gui
                                     if (estado != null)
                                     {
                                         errorProvider1.SetError(cmbEstado, "");
-                                        DateTime apertura = datetimeApertura.Value.Date;
-                                        DateTime cierre = dateTimeCierre.Value.Date;
-                                        int creditos = int.Parse(txtCreditos.Text);
+                                        apertura = datetimeApertura.Value.Date;
+                                        cierre = dateTimeCierre.Value.Date;
+                                        creditos = int.Parse(txtCreditos.Text);
                                         log.agregar(txtId.Text, txtNombre.Text, creditos, estado, apertura, cierre);
                                         log.crearArchivo();
                                         this.Close();
@@ -104,10 +107,10 @@ namespace Matricula.gui
             }
             else
             {
-                DateTime apertura = datetimeApertura.Value.Date;
-                DateTime cierre = dateTimeCierre.Value.Date;
-                int creditos = int.Parse(txtCreditos.Text);
-                log.modificar(Id,txtId.Text,txtNombre.Text,creditos,estado,apertura,cierre);
+                apertura = datetimeApertura.Value.Date;
+                cierre = dateTimeCierre.Value.Date;
+                creditos = int.Parse(txtCreditos.Text);
+                log.modificar(Id, txtId.Text, txtNombre.Text, creditos, estado, apertura, cierre);
                 log.crearArchivo();
                 this.Close();
             }
