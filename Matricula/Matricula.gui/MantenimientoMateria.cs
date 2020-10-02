@@ -31,13 +31,11 @@ namespace Matricula.gui
             }
         }
 
-
         public MantenimientoMateria()
         {
             InitializeComponent();
             log = new MateriaBO();
             lista = new List<Materias>();
-            verDatos();
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)
