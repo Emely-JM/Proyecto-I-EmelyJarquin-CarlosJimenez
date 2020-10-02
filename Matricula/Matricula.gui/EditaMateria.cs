@@ -18,18 +18,18 @@ namespace Matricula.gui
         private string idCarrea;
         private MateriaBO log;
         private ValidaDatos validar;
-
-
         private CarreraBO logCarrera;
         private List<Carrera> listaCarrera;
         private string id;
+        private int creditos;
+        private double precio;
+        private double costo;
 
         /// <summary>
         /// Llena el comboBox con los datos de id de carrera de la lista perteneciente a las carreras
         /// </summary>
         private void cargarCombo()
         {
-            logCarrera.limpiarLista();
             listaCarrera = logCarrera.getLista();
             cmbCarrera.Items.Clear();
             for (int i = 0; i < listaCarrera.Count; i++)
@@ -60,6 +60,7 @@ namespace Matricula.gui
         {
             if (buscar(id) != true)
             {
+
                 if (txtIdMateria.Text != "")
                 {
                     errorProvider1.SetError(txtIdMateria, "");
@@ -90,9 +91,9 @@ namespace Matricula.gui
                                             }
                                             else
                                             {
-                                                int creditos = int.Parse(txtCantidadCreditos.Text);
-                                                double precio = double.Parse(txtPrecio.Text);
-                                                double costo = double.Parse(txtCosto.Text);
+                                                creditos = int.Parse(txtCantidadCreditos.Text);
+                                                precio = double.Parse(txtPrecio.Text);
+                                                costo = double.Parse(txtCosto.Text);
                                                 log.agregar(txtIdMateria.Text, txtNombre.Text, creditos, idCarrea, precio, costo);
                                                 log.crearArchivo();
                                                 this.Close();
@@ -134,10 +135,10 @@ namespace Matricula.gui
             }
             else
             {
-                int creditos = int.Parse(txtCantidadCreditos.Text);
-                double precio = double.Parse(txtPrecio.Text);
-                double costo = double.Parse(txtCosto.Text);
-                log.modificar(txtIdMateria.Text,txtIdMateria.Text,txtNombre.Text,creditos,idCarrea,precio,costo);
+                creditos = int.Parse(txtCantidadCreditos.Text);
+                precio = double.Parse(txtPrecio.Text);
+                costo = double.Parse(txtCosto.Text);
+                log.modificar(txtIdMateria.Text, txtIdMateria.Text, txtNombre.Text, creditos, idCarrea, precio, costo);
                 log.crearArchivo();
                 this.Close();
             }

@@ -31,11 +31,24 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoMateria()
+        /// <summary>
+        /// Otorga los permisos de administrador
+        /// </summary>
+        /// <param name="admin1"> representa si el empleado logueado es administrador o no </param>
+        private void adminPermisos(bool admin1)
+        {
+            if (admin1 != true)
+            {
+                btnEliminar.Enabled = false;
+            }
+        }
+
+        public MantenimientoMateria(bool admin)
         {
             InitializeComponent();
             log = new MateriaBO();
             lista = new List<Materias>();
+            adminPermisos(admin);
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)
@@ -52,12 +65,17 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+            DialogResult oDlgRes;
             try
             {
-                log.eliminar(id);
-                log.crearArchivo();
-                verDatos();
+                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    log.eliminar(id);
+                    log.crearArchivo();
+                    verDatos();
+                }
 
             }
             catch (Exception ex)
