@@ -67,12 +67,18 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+            
+            DialogResult oDlgRes;
             try
             {
-                log.eliminar(id);
-                log.crearArchivo();
-                verDatos();
+                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    log.eliminar(id);
+                    log.crearArchivo();
+                    verDatos();
+                }
 
             }
             catch (Exception ex)

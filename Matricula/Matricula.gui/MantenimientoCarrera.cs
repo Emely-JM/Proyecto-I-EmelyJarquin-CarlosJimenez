@@ -68,12 +68,17 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            DialogResult oDlgRes;
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                log.eliminar(id);
-                log.crearArchivo();
-                verDatos();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta carrera?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    log.eliminar(id);
+                    log.crearArchivo();
+                    verDatos();
+                }
 
             }
             catch (Exception ex)

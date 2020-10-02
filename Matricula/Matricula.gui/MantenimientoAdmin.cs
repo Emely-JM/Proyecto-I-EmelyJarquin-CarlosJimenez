@@ -64,12 +64,17 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            DialogResult oDlgRes;
             try
             {
                 usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                log.eliminar(usuario);
-                log.crearArchivo();
-                verDatos();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar este usuario?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    log.eliminar(usuario);
+                    log.crearArchivo();
+                    verDatos();
+                }
             }
             catch (Exception ex)
             {
