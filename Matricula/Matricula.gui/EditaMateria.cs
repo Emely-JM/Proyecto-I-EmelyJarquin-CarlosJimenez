@@ -19,6 +19,7 @@ namespace Matricula.gui
         private MateriaBO log;
         private ValidaDatos validar;
 
+
         private CarreraBO logCarrera;
         private List<Carrera> listaCarrera;
         private string id;
@@ -142,7 +143,11 @@ namespace Matricula.gui
             }
         }
 
-
+        /// <summary>
+        /// Busca los datos relacionados al id retorna el indice o -1 de no encontrarlos
+        /// </summary>
+        /// <param name="Id"> id de materia a buscar </param>
+        /// <returns> retorna el indice o -1 si no lo encuentra</returns>
         private bool buscar(string Id)
         {
             bool busca = false;
@@ -153,8 +158,6 @@ namespace Matricula.gui
             return busca;
 
         }
-
-
 
         public EditaMateria()
         {

@@ -87,5 +87,17 @@ namespace Matricula.gui
                 MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            lista = log.getLista();
+            List<Materias> filtrados = lista.Where(x => x.idMateria.StartsWith(textBox1.Text)).ToList();
+            tblTabla.Rows.Clear();
+            for (int i = 0; i < filtrados.Count; i++)
+            {
+                tblTabla.Rows.Add(filtrados[i].idMateria, filtrados[i].nombre, filtrados[i].cantidadCreditos, filtrados[i].idCarrera, filtrados[i].precio,
+                    filtrados[i].costo);
+            }
+        }
     }
 }
