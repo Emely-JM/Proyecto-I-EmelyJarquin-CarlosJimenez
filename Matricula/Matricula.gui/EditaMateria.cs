@@ -18,15 +18,12 @@ namespace Matricula.gui
         private string idCarrea;
         private MateriaBO log;
         private ValidaDatos validar;
-
         private CarreraBO logCarrera;
         private List<Carrera> listaCarrera;
         private string id;
         private int creditos;
         private double precio;
         private double costo;
-
-
 
         /// <summary>
         /// Llena el comboBox con los datos de id de carrera de la lista perteneciente a las carreras
@@ -54,7 +51,6 @@ namespace Matricula.gui
             text.Focus();
             return;
         }
-
         /// <summary>
         /// Válida que los campos de texto no estén vacíos o cumplan con condiciones
         /// como el id que no puede existir para ingresarlo a registrar
@@ -162,8 +158,6 @@ namespace Matricula.gui
             return busca;
 
         }
-
-
 
         public EditaMateria()
         {
