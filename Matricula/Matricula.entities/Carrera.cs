@@ -37,15 +37,8 @@ namespace Matricula.entities
 
             set
             {
-                if (value > DateTime.Now)
-                {
-                    throw new Exception("La fecha ingresada no puede ser mayor a hoy");
 
-                }
-                else
-                {
-                    this.fechaApertura = value;
-                }
+                this.fechaApertura = value;
             }
         }
 

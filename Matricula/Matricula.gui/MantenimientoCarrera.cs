@@ -24,7 +24,6 @@ namespace Matricula.gui
         /// </summary>
         private void verDatos()
         {
-            log.limpiarLista();
             lista = log.getLista();
             tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
@@ -33,13 +32,24 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Otorga los permisos de administrador
+        /// </summary>
+        /// <param name="admin1"> representa si el empleado logueado es administrador o no </param>
+        private void adminPermisos(bool admin1)
+        {
+            if (admin1 != true)
+            {
+                btnEliminar.Enabled = false;
+            }
+        }
 
-        public MantenimientoCarrera()
+        public MantenimientoCarrera(bool admin)
         {
             InitializeComponent();
             log = new CarreraBO();
             lista = new List<Carrera>();
-            verDatos();
+            adminPermisos(admin);
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)
@@ -56,12 +66,17 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+            DialogResult oDlgRes;
             try
             {
-                log.eliminar(id);
-                log.crearArchivo();
-                verDatos();
+                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta carrera?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    log.eliminar(id);
+                    log.crearArchivo();
+                    verDatos();
+                }
 
             }
             catch (Exception ex)
