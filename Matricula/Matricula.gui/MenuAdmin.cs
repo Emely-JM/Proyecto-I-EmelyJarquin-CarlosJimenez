@@ -14,6 +14,7 @@ namespace Matricula.gui
     {
 
         bool admin1;
+        string u;
         /// <summary>
         /// Imprime mensajes sobre los botones con tooltip
         /// </summary>
@@ -22,13 +23,15 @@ namespace Matricula.gui
             this.toolTip1.SetToolTip(btnCRUDAdmin,"Mantenimiento de administradores");
             this.toolTip1.SetToolTip(btnCRUDCarreras, "Mantenimiento de carreras");
             this.toolTip1.SetToolTip(btnCRUDMateria, "Mantenimiento de materias");
+            this.toolTip1.SetToolTip(btnCRUDPersonas, "Mantenimiento de personas");
         }
 
-        public MenuAdmin(bool admin)
+        public MenuAdmin(bool admin,string usu)
         {
             InitializeComponent();
             mensajes();
             admin1 = admin;
+            u = usu;
         }
 
         private void btnCRUDAdmin_Click(object sender, EventArgs e)
@@ -46,6 +49,12 @@ namespace Matricula.gui
         private void btnCRUDMateria_Click(object sender, EventArgs e)
         {
             MantenimientoMateria frm = new MantenimientoMateria(admin1);
+            frm.ShowDialog();
+        }
+
+        private void btnCRUDPersonas_Click(object sender, EventArgs e)
+        {
+            MantenimientoPersona frm = new MantenimientoPersona(admin1,u);
             frm.ShowDialog();
         }
     }

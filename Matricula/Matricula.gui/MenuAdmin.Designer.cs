@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCRUDPersonas = new System.Windows.Forms.Button();
+            this.btnCRUDMateria = new System.Windows.Forms.Button();
             this.btnCRUDCarreras = new System.Windows.Forms.Button();
             this.btnCRUDAdmin = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCRUDMateria = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 58);
+            this.panel1.Size = new System.Drawing.Size(364, 58);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -52,11 +53,35 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(247, 8);
+            this.label1.Location = new System.Drawing.Point(30, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "MENÚ PRINCIPAL";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
+            // btnCRUDPersonas
+            // 
+            this.btnCRUDPersonas.Image = global::Matricula.gui.Properties.Resources.icons8_user_groups_125px;
+            this.btnCRUDPersonas.Location = new System.Drawing.Point(189, 222);
+            this.btnCRUDPersonas.Name = "btnCRUDPersonas";
+            this.btnCRUDPersonas.Size = new System.Drawing.Size(159, 138);
+            this.btnCRUDPersonas.TabIndex = 4;
+            this.btnCRUDPersonas.UseVisualStyleBackColor = true;
+            this.btnCRUDPersonas.Click += new System.EventHandler(this.btnCRUDPersonas_Click);
+            // 
+            // btnCRUDMateria
+            // 
+            this.btnCRUDMateria.Image = global::Matricula.gui.Properties.Resources.icons8_course_assign_125px;
+            this.btnCRUDMateria.Location = new System.Drawing.Point(12, 222);
+            this.btnCRUDMateria.Name = "btnCRUDMateria";
+            this.btnCRUDMateria.Size = new System.Drawing.Size(159, 138);
+            this.btnCRUDMateria.TabIndex = 3;
+            this.btnCRUDMateria.UseVisualStyleBackColor = true;
+            this.btnCRUDMateria.Click += new System.EventHandler(this.btnCRUDMateria_Click);
             // 
             // btnCRUDCarreras
             // 
@@ -79,25 +104,12 @@
             this.btnCRUDAdmin.UseVisualStyleBackColor = true;
             this.btnCRUDAdmin.Click += new System.EventHandler(this.btnCRUDAdmin_Click);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.IsBalloon = true;
-            // 
-            // btnCRUDMateria
-            // 
-            this.btnCRUDMateria.Image = global::Matricula.gui.Properties.Resources.icons8_course_assign_125px;
-            this.btnCRUDMateria.Location = new System.Drawing.Point(364, 78);
-            this.btnCRUDMateria.Name = "btnCRUDMateria";
-            this.btnCRUDMateria.Size = new System.Drawing.Size(159, 138);
-            this.btnCRUDMateria.TabIndex = 3;
-            this.btnCRUDMateria.UseVisualStyleBackColor = true;
-            this.btnCRUDMateria.Click += new System.EventHandler(this.btnCRUDMateria_Click);
-            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(363, 375);
+            this.Controls.Add(this.btnCRUDPersonas);
             this.Controls.Add(this.btnCRUDMateria);
             this.Controls.Add(this.btnCRUDCarreras);
             this.Controls.Add(this.btnCRUDAdmin);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Button btnCRUDCarreras;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnCRUDMateria;
+        private System.Windows.Forms.Button btnCRUDPersonas;
     }
 }

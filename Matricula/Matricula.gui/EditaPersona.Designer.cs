@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,9 +57,11 @@
             this.txtPrimerApellido = new System.Windows.Forms.TextBox();
             this.txtSegundoApellido = new System.Windows.Forms.TextBox();
             this.txtUsuarioRegistro = new System.Windows.Forms.TextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -220,60 +223,85 @@
             "M"});
             this.cmbSexo.Location = new System.Drawing.Point(68, 305);
             this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(284, 26);
+            this.cmbSexo.Size = new System.Drawing.Size(318, 26);
             this.cmbSexo.TabIndex = 14;
+            this.cmbSexo.SelectedIndexChanged += new System.EventHandler(this.cmbSexo_SelectedIndexChanged);
             // 
             // cmbNivelAcademico
             // 
             this.cmbNivelAcademico.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNivelAcademico.FormattingEnabled = true;
+            this.cmbNivelAcademico.Items.AddRange(new object[] {
+            "Diplomado en Franja Diurna",
+            "Diplomado en Franja Nocturna",
+            "Bachillerato en Franja Diurna",
+            "Bachillerato en Franja Nocturna",
+            "Licenciatura en Franja Diurna",
+            "Licenciatura en Franja Nocturna"});
             this.cmbNivelAcademico.Location = new System.Drawing.Point(148, 397);
             this.cmbNivelAcademico.Name = "cmbNivelAcademico";
-            this.cmbNivelAcademico.Size = new System.Drawing.Size(204, 26);
+            this.cmbNivelAcademico.Size = new System.Drawing.Size(238, 26);
             this.cmbNivelAcademico.TabIndex = 15;
+            this.cmbNivelAcademico.SelectedIndexChanged += new System.EventHandler(this.cmbNivelAcademico_SelectedIndexChanged);
             // 
             // cmbNacionalidad
             // 
             this.cmbNacionalidad.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNacionalidad.FormattingEnabled = true;
+            this.cmbNacionalidad.Items.AddRange(new object[] {
+            "Nacional",
+            "Extranjero"});
             this.cmbNacionalidad.Location = new System.Drawing.Point(515, 161);
             this.cmbNacionalidad.Name = "cmbNacionalidad";
             this.cmbNacionalidad.Size = new System.Drawing.Size(265, 26);
             this.cmbNacionalidad.TabIndex = 16;
+            this.cmbNacionalidad.SelectedIndexChanged += new System.EventHandler(this.cmbNacionalidad_SelectedIndexChanged);
             // 
             // cmbTipoPersona
             // 
             this.cmbTipoPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoPersona.FormattingEnabled = true;
+            this.cmbTipoPersona.Items.AddRange(new object[] {
+            "Estudiante",
+            "Profesor"});
             this.cmbTipoPersona.Location = new System.Drawing.Point(534, 118);
             this.cmbTipoPersona.Name = "cmbTipoPersona";
             this.cmbTipoPersona.Size = new System.Drawing.Size(246, 26);
             this.cmbTipoPersona.TabIndex = 17;
+            this.cmbTipoPersona.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPersona_SelectedIndexChanged);
             // 
             // cmbEstado
             // 
             this.cmbEstado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
             this.cmbEstado.Location = new System.Drawing.Point(473, 213);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(307, 26);
             this.cmbEstado.TabIndex = 18;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // dateTimeNacimiento
             // 
             this.dateTimeNacimiento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeNacimiento.Location = new System.Drawing.Point(178, 352);
+            this.dateTimeNacimiento.MaxDate = new System.DateTime(2020, 10, 2, 0, 0, 0, 0);
             this.dateTimeNacimiento.Name = "dateTimeNacimiento";
-            this.dateTimeNacimiento.Size = new System.Drawing.Size(174, 26);
+            this.dateTimeNacimiento.Size = new System.Drawing.Size(208, 26);
             this.dateTimeNacimiento.TabIndex = 19;
+            this.dateTimeNacimiento.Value = new System.DateTime(2020, 10, 2, 0, 0, 0, 0);
             // 
             // dateTimeIngreso
             // 
+            this.dateTimeIngreso.Enabled = false;
             this.dateTimeIngreso.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeIngreso.Location = new System.Drawing.Point(154, 446);
             this.dateTimeIngreso.Name = "dateTimeIngreso";
-            this.dateTimeIngreso.Size = new System.Drawing.Size(198, 26);
+            this.dateTimeIngreso.Size = new System.Drawing.Size(232, 26);
             this.dateTimeIngreso.TabIndex = 20;
+            this.dateTimeIngreso.Value = new System.DateTime(2020, 10, 2, 11, 59, 34, 0);
             // 
             // txtIdPersona
             // 
@@ -281,7 +309,7 @@
             this.txtIdPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdPersona.Location = new System.Drawing.Point(108, 77);
             this.txtIdPersona.Name = "txtIdPersona";
-            this.txtIdPersona.Size = new System.Drawing.Size(244, 26);
+            this.txtIdPersona.Size = new System.Drawing.Size(278, 26);
             this.txtIdPersona.TabIndex = 21;
             // 
             // txtCedula
@@ -289,32 +317,36 @@
             this.txtCedula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.Location = new System.Drawing.Point(82, 126);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(270, 26);
+            this.txtCedula.Size = new System.Drawing.Size(304, 26);
             this.txtCedula.TabIndex = 22;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(88, 169);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(264, 26);
+            this.txtNombre.Size = new System.Drawing.Size(298, 26);
             this.txtNombre.TabIndex = 23;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtPrimerApellido
             // 
             this.txtPrimerApellido.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrimerApellido.Location = new System.Drawing.Point(138, 213);
             this.txtPrimerApellido.Name = "txtPrimerApellido";
-            this.txtPrimerApellido.Size = new System.Drawing.Size(214, 26);
+            this.txtPrimerApellido.Size = new System.Drawing.Size(248, 26);
             this.txtPrimerApellido.TabIndex = 24;
+            this.txtPrimerApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimerApellido_KeyPress);
             // 
             // txtSegundoApellido
             // 
             this.txtSegundoApellido.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSegundoApellido.Location = new System.Drawing.Point(154, 259);
             this.txtSegundoApellido.Name = "txtSegundoApellido";
-            this.txtSegundoApellido.Size = new System.Drawing.Size(198, 26);
+            this.txtSegundoApellido.Size = new System.Drawing.Size(232, 26);
             this.txtSegundoApellido.TabIndex = 25;
+            this.txtSegundoApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSegundoApellido_KeyPress);
             // 
             // txtUsuarioRegistro
             // 
@@ -324,18 +356,9 @@
             this.txtUsuarioRegistro.Size = new System.Drawing.Size(246, 26);
             this.txtUsuarioRegistro.TabIndex = 26;
             // 
-            // btnAgregar
+            // errorProvider1
             // 
-            this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(548, 438);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(106, 34);
-            this.btnAgregar.TabIndex = 27;
-            this.btnAgregar.Text = "Aceptar";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.errorProvider1.ContainerControl = this;
             // 
             // btnCancelar
             // 
@@ -349,6 +372,21 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(548, 438);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(106, 34);
+            this.btnAgregar.TabIndex = 27;
+            this.btnAgregar.Text = "Aceptar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // EditaPersona
             // 
@@ -389,6 +427,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +465,6 @@
         private System.Windows.Forms.TextBox txtUsuarioRegistro;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

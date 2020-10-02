@@ -8,7 +8,7 @@ namespace Matricula.entities
 {
     public class Persona
     {
-        public int idPersona { get; set; }
+        public string idPersona { get; set; }
         public int cedula { get; set; }
         public string nombre { get; set; }
         public string apellido1 { get; set; }
@@ -26,7 +26,7 @@ namespace Matricula.entities
         {
         }
 
-        public Persona(int idPersona, int cedula, string nombre, string apellido1, string apellido2, char sexo, DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
+        public Persona(string idPersona, int cedula, string nombre, string apellido1, string apellido2, char sexo, DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
         {
             this.idPersona = idPersona;
             this.cedula = cedula;
