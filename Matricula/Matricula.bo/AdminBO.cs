@@ -108,7 +108,7 @@ namespace Matricula.bo
             {
                 if (usuario.Equals(proceso[i].usuario.ToString()))
                 {
-                    proceso[i].Activo = dato;
+                    proceso[i].activo = dato;
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace Matricula.bo
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (proceso[i].Usuario.Equals(usuarioBuscar))
+                if (proceso[i].usuario.Equals(usuarioBuscar))
                 {
                     return i;
                 }
@@ -139,7 +139,7 @@ namespace Matricula.bo
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (correo.Equals(proceso[i].Correo))
+                if (correo.Equals(proceso[i].correo))
                 {
                     return i;
                 }
@@ -183,9 +183,9 @@ namespace Matricula.bo
             string contrasena = "";
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (proceso[i].Usuario.Equals(usuarioBuscar))
+                if (proceso[i].usuario.Equals(usuarioBuscar))
                 {
-                    contrasena = proceso[i].Contrasena;
+                    contrasena = proceso[i].contrasena;
                 }
             }
             return contrasena;
@@ -203,7 +203,7 @@ namespace Matricula.bo
             bool loguear = false;
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (proceso[i].Usuario.Equals(usuarioBuscar) && proceso[i].Contrasena.Equals(passBuscar) && proceso[i].Activo == true)
+                if (proceso[i].usuario.Equals(usuarioBuscar) && proceso[i].contrasena.Equals(passBuscar) && proceso[i].activo == true)
                 {
                     loguear = true;
                 }
