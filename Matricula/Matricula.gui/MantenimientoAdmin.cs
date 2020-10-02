@@ -38,7 +38,6 @@ namespace Matricula.gui
             InitializeComponent();
             log = new AdminBO();
             lista = new List<Admin>();
-            verDatos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -150,5 +149,16 @@ namespace Matricula.gui
             }
         }
 
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            lista = log.getLista();
+            List<Admin> filtrados = lista.Where(x => x.usuario.StartsWith(txtFiltro.Text)).ToList();
+            tblTabla.Rows.Clear();
+            for (int i = 0; i < filtrados.Count; i++)
+            {
+                
+                tblTabla.Rows.Add(filtrados[i].usuario, filtrados[i].nombre, filtrados[i].correo, filtrados[i].admin, filtrados[i].activo);
+            }
+        }
     }
 }
