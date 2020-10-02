@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28D44FA6-C942-44EC-BE28-95E7BD36324D}</ProjectGuid>
+    <ProjectGuid>{5639699D-2B39-4089-89D2-33A302039FA5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Matricula.bo</RootNamespace>
-    <AssemblyName>Matricula.bo</AssemblyName>
+    <RootNamespace>Matricula.utilitario</RootNamespace>
+    <AssemblyName>Matricula.utilitario</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,24 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminBO.cs" />
-    <Compile Include="CarreraBO.cs" />
-    <Compile Include="MateriaBO.cs" />
+    <Compile Include="Encripta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Matricula.dao\Matricula.dao.csproj">
-      <Project>{9cd64203-0274-44e5-9fb2-7895b2d28fac}</Project>
-      <Name>Matricula.dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Matricula.entities\Matricula.entities.csproj">
-      <Project>{69d12f4e-7722-421b-85f6-cd6f1c5d5172}</Project>
-      <Name>Matricula.entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Matricula.utilitario\Matricula.utilitario.csproj">
-      <Project>{5639699D-2B39-4089-89D2-33A302039FA5}</Project>
-      <Name>Matricula.utilitario</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
