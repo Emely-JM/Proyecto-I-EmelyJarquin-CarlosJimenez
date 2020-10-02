@@ -119,13 +119,14 @@ namespace Matricula.gui
             }
             else
             {
-                log.modificar(usuarioBuscar,txtUsuario.Text, txtNombre.Text, txtCorreo.Text, chkAdmin.Checked, chkActivo.Checked);
+                log.modificar(usuarioBuscar, txtUsuario.Text, txtNombre.Text, txtCorreo.Text, chkAdmin.Checked, chkActivo.Checked);
                 log.crearArchivo();
                 this.Close();
             }
 
 
         }
+
 
         /// <summary>
         /// Busca al usuario para identificar si se ingresa o se actualizan los datos
@@ -155,7 +156,7 @@ namespace Matricula.gui
 
         }
 
-        public EditaAdmin(string usu,string nombre,string correo, bool admin, bool activo)
+        public EditaAdmin(string usu, string nombre, string correo, bool admin, bool activo)
         {
             InitializeComponent();
             lblTitulo.Text = "Administrador - Editar";

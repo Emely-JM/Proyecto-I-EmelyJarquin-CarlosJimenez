@@ -33,11 +33,26 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoAdmin()
+        /// <summary>
+        /// Otorga los permisos de administrador
+        /// </summary>
+        /// <param name="admin1"> representa si el empleado logueado es administrador o no </param>
+        private void adminPermisos(bool admin1)
+        {
+            if (admin1 != true)
+            {
+                btnEliminar.Enabled = false;
+                btnPass.Enabled = false;
+            }
+        }
+
+
+        public MantenimientoAdmin(bool admin)
         {
             InitializeComponent();
             log = new AdminBO();
             lista = new List<Admin>();
+            adminPermisos(admin);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -49,12 +64,17 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            DialogResult oDlgRes;
             try
             {
                 usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                log.eliminar(usuario);
-                log.crearArchivo();
-                verDatos();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar este usuario?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    log.eliminar(usuario);
+                    log.crearArchivo();
+                    verDatos();
+                }
             }
             catch (Exception ex)
             {
@@ -156,7 +176,6 @@ namespace Matricula.gui
             tblTabla.Rows.Clear();
             for (int i = 0; i < filtrados.Count; i++)
             {
-                
                 tblTabla.Rows.Add(filtrados[i].usuario, filtrados[i].nombre, filtrados[i].correo, filtrados[i].admin, filtrados[i].activo);
             }
         }
