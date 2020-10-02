@@ -33,10 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.tblTabla = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnVerDatos = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +42,10 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnVerDatos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(292, 36);
             this.txtFiltro.TabIndex = 2;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // tblTabla
             // 
@@ -108,45 +109,6 @@
             this.tblTabla.ReadOnly = true;
             this.tblTabla.Size = new System.Drawing.Size(841, 349);
             this.tblTabla.TabIndex = 7;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
-            this.btnEliminar.Location = new System.Drawing.Point(808, 88);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(48, 36);
-            this.btnEliminar.TabIndex = 6;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(754, 88);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(48, 36);
-            this.btnEditar.TabIndex = 5;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(700, 88);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(48, 36);
-            this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnVerDatos
-            // 
-            this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnVerDatos.Location = new System.Drawing.Point(419, 88);
-            this.btnVerDatos.Name = "btnVerDatos";
-            this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
-            this.btnVerDatos.TabIndex = 3;
-            this.btnVerDatos.UseVisualStyleBackColor = true;
             // 
             // Column1
             // 
@@ -216,6 +178,45 @@
             this.Column7.ReadOnly = true;
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column7.Width = 80;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
+            this.btnEliminar.Location = new System.Drawing.Point(808, 88);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(48, 36);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
+            this.btnEditar.Location = new System.Drawing.Point(754, 88);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(48, 36);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
+            this.btnAgregar.Location = new System.Drawing.Point(700, 88);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(48, 36);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnVerDatos
+            // 
+            this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
+            this.btnVerDatos.Location = new System.Drawing.Point(419, 88);
+            this.btnVerDatos.Name = "btnVerDatos";
+            this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
+            this.btnVerDatos.TabIndex = 3;
+            this.btnVerDatos.UseVisualStyleBackColor = true;
             // 
             // MantenimientoPersona
             // 

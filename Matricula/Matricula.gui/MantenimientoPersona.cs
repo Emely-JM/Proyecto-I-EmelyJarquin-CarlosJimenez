@@ -98,5 +98,17 @@ namespace Matricula.gui
                 MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            lista = log.getLista();
+            List<Persona> filtrados = lista.Where(x => x.idPersona.StartsWith(txtFiltro.Text)).ToList();
+            tblTabla.Rows.Clear();
+            for (int i = 0; i < filtrados.Count; i++)
+            {
+                tblTabla.Rows.Add(filtrados[i].idPersona, filtrados[i].cedula, filtrados[i].nombre, filtrados[i].apellido1, filtrados[i].apellido2,
+                    filtrados[i].nivelAcademico, filtrados[i].tipoPersona, filtrados[i].fechaIngreso, filtrados[i].estado);
+            }
+        }
     }
 }
