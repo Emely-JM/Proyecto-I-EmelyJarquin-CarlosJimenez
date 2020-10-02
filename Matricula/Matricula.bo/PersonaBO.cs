@@ -120,7 +120,6 @@ namespace Matricula.bo
             return -1;
         }
 
-
         /// <summary>
         /// Llama al método de crear archivo y le pasa la lista
         /// de proceso como parámetro para escribirla en archivo

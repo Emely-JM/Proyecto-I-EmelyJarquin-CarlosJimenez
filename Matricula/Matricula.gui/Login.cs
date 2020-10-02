@@ -16,6 +16,7 @@ namespace Matricula.gui
     {
         AdminBO log;
         Encripta encripta;
+        bool admin;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -45,7 +46,7 @@ namespace Matricula.gui
                     string contrasena = encripta.Encriptar(txtPassAdmin.Text);
                     if (log.loguarse(txtUsuAdmin.Text, contrasena))
                     {
-                        MenuAdmin frm = new MenuAdmin();
+                        MenuAdmin frm = new MenuAdmin(log.enviarU());
                         frm.ShowDialog();
                         txtUsuAdmin.Text = "";
                         txtPassAdmin.Text = "";

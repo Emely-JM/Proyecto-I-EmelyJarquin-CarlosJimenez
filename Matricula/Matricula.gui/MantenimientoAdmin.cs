@@ -32,12 +32,27 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoAdmin()
+        /// <summary>
+        /// Otorga los permisos de administrador
+        /// </summary>
+        /// <param name="admin1"> representa si el empleado logueado es administrador o no </param>
+        private void adminPermisos(bool admin1)
+        {
+            if (admin1 != true)
+            {
+                btnEliminar.Enabled = false;
+                btnPass.Enabled = false;
+            }
+        }
+
+
+        public MantenimientoAdmin(bool admin)
         {
             InitializeComponent();
             log = new AdminBO();
             lista = new List<Admin>();
             verDatos();
+            adminPermisos(admin);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
