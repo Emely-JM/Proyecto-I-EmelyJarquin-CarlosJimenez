@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace entities
+namespace Matricula.entities
 {
-    class Usuario
+    public class Usuario
     {
 
         public int idUsuario { get; }
@@ -22,7 +22,8 @@ namespace entities
 
         }
 
-        public Usuario(int idUsuario, string codigo, int idPersona, string tipoUsuario, string contrasena, DateTime fechaExpiraContrasena, bool activo)
+        public Usuario(int idUsuario, string codigo, int idPersona, string tipoUsuario,
+            string contrasena, DateTime fechaExpiraContrasena, bool activo)
         {
             this.idUsuario = idUsuario;
             this.codigo = codigo;
@@ -33,6 +34,16 @@ namespace entities
             this.activo = activo;
         }
 
-
+        /// <summary>
+        /// Devuelve la información de un usuario para guardar en un archivo de texto
+        /// </summary>
+        /// <returns>
+        /// String con los atributos de un usuario separados por una , (coma)
+        /// </returns>
+        public override string ToString()
+        {
+            return idUsuario + "," + codigo + "," + idPersona + "," + tipoUsuario
+                + "," + contrasena + "," + fechaExpiraContrasena + "," + activo;
+        }
     }
 }
