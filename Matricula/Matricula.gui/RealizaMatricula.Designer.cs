@@ -48,6 +48,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbMateria = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(491, 59);
+            this.panel1.Size = new System.Drawing.Size(817, 59);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -66,7 +68,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(65, 8);
+            this.label1.Location = new System.Drawing.Point(242, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(368, 40);
             this.label1.TabIndex = 0;
@@ -106,7 +108,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 241);
+            this.label5.Location = new System.Drawing.Point(25, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 18);
             this.label5.TabIndex = 4;
@@ -116,7 +118,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 298);
+            this.label6.Location = new System.Drawing.Point(23, 288);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 18);
             this.label6.TabIndex = 5;
@@ -126,7 +128,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 352);
+            this.label7.Location = new System.Drawing.Point(534, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 18);
             this.label7.TabIndex = 6;
@@ -136,7 +138,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(23, 410);
+            this.label8.Location = new System.Drawing.Point(25, 388);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 18);
             this.label8.TabIndex = 7;
@@ -145,28 +147,32 @@
             // txtIdFactura
             // 
             this.txtIdFactura.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdFactura.Location = new System.Drawing.Point(107, 78);
+            this.txtIdFactura.Location = new System.Drawing.Point(107, 84);
             this.txtIdFactura.Multiline = true;
             this.txtIdFactura.Name = "txtIdFactura";
-            this.txtIdFactura.Size = new System.Drawing.Size(350, 32);
+            this.txtIdFactura.Size = new System.Drawing.Size(146, 26);
             this.txtIdFactura.TabIndex = 8;
             // 
             // txtComprobante
             // 
             this.txtComprobante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComprobante.Location = new System.Drawing.Point(137, 338);
+            this.txtComprobante.Location = new System.Drawing.Point(648, 79);
             this.txtComprobante.Multiline = true;
             this.txtComprobante.Name = "txtComprobante";
-            this.txtComprobante.Size = new System.Drawing.Size(320, 32);
+            this.txtComprobante.Size = new System.Drawing.Size(133, 26);
             this.txtComprobante.TabIndex = 9;
             // 
             // cmbPeriodo
             // 
             this.cmbPeriodo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPeriodo.FormattingEnabled = true;
+            this.cmbPeriodo.Items.AddRange(new object[] {
+            "I Cuatrimestre",
+            "II Cuatrimestre",
+            "II Cuatrimestre"});
             this.cmbPeriodo.Location = new System.Drawing.Point(114, 183);
             this.cmbPeriodo.Name = "cmbPeriodo";
-            this.cmbPeriodo.Size = new System.Drawing.Size(343, 26);
+            this.cmbPeriodo.Size = new System.Drawing.Size(230, 26);
             this.cmbPeriodo.TabIndex = 11;
             this.cmbPeriodo.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodo_SelectedIndexChanged);
             // 
@@ -174,35 +180,38 @@
             // 
             this.cmbEstado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(91, 290);
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Prematricula ",
+            "Matriculado"});
+            this.cmbEstado.Location = new System.Drawing.Point(91, 280);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(366, 26);
+            this.cmbEstado.Size = new System.Drawing.Size(253, 26);
             this.cmbEstado.TabIndex = 12;
             this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // txtIdPersona
             // 
             this.txtIdPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdPersona.Location = new System.Drawing.Point(117, 125);
+            this.txtIdPersona.Location = new System.Drawing.Point(117, 131);
             this.txtIdPersona.Multiline = true;
             this.txtIdPersona.Name = "txtIdPersona";
-            this.txtIdPersona.Size = new System.Drawing.Size(340, 32);
+            this.txtIdPersona.Size = new System.Drawing.Size(177, 26);
             this.txtIdPersona.TabIndex = 13;
             // 
             // dateTimeMatricula
             // 
             this.dateTimeMatricula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeMatricula.Location = new System.Drawing.Point(173, 233);
+            this.dateTimeMatricula.Location = new System.Drawing.Point(175, 329);
             this.dateTimeMatricula.Name = "dateTimeMatricula";
-            this.dateTimeMatricula.Size = new System.Drawing.Size(284, 26);
+            this.dateTimeMatricula.Size = new System.Drawing.Size(240, 26);
             this.dateTimeMatricula.TabIndex = 14;
             // 
             // dateTimePago
             // 
             this.dateTimePago.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePago.Location = new System.Drawing.Point(147, 402);
+            this.dateTimePago.Location = new System.Drawing.Point(149, 382);
             this.dateTimePago.Name = "dateTimePago";
-            this.dateTimePago.Size = new System.Drawing.Size(310, 26);
+            this.dateTimePago.Size = new System.Drawing.Size(266, 26);
             this.dateTimePago.TabIndex = 15;
             // 
             // btnAceptar
@@ -210,7 +219,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(114, 473);
+            this.btnAceptar.Location = new System.Drawing.Point(551, 416);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(104, 34);
             this.btnAceptar.TabIndex = 16;
@@ -224,7 +233,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(240, 473);
+            this.btnCancelar.Location = new System.Drawing.Point(677, 416);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 34);
             this.btnCancelar.TabIndex = 17;
@@ -237,11 +246,36 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(23, 235);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 18);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "ID materia:";
+            // 
+            // cmbMateria
+            // 
+            this.cmbMateria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMateria.FormattingEnabled = true;
+            this.cmbMateria.Items.AddRange(new object[] {
+            "Prematricula ",
+            "Matriculado"});
+            this.cmbMateria.Location = new System.Drawing.Point(113, 227);
+            this.cmbMateria.Name = "cmbMateria";
+            this.cmbMateria.Size = new System.Drawing.Size(231, 26);
+            this.cmbMateria.TabIndex = 19;
+            this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
+            // 
             // RealizaMatricula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 519);
+            this.ClientSize = new System.Drawing.Size(818, 474);
+            this.Controls.Add(this.cmbMateria);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dateTimePago);
@@ -291,5 +325,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox cmbMateria;
+        private System.Windows.Forms.Label label9;
     }
 }
