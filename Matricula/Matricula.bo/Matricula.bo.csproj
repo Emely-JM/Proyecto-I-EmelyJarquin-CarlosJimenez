@@ -44,6 +44,7 @@
     <Compile Include="AdminBO.cs" />
     <Compile Include="CarreraBO.cs" />
     <Compile Include="MateriaBO.cs" />
+    <Compile Include="EvaluacionBO.cs" />
     <Compile Include="MatriculaEstudianteBO.cs" />
     <Compile Include="PersonaBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
