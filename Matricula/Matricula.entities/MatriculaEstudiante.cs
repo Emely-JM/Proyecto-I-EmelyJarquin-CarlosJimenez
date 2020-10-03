@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Matricula.entities
 {
-    public class Matricula
+    public class MatriculaEstudiante
     {
         public string idFactura { get; set; }
         public string idPersona { get; set; }
@@ -16,11 +16,11 @@ namespace Matricula.entities
         public string comprobante { get; set; }
         public DateTime fechaPago { get; set; }
 
-        public Matricula()
+        public MatriculaEstudiante()
         {
         }
 
-        public Matricula(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula, string estado, string comprobante, DateTime fechaPago)
+        public MatriculaEstudiante(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula, string estado, string comprobante, DateTime fechaPago)
         {
             this.idFactura = idFactura;
             this.idPersona = idPersona;
