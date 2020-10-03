@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Matricula.entities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Matricula.entities;
 
 namespace Matricula.dao
 {
@@ -12,10 +12,126 @@ namespace Matricula.dao
     /// Contiene los métodos para leer y escribir los usuarios de la aplicación en un archivo de texto
     /// Los usuarios pertenecen a la clase Usuario
     /// </summary>
-    class UsuarioDAO
+    public class UsuarioDAO
     {
-
+        List<Usuario> usuarios = new List<Usuario>();
         private string archivo = "Usuario.txt";
+
+        /// <summary>
+        /// Escribe los usuarios de la aplicación a un archivo de texto
+        /// </summary>
+        /// <param name="usuarios">
+        /// Lista con los usuarios de la aplicación
+        /// </param>
+        public void escribir()
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter(archivo);
+
+                // Ciclo para recorrer la lista de usuarios
+                foreach (Usuario u in usuarios)
+                {
+                    sw.WriteLine(u.ToString()); // Escribe cada usuario de la lista en una línea nueva
+                }
+                sw.Close();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al escribir el archivo");
+            }
+        }
+
+        /// <summary>
+        /// Agrega un usuario nuevo a la aplicación
+        /// </summary>
+        /// <param name="u">
+        /// Isntancia de la clase Usuario
+        /// </param>
+        public void agregar(Usuario u)
+        {
+            try
+            {
+                GetUsuarios();
+
+                // Obtiene el id del último usuario de la lista, le suma un número más
+                // y se lo asigna al nuevo usuario
+                int ultimo = usuarios.Count() - 1;
+                int id = usuarios[ultimo].id + 1;
+                u.id = id;
+
+                usuarios.Add(u);
+                escribir();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al agregar el usuario");
+            }
+        }
+
+        /// <summary>
+        /// Edita los datos de un usuario existente
+        /// </summary>
+        /// <param name="u">
+        /// Isntancia de la clase Usuario
+        /// </param>
+        public void editar(Usuario u)
+        {
+            try
+            {
+                GetUsuarios();
+
+                // Ciclo para recorrer la lista de usuarios
+                foreach (Usuario usuario in usuarios)
+                {
+                    if (u.id == usuario.id)
+                    {
+                        // Sobreescribe los datos de un usuario existente con los datos nuevos
+                        usuario.codigo = u.codigo;
+                        usuario.idPersona = u.idPersona;
+                        usuario.tipoUsuario = u.tipoUsuario;
+                        usuario.contrasena = u.contrasena;
+                        usuario.fechaExpiraContrasena = u.fechaExpiraContrasena;
+                        usuario.activo = u.activo;
+                        break;
+                    }
+                }
+                escribir();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al editar el usuario");
+            }
+        }
+
+        /// <summary>
+        /// Desactiva un usuario de la aplicación
+        /// </summary>
+        /// <param name="u">
+        /// Isntancia de la clase Usuario
+        /// </param>
+        public void eliminar(Usuario u)
+        {
+            try
+            {
+                GetUsuarios();
+
+                // Ciclo para recorrer la lista de usuarios
+                foreach (Usuario usuario in usuarios)
+                {
+                    if (u.id == usuario.id)
+                    {
+                        usuario.activo = false; // Desactiva un usuario
+                        break;
+                    }
+                }
+                escribir();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al eliminar el usuario");
+            }
+        }
 
         /// <summary>
         /// Lee los usuarios de la aplicación desde un archivo de texto
@@ -23,9 +139,8 @@ namespace Matricula.dao
         /// <returns>
         /// Lista con los usuarios de la aplicación
         /// </returns>
-        public List<Usuario> leer()
+        public List<Usuario> GetUsuarios()
         {
-            List<Usuario> usuarios = new List<Usuario>();
             string linea;
 
             try
@@ -33,11 +148,11 @@ namespace Matricula.dao
                 StreamReader sr = new StreamReader(archivo);
                 linea = sr.ReadLine();
 
-                //Ciclo para recorrer todas la líneas del archivo hasta encontrar una línea vacía
+                // Ciclo para recorrer todas la líneas del archivo hasta encontrar una línea vacía
                 while (linea != null)
                 {
-                    string[] datos = linea.Split(','); //Separa los datos del usuario
-                    //Asigna los datos del usuario a una variable
+                    string[] datos = linea.Split(','); // Separa los datos del usuario
+                    // Asigna los datos del usuario a una variable
                     int idUsuario = int.Parse(datos[0]);
                     string codigo = datos[1];
                     int idPersona = int.Parse(datos[2]);
@@ -46,7 +161,7 @@ namespace Matricula.dao
                     DateTime fechaExpiraContrasena = DateTime.Parse(datos[5]);
                     bool activo = bool.Parse(datos[6]);
 
-                    //Agrega el usuario a la lista de usuarios
+                    // Agrega el usuario a la lista de usuarios
                     usuarios.Add(new Usuario(idUsuario, codigo, idPersona, tipoUsuario, contrasena, fechaExpiraContrasena, activo));
 
                     linea = sr.ReadLine();
@@ -60,30 +175,7 @@ namespace Matricula.dao
             return usuarios;
         }
 
-        /// <summary>
-        /// Escribe los usuarios de la aplicación a un archivo de texto
-        /// </summary>
-        /// <param name="usuarios">
-        /// Lista con los usuarios de la aplicación
-        /// </param>
-        public void escribir(List<Usuario> usuarios)
-        {
-            try
-            {
-                StreamWriter sw = new StreamWriter(archivo);
 
-                //Ciclo para recorrer la lista de usuarios
-                foreach (Usuario u in usuarios)
-                {
-                    sw.WriteLine(u.ToString()); //Escribe cada usuario de la lista en una línea nueva
-                }
-                sw.Close();
-            }
-            catch (Exception)
-            {
-                throw new Exception("Error al escribir el archivo");
-            }
-        }
 
     }
 }

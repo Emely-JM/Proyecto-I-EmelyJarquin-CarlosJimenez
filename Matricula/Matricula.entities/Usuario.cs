@@ -9,7 +9,7 @@ namespace Matricula.entities
     public class Usuario
     {
 
-        public int idUsuario { get; }
+        public int id { get; set; }
         public string codigo { get; set; }
         public int idPersona { get; set; }
         public string tipoUsuario { get; set; }
@@ -22,10 +22,10 @@ namespace Matricula.entities
 
         }
 
-        public Usuario(int idUsuario, string codigo, int idPersona, string tipoUsuario,
+        public Usuario(int id, string codigo, int idPersona, string tipoUsuario,
             string contrasena, DateTime fechaExpiraContrasena, bool activo)
         {
-            this.idUsuario = idUsuario;
+            this.id = id;
             this.codigo = codigo;
             this.idPersona = idPersona;
             this.tipoUsuario = tipoUsuario;
@@ -42,7 +42,7 @@ namespace Matricula.entities
         /// </returns>
         public override string ToString()
         {
-            return idUsuario + "," + codigo + "," + idPersona + "," + tipoUsuario
+            return id + "," + codigo + "," + idPersona + "," + tipoUsuario
                 + "," + contrasena + "," + fechaExpiraContrasena + "," + activo;
         }
     }
