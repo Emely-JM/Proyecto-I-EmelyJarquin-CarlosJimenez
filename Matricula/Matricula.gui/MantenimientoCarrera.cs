@@ -18,6 +18,8 @@ namespace Matricula.gui
         CarreraBO log;
         List<Carrera> lista;
         string id = "";
+        MateriaBO logMateria;
+        List<Materias> listaMateria;
 
         /// <summary>
         /// Ingresa los datos de la lista a la tabla
@@ -44,11 +46,33 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Busca el id de la carrera en la lista perteneciente a las materias
+        /// si ya hay una materia ligada al id de la carrera, entonces no se permite
+        /// eliminar la carrera, de lo contrario sí se elimina
+        /// </summary>
+        /// <param name="idCarrera"> representa el id de la carrera que se desea buscar </param>
+        /// <returns> retorna el indice si encuentra el id o un -1 sino</returns>
+        private int eliminarCarrera(string idCarrera)
+        {
+            listaMateria = logMateria.getLista();
+            for (int i = 0; i < listaMateria.Count; i++)
+            {
+                if (listaMateria[i].idCarrera.Equals(idCarrera))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         public MantenimientoCarrera(bool admin)
         {
             InitializeComponent();
             log = new CarreraBO();
             lista = new List<Carrera>();
+            logMateria = new MateriaBO();
+            listaMateria = new List<Materias>();
             adminPermisos(admin);
         }
 
@@ -73,9 +97,17 @@ namespace Matricula.gui
                 oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta carrera?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (oDlgRes == DialogResult.Yes)
                 {
-                    log.eliminar(id);
-                    log.crearArchivo();
-                    verDatos();
+                    if(eliminarCarrera(id) != -1)
+                    {
+                        MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar la materia para poder eliminar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
+                    }
+                    else
+                    {
+                        log.eliminar(id);
+                        log.crearArchivo();
+                        verDatos();
+                    }
                 }
 
             }
