@@ -29,9 +29,9 @@ namespace Matricula.bo
         /// <param name="idEstudiante"> id del estudiante que realiza la evaluación </param>
         /// <param name="estado"> estado de la evaluación </param>
         /// <param name="fechaEvaluacion"> fecha en que se realiza la evaluación </param>
-        public void agregar(string idEvalucion, string descripcion, string idEstudiante, string estado, DateTime fechaEvaluacion)
+        public void agregar(string idEvalucion, string descripcion, string idEstudiante,string idMateria, string estado, DateTime fechaEvaluacion)
         {
-            proceso.Add(new Evaluacion(idEvalucion,descripcion,idEstudiante,estado,fechaEvaluacion));
+            proceso.Add(new Evaluacion(idEvalucion,descripcion,idEstudiante,idMateria,estado,fechaEvaluacion));
         }
 
         /// <summary>

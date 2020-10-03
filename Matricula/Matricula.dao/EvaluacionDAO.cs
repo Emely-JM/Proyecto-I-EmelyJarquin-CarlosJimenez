@@ -61,9 +61,10 @@ namespace Matricula.dao
                     string idEvaluacion = items[0].Trim();
                     string descripcion = items[1].Trim();
                     string idEstudiante = items[2].Trim();
-                    string estado = items[3].Trim();
-                    DateTime fechaEvaluacion = DateTime.Parse(items[4].Trim());
-                    Evaluacion objEvaluacion = new Evaluacion(idEvaluacion,descripcion,idEstudiante,estado,fechaEvaluacion);
+                    string idMateria = items[3].Trim();
+                    string estado = items[4].Trim();
+                    DateTime fechaEvaluacion = DateTime.Parse(items[5].Trim());
+                    Evaluacion objEvaluacion = new Evaluacion(idEvaluacion,descripcion,idEstudiante,idMateria,estado,fechaEvaluacion);
                     evaluaciones.Add(objEvaluacion);
 
                     //Lee la siguiente línea

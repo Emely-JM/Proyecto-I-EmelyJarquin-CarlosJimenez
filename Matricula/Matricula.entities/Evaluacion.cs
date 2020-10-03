@@ -11,25 +11,29 @@ namespace Matricula.entities
         public string idEvalucion { get; set; }
         public string descripcion { get; set; }
         public string idEstudiante { get; set; }
+        public string idMateria { get; set; }
         public string estado { get; set; }
+
+
         public DateTime fechaEvaluacion { get; set; }
 
         public Evaluacion()
         {
         }
 
-        public Evaluacion(string idEvalucion, string descripcion, string idEstudiante, string estado, DateTime fechaEvaluacion)
+        public Evaluacion(string idEvalucion, string descripcion, string idEstudiante, string idMateria, string estado, DateTime fechaEvaluacion)
         {
             this.idEvalucion = idEvalucion;
             this.descripcion = descripcion;
             this.idEstudiante = idEstudiante;
+            this.idMateria = idMateria;
             this.estado = estado;
             this.fechaEvaluacion = fechaEvaluacion;
         }
 
         public string toString()
         {
-            return idEvalucion + "," + descripcion + "," + idEstudiante + "," + estado + "," + fechaEvaluacion;
+            return idEvalucion + "," + descripcion + "," + idEstudiante + "," + idMateria + "," + estado + "," + fechaEvaluacion;
         }
     }
 }
