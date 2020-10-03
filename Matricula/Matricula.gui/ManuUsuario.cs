@@ -19,7 +19,7 @@ namespace Matricula.gui
 
         private void toolStripMenuItemMatricula_Click(object sender, EventArgs e)
         {
-            RealizaMatricula frm = new RealizaMatricula();
+            RealizaMatricula frm = new RealizaMatricula("");
             frm.ShowDialog();
         }
 
