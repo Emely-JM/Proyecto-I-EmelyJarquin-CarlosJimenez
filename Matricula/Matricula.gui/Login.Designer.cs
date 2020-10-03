@@ -31,36 +31,36 @@
             this.components = new System.ComponentModel.Container();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUsuAdmin = new System.Windows.Forms.TextBox();
-            this.txtPassAdmin = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnCancelarAdmin = new System.Windows.Forms.Button();
             this.btnAceptarAdmin = new System.Windows.Forms.Button();
+            this.txtPassAdmin = new System.Windows.Forms.TextBox();
+            this.txtUsuAdmin = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnCancelarStuden = new System.Windows.Forms.Button();
             this.btnAceptarStuden = new System.Windows.Forms.Button();
             this.txtPassStuden = new System.Windows.Forms.TextBox();
             this.txtUsuStuden = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnCancelarTeachers = new System.Windows.Forms.Button();
             this.txtAceparTeachers = new System.Windows.Forms.Button();
             this.txtPasstxtUsuTeachers = new System.Windows.Forms.TextBox();
             this.txtUsuTeachers = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabAdmin.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -93,83 +93,6 @@
             this.tabPage1.Text = "Admin";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnCancelarStuden);
-            this.tabPage2.Controls.Add(this.btnAceptarStuden);
-            this.tabPage2.Controls.Add(this.txtPassStuden);
-            this.tabPage2.Controls.Add(this.txtUsuStuden);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(407, 217);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Students";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.DarkGray;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(176, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuario:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkGray;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(176, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Contraseña:";
-            // 
-            // txtUsuAdmin
-            // 
-            this.txtUsuAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuAdmin.Location = new System.Drawing.Point(180, 38);
-            this.txtUsuAdmin.Multiline = true;
-            this.txtUsuAdmin.Name = "txtUsuAdmin";
-            this.txtUsuAdmin.Size = new System.Drawing.Size(209, 33);
-            this.txtUsuAdmin.TabIndex = 3;
-            // 
-            // txtPassAdmin
-            // 
-            this.txtPassAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassAdmin.Location = new System.Drawing.Point(180, 109);
-            this.txtPassAdmin.Multiline = true;
-            this.txtPassAdmin.Name = "txtPassAdmin";
-            this.txtPassAdmin.PasswordChar = '*';
-            this.txtPassAdmin.Size = new System.Drawing.Size(209, 33);
-            this.txtPassAdmin.TabIndex = 4;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.btnCancelarTeachers);
-            this.tabPage3.Controls.Add(this.txtAceparTeachers);
-            this.tabPage3.Controls.Add(this.txtPasstxtUsuTeachers);
-            this.tabPage3.Controls.Add(this.txtUsuTeachers);
-            this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.pictureBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(407, 217);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Teachers";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // btnCancelarAdmin
             // 
             this.btnCancelarAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,6 +123,49 @@
             this.btnAceptarAdmin.UseVisualStyleBackColor = true;
             this.btnAceptarAdmin.Click += new System.EventHandler(this.btnAceptarAdmin_Click);
             // 
+            // txtPassAdmin
+            // 
+            this.txtPassAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassAdmin.Location = new System.Drawing.Point(180, 109);
+            this.txtPassAdmin.Multiline = true;
+            this.txtPassAdmin.Name = "txtPassAdmin";
+            this.txtPassAdmin.PasswordChar = '*';
+            this.txtPassAdmin.Size = new System.Drawing.Size(209, 33);
+            this.txtPassAdmin.TabIndex = 4;
+            // 
+            // txtUsuAdmin
+            // 
+            this.txtUsuAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuAdmin.Location = new System.Drawing.Point(180, 38);
+            this.txtUsuAdmin.Multiline = true;
+            this.txtUsuAdmin.Name = "txtUsuAdmin";
+            this.txtUsuAdmin.Size = new System.Drawing.Size(209, 33);
+            this.txtUsuAdmin.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkGray;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(176, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Contraseña:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.DarkGray;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
+            this.label1.Location = new System.Drawing.Point(176, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Usuario:";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Matricula.gui.Properties.Resources.LoginForm1;
@@ -209,14 +175,22 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // tabPage2
             // 
-            this.pictureBox2.Image = global::Matricula.gui.Properties.Resources.LoginForm2;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(404, 217);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.tabPage2.Controls.Add(this.btnCancelarStuden);
+            this.tabPage2.Controls.Add(this.btnAceptarStuden);
+            this.tabPage2.Controls.Add(this.txtPassStuden);
+            this.tabPage2.Controls.Add(this.txtUsuStuden);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.pictureBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(407, 217);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Students";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCancelarStuden
             // 
@@ -245,6 +219,7 @@
             this.btnAceptarStuden.Text = "Aceptar";
             this.btnAceptarStuden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptarStuden.UseVisualStyleBackColor = true;
+            this.btnAceptarStuden.Click += new System.EventHandler(this.btnAceptarStuden_Click);
             // 
             // txtPassStuden
             // 
@@ -289,14 +264,31 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Usuario:";
             // 
-            // pictureBox3
+            // pictureBox2
             // 
-            this.pictureBox3.Image = global::Matricula.gui.Properties.Resources.LoginForm2;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(407, 217);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.pictureBox2.Image = global::Matricula.gui.Properties.Resources.LoginForm2;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(404, 217);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnCancelarTeachers);
+            this.tabPage3.Controls.Add(this.txtAceparTeachers);
+            this.tabPage3.Controls.Add(this.txtPasstxtUsuTeachers);
+            this.tabPage3.Controls.Add(this.txtUsuTeachers);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.pictureBox3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(407, 217);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Teachers";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnCancelarTeachers
             // 
@@ -369,6 +361,15 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Usuario:";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Matricula.gui.Properties.Resources.LoginForm2;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(407, 217);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -387,12 +388,12 @@
             this.tabAdmin.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

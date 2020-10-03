@@ -84,5 +84,11 @@ namespace Matricula.gui
         {
             this.Close();
         }
+
+        private void btnAceptarStuden_Click(object sender, EventArgs e)
+        {
+            ManuUsuario frm = new ManuUsuario();
+            frm.ShowDialog();
+        }
     }
 }

@@ -101,6 +101,12 @@
     <Compile Include="MantenimientoPersona.Designer.cs">
       <DependentUpon>MantenimientoPersona.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManuUsuario.Designer.cs">
+      <DependentUpon>ManuUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="MantenimientoPersona.resx">
       <DependentUpon>MantenimientoPersona.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManuUsuario.resx">
+      <DependentUpon>ManuUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,14 +172,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="RealizaEvaluacion.resx">
       <DependentUpon>RealizaEvaluacion.cs</DependentUpon>
     </EmbeddedResource>
