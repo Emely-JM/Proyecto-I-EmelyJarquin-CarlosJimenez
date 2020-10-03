@@ -16,6 +16,7 @@ namespace Matricula.gui
     {
         AdminBO log;
         Encripta encripta;
+        bool admin;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -39,24 +40,22 @@ namespace Matricula.gui
             if (txtUsuAdmin.Text != "")
             {
                 errorProvider1.SetError(txtUsuAdmin, "");
-                if(txtPassAdmin.Text != "")
+                if (txtPassAdmin.Text != "")
                 {
                     errorProvider1.SetError(txtPassAdmin, "");
                     string contrasena = encripta.Encriptar(txtPassAdmin.Text);
                     if (log.loguarse(txtUsuAdmin.Text, contrasena))
                     {
-                        MenuAdmin frm = new MenuAdmin();
+                        MenuAdmin frm = new MenuAdmin(log.enviarU(), txtUsuAdmin.Text);
                         frm.ShowDialog();
                         txtUsuAdmin.Text = "";
                         txtPassAdmin.Text = "";
                     }
                     else
                     {
-                        txtUsuAdmin.Text = "";
-                        txtPassAdmin.Text = "";
-                        MessageBox.Show("Credenciales inválidos","Error de credenciales",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                 }
                 else
                 {
@@ -68,7 +67,6 @@ namespace Matricula.gui
                 mensaje(txtUsuAdmin, "Usuario es requerido");
             }
         }
-
 
         public Login()
         {
