@@ -16,6 +16,7 @@ namespace Matricula.bo
         List<Admin> proceso;
         AdminDAO objArchivo;
         Encripta encripta;
+        private bool admin;
 
         public AdminBO()
         {
@@ -205,10 +206,20 @@ namespace Matricula.bo
             {
                 if (proceso[i].usuario.Equals(usuarioBuscar) && proceso[i].contrasena.Equals(passBuscar) && proceso[i].activo == true)
                 {
+                    admin = proceso[i].admin;
                     loguear = true;
                 }
             }
             return loguear;
+        }
+
+        /// <summary>
+        /// Envia el valor booleano del admin 
+        /// </summary>
+        /// <returns> retorna si es admin o no </returns>
+        public bool enviarU()
+        {
+            return admin;
         }
 
 
