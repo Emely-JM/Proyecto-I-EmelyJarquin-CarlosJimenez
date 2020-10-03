@@ -48,7 +48,7 @@ namespace Matricula.gui
         private void asignarId()
         {
             //lista = log.getLista();
-            string asiga = "C0";
+            string asiga = "P0";
             int ticket = lista.Count;
             txtIdPersona.Text = asiga + ticket.ToString();
         }
