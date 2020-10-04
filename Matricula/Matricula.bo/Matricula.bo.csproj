@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBO.cs" />
+    <Compile Include="CarreraBO.cs" />
+    <Compile Include="MateriaBO.cs" />
+    <Compile Include="EvaluacionBO.cs" />
+    <Compile Include="MatriculaEstudianteBO.cs" />
+    <Compile Include="PersonaBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioBO.cs" />
   </ItemGroup>
@@ -52,6 +58,10 @@
     <ProjectReference Include="..\Matricula.entities\Matricula.entities.csproj">
       <Project>{69d12f4e-7722-421b-85f6-cd6f1c5d5172}</Project>
       <Name>Matricula.entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Matricula.utilitario\Matricula.utilitario.csproj">
+      <Project>{5639699D-2B39-4089-89D2-33A302039FA5}</Project>
+      <Name>Matricula.utilitario</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
