@@ -155,6 +155,7 @@
     <Compile Include="RealizaMatricula.Designer.cs">
       <DependentUpon>RealizaMatricula.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistroNota.cs" />
     <Compile Include="ValidaDatos.cs" />
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
