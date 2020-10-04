@@ -141,6 +141,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="RealizaEvaluacion.cs">
       <SubType>Form</SubType>
@@ -286,6 +287,30 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_new_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_math_25px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
