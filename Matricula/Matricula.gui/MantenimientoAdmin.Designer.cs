@@ -1,4 +1,5 @@
-﻿namespace Matricula.gui
+﻿using System.Resources;
+namespace Matricula.gui
 {
     partial class MantenimientoAdmin
     {

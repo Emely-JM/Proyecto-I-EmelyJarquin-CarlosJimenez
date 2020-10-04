@@ -14,9 +14,8 @@ namespace Matricula.gui
 {
     public partial class Login : Form
     {
-        AdminBO log;
-        Encripta encripta;
-        bool admin;
+        private AdminBO log;
+        private Encripta encripta;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 

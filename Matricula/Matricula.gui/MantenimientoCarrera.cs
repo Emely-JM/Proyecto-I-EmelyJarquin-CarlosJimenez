@@ -99,7 +99,7 @@ namespace Matricula.gui
                 {
                     if(eliminarCarrera(id) != -1)
                     {
-                        MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar la materia para poder eliminar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar la materia para poder eliminar la carrera","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         
                     }
                     else
@@ -113,7 +113,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -134,7 +134,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

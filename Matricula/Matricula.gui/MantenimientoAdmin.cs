@@ -77,7 +77,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -111,7 +111,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -127,7 +127,7 @@ namespace Matricula.gui
                     if (frm.isAceptar())
                     {
                         log.modificarContrasena(usuario, frm.aceptarButton());
-                        MessageBox.Show("Contraseña cambiada", "Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Contraseña cambiada","Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     log.crearArchivo();
                     verDatos();
@@ -140,7 +140,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,7 +164,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
