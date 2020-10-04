@@ -35,6 +35,28 @@ namespace Matricula.bo
         }
 
         /// <summary>
+        /// No permite realizar dos evaluaciones de la misma materia
+        /// </summary>
+        /// <param name="idEstudiante"> id del estudiante a buscar </param>
+        /// <param name="idMateria"> id de la materia a evaluar</param>
+        /// <returns> retorna el indice si encuentra al id de estudiante y materia o un -1 sino</returns>
+        public int permiteEvalucion(string idEstudiante, string idMateria)
+        {
+            for(int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idEstudiante.Equals(idEstudiante))
+                {
+                    if (proceso[i].idMateria.Equals(idMateria))
+                    {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+        
+        
+        /// <summary>
         /// Llama al método de crear archivo y le pasa la lista
         /// de proceso como parámetro para escribirla en archivo
         /// </summary>

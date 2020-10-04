@@ -54,7 +54,7 @@ namespace Matricula.gui
         /// a cada id se le suma un dato más de los que hay en la lista
         /// </summary>
         private void asignarComprobante()
-        {
+        {  
             //lista = log.getLista();
             string asiga = "C0";
             int ticket = lista.Count;
