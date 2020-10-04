@@ -21,7 +21,6 @@ namespace Matricula.gui
         private MatriculaEstudianteBO logMatricula;
         private List<MatriculaEstudiante> listaMatricula;
 
-
         /// <summary>
         /// Carga el combo con las materias en las que está matriculado el estudiante
         /// </summary>
@@ -36,6 +35,27 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Cuenta la cantidad de datos en la lista y asigan la cantidad + 1 contatenado
+        /// a E0 al id de la evalución
+        /// </summary>
+        private void asignarIdEvaluacion()
+        {
+            //lista = log.getLista();
+            string asiga = "E0";
+            int ticket = lista.Count;
+            txtIdEvaluacion.Text = asiga + ticket.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void asignarIdEstudiante()
+        {
+            string asiga = "P0";
+            int ticket = lista.Count;
+            txtIdEstudiante.Text = asiga + ticket.ToString();
+        }
 
         /// <summary>
         /// Manda a la lista los datos ingresados y luego escribe los datos de la lista en 
@@ -52,11 +72,13 @@ namespace Matricula.gui
                     if (log.permiteEvalucion(txtIdEstudiante.Text, idMateria) != -1)
                     {
                         errorProvider1.SetError(cmbMateria, "Ya realizó la evaluación de esta materia");
+                        txtEstado.Text = "Aplicada";
                         cmbMateria.Focus();
                         return;
                     }
                     else
                     {
+                        txtEstado.Text = "Pendiente";
                         DateTime fecha = dateTimeEvaluacion.Value.Date;
                         log.agregar(txtIdEvaluacion.Text,txtDescripcion.Text,txtIdEstudiante.Text,idMateria,txtEstado.Text,fecha);
                         log.crearArchivo();
@@ -78,6 +100,19 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Inicia los datos en el constructor
+        /// </summary>
+        private void inicio()
+        {
+            asignarIdEvaluacion();
+            asignarIdEstudiante();
+            cargarMaterias();
+            txtIdEvaluacion.Enabled = false;
+            txtIdEstudiante.Enabled = false;
+            txtEstado.Enabled = false;
+            dateTimeEvaluacion.Enabled = false;
+        }
 
         public RealizaEvaluacion(string idEstudiante)
         {
@@ -87,7 +122,7 @@ namespace Matricula.gui
             logMatricula = new MatriculaEstudianteBO();
             listaMatricula = new List<MatriculaEstudiante>();
             txtIdEstudiante.Text = idEstudiante;
-            cargarMaterias();
+            inicio();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -97,7 +132,7 @@ namespace Matricula.gui
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            aceptar();
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
