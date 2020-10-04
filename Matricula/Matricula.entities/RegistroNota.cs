@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Matricula.gui
+namespace Matricula.entities
 {
     public class RegistroNota
     {
