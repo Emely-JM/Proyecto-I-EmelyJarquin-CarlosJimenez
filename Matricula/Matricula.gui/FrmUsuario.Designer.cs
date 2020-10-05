@@ -33,14 +33,15 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.tabla = new System.Windows.Forms.DataGridView();
-            this.txtbCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtbTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkbActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnContrasena = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.objData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkbActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +89,7 @@
             this.tabla.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.objData,
             this.txtbCodigo,
             this.txtbTipoUsuario,
             this.chkbActivo});
@@ -96,6 +98,62 @@
             this.tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla.Size = new System.Drawing.Size(814, 315);
             this.tabla.TabIndex = 8;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
+            this.btnAgregar.Location = new System.Drawing.Point(648, 68);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(40, 40);
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnContrasena
+            // 
+            this.btnContrasena.Image = global::Matricula.gui.Properties.Resources.icons8_password_25px_1;
+            this.btnContrasena.Location = new System.Drawing.Point(786, 68);
+            this.btnContrasena.Name = "btnContrasena";
+            this.btnContrasena.Size = new System.Drawing.Size(40, 40);
+            this.btnContrasena.TabIndex = 5;
+            this.btnContrasena.UseVisualStyleBackColor = true;
+            this.btnContrasena.Click += new System.EventHandler(this.btnContrasena_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
+            this.btnEliminar.Location = new System.Drawing.Point(740, 68);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(40, 40);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
+            this.btnEditar.Location = new System.Drawing.Point(694, 68);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(40, 40);
+            this.btnEditar.TabIndex = 3;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
+            this.btnBuscar.Location = new System.Drawing.Point(550, 68);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 40);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // objData
+            // 
+            this.objData.HeaderText = "Data";
+            this.objData.Name = "objData";
+            this.objData.Visible = false;
             // 
             // txtbCodigo
             // 
@@ -114,51 +172,6 @@
             this.chkbActivo.HeaderText = "Activo";
             this.chkbActivo.Name = "chkbActivo";
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(648, 68);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(40, 40);
-            this.btnAgregar.TabIndex = 6;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnContrasena
-            // 
-            this.btnContrasena.Image = global::Matricula.gui.Properties.Resources.icons8_password_25px_1;
-            this.btnContrasena.Location = new System.Drawing.Point(786, 68);
-            this.btnContrasena.Name = "btnContrasena";
-            this.btnContrasena.Size = new System.Drawing.Size(40, 40);
-            this.btnContrasena.TabIndex = 5;
-            this.btnContrasena.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
-            this.btnEliminar.Location = new System.Drawing.Point(740, 68);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(40, 40);
-            this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(694, 68);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(40, 40);
-            this.btnEditar.TabIndex = 3;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnBuscar.Location = new System.Drawing.Point(550, 68);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 40);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +189,7 @@
             this.Name = "FrmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Matricula 0.1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmUsuario_FormClosing);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).EndInit();
@@ -196,6 +210,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.DataGridView tabla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objData;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtbCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtbTipoUsuario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkbActivo;

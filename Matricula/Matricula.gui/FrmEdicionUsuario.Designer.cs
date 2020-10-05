@@ -34,11 +34,11 @@
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.txtPersona = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblCedulaPersona = new System.Windows.Forms.Label();
             this.lblPersona = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.lblExpiraContrasena = new System.Windows.Forms.Label();
             this.lblActivo = new System.Windows.Forms.Label();
             this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbExpiraContrasena = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnBuscar
             // 
@@ -109,51 +110,54 @@
             this.btnBuscar.Size = new System.Drawing.Size(40, 40);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // button2
+            // btnAceptar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
-            this.button2.Location = new System.Drawing.Point(264, 389);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 40);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Aceptar";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
+            this.btnAceptar.Location = new System.Drawing.Point(264, 389);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(150, 40);
+            this.btnAceptar.TabIndex = 9;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // textBox2
+            // txtPersona
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(294, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 31);
-            this.textBox2.TabIndex = 10;
+            this.txtPersona.Enabled = false;
+            this.txtPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersona.Location = new System.Drawing.Point(294, 172);
+            this.txtPersona.Name = "txtPersona";
+            this.txtPersona.Size = new System.Drawing.Size(250, 31);
+            this.txtPersona.TabIndex = 10;
             // 
-            // textBox4
+            // txtContrasena
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(294, 248);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 31);
-            this.textBox4.TabIndex = 12;
+            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena.Location = new System.Drawing.Point(294, 248);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
+            this.txtContrasena.Size = new System.Drawing.Size(250, 31);
+            this.txtContrasena.TabIndex = 12;
             // 
-            // textBox5
+            // txtCodigo
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(294, 98);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 31);
-            this.textBox5.TabIndex = 13;
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(294, 98);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(250, 31);
+            this.txtCodigo.TabIndex = 13;
             // 
-            // textBox6
+            // txtBuscar
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(294, 135);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(250, 31);
-            this.textBox6.TabIndex = 14;
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(294, 135);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(250, 31);
+            this.txtBuscar.TabIndex = 14;
             // 
             // lblCedulaPersona
             // 
@@ -219,26 +223,34 @@
             // 
             this.cmbTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoUsuario.FormattingEnabled = true;
+            this.cmbTipoUsuario.Items.AddRange(new object[] {
+            "\"Administrador\"",
+            "\"Profesor\"",
+            "\"Estudiante\""});
             this.cmbTipoUsuario.Location = new System.Drawing.Point(294, 209);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
             this.cmbTipoUsuario.Size = new System.Drawing.Size(250, 33);
             this.cmbTipoUsuario.TabIndex = 21;
             // 
-            // comboBox1
+            // cmbExpiraContrasena
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(294, 285);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 33);
-            this.comboBox1.TabIndex = 22;
+            this.cmbExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbExpiraContrasena.FormattingEnabled = true;
+            this.cmbExpiraContrasena.Items.AddRange(new object[] {
+            "\"30 días\"",
+            "\"60 días\"",
+            "\"90 días\""});
+            this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 285);
+            this.cmbExpiraContrasena.Name = "cmbExpiraContrasena";
+            this.cmbExpiraContrasena.Size = new System.Drawing.Size(250, 33);
+            this.cmbExpiraContrasena.TabIndex = 22;
             // 
             // FrmEdicionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbExpiraContrasena);
             this.Controls.Add(this.cmbTipoUsuario);
             this.Controls.Add(this.lblActivo);
             this.Controls.Add(this.lblExpiraContrasena);
@@ -246,11 +258,11 @@
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.lblPersona);
             this.Controls.Add(this.lblCedulaPersona);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.txtPersona);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.chkActivo);
@@ -259,6 +271,7 @@
             this.Name = "FrmEdicionUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Matricula 0.1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEdicionUsuario_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -274,11 +287,11 @@
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox txtPersona;
+        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblCedulaPersona;
         private System.Windows.Forms.Label lblPersona;
         private System.Windows.Forms.Label lblTipoUsuario;
@@ -286,6 +299,6 @@
         private System.Windows.Forms.Label lblExpiraContrasena;
         private System.Windows.Forms.Label lblActivo;
         private System.Windows.Forms.ComboBox cmbTipoUsuario;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbExpiraContrasena;
     }
 }
