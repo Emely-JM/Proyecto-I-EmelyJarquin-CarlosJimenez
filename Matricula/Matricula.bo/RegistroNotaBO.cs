@@ -12,13 +12,12 @@ namespace Matricula.bo
     {
         List<RegistroNota> proceso;
         RegistroNotaDAO objArchivo;
-        RegistroNota nota;
+
         public RegistroNotaBO()
         {
             proceso = new List<RegistroNota>();
             objArchivo = new RegistroNotaDAO();
             proceso = objArchivo.leerArchivo();
-            nota = new RegistroNota();
         }
 
         /// <summary>
