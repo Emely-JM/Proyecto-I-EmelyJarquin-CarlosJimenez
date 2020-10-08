@@ -18,6 +18,7 @@ namespace Matricula.gui
         private AdminBO log;
         private UsuarioBO ubo;
         private PersonaBO pbo;
+        private UsuarioBO logU;
         private Encripta encripta;
 
         /// <summary>
@@ -154,6 +155,7 @@ namespace Matricula.gui
         {
             InitializeComponent();
             log = new AdminBO();
+            logU = new UsuarioBO();
             encripta = new Encripta();
         }
 

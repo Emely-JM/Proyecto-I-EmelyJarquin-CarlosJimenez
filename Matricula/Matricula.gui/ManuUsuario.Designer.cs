@@ -80,6 +80,7 @@
             this.toolStripMenuItemNotas.Name = "toolStripMenuItemNotas";
             this.toolStripMenuItemNotas.Size = new System.Drawing.Size(182, 22);
             this.toolStripMenuItemNotas.Text = "Notas";
+            this.toolStripMenuItemNotas.Click += new System.EventHandler(this.toolStripMenuItemNotas_Click);
             // 
             // salirToolStripMenuItem
             // 

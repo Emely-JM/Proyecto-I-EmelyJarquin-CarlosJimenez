@@ -16,11 +16,12 @@ namespace Matricula.gui
     {
         private MatriculaEstudianteBO log;
         private List<MatriculaEstudiante> lista;
-        private MateriaBO logMateria;
-        private List<Materias> listaMateria;
+        private AsignacionBO logA;
+        private List<Asignacion> listaA;
         private string idPeriodo;
         private string estado;
         private string idMateria;
+        private string idProf;
         private DateTime fechaMatricula;
         private DateTime fechaPago;
 
@@ -54,7 +55,7 @@ namespace Matricula.gui
         /// a cada id se le suma un dato más de los que hay en la lista
         /// </summary>
         private void asignarComprobante()
-        {  
+        {
             //lista = log.getLista();
             string asiga = "C0";
             int ticket = lista.Count;
@@ -62,16 +63,22 @@ namespace Matricula.gui
         }
 
         /// <summary>
-        /// LLena el combo con los datos que están en 
-        /// la lista perteneciente a las materias
+        /// Carga los combos de id de materia y profesores
+        /// según el id del profesor
         /// </summary>
-        private void cargarComboMateria()
+        /// <param name="idProf"></param>
+        private void cargarComboProfYMat(string idProf)
         {
-            listaMateria = logMateria.getLista();
+            listaA = logA.getLista();
+            cmbProfe.Items.Clear();
             cmbMateria.Items.Clear();
-            for (int i = 0; i < listaMateria.Count; i++)
+            for (int i = 0; i < listaA.Count; i++)
             {
-                cmbMateria.Items.Add(listaMateria[i].idMateria);
+                if (listaA[i].idProf.Equals(idProf))
+                {
+                    cmbProfe.Items.Add(listaA[i].idProf);
+                    cmbMateria.Items.Add(listaA[i].idMateria);
+                }
             }
 
         }
@@ -105,19 +112,29 @@ namespace Matricula.gui
                     if (idPeriodo != null)
                     {
                         errorProvider1.SetError(cmbPeriodo, "");
-                        if (estado != null)
+
+                        if (idProf != null)
                         {
-                            errorProvider1.SetError(cmbEstado, "");
-                            fechaMatricula = dateTimeMatricula.Value.Date;
-                            fechaPago = dateTimePago.Value.Date;
-                            log.agregar(txtIdFactura.Text, txtIdPersona.Text, idPeriodo, fechaMatricula, idMateria, estado, txtComprobante.Text, fechaPago);
-                            log.crearArchivo();
-                            this.Close();
+                            errorProvider1.SetError(cmbProfe, "");
+                            if (estado != null)
+                            {
+                                errorProvider1.SetError(cmbEstado, "");
+                                fechaMatricula = dateTimeMatricula.Value.Date;
+                                fechaPago = dateTimePago.Value.Date;
+                                log.agregar(txtIdFactura.Text, txtIdPersona.Text, idPeriodo, fechaMatricula, idMateria,idProf, estado, txtComprobante.Text, fechaPago);
+                                log.crearArchivo();
+                                this.Close();
+                            }
+                            else
+                            {
+                                mensaje(cmbEstado, "Debe seleccionar un estado");
+                            }
                         }
                         else
                         {
-                            mensaje(cmbEstado, "Debe seleccionar un estado");
+                            mensaje(cmbProfe, "Debe seleccionar un id de profesor");
                         }
+
                     }
                     else
                     {
@@ -138,13 +155,12 @@ namespace Matricula.gui
             InitializeComponent();
             log = new MatriculaEstudianteBO();
             lista = new List<MatriculaEstudiante>();
-            logMateria = new MateriaBO();
-            listaMateria = new List<Materias>();
+            logA = new AsignacionBO();
+            listaA = new List<Asignacion>();
             txtIdFactura.Enabled = false;
             txtIdPersona.Enabled = false;
             txtComprobante.Enabled = false;
             cargarIdPersona(idPersona);
-            cargarComboMateria();
             asignarIdFactura();
             asignarComprobante();
 
@@ -173,6 +189,12 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+        }
+
+        private void cmbProfe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            idProf = cmbProfe.Text;
+            cargarComboProfYMat(cmbProfe.Text);
         }
     }
 }

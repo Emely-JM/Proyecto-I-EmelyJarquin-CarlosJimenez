@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionMateria.Designer.cs">
+      <DependentUpon>AsignacionMateria.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     <Compile Include="MantenimientoAdmin.Designer.cs">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoAsignacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoAsignacion.Designer.cs">
+      <DependentUpon>MantenimientoAsignacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoCarrera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +152,18 @@
     </Compile>
     <Compile Include="MenuAdmin.Designer.cs">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuProfesor.Designer.cs">
+      <DependentUpon>MenuProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotasEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotasEstudiante.Designer.cs">
+      <DependentUpon>NotasEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevaContrasena.cs">
       <SubType>Form</SubType>
@@ -174,6 +198,9 @@
       <DependentUpon>RegistraNota.cs</DependentUpon>
     </Compile>
     <Compile Include="ValidaDatos.cs" />
+    <EmbeddedResource Include="AsignacionMateria.resx">
+      <DependentUpon>AsignacionMateria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +225,9 @@
     <EmbeddedResource Include="MantenimientoAdmin.resx">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoAsignacion.resx">
+      <DependentUpon>MantenimientoAsignacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCarrera.resx">
       <DependentUpon>MantenimientoCarrera.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +242,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuProfesor.resx">
+      <DependentUpon>MenuProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotasEstudiante.resx">
+      <DependentUpon>NotasEstudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevaContrasena.resx">
       <DependentUpon>NuevaContrasena.cs</DependentUpon>
@@ -338,6 +374,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_math_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ceuniver-0.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
