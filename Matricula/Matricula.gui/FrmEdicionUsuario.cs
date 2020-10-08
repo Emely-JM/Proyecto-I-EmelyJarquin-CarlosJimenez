@@ -16,6 +16,7 @@ namespace Matricula.gui
     {
         private Usuario u;
         private UsuarioBO ubo;
+        private PersonaBO pbo;
 
         public FrmEdicionUsuario()
         {
@@ -24,6 +25,7 @@ namespace Matricula.gui
             chkActivo.Visible = false;
             u = new Usuario();
             ubo = new UsuarioBO();
+            pbo = new PersonaBO();
             cargarDatos();
         }
 
@@ -34,6 +36,7 @@ namespace Matricula.gui
             chkActivo.Visible = false;
             this.u = u;
             ubo = new UsuarioBO();
+            pbo = new PersonaBO();
             cargarDatos();
         }
 
@@ -45,7 +48,6 @@ namespace Matricula.gui
                 {
                     txtCodigo.Text = u.codigo;
                     txtPersona.Text = "";
-                    cmbTipoUsuario.SelectedItem = u.tipoUsuario;
                     txtContrasena.Text = "";
                     cmbExpiraContrasena.SelectedIndex = 0;
                     chkActivo.Checked = u.activo;
@@ -61,9 +63,67 @@ namespace Matricula.gui
             }
         }
 
+        private Persona buscarPersona()
+        {
+            Persona p = new Persona();
+            foreach (Persona persona in pbo.getLista())
+            {
+                if (persona.cedula == int.Parse(txtBuscar.Text))
+                {
+                    p = persona;
+                    txtCodigo.Text = p.cedula.ToString();
+                    txtBuscar.Clear();
+                    break;
+                }
+            }
+            return p;
+        }
+
+        private string generarCodigo()
+        {
+            string codigo = "";
+            int contador = 1;
+            bool esIgual = true;
+            Persona p = buscarPersona();
+
+            while (esIgual)
+            {
+                if (contador < p.nombre.Length && esIgual)
+                {
+                    codigo = p.nombre.Substring(0, contador).ToUpper();
+                    esIgual = verificarCodigo(codigo);
+                }
+                if (contador < p.apellido1.Length && esIgual)
+                {
+                    codigo += p.apellido1.Substring(0, contador).ToUpper();
+                    esIgual = verificarCodigo(codigo);
+                }
+                if (contador < p.apellido2.Length && esIgual)
+                {
+                    codigo += p.apellido2.Substring(0, contador).ToUpper();
+                    esIgual = verificarCodigo(codigo);
+                }
+                contador++;
+            }
+            return codigo;
+        }
+
+        private bool verificarCodigo(string codigo)
+        {
+            foreach (Usuario usuario in ubo.GetUsuarios())
+            {
+                if (usuario.codigo == codigo)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            buscarPersona();
+            txtCodigo.Text = generarCodigo();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -72,7 +132,6 @@ namespace Matricula.gui
             {
                 u.codigo = txtCodigo.Text;
                 u.idPersona = 0;
-                u.tipoUsuario = cmbTipoUsuario.SelectedItem.ToString();
                 u.contrasena = "";
                 u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString()));
                 u.activo = chkActivo.Checked;

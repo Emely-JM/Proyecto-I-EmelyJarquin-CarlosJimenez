@@ -12,7 +12,6 @@ namespace Matricula.entities
         public int id { get; set; }
         public string codigo { get; set; }
         public int idPersona { get; set; }
-        public string tipoUsuario { get; set; }
         public string contrasena { get; set; }
         public DateTime fechaExpiraContrasena { get; set; }
         public bool activo { get; set; }
@@ -22,13 +21,12 @@ namespace Matricula.entities
 
         }
 
-        public Usuario(int id, string codigo, int idPersona, string tipoUsuario,
-            string contrasena, DateTime fechaExpiraContrasena, bool activo)
+        public Usuario(int id, string codigo, int idPersona, string contrasena,
+            DateTime fechaExpiraContrasena, bool activo)
         {
             this.id = id;
             this.codigo = codigo;
             this.idPersona = idPersona;
-            this.tipoUsuario = tipoUsuario;
             this.contrasena = contrasena;
             this.fechaExpiraContrasena = fechaExpiraContrasena;
             this.activo = activo;
@@ -42,8 +40,8 @@ namespace Matricula.entities
         /// </returns>
         public override string ToString()
         {
-            return id + "," + codigo + "," + idPersona + "," + tipoUsuario
-                + "," + contrasena + "," + fechaExpiraContrasena + "," + activo;
+            return id + "," + codigo + "," + idPersona + "," + contrasena + ","
+                + fechaExpiraContrasena + "," + activo;
         }
     }
 }
