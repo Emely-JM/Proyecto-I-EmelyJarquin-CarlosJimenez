@@ -141,6 +141,18 @@
     <Compile Include="MenuAdmin.Designer.cs">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuProfesor.Designer.cs">
+      <DependentUpon>MenuProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotasEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotasEstudiante.Designer.cs">
+      <DependentUpon>NotasEstudiante.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevaContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuProfesor.resx">
+      <DependentUpon>MenuProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotasEstudiante.resx">
+      <DependentUpon>NotasEstudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevaContrasena.resx">
       <DependentUpon>NuevaContrasena.cs</DependentUpon>
@@ -338,6 +356,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_math_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ceuniver-0.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
