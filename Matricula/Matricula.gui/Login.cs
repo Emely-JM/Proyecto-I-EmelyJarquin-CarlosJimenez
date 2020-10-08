@@ -1,4 +1,5 @@
 ﻿using Matricula.bo;
+using Matricula.entities;
 using Matricula.utilitario;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Matricula.gui
     public partial class Login : Form
     {
         private AdminBO log;
+        private UsuarioBO ubo;
+        private PersonaBO pbo;
         private UsuarioBO logU;
         private Encripta encripta;
 
@@ -68,6 +71,86 @@ namespace Matricula.gui
             }
         }
 
+        private void aceptarStudent()
+        {
+            try
+            {
+                Usuario u = new Usuario();
+                u.codigo = txtUsuStuden.Text;
+                u.contrasena = txtPassStuden.Text;
+
+                u = ubo.iniciarSesion(u);
+
+                if (u != null && isStudent(u))
+                {
+                    ManuUsuario frm = new ManuUsuario();
+                    frm.ShowDialog();
+                    txtUsuStuden.Text = "";
+                    txtPassStuden.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show(this, "Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show(this, e.Message);
+            }
+        }
+
+        private void aceptarTeacher()
+        {
+            try
+            {
+                Usuario u = new Usuario();
+                u.codigo = txtUsuTeachers.Text;
+                u.contrasena = txtPassTeachers.Text;
+
+                u = ubo.iniciarSesion(u);
+
+                if (u != null && isTeacher(u))
+                {
+                    ManuUsuario frm = new ManuUsuario();
+                    frm.ShowDialog();
+                    txtUsuTeachers.Text = "";
+                    txtPassTeachers.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show(this, "Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show(this, e.Message);
+            }
+        }
+
+        private bool isStudent(Usuario u)
+        {
+            foreach (Persona persona in pbo.getLista())
+            {
+                if (persona.idPersona.Equals(u.idPersona) && persona.tipoPersona.Equals("Estudiante"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool isTeacher(Usuario u)
+        {
+            foreach (Persona persona in pbo.getLista())
+            {
+                if (persona.idPersona.Equals(u.idPersona) && persona.tipoPersona.Equals("Profesor"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public Login()
         {
             InitializeComponent();
@@ -88,8 +171,22 @@ namespace Matricula.gui
 
         private void btnAceptarStuden_Click(object sender, EventArgs e)
         {
-            ManuUsuario frm = new ManuUsuario();
-            frm.ShowDialog();
+            aceptarStudent();
+        }
+
+        private void btnCancelarStuden_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtAceparTeachers_Click(object sender, EventArgs e)
+        {
+            aceptarTeacher();
+        }
+
+        private void btnCancelarTeachers_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

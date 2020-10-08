@@ -154,7 +154,7 @@ namespace Matricula.dao
                     // Asigna los datos del usuario a una variable
                     int idUsuario = int.Parse(datos[0]);
                     string codigo = datos[1];
-                    int idPersona = int.Parse(datos[2]);
+                    string idPersona = datos[2];
                     string contrasena = datos[3];
                     DateTime fechaExpiraContrasena = DateTime.Parse(datos[4]);
                     bool activo = bool.Parse(datos[5]);
@@ -173,7 +173,24 @@ namespace Matricula.dao
             return usuarios;
         }
 
-
+        public Usuario iniciarSesion(Usuario u)
+        {
+            try
+            {
+                foreach (Usuario usuario in GetUsuarios())
+                {
+                    if (u.codigo == usuario.codigo && u.contrasena == u.contrasena)
+                    {
+                        return usuario;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al iniciar sesión");
+            }
+            return null;
+        }
 
     }
 }

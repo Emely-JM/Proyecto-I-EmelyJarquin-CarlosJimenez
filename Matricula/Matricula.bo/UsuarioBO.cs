@@ -74,5 +74,21 @@ namespace Matricula.bo
             return new UsuarioDAO().GetUsuarios();
         }
 
+        public Usuario iniciarSesion(Usuario u)
+        {
+            if (String.IsNullOrEmpty(u.codigo))
+            {
+                throw new ArgumentNullException("El usuario es requerido");
+            }
+            if (String.IsNullOrEmpty(u.contrasena))
+            {
+                throw new ArgumentNullException("La contraseña es requerida");
+            }
+
+            u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
+
+            return new UsuarioBO().iniciarSesion(u);
+        }
+
     }
 }
