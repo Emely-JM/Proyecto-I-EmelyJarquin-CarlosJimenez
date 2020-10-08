@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionMateria.Designer.cs">
+      <DependentUpon>AsignacionMateria.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     </Compile>
     <Compile Include="MantenimientoAdmin.Designer.cs">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoAsignacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoAsignacion.Designer.cs">
+      <DependentUpon>MantenimientoAsignacion.cs</DependentUpon>
     </Compile>
     <Compile Include="MantenimientoCarrera.cs">
       <SubType>Form</SubType>
@@ -186,6 +198,9 @@
       <DependentUpon>RegistraNota.cs</DependentUpon>
     </Compile>
     <Compile Include="ValidaDatos.cs" />
+    <EmbeddedResource Include="AsignacionMateria.resx">
+      <DependentUpon>AsignacionMateria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoAdmin.resx">
       <DependentUpon>MantenimientoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoAsignacion.resx">
+      <DependentUpon>MantenimientoAsignacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCarrera.resx">
       <DependentUpon>MantenimientoCarrera.cs</DependentUpon>

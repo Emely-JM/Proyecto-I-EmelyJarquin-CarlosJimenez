@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminBO.cs" />
+    <Compile Include="AsignacionBO.cs" />
     <Compile Include="CarreraBO.cs" />
     <Compile Include="MateriaBO.cs" />
     <Compile Include="EvaluacionBO.cs" />

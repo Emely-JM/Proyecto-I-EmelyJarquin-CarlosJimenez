@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabAdmin = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCancelarAdmin = new System.Windows.Forms.Button();
             this.btnAceptarAdmin = new System.Windows.Forms.Button();
@@ -55,7 +55,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tabAdmin.SuspendLayout();
+            this.btnRegistrarse = new System.Windows.Forms.Button();
+            this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -65,16 +66,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabAdmin
+            // tabControl
             // 
-            this.tabAdmin.Controls.Add(this.tabPage1);
-            this.tabAdmin.Controls.Add(this.tabPage2);
-            this.tabAdmin.Controls.Add(this.tabPage3);
-            this.tabAdmin.Location = new System.Drawing.Point(-2, -1);
-            this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.SelectedIndex = 0;
-            this.tabAdmin.Size = new System.Drawing.Size(415, 243);
-            this.tabAdmin.TabIndex = 0;
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Location = new System.Drawing.Point(-2, -1);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(415, 243);
+            this.tabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -177,6 +178,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnRegistrarse);
             this.tabPage2.Controls.Add(this.btnCancelarStuden);
             this.tabPage2.Controls.Add(this.btnAceptarStuden);
             this.tabPage2.Controls.Add(this.txtPassStuden);
@@ -374,18 +376,27 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnRegistrarse
+            // 
+            this.btnRegistrarse.Location = new System.Drawing.Point(10, 13);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrarse.TabIndex = 13;
+            this.btnRegistrarse.Text = "Registrarse";
+            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(413, 241);
-            this.Controls.Add(this.tabAdmin);
+            this.Controls.Add(this.tabControl);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.tabAdmin.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -402,7 +413,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabAdmin;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtPassAdmin;
         private System.Windows.Forms.TextBox txtUsuAdmin;
@@ -428,5 +439,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnRegistrarse;
     }
 }

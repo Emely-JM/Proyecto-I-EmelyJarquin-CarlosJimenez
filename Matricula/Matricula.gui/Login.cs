@@ -15,6 +15,7 @@ namespace Matricula.gui
     public partial class Login : Form
     {
         private AdminBO log;
+        private UsuarioBO logU;
         private Encripta encripta;
 
         /// <summary>
@@ -71,6 +72,7 @@ namespace Matricula.gui
         {
             InitializeComponent();
             log = new AdminBO();
+            logU = new UsuarioBO();
             encripta = new Encripta();
         }
 
