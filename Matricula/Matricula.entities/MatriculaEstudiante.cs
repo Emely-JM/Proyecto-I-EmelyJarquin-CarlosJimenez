@@ -11,6 +11,7 @@ namespace Matricula.entities
         public string idFactura { get; set; }
         public string idPersona { get; set; }
         public string idPeriodo { get; set; }
+        public string idProfesor { get; set; }
         public DateTime fechaMatricula { get; set; }
         public string idMateria { get; set; }
         public string estado { get; set; }
@@ -21,11 +22,12 @@ namespace Matricula.entities
         {
         }
 
-        public MatriculaEstudiante(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula, string idMateria, string estado, string comprobante, DateTime fechaPago)
+        public MatriculaEstudiante(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula, string idMateria, string idProfesor, string estado, string comprobante, DateTime fechaPago)
         {
             this.idFactura = idFactura;
             this.idPersona = idPersona;
             this.idPeriodo = idPeriodo;
+            this.idProfesor = idProfesor;
             this.fechaMatricula = fechaMatricula;
             this.idMateria = idMateria;
             this.estado = estado;
@@ -35,7 +37,7 @@ namespace Matricula.entities
 
         public string toString()
         {
-            return idFactura + "," + idPersona + "," + idPeriodo + "," + fechaMatricula +","+idMateria+ "," + estado + "," + comprobante + "," + fechaPago;
+            return idFactura + "," + idPersona + "," + idPeriodo + "," + fechaMatricula + "," + idMateria + "," + idProfesor + "," + estado + "," + comprobante + "," + fechaPago;
         }
 
     }

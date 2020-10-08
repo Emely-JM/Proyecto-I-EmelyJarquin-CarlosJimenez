@@ -63,11 +63,12 @@ namespace Matricula.dao
                     string idPeriodo = items[2].Trim();
                     DateTime fechaMatricula = DateTime.Parse(items[3].Trim());
                     string idMateria = items[4].Trim();
-                    string estado = items[5].Trim();
-                    string comprobante = items[6].Trim();
-                    DateTime fechaPago = DateTime.Parse(items[7].Trim());
+                    string idProf = items[5].Trim();
+                    string estado = items[6].Trim();
+                    string comprobante = items[7].Trim();
+                    DateTime fechaPago = DateTime.Parse(items[8].Trim());
 
-                    MatriculaEstudiante objMatricula = new MatriculaEstudiante(idFactura,idPersona,idPeriodo,fechaMatricula,idMateria,estado,comprobante,fechaPago);
+                    MatriculaEstudiante objMatricula = new MatriculaEstudiante(idFactura,idPersona,idPeriodo,fechaMatricula,idMateria,idProf,estado,comprobante,fechaPago);
                     matriculas.Add(objMatricula);
 
                     //Lee la siguiente línea

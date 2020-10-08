@@ -31,9 +31,9 @@ namespace Matricula.bo
         /// <param name="estado"> estado de la matricula </param>
         /// <param name="comprobante"> comprobante de la matricula </param>
         /// <param name="fechaPago"> fecha del pago </param>
-        public void agregar(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula,string idMateria, string estado, string comprobante, DateTime fechaPago)
+        public void agregar(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula,string idMateria,string idProf, string estado, string comprobante, DateTime fechaPago)
         {
-            proceso.Add(new MatriculaEstudiante(idFactura,idPersona,idPeriodo,fechaMatricula,idMateria,estado,comprobante,fechaPago));
+            proceso.Add(new MatriculaEstudiante(idFactura,idPersona,idPeriodo,fechaMatricula,idMateria,idProf,estado,comprobante,fechaPago));
         }
 
         /// <summary>
