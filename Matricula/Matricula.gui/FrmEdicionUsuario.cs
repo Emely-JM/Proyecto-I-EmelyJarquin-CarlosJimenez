@@ -18,6 +18,8 @@ namespace Matricula.gui
         private UsuarioBO ubo;
         private PersonaBO pbo;
 
+        string idPersona = "";
+
         public FrmEdicionUsuario()
         {
             InitializeComponent();
@@ -71,6 +73,7 @@ namespace Matricula.gui
                 if (persona.cedula == int.Parse(txtBuscar.Text))
                 {
                     p = persona;
+                    idPersona = p.idPersona;
                     txtCodigo.Text = p.cedula.ToString();
                     txtBuscar.Clear();
                     break;
@@ -131,8 +134,8 @@ namespace Matricula.gui
             try
             {
                 u.codigo = txtCodigo.Text;
-                u.idPersona = 0;
-                u.contrasena = "";
+                u.idPersona = idPersona;
+                u.contrasena = txtContrasena.Text;
                 u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString()));
                 u.activo = chkActivo.Checked;
                 ubo.guardar(u);
@@ -140,7 +143,7 @@ namespace Matricula.gui
             }
             catch (Exception)
             {
-                throw new Exception("Error al agregar el usuario");
+                MessageBox.Show(this, "Error al agregar el usuario");
             }   
         }
 

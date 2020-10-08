@@ -49,7 +49,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnCancelarTeachers = new System.Windows.Forms.Button();
             this.txtAceparTeachers = new System.Windows.Forms.Button();
-            this.txtPasstxtUsuTeachers = new System.Windows.Forms.TextBox();
+            this.txtPassTeachers = new System.Windows.Forms.TextBox();
             this.txtUsuTeachers = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -205,6 +205,7 @@
             this.btnCancelarStuden.Text = "Cancelar";
             this.btnCancelarStuden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarStuden.UseVisualStyleBackColor = true;
+            this.btnCancelarStuden.Click += new System.EventHandler(this.btnCancelarStuden_Click);
             // 
             // btnAceptarStuden
             // 
@@ -277,7 +278,7 @@
             // 
             this.tabPage3.Controls.Add(this.btnCancelarTeachers);
             this.tabPage3.Controls.Add(this.txtAceparTeachers);
-            this.tabPage3.Controls.Add(this.txtPasstxtUsuTeachers);
+            this.tabPage3.Controls.Add(this.txtPassTeachers);
             this.tabPage3.Controls.Add(this.txtUsuTeachers);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.label6);
@@ -303,6 +304,7 @@
             this.btnCancelarTeachers.Text = "Cancelar";
             this.btnCancelarTeachers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarTeachers.UseVisualStyleBackColor = true;
+            this.btnCancelarTeachers.Click += new System.EventHandler(this.btnCancelarTeachers_Click);
             // 
             // txtAceparTeachers
             // 
@@ -317,16 +319,17 @@
             this.txtAceparTeachers.Text = "Aceptar";
             this.txtAceparTeachers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtAceparTeachers.UseVisualStyleBackColor = true;
+            this.txtAceparTeachers.Click += new System.EventHandler(this.txtAceparTeachers_Click);
             // 
-            // txtPasstxtUsuTeachers
+            // txtPassTeachers
             // 
-            this.txtPasstxtUsuTeachers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPasstxtUsuTeachers.Location = new System.Drawing.Point(178, 110);
-            this.txtPasstxtUsuTeachers.Multiline = true;
-            this.txtPasstxtUsuTeachers.Name = "txtPasstxtUsuTeachers";
-            this.txtPasstxtUsuTeachers.PasswordChar = '*';
-            this.txtPasstxtUsuTeachers.Size = new System.Drawing.Size(209, 33);
-            this.txtPasstxtUsuTeachers.TabIndex = 16;
+            this.txtPassTeachers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassTeachers.Location = new System.Drawing.Point(178, 110);
+            this.txtPassTeachers.Multiline = true;
+            this.txtPassTeachers.Name = "txtPassTeachers";
+            this.txtPassTeachers.PasswordChar = '*';
+            this.txtPassTeachers.Size = new System.Drawing.Size(209, 33);
+            this.txtPassTeachers.TabIndex = 16;
             // 
             // txtUsuTeachers
             // 
@@ -422,7 +425,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancelarTeachers;
         private System.Windows.Forms.Button txtAceparTeachers;
-        private System.Windows.Forms.TextBox txtPasstxtUsuTeachers;
+        private System.Windows.Forms.TextBox txtPassTeachers;
         private System.Windows.Forms.TextBox txtUsuTeachers;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
