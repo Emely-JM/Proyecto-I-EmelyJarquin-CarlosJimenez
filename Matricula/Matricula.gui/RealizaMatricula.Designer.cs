@@ -50,6 +50,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbProfe = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(25, 337);
+            this.label5.Location = new System.Drawing.Point(22, 381);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 18);
             this.label5.TabIndex = 4;
@@ -118,7 +120,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 288);
+            this.label6.Location = new System.Drawing.Point(23, 333);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 18);
             this.label6.TabIndex = 5;
@@ -138,7 +140,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(25, 388);
+            this.label8.Location = new System.Drawing.Point(22, 432);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 18);
             this.label8.TabIndex = 7;
@@ -183,7 +185,7 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "Prematricula ",
             "Matriculado"});
-            this.cmbEstado.Location = new System.Drawing.Point(91, 280);
+            this.cmbEstado.Location = new System.Drawing.Point(91, 325);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(253, 26);
             this.cmbEstado.TabIndex = 12;
@@ -201,7 +203,7 @@
             // dateTimeMatricula
             // 
             this.dateTimeMatricula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeMatricula.Location = new System.Drawing.Point(175, 329);
+            this.dateTimeMatricula.Location = new System.Drawing.Point(172, 373);
             this.dateTimeMatricula.Name = "dateTimeMatricula";
             this.dateTimeMatricula.Size = new System.Drawing.Size(240, 26);
             this.dateTimeMatricula.TabIndex = 14;
@@ -209,7 +211,7 @@
             // dateTimePago
             // 
             this.dateTimePago.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePago.Location = new System.Drawing.Point(149, 382);
+            this.dateTimePago.Location = new System.Drawing.Point(146, 426);
             this.dateTimePago.Name = "dateTimePago";
             this.dateTimePago.Size = new System.Drawing.Size(266, 26);
             this.dateTimePago.TabIndex = 15;
@@ -250,7 +252,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 235);
+            this.label9.Location = new System.Drawing.Point(23, 281);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 18);
             this.label9.TabIndex = 18;
@@ -263,17 +265,42 @@
             this.cmbMateria.Items.AddRange(new object[] {
             "Prematricula ",
             "Matriculado"});
-            this.cmbMateria.Location = new System.Drawing.Point(113, 227);
+            this.cmbMateria.Location = new System.Drawing.Point(113, 278);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(231, 26);
             this.cmbMateria.TabIndex = 19;
             this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(23, 238);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 18);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "ID profesor:";
+            // 
+            // cmbProfe
+            // 
+            this.cmbProfe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProfe.FormattingEnabled = true;
+            this.cmbProfe.Items.AddRange(new object[] {
+            "Prematricula ",
+            "Matriculado"});
+            this.cmbProfe.Location = new System.Drawing.Point(117, 230);
+            this.cmbProfe.Name = "cmbProfe";
+            this.cmbProfe.Size = new System.Drawing.Size(231, 26);
+            this.cmbProfe.TabIndex = 21;
+            this.cmbProfe.SelectedIndexChanged += new System.EventHandler(this.cmbProfe_SelectedIndexChanged);
+            // 
             // RealizaMatricula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 474);
+            this.ClientSize = new System.Drawing.Size(818, 476);
+            this.Controls.Add(this.cmbProfe);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.cmbMateria);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnCancelar);
@@ -327,5 +354,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cmbMateria;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbProfe;
+        private System.Windows.Forms.Label label10;
     }
 }
