@@ -28,24 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosAsignadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cursosAsignados = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListaEstudiantes = new System.Windows.Forms.ToolStripMenuItem();
+            this.Notas = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.salir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Matricula.gui.Properties.Resources.ceuniver_0;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(772, 398);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -60,30 +52,50 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cursosAsignadosToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.cursosAsignados,
+            this.ListaEstudiantes,
+            this.Notas,
+            this.salir});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.toolStripMenuItem1.Text = "Menú";
             // 
-            // cursosAsignadosToolStripMenuItem
+            // cursosAsignados
             // 
-            this.cursosAsignadosToolStripMenuItem.Name = "cursosAsignadosToolStripMenuItem";
-            this.cursosAsignadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cursosAsignadosToolStripMenuItem.Text = "Cursos asignados";
+            this.cursosAsignados.Name = "cursosAsignados";
+            this.cursosAsignados.Size = new System.Drawing.Size(180, 22);
+            this.cursosAsignados.Text = "Cursos asignados";
+            this.cursosAsignados.Click += new System.EventHandler(this.cursosAsignados_Click);
             // 
-            // toolStripMenuItem2
+            // ListaEstudiantes
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "Lista de estudiantes";
+            this.ListaEstudiantes.Name = "ListaEstudiantes";
+            this.ListaEstudiantes.Size = new System.Drawing.Size(180, 22);
+            this.ListaEstudiantes.Text = "Lista de estudiantes";
+            this.ListaEstudiantes.Click += new System.EventHandler(this.ListaEstudiantes_Click);
             // 
-            // toolStripMenuItem3
+            // Notas
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "Registrar notas";
+            this.Notas.Name = "Notas";
+            this.Notas.Size = new System.Drawing.Size(180, 22);
+            this.Notas.Text = "Registrar notas";
+            this.Notas.Click += new System.EventHandler(this.Notas_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Matricula.gui.Properties.Resources.ceuniver_0;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(772, 398);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // salir
+            // 
+            this.salir.Name = "salir";
+            this.salir.Size = new System.Drawing.Size(180, 22);
+            this.salir.Text = "Salir";
+            this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
             // MenuProfesor
             // 
@@ -96,9 +108,9 @@
             this.Name = "MenuProfesor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú de profesores";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,8 +121,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cursosAsignadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem cursosAsignados;
+        private System.Windows.Forms.ToolStripMenuItem ListaEstudiantes;
+        private System.Windows.Forms.ToolStripMenuItem Notas;
+        private System.Windows.Forms.ToolStripMenuItem salir;
     }
 }

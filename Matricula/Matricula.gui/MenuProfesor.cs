@@ -12,9 +12,35 @@ namespace Matricula.gui
 {
     public partial class MenuProfesor : Form
     {
-        public MenuProfesor()
+        private string usu;
+
+        public MenuProfesor(string usuario)
         {
             InitializeComponent();
+            usu = usuario;
+        }
+
+        private void cursosAsignados_Click(object sender, EventArgs e)
+        {
+            CursosAsignados frm = new CursosAsignados(usu);
+            frm.ShowDialog();
+        }
+
+        private void ListaEstudiantes_Click(object sender, EventArgs e)
+        {
+            ListaEstudiante frm = new ListaEstudiante(usu);
+            frm.ShowDialog();
+        }
+
+        private void Notas_Click(object sender, EventArgs e)
+        {
+            RegistraNota frm = new RegistraNota();
+            frm.ShowDialog();
+        }
+
+        private void salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -69,6 +69,12 @@
     <Compile Include="AsignacionMateria.Designer.cs">
       <DependentUpon>AsignacionMateria.cs</DependentUpon>
     </Compile>
+    <Compile Include="CursosAsignados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CursosAsignados.Designer.cs">
+      <DependentUpon>CursosAsignados.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaEstudiante.Designer.cs">
+      <DependentUpon>ListaEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -201,6 +213,9 @@
     <EmbeddedResource Include="AsignacionMateria.resx">
       <DependentUpon>AsignacionMateria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CursosAsignados.resx">
+      <DependentUpon>CursosAsignados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaEstudiante.resx">
+      <DependentUpon>ListaEstudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
