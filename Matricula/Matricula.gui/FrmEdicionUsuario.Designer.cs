@@ -30,23 +30,21 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.txtPersona = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblCedulaPersona = new System.Windows.Forms.Label();
             this.lblPersona = new System.Windows.Forms.Label();
-            this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.lblExpiraContrasena = new System.Windows.Forms.Label();
             this.lblActivo = new System.Windows.Forms.Label();
-            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.cmbExpiraContrasena = new System.Windows.Forms.ComboBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,20 +68,10 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Edición de usuario";
             // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(202, 101);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(86, 25);
-            this.lblCodigo.TabIndex = 1;
-            this.lblCodigo.Text = "Código:";
-            // 
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(412, 332);
+            this.chkActivo.Location = new System.Drawing.Point(412, 295);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(15, 14);
             this.chkActivo.TabIndex = 2;
@@ -105,7 +93,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnBuscar.Location = new System.Drawing.Point(550, 130);
+            this.btnBuscar.Location = new System.Drawing.Point(550, 93);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 40);
             this.btnBuscar.TabIndex = 8;
@@ -129,7 +117,7 @@
             // 
             this.txtPersona.Enabled = false;
             this.txtPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPersona.Location = new System.Drawing.Point(294, 172);
+            this.txtPersona.Location = new System.Drawing.Point(294, 135);
             this.txtPersona.Name = "txtPersona";
             this.txtPersona.Size = new System.Drawing.Size(250, 31);
             this.txtPersona.TabIndex = 10;
@@ -137,24 +125,16 @@
             // txtContrasena
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(294, 248);
+            this.txtContrasena.Location = new System.Drawing.Point(294, 211);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(250, 31);
             this.txtContrasena.TabIndex = 12;
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(294, 98);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(250, 31);
-            this.txtCodigo.TabIndex = 13;
-            // 
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(294, 135);
+            this.txtBuscar.Location = new System.Drawing.Point(294, 98);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 31);
             this.txtBuscar.TabIndex = 14;
@@ -163,7 +143,7 @@
             // 
             this.lblCedulaPersona.AutoSize = true;
             this.lblCedulaPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedulaPersona.Location = new System.Drawing.Point(121, 138);
+            this.lblCedulaPersona.Location = new System.Drawing.Point(121, 101);
             this.lblCedulaPersona.Name = "lblCedulaPersona";
             this.lblCedulaPersona.Size = new System.Drawing.Size(170, 25);
             this.lblCedulaPersona.TabIndex = 15;
@@ -173,27 +153,17 @@
             // 
             this.lblPersona.AutoSize = true;
             this.lblPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersona.Location = new System.Drawing.Point(196, 175);
+            this.lblPersona.Location = new System.Drawing.Point(196, 138);
             this.lblPersona.Name = "lblPersona";
             this.lblPersona.Size = new System.Drawing.Size(92, 25);
             this.lblPersona.TabIndex = 16;
             this.lblPersona.Text = "Persona";
             // 
-            // lblTipoUsuario
-            // 
-            this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoUsuario.Location = new System.Drawing.Point(121, 212);
-            this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(167, 25);
-            this.lblTipoUsuario.TabIndex = 17;
-            this.lblTipoUsuario.Text = "Tipo de usuario:";
-            // 
             // lblContrasena
             // 
             this.lblContrasena.AutoSize = true;
             this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.Location = new System.Drawing.Point(159, 251);
+            this.lblContrasena.Location = new System.Drawing.Point(159, 214);
             this.lblContrasena.Name = "lblContrasena";
             this.lblContrasena.Size = new System.Drawing.Size(129, 25);
             this.lblContrasena.TabIndex = 18;
@@ -203,7 +173,7 @@
             // 
             this.lblExpiraContrasena.AutoSize = true;
             this.lblExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpiraContrasena.Location = new System.Drawing.Point(96, 288);
+            this.lblExpiraContrasena.Location = new System.Drawing.Point(96, 251);
             this.lblExpiraContrasena.Name = "lblExpiraContrasena";
             this.lblExpiraContrasena.Size = new System.Drawing.Size(192, 25);
             this.lblExpiraContrasena.TabIndex = 19;
@@ -213,24 +183,11 @@
             // 
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivo.Location = new System.Drawing.Point(211, 327);
+            this.lblActivo.Location = new System.Drawing.Point(211, 290);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(77, 25);
             this.lblActivo.TabIndex = 20;
             this.lblActivo.Text = "Activo:";
-            // 
-            // cmbTipoUsuario
-            // 
-            this.cmbTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipoUsuario.FormattingEnabled = true;
-            this.cmbTipoUsuario.Items.AddRange(new object[] {
-            "\"Administrador\"",
-            "\"Profesor\"",
-            "\"Estudiante\""});
-            this.cmbTipoUsuario.Location = new System.Drawing.Point(294, 209);
-            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
-            this.cmbTipoUsuario.Size = new System.Drawing.Size(250, 33);
-            this.cmbTipoUsuario.TabIndex = 21;
             // 
             // cmbExpiraContrasena
             // 
@@ -240,33 +197,49 @@
             "\"30 días\"",
             "\"60 días\"",
             "\"90 días\""});
-            this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 285);
+            this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 248);
             this.cmbExpiraContrasena.Name = "cmbExpiraContrasena";
             this.cmbExpiraContrasena.Size = new System.Drawing.Size(250, 33);
             this.cmbExpiraContrasena.TabIndex = 22;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(294, 174);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(250, 31);
+            this.txtCodigo.TabIndex = 24;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(202, 177);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(86, 25);
+            this.lblCodigo.TabIndex = 23;
+            this.lblCodigo.Text = "Código:";
             // 
             // FrmEdicionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.cmbExpiraContrasena);
-            this.Controls.Add(this.cmbTipoUsuario);
             this.Controls.Add(this.lblActivo);
             this.Controls.Add(this.lblExpiraContrasena);
             this.Controls.Add(this.lblContrasena);
-            this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.lblPersona);
             this.Controls.Add(this.lblCedulaPersona);
             this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtPersona);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.chkActivo);
-            this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.panel1);
             this.Name = "FrmEdicionUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -283,22 +256,20 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TextBox txtPersona;
         private System.Windows.Forms.TextBox txtContrasena;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblCedulaPersona;
         private System.Windows.Forms.Label lblPersona;
-        private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.Label lblExpiraContrasena;
         private System.Windows.Forms.Label lblActivo;
-        private System.Windows.Forms.ComboBox cmbTipoUsuario;
         private System.Windows.Forms.ComboBox cmbExpiraContrasena;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label lblCodigo;
     }
 }

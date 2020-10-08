@@ -89,7 +89,6 @@ namespace Matricula.dao
                         // Sobreescribe los datos de un usuario existente con los datos nuevos
                         usuario.codigo = u.codigo;
                         usuario.idPersona = u.idPersona;
-                        usuario.tipoUsuario = u.tipoUsuario;
                         usuario.contrasena = u.contrasena;
                         usuario.fechaExpiraContrasena = u.fechaExpiraContrasena;
                         usuario.activo = u.activo;
@@ -156,13 +155,12 @@ namespace Matricula.dao
                     int idUsuario = int.Parse(datos[0]);
                     string codigo = datos[1];
                     int idPersona = int.Parse(datos[2]);
-                    string tipoUsuario = datos[3];
-                    string contrasena = datos[4];
-                    DateTime fechaExpiraContrasena = DateTime.Parse(datos[5]);
-                    bool activo = bool.Parse(datos[6]);
+                    string contrasena = datos[3];
+                    DateTime fechaExpiraContrasena = DateTime.Parse(datos[4]);
+                    bool activo = bool.Parse(datos[5]);
 
                     // Agrega el usuario a la lista de usuarios
-                    usuarios.Add(new Usuario(idUsuario, codigo, idPersona, tipoUsuario, contrasena, fechaExpiraContrasena, activo));
+                    usuarios.Add(new Usuario(idUsuario, codigo, idPersona, contrasena, fechaExpiraContrasena, activo));
 
                     linea = sr.ReadLine();
                 }
