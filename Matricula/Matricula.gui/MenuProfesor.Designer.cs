@@ -64,8 +64,8 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(125, 20);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
+            this.toolStripMenuItem1.Text = "Menú";
             // 
             // cursosAsignadosToolStripMenuItem
             // 
