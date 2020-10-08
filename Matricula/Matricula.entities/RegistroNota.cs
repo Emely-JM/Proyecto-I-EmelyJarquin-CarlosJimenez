@@ -27,21 +27,6 @@ namespace Matricula.entities
             this.estado = estado;
         }
 
-        /// <summary>
-        /// Calcula la nota de los estudiantes según los datos obtenidos
-        /// </summary>
-        /// <param name="proyectos"> representa la cantidad de puntos ganados en proyectos </param>
-        /// <param name="laboratorios"> representa la cantidad de puntos ganados en laboratorios </param>
-        /// <param name="examenes"> representa la cantidad de puntos ganados en examenes </param>
-        /// <param name="pruebasCortas"> representa la cantidad de puntos ganados en pruebas cortas</param>
-        /// <returns></returns>
-        public float calculaNota(int proyectos, int laboratorios, int examenes, int pruebasCortas)
-        {
-            float resultado = 0;
-            resultado = (proyectos + laboratorios + examenes + pruebasCortas) / 4;
-            return resultado;
-        }
-
 
         public string toString()
         {

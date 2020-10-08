@@ -12,12 +12,13 @@ namespace Matricula.bo
     {
         List<RegistroNota> proceso;
         RegistroNotaDAO objArchivo;
-
+        RegistroNota nota;
         public RegistroNotaBO()
         {
             proceso = new List<RegistroNota>();
             objArchivo = new RegistroNotaDAO();
             proceso = objArchivo.leerArchivo();
+            nota = new RegistroNota();
         }
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Matricula.bo
         /// <param name="estado"> estado del estudiante según la nota obtenida </param>
         public void agregar(string idPeriodo, string idMateria, string idEstudiante, float nota, string estado)
         {
-            proceso.Add(new RegistroNota(idPeriodo,idMateria,idEstudiante,nota,estado));
+            proceso.Add(new RegistroNota(idPeriodo, idMateria, idEstudiante, nota, estado));
         }
 
         /// <summary>
@@ -45,9 +46,9 @@ namespace Matricula.bo
         /// <returns> retorna un indice si encuentra los datos o un -1 sino </returns>
         public int permitirNota(string idPeriodo, string idEstudiante, string idMateria)
         {
-            for(int i = 0; i < proceso.Count; i++)
+            for (int i = 0; i < proceso.Count; i++)
             {
-                if(proceso[i].idPeriodo.Equals(idPeriodo) && proceso[i].idEstudiante.Equals(idEstudiante))
+                if (proceso[i].idPeriodo.Equals(idPeriodo) && proceso[i].idEstudiante.Equals(idEstudiante))
                 {
                     if (proceso[i].idMateria.Equals(idMateria))
                     {
@@ -56,6 +57,21 @@ namespace Matricula.bo
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Calcula la nota de los estudiantes según los datos obtenidos
+        /// </summary>
+        /// <param name="proyectos"> representa la cantidad de puntos ganados en proyectos </param>
+        /// <param name="laboratorios"> representa la cantidad de puntos ganados en laboratorios </param>
+        /// <param name="examenes"> representa la cantidad de puntos ganados en examenes </param>
+        /// <param name="pruebasCortas"> representa la cantidad de puntos ganados en pruebas cortas</param>
+        /// <returns></returns>
+        public float calculaNota(int proyectos, int laboratorios, int examenes, int pruebasCortas)
+        {
+            float resultado = 0;
+            resultado = (proyectos + laboratorios + examenes + pruebasCortas) / 4;
+            return resultado;
         }
 
         /// <summary>
