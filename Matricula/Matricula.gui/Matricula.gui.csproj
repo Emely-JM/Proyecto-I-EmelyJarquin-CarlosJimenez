@@ -167,6 +167,12 @@
     <Compile Include="RealizaMatricula.Designer.cs">
       <DependentUpon>RealizaMatricula.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistraNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistraNota.Designer.cs">
+      <DependentUpon>RegistraNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="ValidaDatos.cs" />
     <EmbeddedResource Include="EditaAdmin.resx">
       <DependentUpon>EditaAdmin.cs</DependentUpon>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RealizaMatricula.resx">
       <DependentUpon>RealizaMatricula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistraNota.resx">
+      <DependentUpon>RegistraNota.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
