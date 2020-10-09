@@ -74,6 +74,15 @@ namespace Matricula.bo
             return new UsuarioDAO().GetUsuarios();
         }
 
+        /// <summary>
+        /// Verifica los los datos de inicio de sesión del usuario sean correctos
+        /// </summary>
+        /// <param name="u">
+        /// Instancia de la clase Usuario
+        /// </param>
+        /// <returns>
+        /// Un usuario si el inicio de sesión es exitoso
+        /// </returns>
         public Usuario iniciarSesion(Usuario u)
         {
             if (String.IsNullOrEmpty(u.codigo))
@@ -87,7 +96,7 @@ namespace Matricula.bo
 
             u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
 
-            return new UsuarioBO().iniciarSesion(u);
+            return new UsuarioDAO().iniciarSesion(u);
         }
 
     }

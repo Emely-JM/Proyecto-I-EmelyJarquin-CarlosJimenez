@@ -71,6 +71,10 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Permite a un usuario ingresar a la aplicación como estudiante
+        /// si el usuario y contraseña son correctos
+        /// </summary>
         private void aceptarStudent()
         {
             try
@@ -83,7 +87,7 @@ namespace Matricula.gui
 
                 if (u != null && isStudent(u))
                 {
-                    ManuUsuario frm = new ManuUsuario();
+                    ManuUsuario frm = new ManuUsuario(u.id.ToString());
                     frm.ShowDialog();
                     txtUsuStuden.Text = "";
                     txtPassStuden.Text = "";
@@ -97,8 +101,16 @@ namespace Matricula.gui
             {
                 MessageBox.Show(this, e.Message);
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(this, e.Message);
+            }
         }
 
+        /// <summary>
+        /// Permite a un usuario ingresar a la aplicación como profesor
+        /// si el usuario y contraseña son correctos
+        /// </summary>
         private void aceptarTeacher()
         {
             try
@@ -111,7 +123,7 @@ namespace Matricula.gui
 
                 if (u != null && isTeacher(u))
                 {
-                    ManuUsuario frm = new ManuUsuario();
+                    ManuUsuario frm = new ManuUsuario(u.id.ToString());
                     frm.ShowDialog();
                     txtUsuTeachers.Text = "";
                     txtPassTeachers.Text = "";
@@ -127,6 +139,15 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Verifica que un usuario sea estudiante
+        /// </summary>
+        /// <param name="u">
+        /// Instancia de la clase Usuario
+        /// </param>
+        /// <returns>
+        /// Verdadero si el usuario es de tipo estudiante
+        /// </returns>
         private bool isStudent(Usuario u)
         {
             foreach (Persona persona in pbo.getLista())
@@ -139,6 +160,15 @@ namespace Matricula.gui
             return false;
         }
 
+        /// <summary>
+        /// Verifica que un usuario sea profesor
+        /// </summary>
+        /// <param name="u">
+        /// Instancia de la clase Usuario
+        /// </param>
+        /// <returns>
+        /// Verdadero si el usuario es de tipo profesor
+        /// </returns>
         private bool isTeacher(Usuario u)
         {
             foreach (Persona persona in pbo.getLista())
@@ -156,6 +186,8 @@ namespace Matricula.gui
             InitializeComponent();
             log = new AdminBO();
             logU = new UsuarioBO();
+            ubo = new UsuarioBO();
+            pbo = new PersonaBO();
             encripta = new Encripta();
         }
 
