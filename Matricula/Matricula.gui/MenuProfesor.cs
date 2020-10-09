@@ -42,5 +42,6 @@ namespace Matricula.gui
         {
             this.Close();
         }
+
     }
 }

@@ -21,6 +21,8 @@ namespace Matricula.gui
         private List<MatriculaEstudiante> listaE;
         private PersonaBO logP;
         private List<Persona> listaP;
+        private RegistroNotaBO logN;
+        private List<RegistroNota> listaN;
 
         /// <summary>
         /// Carga el combo con las materias del id del profesor pasado por parámetro
@@ -50,6 +52,7 @@ namespace Matricula.gui
         {
             listaE = logE.getLista();
             listaP = logP.getLista();
+            listaN = logN.getLista();
             cmbEstudiante.Items.Clear();
             for (int i = 0; i < listaE.Count; i++)
             {
@@ -58,7 +61,14 @@ namespace Matricula.gui
                     for (int x = 0; x < listaP.Count; x++)
                     {
                         if (listaP[i].idPersona.Equals(listaE[i].idPersona)){
-                            cmbMateria.Items.Add(listaP[i].nombre + " " + listaP[i].apellido1 + " " + listaP[i].apellido2);
+
+                            for (int c = 0; c < listaN.Count; c++)
+                            {
+                                if (listaN[i].idEstudiante.Equals(listaP[i].idPersona))
+                                {
+                                    cmbMateria.Items.Add(listaP[i].nombre + " " + listaP[i].apellido1 + " " + listaP[i].apellido2 + " " + listaN[i].nota);
+                                }
+                            }
                         }
                     }
                 }
@@ -74,6 +84,8 @@ namespace Matricula.gui
             logP = new PersonaBO();
             listaE = new List<MatriculaEstudiante>();
             listaP = new List<Persona>();
+            logN = new RegistroNotaBO();
+            listaN = new List<RegistroNota>();
             idP = id;
             cargarComboIdMaterias(id);
         }

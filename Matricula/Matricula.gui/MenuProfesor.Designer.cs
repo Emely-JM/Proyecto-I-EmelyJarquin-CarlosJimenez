@@ -33,8 +33,8 @@
             this.cursosAsignados = new System.Windows.Forms.ToolStripMenuItem();
             this.ListaEstudiantes = new System.Windows.Forms.ToolStripMenuItem();
             this.Notas = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.salir = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,13 @@
             this.Notas.Text = "Registrar notas";
             this.Notas.Click += new System.EventHandler(this.Notas_Click);
             // 
+            // salir
+            // 
+            this.salir.Name = "salir";
+            this.salir.Size = new System.Drawing.Size(180, 22);
+            this.salir.Text = "Salir";
+            this.salir.Click += new System.EventHandler(this.salir_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Matricula.gui.Properties.Resources.ceuniver_0;
@@ -89,13 +96,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(772, 398);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // salir
-            // 
-            this.salir.Name = "salir";
-            this.salir.Size = new System.Drawing.Size(180, 22);
-            this.salir.Text = "Salir";
-            this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
             // MenuProfesor
             // 
