@@ -23,6 +23,9 @@ namespace Matricula.gui
             tabla.Columns[0].ValueType = typeof(object);
         }
 
+        /// <summary>
+        /// Carga la tabla DataGridView en la ventana con los usuarios activos de la aplicación
+        /// </summary>
         private void cargarTabla()
         {
             try
@@ -34,7 +37,7 @@ namespace Matricula.gui
                     {
                         if (u.activo)
                         {
-                            tabla.Rows.Add(u, u.codigo, u.tipoUsuario, u.activo);
+                            tabla.Rows.Add(u, u.codigo, u.activo);
                         }
                     }
                 }
@@ -44,15 +47,15 @@ namespace Matricula.gui
                     {
                         if (u.codigo.Equals(txtBuscar.Text) && u.activo)
                         {
-                            tabla.Rows.Add(u, u.codigo, u.tipoUsuario, u.activo);
+                            tabla.Rows.Add(u, u.codigo, u.activo);
                         }
                     }
                 }
                 txtBuscar.Clear();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new Exception("Error al cargar la tabla");
+                MessageBox.Show(this, "Error al cargar la tabla");
             }
         }
 
@@ -77,9 +80,9 @@ namespace Matricula.gui
                 frm.ShowDialog();
                 cargarTabla();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error al intentar editar el usuario");
+                MessageBox.Show(this, "Error al intentar editar el usuario");
             }
         }
 
@@ -92,9 +95,9 @@ namespace Matricula.gui
                 ubo.guardar(u);
                 cargarTabla();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error al intentar editar el usuario");
+                MessageBox.Show(this, "Error al intentar editar el usuario");
             }
         }
 

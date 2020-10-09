@@ -40,7 +40,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.objData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtbTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkbActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
@@ -91,7 +90,6 @@
             this.tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.objData,
             this.txtbCodigo,
-            this.txtbTipoUsuario,
             this.chkbActivo});
             this.tabla.Location = new System.Drawing.Point(12, 114);
             this.tabla.Name = "tabla";
@@ -161,12 +159,6 @@
             this.txtbCodigo.HeaderText = "Código";
             this.txtbCodigo.Name = "txtbCodigo";
             // 
-            // txtbTipoUsuario
-            // 
-            this.txtbTipoUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.txtbTipoUsuario.HeaderText = "Tipo de usuario";
-            this.txtbTipoUsuario.Name = "txtbTipoUsuario";
-            // 
             // chkbActivo
             // 
             this.chkbActivo.HeaderText = "Activo";
@@ -212,7 +204,6 @@
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn objData;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtbCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtbTipoUsuario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkbActivo;
     }
 }

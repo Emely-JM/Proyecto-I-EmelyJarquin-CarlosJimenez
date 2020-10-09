@@ -20,6 +20,9 @@ namespace Matricula.gui
 
         string idPersona = "";
 
+        /// <summary>
+        /// Inicializa la ventana para agregar un usuario nuevo
+        /// </summary>
         public FrmEdicionUsuario()
         {
             InitializeComponent();
@@ -31,6 +34,12 @@ namespace Matricula.gui
             cargarDatos();
         }
 
+        /// <summary>
+        /// Inicializa la ventana para editar un usuario existente
+        /// </summary>
+        /// <param name="u">
+        /// Instancia de la clase Usuario
+        /// </param>
         public FrmEdicionUsuario(Usuario u)
         {
             InitializeComponent();
@@ -42,11 +51,14 @@ namespace Matricula.gui
             cargarDatos();
         }
 
+        /// <summary>
+        /// Carga los datos de un usuario en los espacios correspondientes
+        /// </summary>
         private void cargarDatos()
         {
             try
             {
-                if (u.id != 0)
+                if (u.id != 0) // Verifica que sea un usuario existente
                 {
                     txtCodigo.Text = u.codigo;
                     txtPersona.Text = "";
@@ -59,22 +71,29 @@ namespace Matricula.gui
                     chkActivo.Checked = true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-               throw new Exception("Error al cargar los datos del cliente");
+                MessageBox.Show(this, "Error al cargar los datos del cliente");
             }
         }
 
+        /// <summary>
+        /// Busca una persona existente en la aplicación según un número de cédula ingresado
+        /// </summary>
+        /// <returns>
+        /// Instancia de la clase Persona
+        /// </returns>
         private Persona buscarPersona()
         {
             Persona p = new Persona();
+
             foreach (Persona persona in pbo.getLista())
             {
                 if (persona.cedula == int.Parse(txtBuscar.Text))
                 {
                     p = persona;
                     idPersona = p.idPersona;
-                    txtCodigo.Text = p.cedula.ToString();
+                    txtPersona.Text = p.cedula.ToString(); // Muestra el código en la ventana
                     txtBuscar.Clear();
                     break;
                 }
@@ -82,25 +101,42 @@ namespace Matricula.gui
             return p;
         }
 
-        private string generarCodigo()
+
+        /// <summary>
+        /// Genera un código para un usuario basandose en el nombre
+        /// de la persona realacionada con el usuario
+        /// </summary>
+        private void generarCodigo()
         {
             string codigo = "";
-            int contador = 1;
+            int contador = 2;
             bool esIgual = true;
             Persona p = buscarPersona();
 
+            // El código se inicializa con la primera letra del nombre,
+            // primer apellido y segundo apellido de la persona
+            codigo = p.nombre.Substring(0, 1).ToUpper()
+                        + p.apellido1.Substring(0, 1).ToUpper()
+                        + p.apellido2.Substring(0, 1).ToUpper();
+            esIgual = verificarCodigo(codigo);
+
+            // Si el código inicial ya existe le sigue agregando más letras al código
+            // según el nombre de la persona
             while (esIgual)
             {
+                // Le agrega más letras según el nombre de la persona
                 if (contador < p.nombre.Length && esIgual)
                 {
                     codigo = p.nombre.Substring(0, contador).ToUpper();
                     esIgual = verificarCodigo(codigo);
                 }
+                // Le agrega más letras según el primer apellido de la persona
                 if (contador < p.apellido1.Length && esIgual)
                 {
                     codigo += p.apellido1.Substring(0, contador).ToUpper();
                     esIgual = verificarCodigo(codigo);
                 }
+                // Le agrega más letras según el segundo apellido de la persona
                 if (contador < p.apellido2.Length && esIgual)
                 {
                     codigo += p.apellido2.Substring(0, contador).ToUpper();
@@ -108,9 +144,18 @@ namespace Matricula.gui
                 }
                 contador++;
             }
-            return codigo;
+            txtCodigo.Text = codigo; // Muestra el código en la ventana
         }
 
+        /// <summary>
+        /// Verifica que el nuevo código para un usuario no sea duplicado
+        /// </summary>
+        /// <param name="codigo">
+        /// String con el código nuevo del usuario
+        /// </param>
+        /// <returns>
+        /// Verdadero si el código es duplicado
+        /// </returns>
         private bool verificarCodigo(string codigo)
         {
             foreach (Usuario usuario in ubo.GetUsuarios())
@@ -126,7 +171,7 @@ namespace Matricula.gui
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             buscarPersona();
-            txtCodigo.Text = generarCodigo();
+            generarCodigo();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

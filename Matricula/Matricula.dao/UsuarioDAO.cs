@@ -173,6 +173,15 @@ namespace Matricula.dao
             return usuarios;
         }
 
+        /// <summary>
+        /// Verifica que los datos de inicio de sesión coincidan con los de un usuario existente
+        /// </summary>
+        /// <param name="u">
+        /// Instancia de la clase Usuario
+        /// </param>
+        /// <returns>
+        /// Un usuario si el inicio de sesión es exitoso
+        /// </returns>
         public Usuario iniciarSesion(Usuario u)
         {
             try

@@ -46,10 +46,10 @@ namespace Matricula.gui
             cmbProfesor.Items.Clear();
             for (int i = 0; i < listaU.Count; i++)
             {
-                if (listaU[i].tipoUsuario.Equals("Profesor"))
-                {
-                    cmbProfesor.Items.Add(listaU[i].id);
-                }
+                //if (listaU[i].tipoUsuario.Equals("Profesor"))
+                //{
+                //    cmbProfesor.Items.Add(listaU[i].id);
+                //}
             }
         }
 
