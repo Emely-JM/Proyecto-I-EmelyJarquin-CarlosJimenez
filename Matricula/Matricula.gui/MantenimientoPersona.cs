@@ -106,7 +106,7 @@ namespace Matricula.gui
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             lista = log.getLista();
-            List<Persona> filtrados = lista.Where(x => x.idPersona.StartsWith(txtFiltro.Text)).ToList();
+            List<Persona> filtrados = lista.Where(x => x.cedula.StartsWith(txtFiltro.Text)).ToList();
             tblTabla.Rows.Clear();
             for (int i = 0; i < filtrados.Count; i++)
             {

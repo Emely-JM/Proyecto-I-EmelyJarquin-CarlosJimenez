@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,35 +48,14 @@
             this.cmbMateria = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbProfe = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 59);
-            this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(242, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Matricula de estudiante";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 92);
+            this.label2.Location = new System.Drawing.Point(21, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 18);
             this.label2.TabIndex = 1;
@@ -88,7 +65,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 139);
+            this.label3.Location = new System.Drawing.Point(21, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 18);
             this.label3.TabIndex = 2;
@@ -98,7 +75,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 191);
+            this.label4.Location = new System.Drawing.Point(21, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 18);
             this.label4.TabIndex = 3;
@@ -108,7 +85,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(25, 337);
+            this.label5.Location = new System.Drawing.Point(23, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 18);
             this.label5.TabIndex = 4;
@@ -118,7 +95,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(534, 87);
+            this.label7.Location = new System.Drawing.Point(532, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 18);
             this.label7.TabIndex = 6;
@@ -128,7 +105,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(25, 388);
+            this.label8.Location = new System.Drawing.Point(23, 334);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 18);
             this.label8.TabIndex = 7;
@@ -137,7 +114,7 @@
             // txtIdFactura
             // 
             this.txtIdFactura.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdFactura.Location = new System.Drawing.Point(107, 84);
+            this.txtIdFactura.Location = new System.Drawing.Point(105, 30);
             this.txtIdFactura.Multiline = true;
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(146, 26);
@@ -146,7 +123,7 @@
             // txtComprobante
             // 
             this.txtComprobante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComprobante.Location = new System.Drawing.Point(648, 79);
+            this.txtComprobante.Location = new System.Drawing.Point(646, 25);
             this.txtComprobante.Multiline = true;
             this.txtComprobante.Name = "txtComprobante";
             this.txtComprobante.Size = new System.Drawing.Size(133, 26);
@@ -160,7 +137,7 @@
             "I Cuatrimestre",
             "II Cuatrimestre",
             "II Cuatrimestre"});
-            this.cmbPeriodo.Location = new System.Drawing.Point(114, 183);
+            this.cmbPeriodo.Location = new System.Drawing.Point(112, 129);
             this.cmbPeriodo.Name = "cmbPeriodo";
             this.cmbPeriodo.Size = new System.Drawing.Size(230, 26);
             this.cmbPeriodo.TabIndex = 11;
@@ -169,7 +146,7 @@
             // txtIdPersona
             // 
             this.txtIdPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdPersona.Location = new System.Drawing.Point(117, 131);
+            this.txtIdPersona.Location = new System.Drawing.Point(115, 77);
             this.txtIdPersona.Multiline = true;
             this.txtIdPersona.Name = "txtIdPersona";
             this.txtIdPersona.Size = new System.Drawing.Size(177, 26);
@@ -178,7 +155,7 @@
             // dateTimeMatricula
             // 
             this.dateTimeMatricula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeMatricula.Location = new System.Drawing.Point(175, 329);
+            this.dateTimeMatricula.Location = new System.Drawing.Point(173, 275);
             this.dateTimeMatricula.Name = "dateTimeMatricula";
             this.dateTimeMatricula.Size = new System.Drawing.Size(240, 26);
             this.dateTimeMatricula.TabIndex = 14;
@@ -186,7 +163,7 @@
             // dateTimePago
             // 
             this.dateTimePago.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePago.Location = new System.Drawing.Point(149, 382);
+            this.dateTimePago.Location = new System.Drawing.Point(147, 328);
             this.dateTimePago.Name = "dateTimePago";
             this.dateTimePago.Size = new System.Drawing.Size(266, 26);
             this.dateTimePago.TabIndex = 15;
@@ -196,7 +173,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(554, 372);
+            this.btnAceptar.Location = new System.Drawing.Point(552, 318);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(104, 34);
             this.btnAceptar.TabIndex = 16;
@@ -210,7 +187,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(680, 372);
+            this.btnCancelar.Location = new System.Drawing.Point(678, 318);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 34);
             this.btnCancelar.TabIndex = 17;
@@ -227,7 +204,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 281);
+            this.label9.Location = new System.Drawing.Point(21, 227);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 18);
             this.label9.TabIndex = 18;
@@ -240,7 +217,7 @@
             this.cmbMateria.Items.AddRange(new object[] {
             "Prematricula ",
             "Matriculado"});
-            this.cmbMateria.Location = new System.Drawing.Point(113, 278);
+            this.cmbMateria.Location = new System.Drawing.Point(111, 224);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(231, 26);
             this.cmbMateria.TabIndex = 19;
@@ -250,7 +227,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(23, 238);
+            this.label10.Location = new System.Drawing.Point(21, 184);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 18);
             this.label10.TabIndex = 20;
@@ -263,7 +240,7 @@
             this.cmbProfe.Items.AddRange(new object[] {
             "Prematricula ",
             "Matriculado"});
-            this.cmbProfe.Location = new System.Drawing.Point(118, 235);
+            this.cmbProfe.Location = new System.Drawing.Point(116, 181);
             this.cmbProfe.Name = "cmbProfe";
             this.cmbProfe.Size = new System.Drawing.Size(231, 26);
             this.cmbProfe.TabIndex = 21;
@@ -273,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 437);
+            this.ClientSize = new System.Drawing.Size(818, 380);
             this.Controls.Add(this.cmbProfe);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmbMateria);
@@ -292,12 +269,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "RealizaMatricula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Text = "Realizar matricula";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,9 +280,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

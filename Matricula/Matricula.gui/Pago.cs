@@ -68,13 +68,14 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
+            DateTime fechaActual = DateTime.Now;
             if (!txtTarjeta.Text.Equals(""))
             {
                 errorProvider1.SetError(txtTarjeta, "");
                 if (txtTarjeta.Text.Length == 4)
                 {
                     errorProvider1.SetError(txtTarjeta, "");
-                    logMat.pagoRealizado(idEstudiante);
+                    logMat.pagoRealizado(idEstudiante, fechaActual);
                     logMat.crearArchivo();
                     this.Close();
                 }
