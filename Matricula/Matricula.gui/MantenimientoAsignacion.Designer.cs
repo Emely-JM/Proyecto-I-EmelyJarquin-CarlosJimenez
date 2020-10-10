@@ -92,6 +92,7 @@
             this.btnEditar.Size = new System.Drawing.Size(48, 36);
             this.btnEditar.TabIndex = 11;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 
@@ -106,7 +107,7 @@
             // btnVerDatos
             // 
             this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnVerDatos.Location = new System.Drawing.Point(262, 77);
+            this.btnVerDatos.Location = new System.Drawing.Point(308, 77);
             this.btnVerDatos.Name = "btnVerDatos";
             this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
             this.btnVerDatos.TabIndex = 9;
@@ -118,8 +119,9 @@
             this.txtFiltro.Location = new System.Drawing.Point(104, 77);
             this.txtFiltro.Multiline = true;
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(152, 36);
+            this.txtFiltro.Size = new System.Drawing.Size(198, 36);
             this.txtFiltro.TabIndex = 8;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // tblTabla
             // 

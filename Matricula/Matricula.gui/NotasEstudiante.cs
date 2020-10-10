@@ -55,9 +55,11 @@ namespace Matricula.gui
         {
             for (int i = 0; i < lista.Count; i++)
             {
-                txtEstado.Text = lista[i].estado;
-                txtNota.Text = lista[i].nota.ToString();
-                
+                if (lista[i].idEstudiante.Equals(idEstud))
+                {
+                    txtEstado.Text = lista[i].estado;
+                    txtNota.Text = lista[i].nota.ToString();
+                }
             }
 
         }

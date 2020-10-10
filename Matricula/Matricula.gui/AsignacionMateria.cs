@@ -19,8 +19,8 @@ namespace Matricula.gui
         private string idMateria;
         private AsignacionBO log;
         private List<Asignacion> lista;
-        private UsuarioBO logU;
-        private List<Usuario> listaU;
+        private PersonaBO logU;
+        private List<Persona> listaU;
         private MateriaBO logM;
         private List<Materias> listaM;
 
@@ -42,14 +42,14 @@ namespace Matricula.gui
         /// </summary>
         private void llenarComboProfesor()
         {
-            listaU = logU.GetUsuarios();
+            listaU = logU.getLista();
             cmbProfesor.Items.Clear();
             for (int i = 0; i < listaU.Count; i++)
             {
-                //if (listaU[i].tipoUsuario.Equals("Profesor"))
-                //{
-                //    cmbProfesor.Items.Add(listaU[i].id);
-                //}
+                if (listaU[i].tipoPersona.Equals("Profesor") && listaU[i].estado.Equals("Activo"))
+                {
+                    cmbProfesor.Items.Add(listaU[i].cedula);
+                }
             }
         }
 
@@ -123,10 +123,10 @@ namespace Matricula.gui
             InitializeComponent();
             txtId.Enabled = false;
             log = new AsignacionBO();
-            logU = new UsuarioBO();
+            logU = new PersonaBO();
             logM = new MateriaBO();
             lista = new List<Asignacion>();
-            listaU = new List<Usuario>();
+            listaU = new List<Persona>();
             listaM = new List<Materias>();
             llenarComboProfesor();
             llenarComboMateria();
@@ -138,10 +138,10 @@ namespace Matricula.gui
             InitializeComponent();
             txtId.Enabled = false;
             log = new AsignacionBO();
-            logU = new UsuarioBO();
+            logU = new PersonaBO();
             logM = new MateriaBO();
             lista = new List<Asignacion>();
-            listaU = new List<Usuario>();
+            listaU = new List<Persona>();
             listaM = new List<Materias>();
             llenarComboProfesor();
             llenarComboMateria();
