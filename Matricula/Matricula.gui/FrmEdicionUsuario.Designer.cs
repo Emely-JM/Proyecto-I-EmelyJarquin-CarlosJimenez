@@ -194,9 +194,9 @@
             this.cmbExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbExpiraContrasena.FormattingEnabled = true;
             this.cmbExpiraContrasena.Items.AddRange(new object[] {
-            "\"30 días\"",
-            "\"60 días\"",
-            "\"90 días\""});
+            "30 días",
+            "60 días",
+            "90 días"});
             this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 248);
             this.cmbExpiraContrasena.Name = "cmbExpiraContrasena";
             this.cmbExpiraContrasena.Size = new System.Drawing.Size(250, 33);
