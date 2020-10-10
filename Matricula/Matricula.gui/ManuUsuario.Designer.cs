@@ -57,10 +57,10 @@
             this.manúToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemMatricula,
             this.pagosPendientes,
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem,
             this.toolStripMenuItemEvaluacion,
             this.toolStripMenuItemNotas,
-            this.salirToolStripMenuItem,
-            this.eliminarPrematriculaDeMateriaToolStripMenuItem});
+            this.salirToolStripMenuItem});
             this.manúToolStripMenuItem.Name = "manúToolStripMenuItem";
             this.manúToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
             this.manúToolStripMenuItem.Text = "Manú de estudiantes";
