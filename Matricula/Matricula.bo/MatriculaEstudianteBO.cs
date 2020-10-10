@@ -60,6 +60,36 @@ namespace Matricula.bo
         }
 
         /// <summary>
+        /// Cuándo se realiza el pago asigna matriculado al estado de la persona
+        /// </summary>
+        /// <param name="idP"> id de la persona a buscar</param>
+        public void pagoRealizado(string idP)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idPersona.Equals(idP))
+                {
+                    proceso[i].estado = "Matriculado";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Elimina todos los datos asociados a una factura
+        /// </summary>
+        /// <param name="idFac"></param>
+        public void eliminar(string idFac)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idFactura.Equals(idFac))
+                {
+                    proceso.RemoveAt(i);
+                }
+            }
+        }
+
+        /// <summary>
         /// Llama al método de crear archivo y le pasa la lista
         /// de proceso como parámetro para escribirla en archivo
         /// </summary>

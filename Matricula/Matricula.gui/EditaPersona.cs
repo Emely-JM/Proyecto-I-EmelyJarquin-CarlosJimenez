@@ -59,12 +59,12 @@ namespace Matricula.gui
         private void aceptar()
         {
 
-            if (buscar(int.Parse(txtCedula.Text)) != false)
+            if (buscar(txtCedula.Text) != false)
             {
                 FechaNac = dateTimeNacimiento.Value.Date;
                 FechaIngreso = dateTimeIngreso.Value.Date;
                 cedula = int.Parse(txtCedula.Text);
-                log.modificar(txtIdPersona.Text, txtIdPersona.Text, cedula, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                log.modificar(txtIdPersona.Text, txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
                               sexo, FechaNac, nivelAcademico, FechaIngreso, txtUsuarioRegistro.Text, tipoPersona, nacionalidad, estado);
                 log.crearArchivo();
                 this.Close();
@@ -75,7 +75,7 @@ namespace Matricula.gui
                 {
                     errorProvider1.SetError(txtCedula, "");
 
-                    if (log.buscarCedula(int.Parse(txtCedula.Text)) != -1)
+                    if (log.buscarCedula(txtCedula.Text) != -1)
                     {
                         mensaje(txtCedula, "Ya hay una persona registrada con esta cédula");
                     }
@@ -106,9 +106,8 @@ namespace Matricula.gui
                                                     errorProvider1.SetError(cmbEstado, "");
                                                     FechaNac = dateTimeNacimiento.Value.Date;
                                                     FechaIngreso = dateTimeIngreso.Value.Date;
-                                                    cedula = int.Parse(txtCedula.Text);
 
-                                                    log.agregar(txtIdPersona.Text, cedula, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                                                    log.agregar(txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
                                                         sexo, FechaNac, nivelAcademico, FechaIngreso, txtUsuarioRegistro.Text, tipoPersona, nacionalidad, estado);
                                                     log.crearArchivo();
                                                     this.Close();
@@ -198,7 +197,7 @@ namespace Matricula.gui
         /// </summary>
         /// <param name="cedula"> dato a buscar </param>
         /// <returns></returns>
-        private bool buscar(int cedula)
+        private bool buscar(string cedula)
         {
             bool busca = false;
             if (log.buscarCedula(cedula) != -1)
@@ -278,7 +277,7 @@ namespace Matricula.gui
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validar.soloNumeros(e);
+            
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)

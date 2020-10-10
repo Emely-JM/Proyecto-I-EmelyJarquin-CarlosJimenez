@@ -37,7 +37,7 @@ namespace Matricula.bo
         /// <param name="tipoPersona"> tipo de persona que se registra; estudiante o profesor </param>
         /// <param name="nacionalidad"> nacionalidad de la persona a registrar </param>
         /// <param name="estado"> estado actual de la persona en el sistema; activo o inactivo </param>
-        public void agregar(string idPersona, int cedula, string nombre, string apellido1, string apellido2, char sexo,
+        public void agregar(string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo,
             DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
         {
             proceso.Add(new Persona(idPersona, cedula, nombre, apellido1, apellido2, sexo, fechaNacimiento, nivelAcademico, fechaIngreso, usuarioRegistro, tipoPersona, nacionalidad, estado));
@@ -77,7 +77,7 @@ namespace Matricula.bo
         /// <param name="tipoPersona"> nuevo valor para el tipo de persona </param>
         /// <param name="nacionalidad"> nuevo valor para la nacionalidad </param>
         /// <param name="estado"> nuevo valor para el estado </param>
-        public void modificar(string idBuscar, string idPersona, int cedula, string nombre, string apellido1, string apellido2, char sexo,
+        public void modificar(string idBuscar, string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo,
             DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
         {
             for (int i = 0; i < proceso.Count; i++)
@@ -108,11 +108,11 @@ namespace Matricula.bo
         /// </summary>
         /// <param name="cedula"> representa la cédula que se desea buscar </param>
         /// <returns> retorna el indice de la cédula o un -1 sino la encuentra </returns>
-        public int buscarCedula(int cedula)
+        public int buscarCedula(string cedula)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (proceso[i].cedula == cedula)
+                if (proceso[i].cedula.Equals(cedula))
                 {
                     return i;
                 }

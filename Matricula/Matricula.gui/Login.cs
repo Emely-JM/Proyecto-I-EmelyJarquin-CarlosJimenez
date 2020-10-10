@@ -87,7 +87,7 @@ namespace Matricula.gui
 
                 if (u != null && isStudent(u))
                 {
-                    ManuUsuario frm = new ManuUsuario(u.id.ToString());
+                    ManuUsuario frm = new ManuUsuario(u);
                     frm.ShowDialog();
                     txtUsuStuden.Text = "";
                     txtPassStuden.Text = "";
@@ -123,7 +123,7 @@ namespace Matricula.gui
 
                 if (u != null && isTeacher(u))
                 {
-                    ManuUsuario frm = new ManuUsuario(u.id.ToString());
+                    ManuUsuario frm = new ManuUsuario(u);
                     frm.ShowDialog();
                     txtUsuTeachers.Text = "";
                     txtPassTeachers.Text = "";
@@ -219,6 +219,12 @@ namespace Matricula.gui
         private void btnCancelarTeachers_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            FrmEdicionUsuario frm = new FrmEdicionUsuario();
+            frm.ShowDialog();
         }
     }
 }

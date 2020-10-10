@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Matricula.entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,10 @@ namespace Matricula.gui
     {
         private string id;
 
-
-        public ManuUsuario(string idEstudiante)
+        public ManuUsuario(Usuario u)
         {
             InitializeComponent();
-            id = idEstudiante;
+            id = u.idPersona;
         }
 
         private void toolStripMenuItemMatricula_Click(object sender, EventArgs e)
@@ -41,6 +41,18 @@ namespace Matricula.gui
         private void toolStripMenuItemNotas_Click(object sender, EventArgs e)
         {
             NotasEstudiante frm = new NotasEstudiante(id);
+            frm.ShowDialog();
+        }
+
+        private void pagosPendientes_Click(object sender, EventArgs e)
+        {
+            Pago frm = new Pago(id);
+            frm.ShowDialog();
+        }
+
+        private void eliminarPrematriculaDeMateriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EliminaPrematricula frm = new EliminaPrematricula(id);
             frm.ShowDialog();
         }
     }

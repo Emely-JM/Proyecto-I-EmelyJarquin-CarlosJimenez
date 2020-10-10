@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Matricula.entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,10 @@ namespace Matricula.gui
     {
         private string usu;
 
-        public MenuProfesor(string usuario)
+        public MenuProfesor(Usuario u)
         {
             InitializeComponent();
-            usu = usuario;
+            usu = u.idPersona;
         }
 
         private void cursosAsignados_Click(object sender, EventArgs e)
