@@ -59,7 +59,7 @@ namespace Matricula.dao
                     string[] items = line.Trim().Split(',');
 
                     string idPersona = items[0].Trim();
-                    int cedula = int.Parse(items[1].Trim());
+                    string cedula = items[1].Trim();
                     string nombre = items[2].Trim();
                     string apellido1 = items[3].Trim();
                     string apellido2 = items[4].Trim();

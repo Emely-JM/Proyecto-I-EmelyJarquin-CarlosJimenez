@@ -19,7 +19,7 @@ namespace Matricula.gui
         private AsignacionBO logA;
         private List<Asignacion> listaA;
         private string idPeriodo;
-        private string estado;
+        private string estado = "Prematricula";
         private string idMateria;
         private string idProf;
         private DateTime fechaMatricula;
@@ -116,19 +116,11 @@ namespace Matricula.gui
                         if (idProf != null)
                         {
                             errorProvider1.SetError(cmbProfe, "");
-                            if (estado != null)
-                            {
-                                errorProvider1.SetError(cmbEstado, "");
-                                fechaMatricula = dateTimeMatricula.Value.Date;
-                                fechaPago = dateTimePago.Value.Date;
-                                log.agregar(txtIdFactura.Text, txtIdPersona.Text, idPeriodo, fechaMatricula, idMateria,idProf, estado, txtComprobante.Text, fechaPago);
-                                log.crearArchivo();
-                                this.Close();
-                            }
-                            else
-                            {
-                                mensaje(cmbEstado, "Debe seleccionar un estado");
-                            }
+                            fechaMatricula = dateTimeMatricula.Value.Date;
+                            fechaPago = dateTimePago.Value.Date;
+                            log.agregar(txtIdFactura.Text, txtIdPersona.Text, idPeriodo, fechaMatricula, idMateria, idProf, estado, txtComprobante.Text, fechaPago);
+                            log.crearArchivo();
+                            this.Close();
                         }
                         else
                         {
@@ -174,11 +166,6 @@ namespace Matricula.gui
         private void cmbPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
             idPeriodo = cmbPeriodo.Text;
-        }
-
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            estado = cmbEstado.Text;
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)

@@ -32,9 +32,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMatricula = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosPendientes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEvaluacion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNotas = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,9 +56,11 @@
             // 
             this.manúToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemMatricula,
+            this.pagosPendientes,
             this.toolStripMenuItemEvaluacion,
             this.toolStripMenuItemNotas,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem});
             this.manúToolStripMenuItem.Name = "manúToolStripMenuItem";
             this.manúToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
             this.manúToolStripMenuItem.Text = "Manú de estudiantes";
@@ -64,30 +68,44 @@
             // toolStripMenuItemMatricula
             // 
             this.toolStripMenuItemMatricula.Name = "toolStripMenuItemMatricula";
-            this.toolStripMenuItemMatricula.Size = new System.Drawing.Size(182, 22);
+            this.toolStripMenuItemMatricula.Size = new System.Drawing.Size(213, 22);
             this.toolStripMenuItemMatricula.Text = "Matricula";
             this.toolStripMenuItemMatricula.Click += new System.EventHandler(this.toolStripMenuItemMatricula_Click);
+            // 
+            // pagosPendientes
+            // 
+            this.pagosPendientes.Name = "pagosPendientes";
+            this.pagosPendientes.Size = new System.Drawing.Size(213, 22);
+            this.pagosPendientes.Text = "Pagos pendientes";
+            this.pagosPendientes.Click += new System.EventHandler(this.pagosPendientes_Click);
             // 
             // toolStripMenuItemEvaluacion
             // 
             this.toolStripMenuItemEvaluacion.Name = "toolStripMenuItemEvaluacion";
-            this.toolStripMenuItemEvaluacion.Size = new System.Drawing.Size(182, 22);
+            this.toolStripMenuItemEvaluacion.Size = new System.Drawing.Size(213, 22);
             this.toolStripMenuItemEvaluacion.Text = "Evaluación del curso";
             this.toolStripMenuItemEvaluacion.Click += new System.EventHandler(this.toolStripMenuItemEvaluacion_Click);
             // 
             // toolStripMenuItemNotas
             // 
             this.toolStripMenuItemNotas.Name = "toolStripMenuItemNotas";
-            this.toolStripMenuItemNotas.Size = new System.Drawing.Size(182, 22);
+            this.toolStripMenuItemNotas.Size = new System.Drawing.Size(213, 22);
             this.toolStripMenuItemNotas.Text = "Notas";
             this.toolStripMenuItemNotas.Click += new System.EventHandler(this.toolStripMenuItemNotas_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // eliminarPrematriculaDeMateriaToolStripMenuItem
+            // 
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Name = "eliminarPrematriculaDeMateriaToolStripMenuItem";
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Text = "Eliminar / desertar materia";
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Click += new System.EventHandler(this.eliminarPrematriculaDeMateriaToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -124,5 +142,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNotas;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem pagosPendientes;
+        private System.Windows.Forms.ToolStripMenuItem eliminarPrematriculaDeMateriaToolStripMenuItem;
     }
 }

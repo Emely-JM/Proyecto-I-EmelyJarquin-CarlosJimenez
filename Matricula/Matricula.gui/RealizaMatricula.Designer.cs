@@ -35,13 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.txtComprobante = new System.Windows.Forms.TextBox();
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.txtIdPersona = new System.Windows.Forms.TextBox();
             this.dateTimeMatricula = new System.Windows.Forms.DateTimePicker();
             this.dateTimePago = new System.Windows.Forms.DateTimePicker();
@@ -110,21 +108,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 381);
+            this.label5.Location = new System.Drawing.Point(25, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fecha de matrícula:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 333);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 18);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Estado:";
             // 
             // label7
             // 
@@ -140,7 +128,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(22, 432);
+            this.label8.Location = new System.Drawing.Point(25, 388);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 18);
             this.label8.TabIndex = 7;
@@ -178,19 +166,6 @@
             this.cmbPeriodo.TabIndex = 11;
             this.cmbPeriodo.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodo_SelectedIndexChanged);
             // 
-            // cmbEstado
-            // 
-            this.cmbEstado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "Prematricula ",
-            "Matriculado"});
-            this.cmbEstado.Location = new System.Drawing.Point(91, 325);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(253, 26);
-            this.cmbEstado.TabIndex = 12;
-            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
-            // 
             // txtIdPersona
             // 
             this.txtIdPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,7 +178,7 @@
             // dateTimeMatricula
             // 
             this.dateTimeMatricula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeMatricula.Location = new System.Drawing.Point(172, 373);
+            this.dateTimeMatricula.Location = new System.Drawing.Point(175, 329);
             this.dateTimeMatricula.Name = "dateTimeMatricula";
             this.dateTimeMatricula.Size = new System.Drawing.Size(240, 26);
             this.dateTimeMatricula.TabIndex = 14;
@@ -211,7 +186,7 @@
             // dateTimePago
             // 
             this.dateTimePago.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePago.Location = new System.Drawing.Point(146, 426);
+            this.dateTimePago.Location = new System.Drawing.Point(149, 382);
             this.dateTimePago.Name = "dateTimePago";
             this.dateTimePago.Size = new System.Drawing.Size(266, 26);
             this.dateTimePago.TabIndex = 15;
@@ -221,7 +196,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(551, 416);
+            this.btnAceptar.Location = new System.Drawing.Point(554, 372);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(104, 34);
             this.btnAceptar.TabIndex = 16;
@@ -235,7 +210,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(677, 416);
+            this.btnCancelar.Location = new System.Drawing.Point(680, 372);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 34);
             this.btnCancelar.TabIndex = 17;
@@ -288,7 +263,7 @@
             this.cmbProfe.Items.AddRange(new object[] {
             "Prematricula ",
             "Matriculado"});
-            this.cmbProfe.Location = new System.Drawing.Point(117, 230);
+            this.cmbProfe.Location = new System.Drawing.Point(118, 235);
             this.cmbProfe.Name = "cmbProfe";
             this.cmbProfe.Size = new System.Drawing.Size(231, 26);
             this.cmbProfe.TabIndex = 21;
@@ -298,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 476);
+            this.ClientSize = new System.Drawing.Size(818, 437);
             this.Controls.Add(this.cmbProfe);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmbMateria);
@@ -308,13 +283,11 @@
             this.Controls.Add(this.dateTimePago);
             this.Controls.Add(this.dateTimeMatricula);
             this.Controls.Add(this.txtIdPersona);
-            this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.cmbPeriodo);
             this.Controls.Add(this.txtComprobante);
             this.Controls.Add(this.txtIdFactura);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -339,13 +312,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtIdFactura;
         private System.Windows.Forms.TextBox txtComprobante;
         private System.Windows.Forms.ComboBox cmbPeriodo;
-        private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.TextBox txtIdPersona;
         private System.Windows.Forms.DateTimePicker dateTimeMatricula;
         private System.Windows.Forms.DateTimePicker dateTimePago;

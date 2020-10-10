@@ -89,7 +89,7 @@ namespace Matricula.gui
 
             foreach (Persona persona in pbo.getLista())
             {
-                if (persona.cedula == int.Parse(txtBuscar.Text))
+                if (persona.cedula.Equals(txtBuscar.Text))
                 {
                     p = persona;
                     idPersona = p.idPersona;
@@ -115,9 +115,9 @@ namespace Matricula.gui
 
             // El código se inicializa con la primera letra del nombre,
             // primer apellido y segundo apellido de la persona
-            codigo = p.nombre.Substring(0, 1).ToUpper()
-                        + p.apellido1.Substring(0, 1).ToUpper()
-                        + p.apellido2.Substring(0, 1).ToUpper();
+            codigo = buscarPersona().nombre.Substring(0, 1).ToUpper()
+                        + buscarPersona().apellido1.Substring(0, 1).ToUpper()
+                        + buscarPersona().apellido2.Substring(0, 1).ToUpper();
             esIgual = verificarCodigo(codigo);
 
             // Si el código inicial ya existe le sigue agregando más letras al código
@@ -125,21 +125,21 @@ namespace Matricula.gui
             while (esIgual)
             {
                 // Le agrega más letras según el nombre de la persona
-                if (contador < p.nombre.Length && esIgual)
+                if (contador < buscarPersona().nombre.Length && esIgual)
                 {
-                    codigo = p.nombre.Substring(0, contador).ToUpper();
+                    codigo = buscarPersona().nombre.Substring(0, contador).ToUpper();
                     esIgual = verificarCodigo(codigo);
                 }
                 // Le agrega más letras según el primer apellido de la persona
-                if (contador < p.apellido1.Length && esIgual)
+                if (contador < buscarPersona().apellido1.Length && esIgual)
                 {
-                    codigo += p.apellido1.Substring(0, contador).ToUpper();
+                    codigo += buscarPersona().apellido1.Substring(0, contador).ToUpper();
                     esIgual = verificarCodigo(codigo);
                 }
                 // Le agrega más letras según el segundo apellido de la persona
-                if (contador < p.apellido2.Length && esIgual)
+                if (contador < buscarPersona().apellido2.Length && esIgual)
                 {
-                    codigo += p.apellido2.Substring(0, contador).ToUpper();
+                    codigo += buscarPersona().apellido2.Substring(0, contador).ToUpper();
                     esIgual = verificarCodigo(codigo);
                 }
                 contador++;
