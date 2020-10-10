@@ -24,6 +24,14 @@ namespace Matricula.bo
         /// </param>
         public void guardar(Usuario u)
         {
+            if (String.IsNullOrEmpty(u.codigo))
+            {
+                throw new ArgumentNullException("El código es requerido");
+            }
+            if (String.IsNullOrEmpty(u.idPersona))
+            {
+                throw new ArgumentNullException("El id de la persona es requerida");
+            }
             if (String.IsNullOrEmpty(u.contrasena))
             {
                 throw new ArgumentNullException("La contraseña es requerida");

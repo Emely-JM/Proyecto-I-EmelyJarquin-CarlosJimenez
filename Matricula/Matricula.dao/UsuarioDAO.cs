@@ -56,8 +56,12 @@ namespace Matricula.dao
 
                 // Obtiene el id del último usuario de la lista, le suma un número más
                 // y se lo asigna al nuevo usuario
-                int ultimo = usuarios.Count() - 1;
-                int id = usuarios[ultimo].id + 1;
+                int ultimo = usuarios.Count();
+                int id = 1;
+                if (ultimo != 0)
+                {
+                    id = usuarios[ultimo].id + 1;
+                }
                 u.id = id;
 
                 usuarios.Add(u);

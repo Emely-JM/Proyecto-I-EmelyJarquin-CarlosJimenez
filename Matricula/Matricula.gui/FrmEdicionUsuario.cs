@@ -28,6 +28,7 @@ namespace Matricula.gui
             InitializeComponent();
             lblActivo.Visible = false;
             chkActivo.Visible = false;
+            cmbExpiraContrasena.SelectedIndex = 0;
             u = new Usuario();
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
@@ -43,8 +44,9 @@ namespace Matricula.gui
         public FrmEdicionUsuario(Usuario u)
         {
             InitializeComponent();
-            lblActivo.Visible = false;
-            chkActivo.Visible = false;
+            lblActivo.Visible = true;
+            chkActivo.Visible = true;
+            cmbExpiraContrasena.SelectedIndex = 0;
             this.u = u;
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
@@ -73,17 +75,14 @@ namespace Matricula.gui
             }
             catch (Exception e)
             {
-                MessageBox.Show(this, "Error al cargar los datos del cliente");
+                MessageBox.Show(this, "Error al cargar la tabla");
             }
         }
 
         /// <summary>
         /// Busca una persona existente en la aplicación según un número de cédula ingresado
         /// </summary>
-        /// <returns>
-        /// Instancia de la clase Persona
-        /// </returns>
-        private Persona buscarPersona()
+        private void buscarPersona()
         {
             Persona p = new Persona();
 
@@ -94,56 +93,85 @@ namespace Matricula.gui
                     p = persona;
                     idPersona = p.idPersona;
                     txtPersona.Text = p.cedula.ToString(); // Muestra el código en la ventana
+                    generarCodigo(p);
                     txtBuscar.Clear();
                     break;
                 }
             }
-            return p;
+            txtBuscar.Clear();
         }
-
 
         /// <summary>
         /// Genera un código para un usuario basandose en el nombre
         /// de la persona realacionada con el usuario
         /// </summary>
-        private void generarCodigo()
+        /// <param name="p">
+        /// Instancia de la clase Persona
+        /// </param>
+        private void generarCodigo(Persona p)
         {
             string codigo = "";
-            int contador = 2;
+            int contador1 = 1;
+            int contador2 = 1;
+            int posicion = contador1;
             bool esIgual = true;
-            Persona p = buscarPersona();
 
-            // El código se inicializa con la primera letra del nombre,
-            // primer apellido y segundo apellido de la persona
-            codigo = buscarPersona().nombre.Substring(0, 1).ToUpper()
-                        + buscarPersona().apellido1.Substring(0, 1).ToUpper()
-                        + buscarPersona().apellido2.Substring(0, 1).ToUpper();
+            int indice = p.nombre.IndexOf(" "); // Posición de un espacio en blanco si la persona tiene dos nombres
+            string nombre1 = p.nombre;
+            string nombre2 = "";
+
+            // Si la persona tiene dos nombres, separa el nombre en dos variables diferentes
+            if (indice != -1)
+            {
+                nombre1 = p.nombre.Substring(0, indice);
+                nombre2 = p.nombre.Substring(indice + 1);
+            }
+
+            // Genera el código inicial
+            codigo = nombre1.Substring(0, 1).ToUpper()
+                + p.apellido1.Substring(0, 1).ToUpper()
+                + p.apellido2.Substring(0, 1).ToUpper();
+            if (nombre2 != "")
+            {
+                codigo = codigo.Insert(1, nombre2.Substring(0, 1).ToUpper());
+            }
             esIgual = verificarCodigo(codigo);
 
-            // Si el código inicial ya existe le sigue agregando más letras al código
-            // según el nombre de la persona
+            // Mientras exista un usuario con un código igual al generado,
+            // se le van insertando letras al código según el nombre de la persona
             while (esIgual)
             {
-                // Le agrega más letras según el nombre de la persona
-                if (contador < buscarPersona().nombre.Length && esIgual)
+                if (esIgual && contador2 == 1 && contador1 < nombre1.Length)
                 {
-                    codigo = buscarPersona().nombre.Substring(0, contador).ToUpper();
+                    codigo = codigo.Insert(posicion, nombre1[contador1].ToString().ToUpper());
+                    contador2++;
+                    posicion += contador1 + 1;
                     esIgual = verificarCodigo(codigo);
                 }
-                // Le agrega más letras según el primer apellido de la persona
-                if (contador < buscarPersona().apellido1.Length && esIgual)
+                if (esIgual && contador2 == 2 && contador1 < nombre2.Length && nombre2 != "")
                 {
-                    codigo += buscarPersona().apellido1.Substring(0, contador).ToUpper();
+                    codigo = codigo.Insert(posicion, nombre2[contador1].ToString().ToUpper());
+                    contador2++;
+                    posicion += contador1 + 1;
                     esIgual = verificarCodigo(codigo);
                 }
-                // Le agrega más letras según el segundo apellido de la persona
-                if (contador < buscarPersona().apellido2.Length && esIgual)
+                if (esIgual && contador2 == 3 && contador1 < p.apellido1.Length)
                 {
-                    codigo += buscarPersona().apellido2.Substring(0, contador).ToUpper();
+                    codigo = codigo.Insert(posicion, p.apellido1[contador1].ToString().ToUpper());
+                    contador2++;
+                    posicion += contador1 + 1;
                     esIgual = verificarCodigo(codigo);
                 }
-                contador++;
+                if (esIgual && contador2 == 4 && contador1 < p.apellido2.Length)
+                {
+                    codigo = codigo.Insert(posicion, p.apellido2[contador1].ToString().ToUpper());
+                    esIgual = verificarCodigo(codigo);
+                }
+                contador1++;
+                contador2 = 1;
+                posicion = contador1 - 1;
             }
+            
             txtCodigo.Text = codigo; // Muestra el código en la ventana
         }
 
@@ -171,7 +199,6 @@ namespace Matricula.gui
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             buscarPersona();
-            generarCodigo();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -181,14 +208,18 @@ namespace Matricula.gui
                 u.codigo = txtCodigo.Text;
                 u.idPersona = idPersona;
                 u.contrasena = txtContrasena.Text;
-                u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString()));
+                u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0,2)));
                 u.activo = chkActivo.Checked;
                 ubo.guardar(u);
                 Dispose();
             }
-            catch (Exception)
+            catch (ArgumentNullException ex)
             {
-                MessageBox.Show(this, "Error al agregar el usuario");
+                MessageBox.Show(this, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message);
             }   
         }
 
