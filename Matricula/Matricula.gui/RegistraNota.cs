@@ -45,6 +45,9 @@ namespace Matricula.gui
             {
                 cmbEstudiante.Items.Add(listaE[i].idPersona);
                 cmbMateria.Items.Add(listaE[i].idMateria);
+                cmbMateria.SelectedIndex = 0;
+                cmbEstudiante.SelectedIndex = 0;
+                cmbPeriodo.SelectedIndex = 0;
             }
 
         }
@@ -138,9 +141,6 @@ namespace Matricula.gui
             txtNota.Enabled = false;
             txtEstado.Enabled = false;
             cargarCombo();
-            cmbPeriodo.SelectedIndex = 0;
-            cmbMateria.SelectedIndex = 0;
-            cmbEstudiante.SelectedIndex = 0;
         }
 
         private void txtProyecto_KeyPress(object sender, KeyPressEventArgs e)

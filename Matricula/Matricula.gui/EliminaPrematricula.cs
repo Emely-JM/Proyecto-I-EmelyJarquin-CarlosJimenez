@@ -32,6 +32,7 @@ namespace Matricula.gui
                 if (listaMat[i].idPersona.Equals(id))
                 {
                     cmbMaterias.Items.Add(listaMat[i].idMateria);
+                    cmbMaterias.SelectedIndex = 0;
                 }
             }
         }
@@ -84,7 +85,6 @@ namespace Matricula.gui
             InitializeComponent();
             logMat = new MatriculaEstudianteBO();
             listaMat = new List<MatriculaEstudiante>();
-            cmbMaterias.SelectedIndex = 0;
             id = idP;
             txtId.Text = idP;
             cargarCombo();

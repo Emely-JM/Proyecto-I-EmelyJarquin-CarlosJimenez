@@ -31,6 +31,7 @@ namespace Matricula.gui
             {
                 if (listaMatricula[i].idPersona.Equals(txtIdEstudiante.Text) && listaMatricula[i].estado.Equals("Matriculado"))
                     cmbMateria.Items.Add(listaMatricula[i].idMateria);
+                cmbMateria.SelectedIndex = 0;
             }
         }
 
@@ -44,16 +45,6 @@ namespace Matricula.gui
             string asiga = "E0";
             int ticket = lista.Count + 1;
             txtIdEvaluacion.Text = asiga + ticket.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void asignarIdEstudiante()
-        {
-            string asiga = "P0";
-            int ticket = lista.Count + 1;
-            txtIdEstudiante.Text = asiga + ticket.ToString();
         }
 
         /// <summary>
@@ -97,7 +88,6 @@ namespace Matricula.gui
         private void inicio()
         {
             asignarIdEvaluacion();
-            asignarIdEstudiante();
             cargarMaterias();
             txtIdEvaluacion.Enabled = false;
             txtIdEstudiante.Enabled = false;
@@ -112,7 +102,6 @@ namespace Matricula.gui
             lista = new List<Evaluacion>();
             logMatricula = new MatriculaEstudianteBO();
             listaMatricula = new List<MatriculaEstudiante>();
-            cmbMateria.SelectedIndex = 0;
             txtIdEstudiante.Text = idEstudiante;
             inicio();
         }

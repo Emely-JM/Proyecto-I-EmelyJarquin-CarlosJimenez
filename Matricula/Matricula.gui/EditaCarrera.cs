@@ -149,6 +149,7 @@ namespace Matricula.gui
             log = new CarreraBO();
             validar = new ValidaDatos();
             lblTitulo.Text = "Carrera - Agregar";
+            cmbEstado.SelectedIndex = 0;
         }
 
         public EditaCarrera(string id)

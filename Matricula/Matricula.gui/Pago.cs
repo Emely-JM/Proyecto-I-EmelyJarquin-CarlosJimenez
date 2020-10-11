@@ -43,6 +43,7 @@ namespace Matricula.gui
                             sumaMaterias += listaM[i].precio;
                             costo += listaM[i].costo;
                             cmbMaterias.Items.Add(listaMat[i].idMateria + " " + listaM[i].nombre);
+                            cmbMaterias.SelectedIndex = 0;
                         }
                     }
 

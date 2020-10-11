@@ -23,6 +23,7 @@ namespace Matricula.gui
         /// </summary>
         private void verDatos()
         {
+            lista = new List<Asignacion>();
             lista = log.getLista();
             tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
@@ -47,6 +48,8 @@ namespace Matricula.gui
         {
             InitializeComponent();
             adminPermisos(admin);
+            log = new AsignacionBO();
+            lista = new List<Asignacion>();
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)

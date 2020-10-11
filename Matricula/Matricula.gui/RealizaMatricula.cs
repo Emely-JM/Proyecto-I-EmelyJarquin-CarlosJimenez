@@ -61,6 +61,9 @@ namespace Matricula.gui
                 {
                     cmbProfe.Items.Add(listaA[i].idProf);
                     cmbMateria.Items.Add(listaA[i].idMateria);
+                    cmbProfe.SelectedIndex = 0;
+                    cmbMateria.SelectedIndex = 0;
+                    cmbPeriodo.SelectedIndex = 0;
                 }
             }
 
