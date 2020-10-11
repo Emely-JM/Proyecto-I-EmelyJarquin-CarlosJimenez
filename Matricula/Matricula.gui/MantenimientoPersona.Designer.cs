@@ -39,7 +39,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnActivaDes = new System.Windows.Forms.Button();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();

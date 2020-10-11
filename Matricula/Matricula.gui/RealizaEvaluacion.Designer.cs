@@ -53,7 +53,6 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 21);
             this.label2.Location = new System.Drawing.Point(25, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 18);
@@ -64,8 +63,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 64);
-            this.label3.Location = new System.Drawing.Point(25, 228);
+            this.label3.Location = new System.Drawing.Point(14, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 18);
             this.label3.TabIndex = 3;
@@ -75,7 +73,6 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(204, 21);
             this.label4.Location = new System.Drawing.Point(25, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 18);
@@ -86,8 +83,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(221, 20);
-            this.label5.Location = new System.Drawing.Point(25, 181);
+            this.label5.Location = new System.Drawing.Point(14, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 18);
             this.label5.TabIndex = 5;
@@ -97,7 +93,6 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(447, 21);
             this.label6.Location = new System.Drawing.Point(456, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(156, 18);
@@ -108,8 +103,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 20);
-            this.label7.Location = new System.Drawing.Point(25, 133);
+            this.label7.Location = new System.Drawing.Point(14, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 18);
             this.label7.TabIndex = 7;
@@ -119,8 +113,7 @@
             // 
             this.cmbMateria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Location = new System.Drawing.Point(96, 12);
-            this.cmbMateria.Location = new System.Drawing.Point(115, 125);
+            this.cmbMateria.Location = new System.Drawing.Point(104, 15);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(119, 26);
             this.cmbMateria.TabIndex = 8;
@@ -128,7 +121,6 @@
             // dateTimeEvaluacion
             // 
             this.dateTimeEvaluacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeEvaluacion.Location = new System.Drawing.Point(609, 15);
             this.dateTimeEvaluacion.Location = new System.Drawing.Point(618, 30);
             this.dateTimeEvaluacion.Name = "dateTimeEvaluacion";
             this.dateTimeEvaluacion.Size = new System.Drawing.Size(210, 26);
@@ -137,7 +129,6 @@
             // txtIdEvaluacion
             // 
             this.txtIdEvaluacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdEvaluacion.Location = new System.Drawing.Point(124, 13);
             this.txtIdEvaluacion.Location = new System.Drawing.Point(134, 28);
             this.txtIdEvaluacion.Name = "txtIdEvaluacion";
             this.txtIdEvaluacion.Size = new System.Drawing.Size(74, 26);
@@ -146,8 +137,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(108, 61);
-            this.txtDescripcion.Location = new System.Drawing.Point(127, 228);
+            this.txtDescripcion.Location = new System.Drawing.Point(116, 118);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(676, 127);
@@ -156,16 +146,14 @@
             // txtEstado
             // 
             this.txtEstado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(289, 12);
-            this.txtEstado.Location = new System.Drawing.Point(93, 173);
+            this.txtEstado.Location = new System.Drawing.Point(82, 63);
             this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(136, 26);
+            this.txtEstado.Size = new System.Drawing.Size(141, 26);
             this.txtEstado.TabIndex = 12;
             // 
             // txtIdEstudiante
             // 
             this.txtIdEstudiante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdEstudiante.Location = new System.Drawing.Point(313, 13);
             this.txtIdEstudiante.Location = new System.Drawing.Point(134, 75);
             this.txtIdEstudiante.Name = "txtIdEstudiante";
             this.txtIdEstudiante.Size = new System.Drawing.Size(128, 26);
@@ -176,8 +164,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(308, 289);
-            this.btnAceptar.Location = new System.Drawing.Point(587, 407);
+            this.btnAceptar.Location = new System.Drawing.Point(290, 347);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(105, 36);
             this.btnAceptar.TabIndex = 14;
@@ -191,8 +178,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(438, 289);
-            this.btnCancelar.Location = new System.Drawing.Point(717, 407);
+            this.btnCancelar.Location = new System.Drawing.Point(420, 347);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(105, 36);
             this.btnCancelar.TabIndex = 15;
@@ -216,16 +202,15 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(16, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 208);
+            this.panel1.Size = new System.Drawing.Size(803, 268);
             this.panel1.TabIndex = 16;
             // 
             // RealizaEvaluacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 339);
+            this.ClientSize = new System.Drawing.Size(848, 395);
             this.Controls.Add(this.panel1);
-            this.ClientSize = new System.Drawing.Size(848, 459);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtIdEstudiante);
