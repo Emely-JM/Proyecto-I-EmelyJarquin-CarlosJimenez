@@ -18,7 +18,8 @@ namespace Matricula.gui
         private UsuarioBO ubo;
         private PersonaBO pbo;
 
-        string idPersona = "";
+        private string idPersona = "";
+        private List<string> expiraContrasena = new List<string> { "30 días", "60 días", "90 días" };
 
         /// <summary>
         /// Inicializa la ventana para agregar un usuario nuevo
@@ -26,13 +27,18 @@ namespace Matricula.gui
         public FrmEdicionUsuario()
         {
             InitializeComponent();
+            lblContrasena.Visible = true;
+            txtContrasena.Visible = true;
+            lblConfirmarContrasena.Visible = true;
+            txtConfirmarContrasena.Visible = true;
             lblActivo.Visible = false;
             chkActivo.Visible = false;
-            cmbExpiraContrasena.SelectedIndex = 0;
             u = new Usuario();
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
             cargarDatos();
+            cmbExpiraContrasena.DataSource = expiraContrasena;
+            cmbExpiraContrasena.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -44,13 +50,18 @@ namespace Matricula.gui
         public FrmEdicionUsuario(Usuario u)
         {
             InitializeComponent();
+            lblContrasena.Visible = false;
+            txtContrasena.Visible = false;
+            lblConfirmarContrasena.Visible = false;
+            txtConfirmarContrasena.Visible = false;
             lblActivo.Visible = true;
             chkActivo.Visible = true;
-            cmbExpiraContrasena.SelectedIndex = 0;
             this.u = u;
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
             cargarDatos();
+            cmbExpiraContrasena.DataSource = expiraContrasena;
+            cmbExpiraContrasena.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -62,10 +73,15 @@ namespace Matricula.gui
             {
                 if (u.id != 0) // Verifica que sea un usuario existente
                 {
+                    foreach (Persona p in pbo.getLista())
+                    {
+                        if (p.idPersona.Equals(u.idPersona))
+                        {
+                            txtPersona.Text = p.cedula;
+                            break;
+                        }
+                    }
                     txtCodigo.Text = u.codigo;
-                    txtPersona.Text = "";
-                    txtContrasena.Text = "";
-                    cmbExpiraContrasena.SelectedIndex = 0;
                     chkActivo.Checked = u.activo;
                 }
                 else
@@ -73,7 +89,7 @@ namespace Matricula.gui
                     chkActivo.Checked = true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show(this, "Error al cargar la tabla");
             }
@@ -88,17 +104,17 @@ namespace Matricula.gui
 
             foreach (Persona persona in pbo.getLista())
             {
-                if (persona.cedula.Equals(txtBuscar.Text))
+                if (persona.cedula.Equals(txtBuscarPersona.Text))
                 {
                     p = persona;
                     idPersona = p.idPersona;
                     txtPersona.Text = p.cedula.ToString(); // Muestra el código en la ventana
                     generarCodigo(p);
-                    txtBuscar.Clear();
+                    txtBuscarPersona.Clear();
                     break;
                 }
             }
-            txtBuscar.Clear();
+            txtBuscarPersona.Clear();
         }
 
         /// <summary>
@@ -188,7 +204,7 @@ namespace Matricula.gui
         {
             foreach (Usuario usuario in ubo.GetUsuarios())
             {
-                if (usuario.codigo == codigo)
+                if (usuario.codigo == codigo && usuario.id != u.id)
                 {
                     return true;
                 }
@@ -205,15 +221,28 @@ namespace Matricula.gui
         {
             try
             {
-                u.codigo = txtCodigo.Text;
-                u.idPersona = idPersona;
-                u.contrasena = txtContrasena.Text;
-                u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0,2)));
-                u.activo = chkActivo.Checked;
-                ubo.guardar(u);
-                Dispose();
+                if (txtContrasena.Text.Equals(txtConfirmarContrasena.Text))
+                {
+                    u.codigo = txtCodigo.Text;
+                    u.idPersona = idPersona;
+                    u.contrasena = txtContrasena.Text;
+                    u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0, 2)));
+                    u.activo = chkActivo.Checked;
+                    ubo.guardar(u);
+                    Dispose();
+                }
+                else
+                {
+                    txtContrasena.Clear();
+                    txtConfirmarContrasena.Clear();
+                    MessageBox.Show(this, "Las contraseñas ingresadas no coinciden");
+                }
             }
             catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(this, ex.Message);
+            }
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(this, ex.Message);
             }

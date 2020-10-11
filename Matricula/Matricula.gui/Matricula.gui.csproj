@@ -105,6 +105,12 @@
     <Compile Include="EliminaPrematricula.Designer.cs">
       <DependentUpon>EliminaPrematricula.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmContrasenaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContrasenaUsuario.Designer.cs">
+      <DependentUpon>FrmContrasenaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEdicionUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EliminaPrematricula.resx">
       <DependentUpon>EliminaPrematricula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContrasenaUsuario.resx">
+      <DependentUpon>FrmContrasenaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionUsuario.resx">
       <DependentUpon>FrmEdicionUsuario.cs</DependentUpon>

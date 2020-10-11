@@ -15,11 +15,13 @@ namespace Matricula.gui
     public partial class FrmUsuario : Form
     {
         private UsuarioBO ubo;
+        private PersonaBO pbo;
 
         public FrmUsuario()
         {
             InitializeComponent();
             ubo = new UsuarioBO();
+            pbo = new PersonaBO();
             tabla.Columns[0].ValueType = typeof(object);
         }
 
@@ -37,7 +39,16 @@ namespace Matricula.gui
                     {
                         if (u.activo)
                         {
-                            tabla.Rows.Add(u, u.codigo, u.activo);
+                            foreach (Persona p in pbo.getLista())
+                            {
+                                if (u.idPersona.Equals(p.idPersona))
+                                {
+                                    string nombre = p.nombre + " " + p.apellido1
+                                        + " " + p.apellido2;
+                                    tabla.Rows.Add(u, u.codigo, u.idPersona, nombre,
+                                        p.tipoPersona, u.activo);
+                                }
+                            }
                         }
                     }
                 }
@@ -47,7 +58,16 @@ namespace Matricula.gui
                     {
                         if (u.codigo.Equals(txtBuscar.Text) && u.activo)
                         {
-                            tabla.Rows.Add(u, u.codigo, u.activo);
+                            foreach (Persona p in pbo.getLista())
+                            {
+                                if (u.idPersona.Equals(p.idPersona))
+                                {
+                                    string nombre = p.nombre + " " + p.apellido1
+                                        + " " + p.apellido2;
+                                    tabla.Rows.Add(u, u.codigo, u.idPersona, nombre,
+                                        p.tipoPersona, u.activo);
+                                }
+                            }
                         }
                     }
                 }
@@ -103,7 +123,17 @@ namespace Matricula.gui
 
         private void btnContrasena_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
+                FrmContrasenaUsuario frm = new FrmContrasenaUsuario(u);
+                frm.ShowDialog();
+                cargarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Error al intentar editar el usuario");
+            }
         }
 
         private void FrmUsuario_FormClosing(object sender, FormClosingEventArgs e)
