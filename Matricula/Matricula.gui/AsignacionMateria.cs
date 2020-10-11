@@ -24,18 +24,6 @@ namespace Matricula.gui
         private MateriaBO logM;
         private List<Materias> listaM;
 
-        /// <summary>
-        ///  Método que imprime un errorProvider en el combo pasado por parámetro 
-        /// y con el mensaje indicado en el parámetro
-        /// </summary>
-        /// <param name="text">representa el textBox al que se le dará foco para imprimir el mensaje</param>
-        /// <param name="mensaje">representa el mensaje que se desea imprimir</param>
-        private void mensajeCombo(ComboBox text, string mensaje)
-        {
-            errorProvider1.SetError(text, mensaje);
-            text.Focus();
-            return;
-        }
 
         /// <summary>
         /// Llena el combo con el id de los usuarios que sean de tipo profesor
@@ -71,9 +59,9 @@ namespace Matricula.gui
         /// </summary>
         private void buscar(int id)
         {
-            for(int i = 0; i < lista.Count; i++)
+            for (int i = 0; i < lista.Count; i++)
             {
-                if(lista[i].id == id)
+                if (lista[i].id == id)
                 {
                     cmbProfesor.Text = lista[i].idProf;
                     cmbMateria.Text = lista[i].idMateria;
@@ -87,7 +75,7 @@ namespace Matricula.gui
         private void asignarID()
         {
             int asigna = 0;
-            int ticket = lista.Count;
+            int ticket = lista.Count + 1;
             txtId.Text = asigna.ToString() + ticket;
         }
 
@@ -97,25 +85,11 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-            if(idProfesor != null)
-            {
-                errorProvider1.SetError(cmbProfesor,"");
-                if(idMateria != null)
-                {
-                    errorProvider1.SetError(cmbMateria,"");
-                    log.agregar(int.Parse(txtId.Text),idProfesor,idMateria);
-                    log.crearArchivo();
-                    this.Close();
-                }
-                else
-                {
-                    mensajeCombo(cmbMateria,"Debe seleccionar el id de una materia");
-                }
-            }
-            else
-            {
-                mensajeCombo(cmbProfesor, "Debe seleccionar el id de un profesor");
-            }
+
+            log.agregar(int.Parse(txtId.Text), idProfesor, idMateria);
+            log.crearArchivo();
+            this.Close();
+
         }
 
         public AsignacionMateria()
@@ -143,6 +117,8 @@ namespace Matricula.gui
             lista = new List<Asignacion>();
             listaU = new List<Persona>();
             listaM = new List<Materias>();
+            cmbMateria.SelectedIndex = 0;
+            cmbProfesor.SelectedIndex = 0;
             llenarComboProfesor();
             llenarComboMateria();
             id = idP;
@@ -153,16 +129,6 @@ namespace Matricula.gui
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void cmbProfesor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idProfesor = cmbProfesor.Text;
-        }
-
-        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idMateria = cmbMateria.Text;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
