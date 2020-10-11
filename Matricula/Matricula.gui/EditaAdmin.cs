@@ -17,6 +17,7 @@ namespace Matricula.gui
     public partial class EditaAdmin : Form
     {
         AdminBO log;
+        List<Admin> lista;
         ValidaDatos validar;
 
         string usuarioBuscar;
@@ -127,7 +128,6 @@ namespace Matricula.gui
 
         }
 
-
         /// <summary>
         /// Busca al usuario para identificar si se ingresa o se actualizan los datos
         /// </summary>
@@ -138,12 +138,33 @@ namespace Matricula.gui
             bool busca = false;
             if (log.buscarUsuario(usu) != -1)
             {
-                txtContrasena.Text = log.enviarContrasena(usu);
-                txtContrasena1.Text = log.enviarContrasena(usu);
                 busca = true;
             }
             return busca;
         }
+
+        /// <summary>
+        /// Carga los datos del admin ligados al
+        /// usuario pasado por parámetros
+        /// </summary>
+        private void cargar()
+        {
+            lista = log.getLista();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista[i].usuario.Equals(usuarioBuscar))
+                {
+                    txtUsuario.Text = lista[i].usuario;
+                    txtNombre.Text = lista[i].nombre;
+                    txtCorreo.Text = lista[i].correo;
+                    txtContrasena.Text = lista[i].contrasena;
+                    txtContrasena1.Text = lista[i].contrasena;
+                    chkActivo.Checked = lista[i].activo;
+                    chkAdmin.Checked = lista[i].admin;
+                }
+            }
+        }
+
 
         public EditaAdmin()
         {
@@ -151,28 +172,23 @@ namespace Matricula.gui
             lblTitulo.Text = "Administrador - Agregar";
             log = new AdminBO();
             validar = new ValidaDatos();
-            chkActivo.Enabled = false;
+            chkActivo.Visible = false;
             chkActivo.Checked = true;
 
         }
 
-        public EditaAdmin(string usu, string nombre, string correo, bool admin, bool activo)
+        public EditaAdmin(string usu)
         {
             InitializeComponent();
             lblTitulo.Text = "Administrador - Editar";
             log = new AdminBO();
             validar = new ValidaDatos();
-            label5.Enabled = false;
             txtContrasena.Enabled = false;
-            label6.Enabled = false;
             txtContrasena1.Enabled = false;
-            chkActivo.Enabled = true;
+            chkActivo.Visible = true;
             usuarioBuscar = usu;
-            txtUsuario.Text = usu;
-            txtNombre.Text = nombre;
-            txtCorreo.Text = correo;
-            chkActivo.Checked = activo;
-            chkAdmin.Checked = admin;
+            lista = new List<Admin>();
+            cargar();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

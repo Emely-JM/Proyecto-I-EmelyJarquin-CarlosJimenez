@@ -43,10 +43,10 @@ namespace Matricula.gui
             }
         }
 
-
-        public MantenimientoAsignacion()
+        public MantenimientoAsignacion(bool admin)
         {
             InitializeComponent();
+            adminPermisos(admin);
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)

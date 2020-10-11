@@ -20,14 +20,14 @@ namespace Matricula.entities
         public string usuarioRegistro { get; set; }
         public string tipoPersona { get; set; }
         public string nacionalidad { get; set; }
-        public string estado { get; set; }
+        public bool estado { get; set; }
 
         public Persona()
         {
         }
 
         public Persona(string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo, DateTime fechaNacimiento, string nivelAcademico, 
-            DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
+            DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, bool estado)
         {
             this.idPersona = idPersona;
             this.cedula = cedula;

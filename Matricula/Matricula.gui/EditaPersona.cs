@@ -19,11 +19,6 @@ namespace Matricula.gui
         List<Persona> lista;
 
         private ValidaDatos validar;
-        private char sexo;
-        private string nivelAcademico;
-        private string tipoPersona;
-        private string nacionalidad;
-        private string estado;
         private DateTime FechaNac;
         private DateTime FechaIngreso;
         private int cedula;
@@ -47,9 +42,9 @@ namespace Matricula.gui
         /// </summary>
         private void asignarId()
         {
-            //lista = log.getLista();
+            lista = log.getLista();
             string asiga = "P0";
-            int ticket = lista.Count;
+            int ticket = lista.Count + 1;
             txtIdPersona.Text = asiga + ticket.ToString();
         }
 
@@ -64,8 +59,8 @@ namespace Matricula.gui
                 FechaNac = dateTimeNacimiento.Value.Date;
                 FechaIngreso = dateTimeIngreso.Value.Date;
                 cedula = int.Parse(txtCedula.Text);
-                log.modificar(txtIdPersona.Text, txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
-                              sexo, FechaNac, nivelAcademico, FechaIngreso, txtUsuarioRegistro.Text, tipoPersona, nacionalidad, estado);
+                log.modificar(txtIdPersona.Text,txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                             char.Parse(cmbSexo.Text), FechaNac, cmbNivelAcademico.Text, FechaIngreso, txtUsuarioRegistro.Text, cmbTipoPersona.Text, cmbNacionalidad.Text, chkEstado.Checked);
                 log.crearArchivo();
                 this.Close();
             }
@@ -92,53 +87,12 @@ namespace Matricula.gui
                                 if (txtSegundoApellido.Text != "")
                                 {
                                     errorProvider1.SetError(txtSegundoApellido, "");
-                                    if (sexo != null)
-                                    {
-                                        errorProvider1.SetError(cmbSexo, "");
-                                        if (nivelAcademico != null)
-                                        {
-                                            errorProvider1.SetError(cmbNivelAcademico, "");
-                                            if (tipoPersona != null)
-                                            {
-                                                errorProvider1.SetError(cmbTipoPersona, "");
-                                                if (estado != null)
-                                                {
-                                                    errorProvider1.SetError(cmbEstado, "");
-                                                    FechaNac = dateTimeNacimiento.Value.Date;
-                                                    FechaIngreso = dateTimeIngreso.Value.Date;
-
-                                                    log.agregar(txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
-                                                        sexo, FechaNac, nivelAcademico, FechaIngreso, txtUsuarioRegistro.Text, tipoPersona, nacionalidad, estado);
-                                                    log.crearArchivo();
-                                                    this.Close();
-                                                }
-                                                else
-                                                {
-                                                    errorProvider1.SetError(cmbEstado, "Debe seleccionar un estado");
-                                                    cmbEstado.Focus();
-                                                    return;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                errorProvider1.SetError(cmbTipoPersona, "Debe seleccionar un tipo de persona");
-                                                cmbTipoPersona.Focus();
-                                                return;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            errorProvider1.SetError(cmbNivelAcademico, "Debe seleccionar un nivel académico");
-                                            cmbNivelAcademico.Focus();
-                                            return;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        errorProvider1.SetError(cmbSexo, "Debe seleccionar sexo");
-                                        cmbSexo.Focus();
-                                        return;
-                                    }
+                                    FechaNac = dateTimeNacimiento.Value.Date;
+                                    FechaIngreso = dateTimeIngreso.Value.Date;
+                                    log.agregar(txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                                        char.Parse(cmbSexo.Text), FechaNac, cmbNivelAcademico.Text, FechaIngreso, txtUsuarioRegistro.Text, cmbTipoPersona.Text, cmbNacionalidad.Text, chkEstado.Checked);
+                                    log.crearArchivo();
+                                    this.Close();
                                 }
                                 else
                                 {
@@ -163,7 +117,6 @@ namespace Matricula.gui
             }
         }
 
-
         /// <summary>
         /// LLena los campos de texto según el id encontrado 
         /// para editar los datos
@@ -171,6 +124,7 @@ namespace Matricula.gui
         /// <param name="idBuscar"> id de persona a buscar </param>
         private void llenarEdita(string idBuscar)
         {
+            lista = log.getLista();
             for (int i = 0; i < lista.Count; i++)
             {
                 if (lista[i].idPersona.Equals(idBuscar))
@@ -187,7 +141,7 @@ namespace Matricula.gui
                     txtUsuarioRegistro.Text = lista[i].usuarioRegistro;
                     cmbTipoPersona.Text = lista[i].tipoPersona;
                     cmbNacionalidad.Text = lista[i].nacionalidad;
-                    cmbEstado.Text = lista[i].estado;
+                    chkEstado.Checked = lista[i].estado;
                 }
             }
         }
@@ -208,37 +162,35 @@ namespace Matricula.gui
 
         }
 
-
         public EditaPersona(string u)
         {
             InitializeComponent();
+            txtUsuarioRegistro.Text = u;
             lblTitulo.Text = "Persona - Agregar";
-            txtIdPersona.Enabled = false;
-            txtUsuarioRegistro.Enabled = false;
-            cmbEstado.Enabled = false;
-            cmbEstado.Text = "Activo";
             log = new PersonaBO();
             validar = new ValidaDatos();
-            lista = new List<Persona>();
-            lista = log.getLista();
+            cmbTipoPersona.SelectedIndex = 0;
+            cmbSexo.SelectedIndex = 0;
+            cmbNivelAcademico.SelectedIndex = 0;
+            cmbNacionalidad.SelectedIndex = 0;
+            txtIdPersona.Enabled = false;
+            txtUsuarioRegistro.Enabled = false;
+            chkEstado.Visible = false;
+            chkEstado.Checked = true;
             asignarId();
-            txtUsuarioRegistro.Text = u;
         }
 
         public EditaPersona(string u, string idB)
         {
             InitializeComponent();
             lblTitulo.Text = "Persona - Editar";
-            txtIdPersona.Enabled = false;
-            txtUsuarioRegistro.Enabled = false;
             log = new PersonaBO();
             validar = new ValidaDatos();
-            lista = new List<Persona>();
-            lista = log.getLista();
+            txtIdPersona.Enabled = false;
+            txtUsuarioRegistro.Enabled = false;
+            chkEstado.Visible = true;
             llenarEdita(idB);
         }
-
-
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -248,36 +200,6 @@ namespace Matricula.gui
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void cmbSexo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            sexo = char.Parse(cmbSexo.Text);
-        }
-
-        private void cmbNivelAcademico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            nivelAcademico = cmbNivelAcademico.Text;
-        }
-
-        private void cmbTipoPersona_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tipoPersona = cmbTipoPersona.Text;
-        }
-
-        private void cmbNacionalidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            nacionalidad = cmbNacionalidad.Text;
-        }
-
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            estado = cmbEstado.Text;
-        }
-
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)

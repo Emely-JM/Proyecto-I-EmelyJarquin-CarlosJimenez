@@ -49,7 +49,6 @@ namespace Matricula.dao
             {
                 //Pase el nombre del archivo al constructor StreamWriter
                 StreamReader sr = new StreamReader(nombreArchivo);
-                string[] campos;
 
                 //Lee la primera línea de texto
                 line = sr.ReadLine();

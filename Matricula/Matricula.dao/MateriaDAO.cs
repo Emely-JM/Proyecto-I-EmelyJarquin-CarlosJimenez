@@ -64,7 +64,8 @@ namespace Matricula.dao
                     string idCarrera = items[3].Trim();
                     double precio = double.Parse(items[4].Trim());
                     double costo = double.Parse(items[5].Trim());
-                    Materias objMateria = new Materias(idMateria,nombre,creditos,idCarrera,precio,costo);
+                    bool estado = bool.Parse(items[6].Trim());
+                    Materias objMateria = new Materias(idMateria,nombre,creditos,idCarrera,precio,costo,estado);
                     materias.Add(objMateria);
 
                     //Lee la siguiente línea

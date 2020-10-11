@@ -19,10 +19,6 @@ namespace Matricula.gui
         private MatriculaEstudianteBO logE;
         private List<MatriculaEstudiante> listaE;
 
-        private string idPeriodo;
-        private string idMateria;
-        private string idEstudiante;
-
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -37,18 +33,6 @@ namespace Matricula.gui
             return;
         }
 
-        /// <summary>
-        ///  Método que imprime un errorProvider en el combo pasado por parámetro 
-        /// y con el mensaje indicado en el parámetro
-        /// </summary>
-        /// <param name="text">representa el textBox al que se le dará foco para imprimir el mensaje</param>
-        /// <param name="mensaje">representa el mensaje que se desea imprimir</param>
-        private void mensajeCombo(ComboBox text, string mensaje)
-        {
-            errorProvider1.SetError(text, mensaje);
-            text.Focus();
-            return;
-        }
 
         /// <summary>
         /// Carga los combos con los datos de la matricula.
@@ -77,92 +61,70 @@ namespace Matricula.gui
             int exams = 0;
             int pruebasC = 0;
             float nota = 0;
-            if (idPeriodo != null)
-            {
-                errorProvider1.SetError(cmbPeriodo,"");
-                if(idMateria != null)
-                {
-                    errorProvider1.SetError(cmbMateria, "");
-                    if (idEstudiante != null)
-                    {
-                        errorProvider1.SetError(cmbEstudiante, "");
-                        if (!txtProyecto.Text.Equals(""))
-                        {
-                            errorProvider1.SetError(txtProyecto, "");
-                            if (!txtLaboratorio.Text.Equals(""))
-                            {
-                                errorProvider1.SetError(txtLaboratorio, "");
-                                if (!txtExamenes.Text.Equals(""))
-                                {
-                                    errorProvider1.SetError(txtExamenes, "");
-                                    if (!txtPruebasCortas.Text.Equals(""))
-                                    {
-                                        errorProvider1.SetError(txtPruebasCortas, "");
-                                        proyectos = int.Parse(txtProyecto.Text);
-                                        labs = int.Parse(txtLaboratorio.Text);
-                                        exams = int.Parse(txtExamenes.Text);
-                                        pruebasC = int.Parse(txtPruebasCortas.Text);
-                                        suma = proyectos + labs + exams + pruebasC;
-                                        txtTotal.Text = suma.ToString();
-                                        if(suma <= 100)
-                                        {
-                                            nota = log.calculaNota(proyectos,labs,exams,pruebasC);
-                                            txtNota.Text = nota.ToString();
-                                            if(nota >= 70)
-                                            {
-                                                txtEstado.Text = "Aprobado";
-                                            }
-                                            else
-                                            {
-                                                txtEstado.Text = "Reprobado";
-                                            }
-                                            log.agregar(idPeriodo,idMateria,idEstudiante,int.Parse(txtNota.Text),txtEstado.Text);
-                                            log.crearArchivo();
-                                            this.Close();
-                                        }
-                                        else
-                                        {
-                                            mensajeText(txtTotal, "La suma de pts de los proyectos, laboratorios, examenes y pruebas cortas no puede superar los 100 pts");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        mensajeText(txtPruebasCortas, "Debe ingresar los puntos obtenidos por el estudiante");
-                                    }
 
+            if (!txtProyecto.Text.Equals(""))
+            {
+                errorProvider1.SetError(txtProyecto, "");
+                if (!txtLaboratorio.Text.Equals(""))
+                {
+                    errorProvider1.SetError(txtLaboratorio, "");
+                    if (!txtExamenes.Text.Equals(""))
+                    {
+                        errorProvider1.SetError(txtExamenes, "");
+                        if (!txtPruebasCortas.Text.Equals(""))
+                        {
+                            errorProvider1.SetError(txtPruebasCortas, "");
+                            proyectos = int.Parse(txtProyecto.Text);
+                            labs = int.Parse(txtLaboratorio.Text);
+                            exams = int.Parse(txtExamenes.Text);
+                            pruebasC = int.Parse(txtPruebasCortas.Text);
+                            suma = proyectos + labs + exams + pruebasC;
+                            txtTotal.Text = suma.ToString();
+                            if (suma <= 100)
+                            {
+                                nota = log.calculaNota(proyectos, labs, exams, pruebasC);
+                                txtNota.Text = nota.ToString();
+                                if (nota >= 70)
+                                {
+                                    txtEstado.Text = "Aprobado";
                                 }
                                 else
                                 {
-                                    mensajeText(txtExamenes, "Debe ingresar los puntos obtenidos por el estudiante");
+                                    txtEstado.Text = "Reprobado";
                                 }
-
+                                log.agregar(cmbPeriodo.Text, cmbMateria.Text, cmbEstudiante.Text, int.Parse(txtNota.Text), txtEstado.Text);
+                                log.crearArchivo();
+                                this.Close();
                             }
                             else
                             {
-                                mensajeText(txtLaboratorio, "Debe ingresar los puntos obtenidos por el estudiante");
+                                mensajeText(txtTotal, "La suma de pts de los proyectos, laboratorios, examenes y pruebas cortas no puede superar los 100 pts");
                             }
-
                         }
                         else
                         {
-                            mensajeText(txtProyecto, "Debe ingresar los puntos obtenidos por el estudiante");
+                            mensajeText(txtPruebasCortas, "Debe ingresar los puntos obtenidos por el estudiante");
                         }
 
                     }
                     else
                     {
-                        mensajeCombo(cmbEstudiante, "Debe seleccionar un id de estudiante válido");
+                        mensajeText(txtExamenes, "Debe ingresar los puntos obtenidos por el estudiante");
                     }
+
                 }
                 else
                 {
-                    mensajeCombo(cmbMateria, "Debe seleccionar un id de materia válido");
+                    mensajeText(txtLaboratorio, "Debe ingresar los puntos obtenidos por el estudiante");
                 }
+
             }
             else
             {
-                mensajeCombo(cmbPeriodo,"Debe seleccionar un id de periodo válido");
+                mensajeText(txtProyecto, "Debe ingresar los puntos obtenidos por el estudiante");
             }
+
+
         }
 
         public RegistraNota()
@@ -172,10 +134,13 @@ namespace Matricula.gui
             logE = new MatriculaEstudianteBO();
             validar = new ValidaDatos();
             listaE = new List<MatriculaEstudiante>();
-            cargarCombo();
             txtTotal.Enabled = false;
             txtNota.Enabled = false;
             txtEstado.Enabled = false;
+            cargarCombo();
+            cmbPeriodo.SelectedIndex = 0;
+            cmbMateria.SelectedIndex = 0;
+            cmbEstudiante.SelectedIndex = 0;
         }
 
         private void txtProyecto_KeyPress(object sender, KeyPressEventArgs e)
@@ -196,21 +161,6 @@ namespace Matricula.gui
         private void txtPruebasCortas_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.soloNumeros(e);
-        }
-
-        private void cmbPeriodo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idPeriodo = cmbPeriodo.Text;
-        }
-
-        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idMateria = cmbMateria.Text;
-        }
-
-        private void cmbEstudiante_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idEstudiante = cmbEstudiante.Text;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

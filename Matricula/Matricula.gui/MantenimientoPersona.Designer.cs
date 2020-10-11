@@ -45,7 +45,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnActivaDes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +124,7 @@
             // btnEditar
             // 
             this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(751, 86);
+            this.btnEditar.Location = new System.Drawing.Point(697, 86);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(48, 36);
             this.btnEditar.TabIndex = 13;
@@ -133,7 +134,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(697, 86);
+            this.btnAgregar.Location = new System.Drawing.Point(643, 86);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(48, 36);
             this.btnAgregar.TabIndex = 12;
@@ -213,17 +214,29 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Estado";
+            this.Column7.HeaderText = "Activo";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column7.Width = 80;
+            // 
+            // btnActivaDes
+            // 
+            this.btnActivaDes.Image = global::Matricula.gui.Properties.Resources.icons8_shutdown_25px;
+            this.btnActivaDes.Location = new System.Drawing.Point(751, 86);
+            this.btnActivaDes.Name = "btnActivaDes";
+            this.btnActivaDes.Size = new System.Drawing.Size(48, 36);
+            this.btnActivaDes.TabIndex = 16;
+            this.btnActivaDes.UseVisualStyleBackColor = true;
+            this.btnActivaDes.Click += new System.EventHandler(this.btnActivaDes_Click);
             // 
             // MantenimientoPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 518);
+            this.Controls.Add(this.btnActivaDes);
             this.Controls.Add(this.tblTabla);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -262,6 +275,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
+        private System.Windows.Forms.Button btnActivaDes;
     }
 }

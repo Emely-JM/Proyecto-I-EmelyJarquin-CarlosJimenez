@@ -24,6 +24,7 @@ namespace Matricula.gui
             this.toolTip1.SetToolTip(btnCRUDCarreras, "Mantenimiento de carreras");
             this.toolTip1.SetToolTip(btnCRUDMateria, "Mantenimiento de materias");
             this.toolTip1.SetToolTip(btnCRUDPersonas, "Mantenimiento de personas");
+            this.toolTip1.SetToolTip(btnAsignacion, "Mantenimiento de asignaciones de materias");
         }
 
         public MenuAdmin(bool admin, string usu)
@@ -55,6 +56,12 @@ namespace Matricula.gui
         private void btnCRUDPersonas_Click(object sender, EventArgs e)
         {
             MantenimientoPersona frm = new MantenimientoPersona(admin1, u);
+            frm.ShowDialog();
+        }
+
+        private void btnAsignacion_Click(object sender, EventArgs e)
+        {
+            MantenimientoAsignacion frm = new MantenimientoAsignacion(admin1);
             frm.ShowDialog();
         }
     }
