@@ -80,7 +80,7 @@ namespace Matricula.gui
             try
             {
                 Usuario u = new Usuario();
-                u.codigo = txtUsuStuden.Text;
+                u.codigo = txtUsuStuden.Text.ToUpper();
                 u.contrasena = txtPassStuden.Text;
 
                 u = ubo.iniciarSesion(u);
@@ -116,7 +116,7 @@ namespace Matricula.gui
             try
             {
                 Usuario u = new Usuario();
-                u.codigo = txtUsuTeachers.Text;
+                u.codigo = txtUsuTeachers.Text.ToUpper();
                 u.contrasena = txtPassTeachers.Text;
 
                 u = ubo.iniciarSesion(u);

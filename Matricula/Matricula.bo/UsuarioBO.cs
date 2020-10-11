@@ -32,32 +32,44 @@ namespace Matricula.bo
             {
                 throw new ArgumentNullException("El id de la persona es requerida");
             }
-            if (String.IsNullOrEmpty(u.contrasena))
-            {
-                throw new ArgumentNullException("La contraseña es requerida");
-            }
 
             foreach (Usuario usuario in GetUsuarios())
             {
-                if (u.id != usuario.id)
+                if (u.idPersona.Equals(usuario.idPersona) && u.id != usuario.id)
                 {
-                    if (u.codigo.Equals(usuario.codigo))
-                    {
-                        throw new ArgumentException("El código ingresado ya ha sido registrado");
-                    }
+                    throw new ArgumentException("La persona ingresada ya tiene un usuario registrado");
                 }
             }
 
-            u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
-
             if (u.id == 0)
             {
+                if (String.IsNullOrEmpty(u.contrasena))
+                {
+                    throw new ArgumentNullException("La contraseña es requerida");
+                }
+                u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
                 new UsuarioDAO().agregar(u);
             }
             else
             {
                 new UsuarioDAO().editar(u);
             }
+        }
+
+        /// <summary>
+        /// Cambia la contraseña de un usuario
+        /// </summary>
+        /// <param name="u">
+        /// Isntancia de la clase Usuario
+        /// </param>
+        public void cambiarContrasena(Usuario u)
+        {
+            if (String.IsNullOrEmpty(u.contrasena))
+            {
+                throw new ArgumentNullException("La contraseña es requerida");
+            }
+            u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
+            new UsuarioDAO().cambiarContrasena(u);
         }
 
         /// <summary>

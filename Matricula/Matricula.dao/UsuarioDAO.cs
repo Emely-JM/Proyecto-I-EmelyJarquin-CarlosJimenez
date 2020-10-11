@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -93,7 +94,6 @@ namespace Matricula.dao
                         // Sobreescribe los datos de un usuario existente con los datos nuevos
                         usuario.codigo = u.codigo;
                         usuario.idPersona = u.idPersona;
-                        usuario.contrasena = u.contrasena;
                         usuario.fechaExpiraContrasena = u.fechaExpiraContrasena;
                         usuario.activo = u.activo;
                         break;
@@ -137,6 +137,36 @@ namespace Matricula.dao
         }
 
         /// <summary>
+        /// Cambia la contraseña de un usuario
+        /// </summary>
+        /// <param name="u">
+        /// Isntancia de la clase Usuario
+        /// </param>
+        public void cambiarContrasena(Usuario u)
+        {
+            try
+            {
+                GetUsuarios();
+
+                // Ciclo para recorrer la lista de usuarios
+                foreach (Usuario usuario in usuarios)
+                {
+                    if (u.id == usuario.id)
+                    {
+                        usuario.contrasena = u.contrasena;
+                        usuario.fechaExpiraContrasena = u.fechaExpiraContrasena;
+                        break;
+                    }
+                }
+                escribir();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al cambiar la contraseña del usuario");
+            }
+        }
+
+        /// <summary>
         /// Lee los usuarios de la aplicación desde un archivo de texto
         /// </summary>
         /// <returns>
@@ -172,7 +202,7 @@ namespace Matricula.dao
             }
             catch (Exception)
             {
-                throw new Exception("Error al leer el archivo");
+                throw new Exception("Error al cargar los usuarios");
             }
             return usuarios;
         }
@@ -194,7 +224,15 @@ namespace Matricula.dao
                 {
                     if (u.codigo == usuario.codigo && u.contrasena == u.contrasena)
                     {
-                        return usuario;
+                        if (DateTime.Compare(u.fechaExpiraContrasena, DateTime.Now) > 0)
+                        {
+                            throw new Exception("La contraseña ha caducado" + Environment.NewLine
+                                + "Solicitar a un administrador una nueva contraseña");
+                        }
+                        else
+                        {
+                            return usuario;
+                        }
                     }
                 }
             }

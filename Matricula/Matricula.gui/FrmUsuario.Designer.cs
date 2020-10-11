@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -40,6 +41,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.objData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbIdPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkbActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
@@ -86,10 +90,21 @@
             // tabla
             // 
             this.tabla.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.objData,
             this.txtbCodigo,
+            this.txtbIdPersona,
+            this.txtbNombre,
+            this.txtbTipoUsuario,
             this.chkbActivo});
             this.tabla.Location = new System.Drawing.Point(12, 114);
             this.tabla.Name = "tabla";
@@ -155,9 +170,25 @@
             // 
             // txtbCodigo
             // 
-            this.txtbCodigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.txtbCodigo.HeaderText = "Código";
             this.txtbCodigo.Name = "txtbCodigo";
+            // 
+            // txtbIdPersona
+            // 
+            this.txtbIdPersona.HeaderText = "ID Persona";
+            this.txtbIdPersona.Name = "txtbIdPersona";
+            // 
+            // txtbNombre
+            // 
+            this.txtbNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtbNombre.HeaderText = "Nombre";
+            this.txtbNombre.Name = "txtbNombre";
+            // 
+            // txtbTipoUsuario
+            // 
+            this.txtbTipoUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtbTipoUsuario.HeaderText = "Tipo de usuario";
+            this.txtbTipoUsuario.Name = "txtbTipoUsuario";
             // 
             // chkbActivo
             // 
@@ -204,6 +235,9 @@
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn objData;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtbCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtbIdPersona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtbNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtbTipoUsuario;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkbActivo;
     }
 }

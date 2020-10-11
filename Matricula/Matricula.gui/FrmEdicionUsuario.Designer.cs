@@ -36,8 +36,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.txtPersona = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.lblCedulaPersona = new System.Windows.Forms.Label();
+            this.txtBuscarPersona = new System.Windows.Forms.TextBox();
+            this.lblBuscarPersona = new System.Windows.Forms.Label();
             this.lblPersona = new System.Windows.Forms.Label();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.lblExpiraContrasena = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@
             this.cmbExpiraContrasena = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtConfirmarContrasena = new System.Windows.Forms.TextBox();
+            this.lblConfirmarContrasena = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +73,7 @@
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(412, 295);
+            this.chkActivo.Location = new System.Drawing.Point(412, 332);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(15, 14);
             this.chkActivo.TabIndex = 2;
@@ -131,23 +133,23 @@
             this.txtContrasena.Size = new System.Drawing.Size(250, 31);
             this.txtContrasena.TabIndex = 12;
             // 
-            // txtBuscar
+            // txtBuscarPersona
             // 
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(294, 98);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 31);
-            this.txtBuscar.TabIndex = 14;
+            this.txtBuscarPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarPersona.Location = new System.Drawing.Point(294, 98);
+            this.txtBuscarPersona.Name = "txtBuscarPersona";
+            this.txtBuscarPersona.Size = new System.Drawing.Size(250, 31);
+            this.txtBuscarPersona.TabIndex = 14;
             // 
-            // lblCedulaPersona
+            // lblBuscarPersona
             // 
-            this.lblCedulaPersona.AutoSize = true;
-            this.lblCedulaPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedulaPersona.Location = new System.Drawing.Point(121, 101);
-            this.lblCedulaPersona.Name = "lblCedulaPersona";
-            this.lblCedulaPersona.Size = new System.Drawing.Size(170, 25);
-            this.lblCedulaPersona.TabIndex = 15;
-            this.lblCedulaPersona.Text = "Cédula persona:";
+            this.lblBuscarPersona.AutoSize = true;
+            this.lblBuscarPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarPersona.Location = new System.Drawing.Point(121, 101);
+            this.lblBuscarPersona.Name = "lblBuscarPersona";
+            this.lblBuscarPersona.Size = new System.Drawing.Size(169, 25);
+            this.lblBuscarPersona.TabIndex = 15;
+            this.lblBuscarPersona.Text = "Buscar persona:";
             // 
             // lblPersona
             // 
@@ -173,17 +175,17 @@
             // 
             this.lblExpiraContrasena.AutoSize = true;
             this.lblExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpiraContrasena.Location = new System.Drawing.Point(96, 251);
+            this.lblExpiraContrasena.Location = new System.Drawing.Point(38, 288);
             this.lblExpiraContrasena.Name = "lblExpiraContrasena";
-            this.lblExpiraContrasena.Size = new System.Drawing.Size(192, 25);
+            this.lblExpiraContrasena.Size = new System.Drawing.Size(250, 25);
             this.lblExpiraContrasena.TabIndex = 19;
-            this.lblExpiraContrasena.Text = "Expira contraseña:";
+            this.lblExpiraContrasena.Text = "La contraseña expira en:";
             // 
             // lblActivo
             // 
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivo.Location = new System.Drawing.Point(211, 290);
+            this.lblActivo.Location = new System.Drawing.Point(211, 327);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(77, 25);
             this.lblActivo.TabIndex = 20;
@@ -191,13 +193,10 @@
             // 
             // cmbExpiraContrasena
             // 
+            this.cmbExpiraContrasena.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbExpiraContrasena.FormattingEnabled = true;
-            this.cmbExpiraContrasena.Items.AddRange(new object[] {
-            "30 días",
-            "60 días",
-            "90 días"});
-            this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 248);
+            this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 285);
             this.cmbExpiraContrasena.Name = "cmbExpiraContrasena";
             this.cmbExpiraContrasena.Size = new System.Drawing.Size(250, 33);
             this.cmbExpiraContrasena.TabIndex = 22;
@@ -221,11 +220,32 @@
             this.lblCodigo.TabIndex = 23;
             this.lblCodigo.Text = "Código:";
             // 
+            // txtConfirmarContrasena
+            // 
+            this.txtConfirmarContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmarContrasena.Location = new System.Drawing.Point(294, 248);
+            this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
+            this.txtConfirmarContrasena.PasswordChar = '*';
+            this.txtConfirmarContrasena.Size = new System.Drawing.Size(250, 31);
+            this.txtConfirmarContrasena.TabIndex = 25;
+            // 
+            // lblConfirmarContrasena
+            // 
+            this.lblConfirmarContrasena.AutoSize = true;
+            this.lblConfirmarContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmarContrasena.Location = new System.Drawing.Point(64, 251);
+            this.lblConfirmarContrasena.Name = "lblConfirmarContrasena";
+            this.lblConfirmarContrasena.Size = new System.Drawing.Size(224, 25);
+            this.lblConfirmarContrasena.TabIndex = 26;
+            this.lblConfirmarContrasena.Text = "Confirmar contraseña:";
+            // 
             // FrmEdicionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.lblConfirmarContrasena);
+            this.Controls.Add(this.txtConfirmarContrasena);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.cmbExpiraContrasena);
@@ -233,8 +253,8 @@
             this.Controls.Add(this.lblExpiraContrasena);
             this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.lblPersona);
-            this.Controls.Add(this.lblCedulaPersona);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.lblBuscarPersona);
+            this.Controls.Add(this.txtBuscarPersona);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtPersona);
             this.Controls.Add(this.btnAceptar);
@@ -263,8 +283,8 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TextBox txtPersona;
         private System.Windows.Forms.TextBox txtContrasena;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Label lblCedulaPersona;
+        private System.Windows.Forms.TextBox txtBuscarPersona;
+        private System.Windows.Forms.Label lblBuscarPersona;
         private System.Windows.Forms.Label lblPersona;
         private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.Label lblExpiraContrasena;
@@ -272,5 +292,7 @@
         private System.Windows.Forms.ComboBox cmbExpiraContrasena;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.TextBox txtConfirmarContrasena;
+        private System.Windows.Forms.Label lblConfirmarContrasena;
     }
 }
