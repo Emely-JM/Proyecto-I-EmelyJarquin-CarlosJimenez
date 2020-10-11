@@ -60,7 +60,7 @@ namespace Matricula.dao
                 int id = 1;
                 if (ultimo != 0)
                 {
-                    id = usuarios[ultimo].id + 1;
+                    id = usuarios[ultimo - 1].id + 1;
                 }
                 u.id = id;
 

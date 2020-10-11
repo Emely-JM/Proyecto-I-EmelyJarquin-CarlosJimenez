@@ -73,7 +73,6 @@ namespace Matricula.gui
                     log.eliminar(id);
                     log.crearArchivo();
                     verDatos();
-
                 }
 
             }
@@ -81,6 +80,22 @@ namespace Matricula.gui
             {
                 MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            lista = log.getLista();
+            List<Asignacion> filtrados = lista.Where(x => x.idProf.StartsWith(txtFiltro.Text)).ToList();
+            tblTabla.Rows.Clear();
+            for (int i = 0; i < filtrados.Count; i++)
+            {
+                tblTabla.Rows.Add(filtrados[i].id, filtrados[i].idProf, filtrados[i].idMateria);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

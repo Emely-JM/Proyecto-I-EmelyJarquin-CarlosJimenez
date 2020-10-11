@@ -63,13 +63,14 @@ namespace Matricula.bo
         /// Cuándo se realiza el pago asigna matriculado al estado de la persona
         /// </summary>
         /// <param name="idP"> id de la persona a buscar</param>
-        public void pagoRealizado(string idP)
+        public void pagoRealizado(string idP, DateTime fechaPago)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
                 if (proceso[i].idPersona.Equals(idP))
                 {
                     proceso[i].estado = "Matriculado";
+                    proceso[i].fechaPago = fechaPago;
                 }
             }
         }
