@@ -1,4 +1,5 @@
-﻿using Matricula.bo;
+﻿using EliminaDatos;
+using Matricula.bo;
 using Matricula.entities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Matricula.gui
 {
     public partial class MantenimientoPersona : Form
     {
-
+        private Elimina elimina;
         private string usu = "";
         private PersonaBO log;
         private List<Persona> lista;
@@ -53,6 +54,7 @@ namespace Matricula.gui
             log = new PersonaBO();
             lista = new List<Persona>();
             usu = u;
+            elimina = new Elimina();
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)
@@ -88,10 +90,27 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                string cedula = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
+                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[8].Value.ToString());
                 oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta persona?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (oDlgRes == DialogResult.Yes)
                 {
-                    log.eliminar(id);
+                    if (elimina.eliminarPersona(cedula) != -1)
+                    {
+                        MessageBox.Show("No se puede eliminar a esta persona, ya que hay datos ligados, debe eliminar dichos datos para lograr eliminar, en su lugar se desactivará", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (activo == true)
+                        {
+                            log.activaDesactiva(id, false);
+                        }
+                        else
+                        {
+                            log.activaDesactiva(id, true);
+                        }
+                    }
+                    else
+                    {
+                        log.eliminar(id);
+                    }
                     log.crearArchivo();
                     verDatos();
                 }
@@ -112,6 +131,40 @@ namespace Matricula.gui
             {
                 tblTabla.Rows.Add(filtrados[i].idPersona, filtrados[i].cedula, filtrados[i].nombre, filtrados[i].apellido1, filtrados[i].apellido2,
                     filtrados[i].nivelAcademico, filtrados[i].tipoPersona, filtrados[i].fechaIngreso, filtrados[i].estado);
+            }
+        }
+
+        private void btnActivaDes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[8].Value.ToString());
+                if (activo == true)
+                {
+                    DialogResult result = MessageBox.Show("¿Está seguro de desactivar a la persona con el id: " + id + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        log.activaDesactiva(id, false);
+                        MessageBox.Show("Desactivado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Está seguro de activar a la persona con el id: " + id + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        log.activaDesactiva(id, true);
+                        MessageBox.Show("Activado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                log.crearArchivo();
+                verDatos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

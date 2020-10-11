@@ -1,4 +1,5 @@
-﻿using Matricula.bo;
+﻿using EliminaDatos;
+using Matricula.bo;
 using Matricula.entities;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Matricula.gui
 {
     public partial class MantenimientoMateria : Form
     {
+        Elimina eliminar;
         MateriaBO log;
         List<Materias> lista;
         string id;
@@ -27,7 +29,7 @@ namespace Matricula.gui
             tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
-                tblTabla.Rows.Add(lista[i].idMateria, lista[i].nombre, lista[i].cantidadCreditos, lista[i].idCarrera, lista[i].precio, lista[i].costo);
+                tblTabla.Rows.Add(lista[i].idMateria, lista[i].nombre, lista[i].cantidadCreditos, lista[i].idCarrera, lista[i].precio, lista[i].costo, lista[i].estado);
             }
         }
 
@@ -49,6 +51,7 @@ namespace Matricula.gui
             log = new MateriaBO();
             lista = new List<Materias>();
             adminPermisos(admin);
+            eliminar = new Elimina();
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)
@@ -69,10 +72,28 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[6].Value.ToString());
                 oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (oDlgRes == DialogResult.Yes)
                 {
-                    log.eliminar(id);
+                    if (eliminar.eliminarMateria(id) != -1)
+                    {
+                        MessageBox.Show("No se puede eliminar esta materia ya que tiene matriculas ligadas, debe eliminar las matriculas para eliminar la materia. En su lugar, se procederá a " +
+                            "desactivar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (activo == true)
+                        {
+                            log.modificaEstado(id, false);
+                        }
+                        else
+                        {
+                            log.modificaEstado(id, true);
+
+                        }
+                    }
+                    else
+                    {
+                        log.eliminar(id);
+                    }
                     log.crearArchivo();
                     verDatos();
                 }
@@ -89,12 +110,7 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                string nombre = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
-                int creditos = int.Parse(this.tblTabla.CurrentRow.Cells[2].Value.ToString());
-                string idCarrea = this.tblTabla.CurrentRow.Cells[3].Value.ToString();
-                double precio = double.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
-                double costo = double.Parse(this.tblTabla.CurrentRow.Cells[5].Value.ToString());
-                EditaMateria frm = new EditaMateria(id, nombre, creditos, idCarrea, precio, costo);
+                EditaMateria frm = new EditaMateria(id);
                 frm.ShowDialog();
                 verDatos();
             }
@@ -113,6 +129,42 @@ namespace Matricula.gui
             {
                 tblTabla.Rows.Add(filtrados[i].idMateria, filtrados[i].nombre, filtrados[i].cantidadCreditos, filtrados[i].idCarrera, filtrados[i].precio,
                     filtrados[i].costo);
+            }
+        }
+
+        private void btnActivaDes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[6].Value.ToString());
+
+                if (activo == true)
+                {
+                    DialogResult result = MessageBox.Show("¿Está seguro de desactivar a la materia: " + id + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        log.modificaEstado(id, false);
+                        MessageBox.Show("Desactivado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Está seguro de activar a la materia: " + id + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        log.modificaEstado(id, true);
+                        MessageBox.Show("Activado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                log.crearArchivo();
+                verDatos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

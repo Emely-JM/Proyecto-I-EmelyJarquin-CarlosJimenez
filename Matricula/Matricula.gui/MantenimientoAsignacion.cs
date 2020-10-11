@@ -43,7 +43,6 @@ namespace Matricula.gui
             }
         }
 
-
         public MantenimientoAsignacion(bool admin)
         {
             InitializeComponent();

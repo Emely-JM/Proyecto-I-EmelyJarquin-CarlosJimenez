@@ -16,8 +16,8 @@ namespace Matricula.gui
     {
         CarreraBO log;
         ValidaDatos validar;
+        List<Carrera> lista;
 
-        private string estado;
         private string Id;
         private int creditos;
         private DateTime apertura;
@@ -68,26 +68,15 @@ namespace Matricula.gui
                                 else
                                 {
                                     errorProvider1.SetError(txtId, "");
-                                    if (estado != null)
-                                    {
-                                        errorProvider1.SetError(cmbEstado, "");
-                                        apertura = datetimeApertura.Value.Date;
-                                        cierre = dateTimeCierre.Value.Date;
-                                        creditos = int.Parse(txtCreditos.Text);
-                                        log.agregar(txtId.Text, txtNombre.Text, creditos, estado, apertura, cierre);
-                                        log.crearArchivo();
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        errorProvider1.SetError(cmbEstado, "Debe seleccionar un estado");
-                                        cmbEstado.Focus();
-                                        return;
-                                    }
 
+
+                                    apertura = datetimeApertura.Value.Date;
+                                    cierre = dateTimeCierre.Value.Date;
+                                    creditos = int.Parse(txtCreditos.Text);
+                                    log.agregar(txtId.Text, txtNombre.Text, creditos, cmbEstado.Text, apertura, cierre);
+                                    log.crearArchivo();
+                                    this.Close();
                                 }
-
-
                             }
                         }
                         else
@@ -110,7 +99,7 @@ namespace Matricula.gui
                 apertura = datetimeApertura.Value.Date;
                 cierre = dateTimeCierre.Value.Date;
                 creditos = int.Parse(txtCreditos.Text);
-                log.modificar(Id, txtId.Text, txtNombre.Text, creditos, estado, apertura, cierre);
+                log.modificar(Id, txtId.Text, txtNombre.Text, creditos, cmbEstado.Text, apertura, cierre);
                 log.crearArchivo();
                 this.Close();
             }
@@ -132,6 +121,27 @@ namespace Matricula.gui
             return busca;
         }
 
+        /// <summary>
+        /// Carga los datos de la lista que coincidan con el id
+        /// de la carrera
+        /// </summary>
+        private void cargar()
+        {
+            lista = log.getLista();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista[i].idCarrera.Equals(Id))
+                {
+                    txtId.Text = lista[i].idCarrera;
+                    txtNombre.Text = lista[i].nombre;
+                    txtCreditos.Text = lista[i].creditosTotales.ToString();
+                    cmbEstado.Text = lista[i].estado;
+                    datetimeApertura.Value = lista[i].FechaApertura;
+                    dateTimeCierre.Value = lista[i].FechaCierrre;
+                }
+            }
+        }
+
 
         public EditaCarrera()
         {
@@ -141,21 +151,15 @@ namespace Matricula.gui
             lblTitulo.Text = "Carrera - Agregar";
         }
 
-        public EditaCarrera(string id, string nombre, int creditos, string estado, DateTime apertura, DateTime cierre)
+        public EditaCarrera(string id)
         {
             InitializeComponent();
+            Id = id;
             log = new CarreraBO();
             validar = new ValidaDatos();
             lblTitulo.Text = "Carrera - Editar";
-            Id = id;
-            txtId.Text = id;
-            txtNombre.Text = nombre;
-            txtCreditos.Text = creditos.ToString();
-            cmbEstado.SelectedItem = estado;
-            cmbEstado.Text = estado;
-            datetimeApertura.Value = apertura;
-            dateTimeCierre.Value = cierre;
-
+            lista = new List<Carrera>();
+            cargar();
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -170,7 +174,7 @@ namespace Matricula.gui
 
         private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            estado = cmbEstado.Text;
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

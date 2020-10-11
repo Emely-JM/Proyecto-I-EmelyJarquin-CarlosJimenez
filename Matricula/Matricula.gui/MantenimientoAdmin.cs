@@ -1,4 +1,5 @@
-﻿using Matricula.bo;
+﻿using EliminaDatos;
+using Matricula.bo;
 using Matricula.entities;
 using System;
 using System.Activities.Expressions;
@@ -15,6 +16,7 @@ namespace Matricula.gui
 {
     public partial class MantenimientoAdmin : Form
     {
+        Elimina eliminar;
         AdminBO log;
         List<Admin> lista;
         string usuario;
@@ -52,6 +54,7 @@ namespace Matricula.gui
             log = new AdminBO();
             lista = new List<Admin>();
             adminPermisos(admin);
+            eliminar = new Elimina();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -154,11 +157,7 @@ namespace Matricula.gui
             try
             {
                 usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                string nombre = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
-                string correo = this.tblTabla.CurrentRow.Cells[2].Value.ToString();
-                bool admin = bool.Parse(this.tblTabla.CurrentRow.Cells[3].Value.ToString());
-                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
-                EditaAdmin frm = new EditaAdmin(usuario, nombre, correo, admin, activo);
+                EditaAdmin frm = new EditaAdmin(usuario);
                 frm.ShowDialog();
                 verDatos();
             }

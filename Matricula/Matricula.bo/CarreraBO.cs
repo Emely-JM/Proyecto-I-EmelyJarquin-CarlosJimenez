@@ -77,6 +77,21 @@ namespace Matricula.bo
         }
 
         /// <summary>
+        /// Desactiva la carrera
+        /// </summary>
+        /// <param name="id"> id de la carrera a desactivar </param>
+        public void modificaEstado(string id)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (id.Equals(proceso[i].idCarrera))
+                {
+                    proceso[i].estado = "Cerrada";
+                }
+            }
+        }
+
+        /// <summary>
         /// Busca el nombre de la carrera en la lista y retorna el indice, de no 
         /// existir retorna un -1. Este método se utiliza para no permitir datos 
         /// duplicados

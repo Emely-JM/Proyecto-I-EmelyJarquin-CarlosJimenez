@@ -70,7 +70,7 @@ namespace Matricula.dao
                     string usuarioRegistro = items[9].Trim();
                     string tipoPersona = items[10].Trim();
                     string nacionalidad = items[11].Trim();
-                    string estado = items[12].Trim();
+                    bool estado = bool.Parse(items[12].Trim());
 
                     Persona objPersona = new Persona(idPersona, cedula, nombre, apellido1, apellido2, sexo, fechaNacimiento, nivelAcademico, fechaIngreso, usuarioRegistro, tipoPersona, nacionalidad, estado);
                     personas.Add(objPersona);

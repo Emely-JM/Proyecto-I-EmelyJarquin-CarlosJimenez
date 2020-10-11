@@ -38,7 +38,7 @@ namespace Matricula.bo
         /// <param name="nacionalidad"> nacionalidad de la persona a registrar </param>
         /// <param name="estado"> estado actual de la persona en el sistema; activo o inactivo </param>
         public void agregar(string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo,
-            DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
+            DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, bool estado)
         {
             proceso.Add(new Persona(idPersona, cedula, nombre, apellido1, apellido2, sexo, fechaNacimiento, nivelAcademico, fechaIngreso, usuarioRegistro, tipoPersona, nacionalidad, estado));
         }
@@ -78,7 +78,7 @@ namespace Matricula.bo
         /// <param name="nacionalidad"> nuevo valor para la nacionalidad </param>
         /// <param name="estado"> nuevo valor para el estado </param>
         public void modificar(string idBuscar, string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo,
-            DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, string estado)
+            DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, bool estado)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
@@ -97,7 +97,6 @@ namespace Matricula.bo
                     proceso[i].tipoPersona = tipoPersona;
                     proceso[i].nacionalidad = nacionalidad;
                     proceso[i].estado = estado;
-
                 }
             }
         }
@@ -118,6 +117,23 @@ namespace Matricula.bo
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Busca al usuario especificado por parámetro y 
+        /// lo activa o desactiva según sea el caso.
+        /// </summary>
+        /// <param name="usuario"> usuario a buscar </param>
+        /// <param name="dato"> booleano que especifica si activa o desactiva al usuario</param>
+        public void activaDesactiva(string id, bool dato)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (id.Equals(proceso[i].idPersona))
+                {
+                    proceso[i].estado = dato;
+                }
+            }
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using Matricula.bo;
+﻿using EliminaDatos;
+using Matricula.bo;
 using Matricula.entities;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,10 @@ namespace Matricula.gui
 {
     public partial class MantenimientoCarrera : Form
     {
-
+        Elimina elimina;
         CarreraBO log;
         List<Carrera> lista;
         string id = "";
-        MateriaBO logMateria;
-        List<Materias> listaMateria;
 
         /// <summary>
         /// Ingresa los datos de la lista a la tabla
@@ -46,34 +45,13 @@ namespace Matricula.gui
             }
         }
 
-        /// <summary>
-        /// Busca el id de la carrera en la lista perteneciente a las materias
-        /// si ya hay una materia ligada al id de la carrera, entonces no se permite
-        /// eliminar la carrera, de lo contrario sí se elimina
-        /// </summary>
-        /// <param name="idCarrera"> representa el id de la carrera que se desea buscar </param>
-        /// <returns> retorna el indice si encuentra el id o un -1 sino</returns>
-        private int eliminarCarrera(string idCarrera)
-        {
-            listaMateria = logMateria.getLista();
-            for (int i = 0; i < listaMateria.Count; i++)
-            {
-                if (listaMateria[i].idCarrera.Equals(idCarrera))
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
         public MantenimientoCarrera(bool admin)
         {
             InitializeComponent();
             log = new CarreraBO();
             lista = new List<Carrera>();
-            logMateria = new MateriaBO();
-            listaMateria = new List<Materias>();
             adminPermisos(admin);
+            elimina = new Elimina();
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e)
@@ -97,17 +75,17 @@ namespace Matricula.gui
                 oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta carrera?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (oDlgRes == DialogResult.Yes)
                 {
-                    if(eliminarCarrera(id) != -1)
+                    if(elimina.eliminarCarrera(id) != -1)
                     {
-                        MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar la materia para poder eliminar la carrera","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+                        MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar dicha materia para poder eliminar la carrera. En su lugar, se procederá a cerrar la carrera","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        log.modificaEstado(id);
                     }
                     else
                     {
                         log.eliminar(id);
-                        log.crearArchivo();
-                        verDatos();
                     }
+                    log.crearArchivo();
+                    verDatos();
                 }
 
             }
@@ -122,12 +100,12 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                string nombre = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
-                int creditos = int.Parse(this.tblTabla.CurrentRow.Cells[2].Value.ToString());
-                string estado = this.tblTabla.CurrentRow.Cells[3].Value.ToString();
-                DateTime apertura = DateTime.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
-                DateTime cierre = DateTime.Parse(this.tblTabla.CurrentRow.Cells[5].Value.ToString());
-                EditaCarrera frm = new EditaCarrera(id, nombre, creditos, estado, apertura, cierre);
+                //string nombre = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
+                //int creditos = int.Parse(this.tblTabla.CurrentRow.Cells[2].Value.ToString());
+                //string estado = this.tblTabla.CurrentRow.Cells[3].Value.ToString();
+                //DateTime apertura = DateTime.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
+                //DateTime cierre = DateTime.Parse(this.tblTabla.CurrentRow.Cells[5].Value.ToString());
+                EditaCarrera frm = new EditaCarrera(id);
                 frm.ShowDialog();
                 verDatos();
 
