@@ -31,6 +31,7 @@ namespace Matricula.gui
                 if (lista[i].idProf.Equals(id))
                 {
                     cmbCursos.Items.Add(lista[i].idMateria);
+                    cmbCursos.SelectedIndex = 0;
                 }
             }
         }
@@ -41,7 +42,6 @@ namespace Matricula.gui
             lista = new List<Asignacion>();
             log = new AsignacionBO();
             cargar(id);
-            cmbCursos.SelectedIndex = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -42,51 +42,51 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, 9);
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(91, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 24);
+            this.label1.Size = new System.Drawing.Size(133, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nueva contraseña";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 86);
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(81, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 24);
+            this.label2.Size = new System.Drawing.Size(158, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Confirmar contraseña";
             // 
             // txtContrasena1
             // 
-            this.txtContrasena1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena1.Location = new System.Drawing.Point(12, 36);
             this.txtContrasena1.Multiline = true;
             this.txtContrasena1.Name = "txtContrasena1";
             this.txtContrasena1.PasswordChar = '*';
-            this.txtContrasena1.Size = new System.Drawing.Size(302, 36);
+            this.txtContrasena1.Size = new System.Drawing.Size(302, 32);
             this.txtContrasena1.TabIndex = 2;
             // 
             // txtContrasena2
             // 
-            this.txtContrasena2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena2.Location = new System.Drawing.Point(12, 113);
+            this.txtContrasena2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena2.Location = new System.Drawing.Point(12, 103);
             this.txtContrasena2.Multiline = true;
             this.txtContrasena2.Name = "txtContrasena2";
             this.txtContrasena2.PasswordChar = '*';
-            this.txtContrasena2.Size = new System.Drawing.Size(302, 36);
+            this.txtContrasena2.Size = new System.Drawing.Size(302, 32);
             this.txtContrasena2.TabIndex = 3;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(174, 174);
+            this.btnCancelar.Location = new System.Drawing.Point(163, 157);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(127, 37);
+            this.btnCancelar.Size = new System.Drawing.Size(105, 37);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -95,12 +95,12 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(28, 174);
+            this.btnAceptar.Location = new System.Drawing.Point(52, 157);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(127, 37);
+            this.btnAceptar.Size = new System.Drawing.Size(105, 37);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 223);
+            this.ClientSize = new System.Drawing.Size(334, 210);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtContrasena2);

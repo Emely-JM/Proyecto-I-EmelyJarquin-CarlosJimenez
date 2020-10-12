@@ -102,7 +102,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(227, 180);
+            this.btnCancelar.Location = new System.Drawing.Point(249, 182);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 35);
             this.btnCancelar.TabIndex = 7;
@@ -116,7 +116,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(108, 180);
+            this.btnAceptar.Location = new System.Drawing.Point(130, 182);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(104, 35);
             this.btnAceptar.TabIndex = 6;
@@ -147,7 +147,9 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtIdProf);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "ListaEstudiante";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de estudiantes";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

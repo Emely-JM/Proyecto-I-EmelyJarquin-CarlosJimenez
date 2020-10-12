@@ -37,6 +37,7 @@ namespace Matricula.gui
                 if (listaCarrera[i].estado.Equals("En Oferta") && listaCarrera[i].FechaCierrre <= fechaActual)
                 {
                     cmbCarrera.Items.Add(listaCarrera[i].idCarrera);
+                    cmbCarrera.SelectedIndex = 0;
                 }
             }
 
@@ -184,7 +185,6 @@ namespace Matricula.gui
             validar = new ValidaDatos();
             listaCarrera = new List<Carrera>();
             logCarrera = new CarreraBO();
-            cmbCarrera.SelectedIndex = 0;
             cargarCombo();
             chkActivo.Visible = false;
             chkActivo.Checked = true;

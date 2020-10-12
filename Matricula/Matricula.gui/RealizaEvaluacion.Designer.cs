@@ -53,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 36);
+            this.label2.Location = new System.Drawing.Point(16, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 18);
             this.label2.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 83);
+            this.label4.Location = new System.Drawing.Point(205, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 18);
             this.label4.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(456, 36);
+            this.label6.Location = new System.Drawing.Point(448, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(156, 18);
             this.label6.TabIndex = 6;
@@ -121,7 +121,7 @@
             // dateTimeEvaluacion
             // 
             this.dateTimeEvaluacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeEvaluacion.Location = new System.Drawing.Point(618, 30);
+            this.dateTimeEvaluacion.Location = new System.Drawing.Point(610, 12);
             this.dateTimeEvaluacion.Name = "dateTimeEvaluacion";
             this.dateTimeEvaluacion.Size = new System.Drawing.Size(210, 26);
             this.dateTimeEvaluacion.TabIndex = 9;
@@ -129,7 +129,7 @@
             // txtIdEvaluacion
             // 
             this.txtIdEvaluacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdEvaluacion.Location = new System.Drawing.Point(134, 28);
+            this.txtIdEvaluacion.Location = new System.Drawing.Point(125, 10);
             this.txtIdEvaluacion.Name = "txtIdEvaluacion";
             this.txtIdEvaluacion.Size = new System.Drawing.Size(74, 26);
             this.txtIdEvaluacion.TabIndex = 10;
@@ -154,7 +154,7 @@
             // txtIdEstudiante
             // 
             this.txtIdEstudiante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdEstudiante.Location = new System.Drawing.Point(134, 75);
+            this.txtIdEstudiante.Location = new System.Drawing.Point(314, 10);
             this.txtIdEstudiante.Name = "txtIdEstudiante";
             this.txtIdEstudiante.Size = new System.Drawing.Size(128, 26);
             this.txtIdEstudiante.TabIndex = 13;
@@ -200,16 +200,16 @@
             this.panel1.Controls.Add(this.txtEstado);
             this.panel1.Controls.Add(this.txtDescripcion);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(16, 63);
+            this.panel1.Location = new System.Drawing.Point(19, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 268);
+            this.panel1.Size = new System.Drawing.Size(801, 271);
             this.panel1.TabIndex = 16;
             // 
             // RealizaEvaluacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 395);
+            this.ClientSize = new System.Drawing.Size(836, 395);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

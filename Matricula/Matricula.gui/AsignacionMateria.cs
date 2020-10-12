@@ -34,9 +34,10 @@ namespace Matricula.gui
             cmbProfesor.Items.Clear();
             for (int i = 0; i < listaU.Count; i++)
             {
-                if (listaU[i].tipoPersona.Equals("Profesor") && listaU[i].estado.Equals("Activo"))
+                if (listaU[i].tipoPersona.Equals("Profesor") && listaU[i].estado == true)
                 {
                     cmbProfesor.Items.Add(listaU[i].cedula);
+                    cmbProfesor.SelectedIndex = 0;
                 }
             }
         }
@@ -51,6 +52,7 @@ namespace Matricula.gui
             for (int i = 0; i < listaM.Count; i++)
             {
                 cmbMateria.Items.Add(listaM[i].idMateria);
+                cmbMateria.SelectedIndex = 0;
             }
         }
 
@@ -85,11 +87,9 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-
-            log.agregar(int.Parse(txtId.Text), idProfesor, idMateria);
+            log.agregar(int.Parse(txtId.Text), cmbProfesor.Text, cmbMateria.Text);
             log.crearArchivo();
             this.Close();
-
         }
 
         public AsignacionMateria()
@@ -117,8 +117,6 @@ namespace Matricula.gui
             lista = new List<Asignacion>();
             listaU = new List<Persona>();
             listaM = new List<Materias>();
-            cmbMateria.SelectedIndex = 0;
-            cmbProfesor.SelectedIndex = 0;
             llenarComboProfesor();
             llenarComboMateria();
             id = idP;
