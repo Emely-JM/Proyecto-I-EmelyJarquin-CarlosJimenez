@@ -31,13 +31,17 @@ namespace Matricula.gui
         {
             listaCarrera = logCarrera.getLista();
             cmbCarrera.Items.Clear();
-            DateTime fechaActual = DateTime.Now;
+            DateTime FechAc = DateTime.Now.Date;
             for (int i = 0; i < listaCarrera.Count; i++)
             {
-                if (listaCarrera[i].estado.Equals("En Oferta") && listaCarrera[i].FechaCierrre <= fechaActual)
+                if (listaCarrera[i].estado.Equals("En Oferta"))
                 {
-                    cmbCarrera.Items.Add(listaCarrera[i].idCarrera);
-                    cmbCarrera.SelectedIndex = 0;
+                    if(FechAc <= listaCarrera[i].FechaCierrre.Date)
+                    {
+                        cmbCarrera.Items.Add(listaCarrera[i].idCarrera);
+                        cmbCarrera.SelectedIndex = 0;
+                    }
+                    
                 }
             }
 
@@ -133,7 +137,7 @@ namespace Matricula.gui
                 creditos = int.Parse(txtCantidadCreditos.Text);
                 precio = double.Parse(txtPrecio.Text);
                 costo = double.Parse(txtCosto.Text);
-                log.modificar(txtIdMateria.Text, txtIdMateria.Text, txtNombre.Text, creditos, cmbCarrera.Text, precio, costo, chkActivo.Checked);
+                log.modificar(id, txtIdMateria.Text, txtNombre.Text, creditos, cmbCarrera.Text, precio, costo, chkActivo.Checked);
                 log.crearArchivo();
                 this.Close();
             }

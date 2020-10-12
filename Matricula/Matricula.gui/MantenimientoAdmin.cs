@@ -26,7 +26,6 @@ namespace Matricula.gui
         /// </summary>
         private void verDatos()
         {
-            log.limpiarLista();
             lista = log.getLista();
             tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)

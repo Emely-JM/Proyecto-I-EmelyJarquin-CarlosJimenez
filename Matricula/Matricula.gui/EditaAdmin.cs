@@ -165,7 +165,6 @@ namespace Matricula.gui
             }
         }
 
-
         public EditaAdmin()
         {
             InitializeComponent();

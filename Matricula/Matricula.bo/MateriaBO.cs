@@ -66,7 +66,7 @@ namespace Matricula.bo
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (idBuscar.Equals(proceso[i].idMateria))
+                if (proceso[i].idMateria.Equals(idBuscar))
                 {
                     proceso[i].idMateria = idMateria;
                     proceso[i].nombre = nombre;
