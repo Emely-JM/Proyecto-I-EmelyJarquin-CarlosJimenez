@@ -33,11 +33,12 @@
             this.manúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMatricula = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosPendientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEvaluacion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNotas = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarPrematriculaDeMateriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItemContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,10 +61,11 @@
             this.eliminarPrematriculaDeMateriaToolStripMenuItem,
             this.toolStripMenuItemEvaluacion,
             this.toolStripMenuItemNotas,
+            this.toolStripMenuItemContrasena,
             this.salirToolStripMenuItem});
             this.manúToolStripMenuItem.Name = "manúToolStripMenuItem";
             this.manúToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
-            this.manúToolStripMenuItem.Text = "Manú de estudiantes";
+            this.manúToolStripMenuItem.Text = "Menú de estudiantes";
             // 
             // toolStripMenuItemMatricula
             // 
@@ -78,6 +80,13 @@
             this.pagosPendientes.Size = new System.Drawing.Size(213, 22);
             this.pagosPendientes.Text = "Pagos pendientes";
             this.pagosPendientes.Click += new System.EventHandler(this.pagosPendientes_Click);
+            // 
+            // eliminarPrematriculaDeMateriaToolStripMenuItem
+            // 
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Name = "eliminarPrematriculaDeMateriaToolStripMenuItem";
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Text = "Eliminar / desertar materia";
+            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Click += new System.EventHandler(this.eliminarPrematriculaDeMateriaToolStripMenuItem_Click);
             // 
             // toolStripMenuItemEvaluacion
             // 
@@ -100,13 +109,6 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // eliminarPrematriculaDeMateriaToolStripMenuItem
-            // 
-            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Name = "eliminarPrematriculaDeMateriaToolStripMenuItem";
-            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Text = "Eliminar / desertar materia";
-            this.eliminarPrematriculaDeMateriaToolStripMenuItem.Click += new System.EventHandler(this.eliminarPrematriculaDeMateriaToolStripMenuItem_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -115,6 +117,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(532, 305);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // toolStripMenuItemContrasena
+            // 
+            this.toolStripMenuItemContrasena.Name = "toolStripMenuItemContrasena";
+            this.toolStripMenuItemContrasena.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItemContrasena.Text = "Cambiar contraseña";
+            this.toolStripMenuItemContrasena.Click += new System.EventHandler(this.toolStripMenuItemContrasena_Click);
             // 
             // ManuUsuario
             // 
@@ -144,5 +153,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem pagosPendientes;
         private System.Windows.Forms.ToolStripMenuItem eliminarPrematriculaDeMateriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemContrasena;
     }
 }

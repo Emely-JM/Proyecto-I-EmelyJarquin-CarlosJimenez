@@ -13,11 +13,13 @@ namespace Matricula.gui
 {
     public partial class ManuUsuario : Form
     {
+        private Usuario u;
         private string id;
 
         public ManuUsuario(Usuario u)
         {
             InitializeComponent();
+            this.u = u;
             id = u.idPersona;
         }
 
@@ -54,6 +56,19 @@ namespace Matricula.gui
         {
             EliminaPrematricula frm = new EliminaPrematricula(id);
             frm.ShowDialog();
+        }
+
+        private void toolStripMenuItemContrasena_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmContrasenaUsuario frm = new FrmContrasenaUsuario(u);
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Error al intentar cambiar la contraseña");
+            }
         }
     }
 }

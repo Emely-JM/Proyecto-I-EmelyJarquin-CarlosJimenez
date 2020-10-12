@@ -16,7 +16,7 @@ namespace Matricula.dao
     public class UsuarioDAO
     {
         List<Usuario> usuarios = new List<Usuario>();
-        private string archivo = "Usuario.txt";
+        private string archivo = "Usuarios.txt";
 
         /// <summary>
         /// Escribe los usuarios de la aplicación a un archivo de texto
@@ -53,7 +53,7 @@ namespace Matricula.dao
         {
             try
             {
-                GetUsuarios();
+                GetUsuarios("");
 
                 // Obtiene el id del último usuario de la lista, le suma un número más
                 // y se lo asigna al nuevo usuario
@@ -84,7 +84,7 @@ namespace Matricula.dao
         {
             try
             {
-                GetUsuarios();
+                GetUsuarios("");
 
                 // Ciclo para recorrer la lista de usuarios
                 foreach (Usuario usuario in usuarios)
@@ -117,7 +117,7 @@ namespace Matricula.dao
         {
             try
             {
-                GetUsuarios();
+                GetUsuarios("");
 
                 // Ciclo para recorrer la lista de usuarios
                 foreach (Usuario usuario in usuarios)
@@ -146,7 +146,7 @@ namespace Matricula.dao
         {
             try
             {
-                GetUsuarios();
+                GetUsuarios("");
 
                 // Ciclo para recorrer la lista de usuarios
                 foreach (Usuario usuario in usuarios)
@@ -172,12 +172,17 @@ namespace Matricula.dao
         /// <returns>
         /// Lista con los usuarios de la aplicación
         /// </returns>
-        public List<Usuario> GetUsuarios()
+        public List<Usuario> GetUsuarios(string filtro)
         {
             string linea;
 
             try
             {
+                if (!File.Exists(archivo))
+                {
+                    StreamWriter sw = new StreamWriter(archivo);
+                    sw.Close();
+                }
                 StreamReader sr = new StreamReader(archivo);
                 linea = sr.ReadLine();
 
@@ -193,9 +198,12 @@ namespace Matricula.dao
                     DateTime fechaExpiraContrasena = DateTime.Parse(datos[4]);
                     bool activo = bool.Parse(datos[5]);
 
-                    // Agrega el usuario a la lista de usuarios
-                    usuarios.Add(new Usuario(idUsuario, codigo, idPersona, contrasena, fechaExpiraContrasena, activo));
 
+                    if (codigo.Contains(filtro))
+                    {
+                        // Agrega el usuario a la lista de usuarios
+                        usuarios.Add(new Usuario(idUsuario, codigo, idPersona, contrasena, fechaExpiraContrasena, activo));
+                    }
                     linea = sr.ReadLine();
                 }
                 sr.Close();
@@ -220,11 +228,15 @@ namespace Matricula.dao
         {
             try
             {
-                foreach (Usuario usuario in GetUsuarios())
+                foreach (Usuario usuario in GetUsuarios(""))
                 {
-                    if (u.codigo == usuario.codigo && u.contrasena == u.contrasena)
+                    if (u.codigo.Equals(usuario.codigo) && u.contrasena.Equals(usuario.contrasena))
                     {
-                        if (DateTime.Compare(u.fechaExpiraContrasena, DateTime.Now) > 0)
+                        if (!usuario.activo)
+                        {
+                            throw new Exception("El usuario que desea accesar se encuentra inactivo");
+                        }
+                        if (DateTime.Compare(usuario.fechaExpiraContrasena, DateTime.Now) < 0)
                         {
                             throw new Exception("La contraseña ha caducado" + Environment.NewLine
                                 + "Solicitar a un administrador una nueva contraseña");
@@ -236,9 +248,9 @@ namespace Matricula.dao
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new Exception("Error al iniciar sesión");
+                throw new Exception(e.Message);
             }
             return null;
         }

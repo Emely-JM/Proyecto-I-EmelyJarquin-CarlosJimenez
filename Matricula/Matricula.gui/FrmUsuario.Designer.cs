@@ -29,29 +29,30 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.tabla = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnContrasena = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.objData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbIdPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkbActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnContrasena = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
             // 
-            this.pnlTitulo.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnlTitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlTitulo.Controls.Add(this.lblTitulo);
             this.pnlTitulo.Location = new System.Drawing.Point(12, 12);
             this.pnlTitulo.Name = "pnlTitulo";
@@ -61,18 +62,19 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitulo.Location = new System.Drawing.Point(238, 12);
+            this.lblTitulo.Location = new System.Drawing.Point(220, 12);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(363, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(375, 32);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Mantenimiento de usuarios";
+            this.lblTitulo.Text = "Mantenimiento de Usuarios";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(294, 73);
+            this.txtBuscar.Location = new System.Drawing.Point(104, 73);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 31);
             this.txtBuscar.TabIndex = 1;
@@ -81,7 +83,7 @@
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(202, 76);
+            this.lblCodigo.Location = new System.Drawing.Point(12, 76);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(86, 25);
             this.lblCodigo.TabIndex = 7;
@@ -89,6 +91,8 @@
             // 
             // tabla
             // 
+            this.tabla.AllowUserToAddRows = false;
+            this.tabla.AllowUserToDeleteRows = false;
             this.tabla.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -108,9 +112,50 @@
             this.chkbActivo});
             this.tabla.Location = new System.Drawing.Point(12, 114);
             this.tabla.Name = "tabla";
+            this.tabla.ReadOnly = true;
+            this.tabla.RowHeadersVisible = false;
             this.tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla.Size = new System.Drawing.Size(814, 315);
             this.tabla.TabIndex = 8;
+            // 
+            // objData
+            // 
+            this.objData.HeaderText = "Data";
+            this.objData.Name = "objData";
+            this.objData.ReadOnly = true;
+            this.objData.Visible = false;
+            // 
+            // txtbCodigo
+            // 
+            this.txtbCodigo.HeaderText = "Código";
+            this.txtbCodigo.Name = "txtbCodigo";
+            this.txtbCodigo.ReadOnly = true;
+            // 
+            // txtbIdPersona
+            // 
+            this.txtbIdPersona.HeaderText = "ID Persona";
+            this.txtbIdPersona.Name = "txtbIdPersona";
+            this.txtbIdPersona.ReadOnly = true;
+            // 
+            // txtbNombre
+            // 
+            this.txtbNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtbNombre.HeaderText = "Nombre";
+            this.txtbNombre.Name = "txtbNombre";
+            this.txtbNombre.ReadOnly = true;
+            // 
+            // txtbTipoUsuario
+            // 
+            this.txtbTipoUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtbTipoUsuario.HeaderText = "Tipo de usuario";
+            this.txtbTipoUsuario.Name = "txtbTipoUsuario";
+            this.txtbTipoUsuario.ReadOnly = true;
+            // 
+            // chkbActivo
+            // 
+            this.chkbActivo.HeaderText = "Activo";
+            this.chkbActivo.Name = "chkbActivo";
+            this.chkbActivo.ReadOnly = true;
             // 
             // btnAgregar
             // 
@@ -155,45 +200,12 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnBuscar.Location = new System.Drawing.Point(550, 68);
+            this.btnBuscar.Location = new System.Drawing.Point(360, 68);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 40);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // objData
-            // 
-            this.objData.HeaderText = "Data";
-            this.objData.Name = "objData";
-            this.objData.Visible = false;
-            // 
-            // txtbCodigo
-            // 
-            this.txtbCodigo.HeaderText = "Código";
-            this.txtbCodigo.Name = "txtbCodigo";
-            // 
-            // txtbIdPersona
-            // 
-            this.txtbIdPersona.HeaderText = "ID Persona";
-            this.txtbIdPersona.Name = "txtbIdPersona";
-            // 
-            // txtbNombre
-            // 
-            this.txtbNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.txtbNombre.HeaderText = "Nombre";
-            this.txtbNombre.Name = "txtbNombre";
-            // 
-            // txtbTipoUsuario
-            // 
-            this.txtbTipoUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.txtbTipoUsuario.HeaderText = "Tipo de usuario";
-            this.txtbTipoUsuario.Name = "txtbTipoUsuario";
-            // 
-            // chkbActivo
-            // 
-            this.chkbActivo.HeaderText = "Activo";
-            this.chkbActivo.Name = "chkbActivo";
             // 
             // FrmUsuario
             // 
@@ -209,6 +221,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.pnlTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Matricula 0.1";
