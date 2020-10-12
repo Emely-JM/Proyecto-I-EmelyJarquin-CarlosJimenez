@@ -33,41 +33,16 @@ namespace Matricula.gui
             try
             {
                 tabla.Rows.Clear();
-                if (String.IsNullOrWhiteSpace(txtBuscar.Text))
+                foreach (Usuario u in ubo.GetUsuarios(txtBuscar.Text.ToUpper()))
                 {
-                    foreach (Usuario u in ubo.GetUsuarios())
+                    foreach (Persona p in pbo.getLista())
                     {
-                        if (u.activo)
+                        if (u.idPersona.Equals(p.idPersona))
                         {
-                            foreach (Persona p in pbo.getLista())
-                            {
-                                if (u.idPersona.Equals(p.idPersona))
-                                {
-                                    string nombre = p.nombre + " " + p.apellido1
-                                        + " " + p.apellido2;
-                                    tabla.Rows.Add(u, u.codigo, u.idPersona, nombre,
-                                        p.tipoPersona, u.activo);
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (Usuario u in ubo.GetUsuarios())
-                    {
-                        if (u.codigo.Equals(txtBuscar.Text) && u.activo)
-                        {
-                            foreach (Persona p in pbo.getLista())
-                            {
-                                if (u.idPersona.Equals(p.idPersona))
-                                {
-                                    string nombre = p.nombre + " " + p.apellido1
-                                        + " " + p.apellido2;
-                                    tabla.Rows.Add(u, u.codigo, u.idPersona, nombre,
-                                        p.tipoPersona, u.activo);
-                                }
-                            }
+                            string nombre = p.nombre + " " + p.apellido1
+                                + " " + p.apellido2;
+                            tabla.Rows.Add(u, u.codigo, u.idPersona, nombre,
+                                p.tipoPersona, u.activo);
                         }
                     }
                 }
@@ -108,16 +83,21 @@ namespace Matricula.gui
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            DialogResult respuesta;
             try
             {
                 Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
-                u.activo = false;
-                ubo.guardar(u);
+                respuesta = MessageBox.Show("¿Seguro de que desea eliminar este usuario?", "Eliminando un usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (respuesta == DialogResult.Yes)
+                {
+                    u.activo = false;
+                    ubo.guardar(u); 
+                }
                 cargarTabla();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "Error al intentar editar el usuario");
+                MessageBox.Show(this, "Error al intentar eliminar el usuario");
             }
         }
 
@@ -132,7 +112,7 @@ namespace Matricula.gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "Error al intentar editar el usuario");
+                MessageBox.Show(this, "Error al intentar cambiar la contraseña");
             }
         }
 

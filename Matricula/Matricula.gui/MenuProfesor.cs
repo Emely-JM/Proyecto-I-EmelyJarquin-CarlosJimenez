@@ -13,11 +13,13 @@ namespace Matricula.gui
 {
     public partial class MenuProfesor : Form
     {
+        private Usuario u;
         private string usu;
 
         public MenuProfesor(Usuario u)
         {
             InitializeComponent();
+            this.u = u;
             usu = u.idPersona;
         }
 
@@ -44,5 +46,17 @@ namespace Matricula.gui
             this.Close();
         }
 
+        private void toolStripMenuItemContrasena_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmContrasenaUsuario frm = new FrmContrasenaUsuario(u);
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Error al intentar cambiar la contraseña");
+            }
+        }
     }
 }

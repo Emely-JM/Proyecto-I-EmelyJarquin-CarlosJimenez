@@ -38,6 +38,7 @@
             this.btnCRUDMateria = new System.Windows.Forms.Button();
             this.btnCRUDCarreras = new System.Windows.Forms.Button();
             this.btnCRUDAdmin = new System.Windows.Forms.Button();
+            this.btnCRUDUsuarios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +126,16 @@
             this.btnCRUDAdmin.TabIndex = 1;
             this.btnCRUDAdmin.UseVisualStyleBackColor = true;
             this.btnCRUDAdmin.Click += new System.EventHandler(this.btnCRUDAdmin_Click);
+            // 
+            // btnCRUDUsuarios
+            // 
+            this.btnCRUDUsuarios.Location = new System.Drawing.Point(514, 231);
+            this.btnCRUDUsuarios.Name = "btnCRUDUsuarios";
+            this.btnCRUDUsuarios.Size = new System.Drawing.Size(219, 138);
+            this.btnCRUDUsuarios.TabIndex = 6;
+            this.btnCRUDUsuarios.Text = "CRUD Usuarios";
+            this.btnCRUDUsuarios.UseVisualStyleBackColor = true;
+            this.btnCRUDUsuarios.Click += new System.EventHandler(this.btnCRUDUsuarios_Click);
             // 
             // MenuAdmin
             // 

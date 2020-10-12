@@ -28,12 +28,8 @@ namespace Matricula.bo
             {
                 throw new ArgumentNullException("El código es requerido");
             }
-            if (String.IsNullOrEmpty(u.idPersona))
-            {
-                throw new ArgumentNullException("El id de la persona es requerida");
-            }
 
-            foreach (Usuario usuario in GetUsuarios())
+            foreach (Usuario usuario in GetUsuarios(""))
             {
                 if (u.idPersona.Equals(usuario.idPersona) && u.id != usuario.id)
                 {
@@ -89,9 +85,9 @@ namespace Matricula.bo
         /// <returns>
         /// Lista con los usuarios
         /// </returns>
-        public List<Usuario> GetUsuarios()
+        public List<Usuario> GetUsuarios(string filtro)
         {
-            return new UsuarioDAO().GetUsuarios();
+            return new UsuarioDAO().GetUsuarios(filtro);
         }
 
         /// <summary>

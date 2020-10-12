@@ -38,7 +38,7 @@ namespace EliminaDatos
         /// <returns> retona el indice si encuentra el dato o un -1 sino </returns>
         public int eliminarPersona(string id)
         {
-            listaUsuarios = usuario.GetUsuarios();
+            listaUsuarios = usuario.GetUsuarios("");
             for (int i = 0; i < listaUsuarios.Count; i++)
             {
                 if (listaUsuarios[i].idPersona.Equals(id))

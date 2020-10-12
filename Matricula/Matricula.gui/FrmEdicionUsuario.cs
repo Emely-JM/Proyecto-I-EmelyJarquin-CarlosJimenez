@@ -18,7 +18,7 @@ namespace Matricula.gui
         private UsuarioBO ubo;
         private PersonaBO pbo;
 
-        private string idPersona = "";
+        private string idPersona;
         private List<string> expiraContrasena = new List<string> { "30 días", "60 días", "90 días" };
 
         /// <summary>
@@ -27,15 +27,13 @@ namespace Matricula.gui
         public FrmEdicionUsuario()
         {
             InitializeComponent();
-            lblContrasena.Visible = true;
-            txtContrasena.Visible = true;
-            lblConfirmarContrasena.Visible = true;
-            txtConfirmarContrasena.Visible = true;
-            lblActivo.Visible = false;
-            chkActivo.Visible = false;
+            txtContrasena.Enabled = true;
+            txtConfirmarContrasena.Enabled = true;
+            chkActivo.Enabled = false;
             u = new Usuario();
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
+            idPersona = "";
             cargarDatos();
             cmbExpiraContrasena.DataSource = expiraContrasena;
             cmbExpiraContrasena.SelectedIndex = 0;
@@ -50,15 +48,13 @@ namespace Matricula.gui
         public FrmEdicionUsuario(Usuario u)
         {
             InitializeComponent();
-            lblContrasena.Visible = false;
-            txtContrasena.Visible = false;
-            lblConfirmarContrasena.Visible = false;
-            txtConfirmarContrasena.Visible = false;
-            lblActivo.Visible = true;
-            chkActivo.Visible = true;
+            txtContrasena.Enabled = false;
+            txtConfirmarContrasena.Enabled = false;
+            chkActivo.Enabled = true;
             this.u = u;
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
+            idPersona = u.idPersona;
             cargarDatos();
             cmbExpiraContrasena.DataSource = expiraContrasena;
             cmbExpiraContrasena.SelectedIndex = 0;
@@ -185,7 +181,7 @@ namespace Matricula.gui
                 }
                 contador1++;
                 contador2 = 1;
-                posicion = contador1 - 1;
+                posicion = contador1;
             }
             
             txtCodigo.Text = codigo; // Muestra el código en la ventana
@@ -202,7 +198,7 @@ namespace Matricula.gui
         /// </returns>
         private bool verificarCodigo(string codigo)
         {
-            foreach (Usuario usuario in ubo.GetUsuarios())
+            foreach (Usuario usuario in ubo.GetUsuarios(""))
             {
                 if (usuario.codigo == codigo && usuario.id != u.id)
                 {

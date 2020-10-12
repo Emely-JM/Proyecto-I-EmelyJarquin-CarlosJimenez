@@ -137,6 +137,10 @@ namespace Matricula.gui
             {
                 MessageBox.Show(this, e.Message);
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(this, e.Message);
+            }
         }
 
         /// <summary>
