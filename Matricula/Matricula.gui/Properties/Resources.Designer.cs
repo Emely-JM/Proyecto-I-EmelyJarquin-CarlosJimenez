@@ -73,6 +73,16 @@ namespace Matricula.gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_assignment_return_125px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_assignment_return_125px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_business_group_125px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_business_group_125px_1", resourceCulture);
@@ -106,6 +116,16 @@ namespace Matricula.gui.Properties {
         internal static System.Drawing.Bitmap icons8_edit_25px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_edit_25px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_group_125px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_group_125px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

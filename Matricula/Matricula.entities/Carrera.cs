@@ -35,29 +35,14 @@ namespace Matricula.entities
         {
             get { return this.fechaApertura; }
 
-            set
-            {
-
-                this.fechaApertura = value;
-            }
+            set { this.fechaApertura = value; }
         }
 
         public DateTime FechaCierrre
         {
             get { return this.fechaCierre; }
 
-            set
-            {
-                if (value < DateTime.Now)
-                {
-                    throw new Exception("La fecha ingresada no puede ser menor a hoy");
-
-                }
-                else
-                {
-                    this.fechaCierre = value;
-                }
-            }
+            set { this.fechaCierre = value; }
         }
 
         public string toString()

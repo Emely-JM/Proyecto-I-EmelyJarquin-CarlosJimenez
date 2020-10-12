@@ -162,6 +162,7 @@ namespace Matricula.bo
         /// <returns> retorna la lista proceso con la lectura del archivo </returns>
         public List<Admin> getLista()
         {
+            limpiarLista();
             return proceso = objArchivo.leerArchivo();
 
         }
@@ -169,7 +170,7 @@ namespace Matricula.bo
         /// <summary>
         /// Limpia la lista 
         /// </summary>
-        public void limpiarLista()
+        private void limpiarLista()
         {
             proceso.Clear();
         }

@@ -60,7 +60,6 @@ namespace Matricula.dao
                     int id = int.Parse(items[0].Trim());
                     string idProf = items[1].Trim();
                     string idMateria = items[2].Trim();
-
                     Asignacion objAsignacions = new Asignacion(id,idProf,idMateria);
                     asignaciones.Add(objAsignacions);
 

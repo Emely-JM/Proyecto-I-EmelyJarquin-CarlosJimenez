@@ -44,5 +44,11 @@
     <Compile Include="Encripta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Matricula.entities\Matricula.entities.csproj">
+      <Project>{69D12F4E-7722-421B-85F6-CD6F1C5D5172}</Project>
+      <Name>Matricula.entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

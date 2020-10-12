@@ -103,7 +103,7 @@ namespace Matricula.gui
                 if (persona.cedula.Equals(txtBuscarPersona.Text))
                 {
                     p = persona;
-                    idPersona = p.idPersona;
+                    idPersona = p.cedula;
                     txtPersona.Text = p.cedula.ToString(); // Muestra el código en la ventana
                     generarCodigo(p);
                     txtBuscarPersona.Clear();

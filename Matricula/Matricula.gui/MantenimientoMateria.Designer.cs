@@ -37,12 +37,14 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnVerDatos = new System.Windows.Forms.Button();
+            this.btnActivaDes = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +100,8 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.tblTabla.Location = new System.Drawing.Point(16, 143);
             this.tblTabla.Name = "tblTabla";
             this.tblTabla.ReadOnly = true;
@@ -118,7 +121,7 @@
             // btnEditar
             // 
             this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(686, 89);
+            this.btnEditar.Location = new System.Drawing.Point(632, 89);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(48, 36);
             this.btnEditar.TabIndex = 5;
@@ -128,7 +131,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(632, 89);
+            this.btnAgregar.Location = new System.Drawing.Point(578, 89);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(48, 36);
             this.btnAgregar.TabIndex = 4;
@@ -145,6 +148,16 @@
             this.btnVerDatos.UseVisualStyleBackColor = true;
             this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
             // 
+            // btnActivaDes
+            // 
+            this.btnActivaDes.Image = global::Matricula.gui.Properties.Resources.icons8_shutdown_25px;
+            this.btnActivaDes.Location = new System.Drawing.Point(686, 89);
+            this.btnActivaDes.Name = "btnActivaDes";
+            this.btnActivaDes.Size = new System.Drawing.Size(48, 36);
+            this.btnActivaDes.TabIndex = 17;
+            this.btnActivaDes.UseVisualStyleBackColor = true;
+            this.btnActivaDes.Click += new System.EventHandler(this.btnActivaDes_Click);
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "ID materia";
@@ -158,7 +171,7 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.Width = 200;
+            this.Column2.Width = 150;
             // 
             // Column3
             // 
@@ -189,11 +202,19 @@
             this.Column6.ReadOnly = true;
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Activo";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 50;
+            // 
             // MantenimientoMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 491);
+            this.Controls.Add(this.btnActivaDes);
             this.Controls.Add(this.tblTabla);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -224,11 +245,13 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView tblTabla;
+        private System.Windows.Forms.Button btnActivaDes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
     }
 }

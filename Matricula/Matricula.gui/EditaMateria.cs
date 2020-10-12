@@ -14,9 +14,8 @@ namespace Matricula.gui
 {
     public partial class EditaMateria : Form
     {
-
-        private string idCarrea;
         private MateriaBO log;
+        private List<Materias> listaM;
         private ValidaDatos validar;
         private CarreraBO logCarrera;
         private List<Carrera> listaCarrera;
@@ -32,9 +31,18 @@ namespace Matricula.gui
         {
             listaCarrera = logCarrera.getLista();
             cmbCarrera.Items.Clear();
+            DateTime FechAc = DateTime.Now.Date;
             for (int i = 0; i < listaCarrera.Count; i++)
             {
-                cmbCarrera.Items.Add(listaCarrera[i].idCarrera);
+                if (listaCarrera[i].estado.Equals("En Oferta"))
+                {
+                    if(FechAc <= listaCarrera[i].FechaCierrre.Date)
+                    {
+                        cmbCarrera.Items.Add(listaCarrera[i].idCarrera);
+                        cmbCarrera.SelectedIndex = 0;
+                    }
+                    
+                }
             }
 
         }
@@ -70,53 +78,44 @@ namespace Matricula.gui
                         if (txtCantidadCreditos.Text != "")
                         {
                             errorProvider1.SetError(txtCantidadCreditos, "");
-                            if (idCarrea != null)
+
+                            if (txtPrecio.Text != "")
                             {
-                                errorProvider1.SetError(cmbCarrera, "");
-                                if (txtPrecio.Text != "")
+                                errorProvider1.SetError(txtPrecio, "");
+                                if (txtCosto.Text != "")
                                 {
-                                    errorProvider1.SetError(txtPrecio, "");
-                                    if (txtCosto.Text != "")
+                                    errorProvider1.SetError(txtCosto, "");
+                                    if (log.buscarIdMateria(txtIdMateria.Text) != -1)
                                     {
-                                        errorProvider1.SetError(txtCosto, "");
-                                        if (log.buscarIdMateria(txtIdMateria.Text) != -1)
-                                        {
-                                            mensaje(txtIdMateria, "Este id ya se encuentra registrado");
-                                        }
-                                        else
-                                        {
-                                            if (log.buscarNombre(txtNombre.Text) != -1)
-                                            {
-                                                mensaje(txtNombre, "Este nombre ya está registrado en una materia");
-                                            }
-                                            else
-                                            {
-                                                creditos = int.Parse(txtCantidadCreditos.Text);
-                                                precio = double.Parse(txtPrecio.Text);
-                                                costo = double.Parse(txtCosto.Text);
-                                                log.agregar(txtIdMateria.Text, txtNombre.Text, creditos, idCarrea, precio, costo);
-                                                log.crearArchivo();
-                                                this.Close();
-                                            }
-                                        }
+                                        mensaje(txtIdMateria, "Este id ya se encuentra registrado");
                                     }
                                     else
                                     {
-                                        mensaje(txtCosto, "El costo de la materia es requerido");
+                                        if (log.buscarNombre(txtNombre.Text) != -1)
+                                        {
+                                            mensaje(txtNombre, "Este nombre ya está registrado en una materia");
+                                        }
+                                        else
+                                        {
+                                            creditos = int.Parse(txtCantidadCreditos.Text);
+                                            precio = double.Parse(txtPrecio.Text);
+                                            costo = double.Parse(txtCosto.Text);
+                                            log.agregar(txtIdMateria.Text, txtNombre.Text, creditos, cmbCarrera.Text, precio, costo, chkActivo.Checked);
+                                            log.crearArchivo();
+                                            this.Close();
+                                        }
                                     }
                                 }
                                 else
                                 {
-                                    mensaje(txtPrecio, "El precio de la materio es requerido");
+                                    mensaje(txtCosto, "El costo de la materia es requerido");
                                 }
-
                             }
                             else
                             {
-                                errorProvider1.SetError(cmbCarrera, "Debe seleccionar un id de carrera");
-                                cmbCarrera.Focus();
-                                return;
+                                mensaje(txtPrecio, "El precio de la materio es requerido");
                             }
+
                         }
                         else
                         {
@@ -138,7 +137,7 @@ namespace Matricula.gui
                 creditos = int.Parse(txtCantidadCreditos.Text);
                 precio = double.Parse(txtPrecio.Text);
                 costo = double.Parse(txtCosto.Text);
-                log.modificar(txtIdMateria.Text, txtIdMateria.Text, txtNombre.Text, creditos, idCarrea, precio, costo);
+                log.modificar(id, txtIdMateria.Text, txtNombre.Text, creditos, cmbCarrera.Text, precio, costo, chkActivo.Checked);
                 log.crearArchivo();
                 this.Close();
             }
@@ -160,6 +159,28 @@ namespace Matricula.gui
 
         }
 
+        /// <summary>
+        /// Carga los datos del id a editar
+        /// </summary>
+        public void cargar()
+        {
+            listaM = log.getLista();
+            for (int i = 0; i < listaM.Count; i++)
+            {
+                if (listaM[i].idMateria.Equals(id))
+                {
+                    txtIdMateria.Text = listaM[i].idMateria;
+                    txtNombre.Text = listaM[i].nombre;
+                    txtCantidadCreditos.Text = listaM[i].cantidadCreditos.ToString();
+                    cmbCarrera.Text = listaM[i].idCarrera;
+                    txtPrecio.Text = listaM[i].precio.ToString();
+                    txtCosto.Text = listaM[i].costo.ToString();
+                    chkActivo.Checked = listaM[i].estado;
+                }
+            }
+        }
+
+
         public EditaMateria()
         {
             InitializeComponent();
@@ -169,9 +190,11 @@ namespace Matricula.gui
             listaCarrera = new List<Carrera>();
             logCarrera = new CarreraBO();
             cargarCombo();
+            chkActivo.Visible = false;
+            chkActivo.Checked = true;
         }
 
-        public EditaMateria(string idMateria, string nombre, int cantidadCreditos, string idCarrera, double precio, double costo)
+        public EditaMateria(string idMateria)
         {
             InitializeComponent();
             lblTitulo.Text = "Materia - Editar";
@@ -179,25 +202,16 @@ namespace Matricula.gui
             validar = new ValidaDatos();
             listaCarrera = new List<Carrera>();
             logCarrera = new CarreraBO();
+            listaM = new List<Materias>();
             cargarCombo();
-
-            txtIdMateria.Text = idMateria;
+            chkActivo.Visible = true;
             id = idMateria;
-            txtNombre.Text = nombre;
-            txtCantidadCreditos.Text = cantidadCreditos.ToString();
-            cmbCarrera.Text = idCarrera;
-            txtPrecio.Text = precio.ToString();
-            txtCosto.Text = costo.ToString();
+            cargar();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
-        }
-
-        private void cmbCarrera_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idCarrea = cmbCarrera.Text;
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)

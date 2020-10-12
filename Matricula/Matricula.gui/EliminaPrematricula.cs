@@ -32,6 +32,7 @@ namespace Matricula.gui
                 if (listaMat[i].idPersona.Equals(id))
                 {
                     cmbMaterias.Items.Add(listaMat[i].idMateria);
+                    cmbMaterias.SelectedIndex = 0;
                 }
             }
         }
@@ -62,21 +63,22 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-            if(idEliminar != null)
+            DialogResult oDlgRes;
+            try
             {
-                errorProvider1.SetError(cmbMaterias,"");
-                logMat.eliminar(BuscarFact(idEliminar));
-                logMat.crearArchivo();
-                this.Close();
+                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia de sus datos?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (oDlgRes == DialogResult.Yes)
+                {
+                    logMat.eliminar(BuscarFact(idEliminar));
+                    logMat.crearArchivo();
+                    this.Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                errorProvider1.SetError(cmbMaterias, "Debe seleccionar una materia");
-                cmbMaterias.Focus();
-                return;
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         public EliminaPrematricula(string idP)
         {

@@ -24,7 +24,8 @@ namespace Matricula.gui
             this.toolTip1.SetToolTip(btnCRUDCarreras, "Mantenimiento de carreras");
             this.toolTip1.SetToolTip(btnCRUDMateria, "Mantenimiento de materias");
             this.toolTip1.SetToolTip(btnCRUDPersonas, "Mantenimiento de personas");
-            this.toolTip1.SetToolTip(btnAsignacion, "Mantenimiento de asignaciones de materias");
+            this.toolTip1.SetToolTip(btnAsignacion, "Mantenimiento de asignaciones");
+            this.toolTip1.SetToolTip(btnCRUDUsuarios, "Mantenimiento de Usuarios");
         }
 
         public MenuAdmin(bool admin, string usu)

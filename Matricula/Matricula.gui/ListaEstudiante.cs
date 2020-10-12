@@ -37,6 +37,7 @@ namespace Matricula.gui
                 if (lista[i].idProf.Equals(id))
                 {
                     cmbMateria.Items.Add(lista[i].idMateria);
+                    cmbMateria.SelectedIndex = 0;
                 }
             }
         }
@@ -67,6 +68,7 @@ namespace Matricula.gui
                                 if (listaN[i].idEstudiante.Equals(listaP[i].idPersona))
                                 {
                                     cmbMateria.Items.Add(listaP[i].nombre + " " + listaP[i].apellido1 + " " + listaP[i].apellido2 + " " + listaN[i].nota);
+                                    cmbEstudiante.SelectedIndex = 0;
                                 }
                             }
                         }

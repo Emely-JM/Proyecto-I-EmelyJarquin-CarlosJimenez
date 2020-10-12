@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCRUDUsuarios = new System.Windows.Forms.Button();
             this.btnAsignacion = new System.Windows.Forms.Button();
             this.btnCRUDPersonas = new System.Windows.Forms.Button();
             this.btnCRUDMateria = new System.Windows.Forms.Button();
@@ -65,10 +66,20 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
+            // btnCRUDUsuarios
+            // 
+            this.btnCRUDUsuarios.Image = global::Matricula.gui.Properties.Resources.icons8_group_125px;
+            this.btnCRUDUsuarios.Location = new System.Drawing.Point(513, 231);
+            this.btnCRUDUsuarios.Name = "btnCRUDUsuarios";
+            this.btnCRUDUsuarios.Size = new System.Drawing.Size(219, 138);
+            this.btnCRUDUsuarios.TabIndex = 6;
+            this.btnCRUDUsuarios.UseVisualStyleBackColor = true;
+            this.btnCRUDUsuarios.Click += new System.EventHandler(this.btnCRUDUsuarios_Click);
+            // 
             // btnAsignacion
             // 
             this.btnAsignacion.Image = global::Matricula.gui.Properties.Resources.icons8_assignment_return_125px;
-            this.btnAsignacion.Location = new System.Drawing.Point(514, 78);
+            this.btnAsignacion.Location = new System.Drawing.Point(513, 78);
             this.btnAsignacion.Name = "btnAsignacion";
             this.btnAsignacion.Size = new System.Drawing.Size(219, 138);
             this.btnAsignacion.TabIndex = 5;

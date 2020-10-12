@@ -15,7 +15,6 @@ namespace Matricula.gui
     public partial class RealizaEvaluacion : Form
     {
 
-        private string idMateria;
         private EvaluacionBO log;
         private List<Evaluacion> lista;
         private MatriculaEstudianteBO logMatricula;
@@ -30,8 +29,9 @@ namespace Matricula.gui
             cmbMateria.Items.Clear();
             for (int i = 0; i < listaMatricula.Count; i++)
             {
-                if(listaMatricula[i].idPersona.Equals(txtIdEstudiante.Text))
-                cmbMateria.Items.Add(listaMatricula[i].idMateria);
+                if (listaMatricula[i].idPersona.Equals(txtIdEstudiante.Text) && listaMatricula[i].estado.Equals("Matriculado"))
+                    cmbMateria.Items.Add(listaMatricula[i].idMateria);
+                cmbMateria.SelectedIndex = 0;
             }
         }
 
@@ -41,20 +41,10 @@ namespace Matricula.gui
         /// </summary>
         private void asignarIdEvaluacion()
         {
-            //lista = log.getLista();
+            lista = log.getLista();
             string asiga = "E0";
-            int ticket = lista.Count;
+            int ticket = lista.Count + 1;
             txtIdEvaluacion.Text = asiga + ticket.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void asignarIdEstudiante()
-        {
-            string asiga = "P0";
-            int ticket = lista.Count;
-            txtIdEstudiante.Text = asiga + ticket.ToString();
         }
 
         /// <summary>
@@ -63,41 +53,33 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-            if (cmbMateria != null)
+            errorProvider1.SetError(cmbMateria, "");
+            if (txtDescripcion.Text != "")
             {
-                errorProvider1.SetError(cmbMateria, "");
-                if (txtDescripcion.Text != "")
+                errorProvider1.SetError(txtDescripcion, "");
+                if (log.permiteEvalucion(txtIdEstudiante.Text, cmbMateria.Text) != -1)
                 {
-                    errorProvider1.SetError(txtDescripcion, "");
-                    if (log.permiteEvalucion(txtIdEstudiante.Text, idMateria) != -1)
-                    {
-                        errorProvider1.SetError(cmbMateria, "Ya realizó la evaluación de esta materia");
-                        txtEstado.Text = "Aplicada";
-                        cmbMateria.Focus();
-                        return;
-                    }
-                    else
-                    {
-                        txtEstado.Text = "Pendiente";
-                        DateTime fecha = dateTimeEvaluacion.Value.Date;
-                        log.agregar(txtIdEvaluacion.Text,txtDescripcion.Text,txtIdEstudiante.Text,idMateria,txtEstado.Text,fecha);
-                        log.crearArchivo();
-                    }
-
+                    errorProvider1.SetError(cmbMateria, "Ya realizó la evaluación de esta materia");
+                    txtEstado.Text = "Aplicada";
+                    cmbMateria.Focus();
+                    return;
                 }
                 else
                 {
-                    errorProvider1.SetError(txtDescripcion, "Descripción es requerdia");
-                    txtDescripcion.Focus();
-                    return;
+                    txtEstado.Text = "Pendiente";
+                    DateTime fecha = dateTimeEvaluacion.Value.Date;
+                    log.agregar(txtIdEvaluacion.Text, txtDescripcion.Text, txtIdEstudiante.Text, cmbMateria.Text, txtEstado.Text, fecha);
+                    log.crearArchivo();
                 }
+
             }
             else
             {
-                errorProvider1.SetError(cmbMateria, "Debe seleccionar una materia para evaluar");
-                cmbMateria.Focus();
+                errorProvider1.SetError(txtDescripcion, "Descripción es requerdia");
+                txtDescripcion.Focus();
                 return;
             }
+
         }
 
         /// <summary>
@@ -106,7 +88,6 @@ namespace Matricula.gui
         private void inicio()
         {
             asignarIdEvaluacion();
-            asignarIdEstudiante();
             cargarMaterias();
             txtIdEvaluacion.Enabled = false;
             txtIdEstudiante.Enabled = false;
@@ -133,11 +114,6 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
-        }
-
-        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idMateria = cmbMateria.Text;
         }
     }
 }

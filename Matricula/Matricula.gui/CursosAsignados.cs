@@ -31,6 +31,7 @@ namespace Matricula.gui
                 if (lista[i].idProf.Equals(id))
                 {
                     cmbCursos.Items.Add(lista[i].idMateria);
+                    cmbCursos.SelectedIndex = 0;
                 }
             }
         }

@@ -30,9 +30,9 @@ namespace Matricula.bo
         /// <param name="idCarrera"> id de la carrera a la que pertenece la materia </param>
         /// <param name="precio"> precio de cada materia a registrar </param>
         /// <param name="costo"> costos totales por materia, incluye salarios </param>
-        public void agregar(string idMateria, string nombre, int cantidadCreditos, string idCarrera, double precio, double costo)
+        public void agregar(string idMateria, string nombre, int cantidadCreditos, string idCarrera, double precio, double costo,bool estado)
         {
-            proceso.Add(new Materias(idMateria,nombre,cantidadCreditos,idCarrera,precio,costo));
+            proceso.Add(new Materias(idMateria,nombre,cantidadCreditos,idCarrera,precio,costo,estado));
         }
 
         /// <summary>
@@ -62,11 +62,11 @@ namespace Matricula.bo
         /// <param name="idCarrera"> nuevo id de la carrera a la que está ligada la materia </param>
         /// <param name="precio"> nuevo precio de la materia </param>
         /// <param name="costo"> nuevo costo total de la materia </param>
-        public void modificar(string idBuscar, string idMateria, string nombre, int cantidadCreditos, string idCarrera, double precio, double costo)
+        public void modificar(string idBuscar, string idMateria, string nombre, int cantidadCreditos, string idCarrera, double precio, double costo,bool estado)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (idBuscar.Equals(proceso[i].idMateria))
+                if (proceso[i].idMateria.Equals(idBuscar))
                 {
                     proceso[i].idMateria = idMateria;
                     proceso[i].nombre = nombre;
@@ -74,7 +74,23 @@ namespace Matricula.bo
                     proceso[i].idCarrera = idCarrera;
                     proceso[i].precio = precio;
                     proceso[i].costo = costo;
+                    proceso[i].estado = estado;
+                }
+            }
+        }
 
+        /// <summary>
+        /// Modifica el estado del id de la materia pasado por parámetro
+        /// </summary>
+        /// <param name="id"> id de la carrera a cambiar estado </param>
+        /// <param name="dato"> nuevo estado de la materia</param>
+        public void modificaEstado(string id,bool dato)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idMateria.Equals(id))
+                {
+                    proceso[i].estado = dato;
                 }
             }
         }

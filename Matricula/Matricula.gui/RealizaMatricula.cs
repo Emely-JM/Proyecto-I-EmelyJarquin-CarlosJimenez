@@ -18,25 +18,8 @@ namespace Matricula.gui
         private List<MatriculaEstudiante> lista;
         private AsignacionBO logA;
         private List<Asignacion> listaA;
-        private string idPeriodo;
         private string estado = "Prematricula";
-        private string idMateria;
-        private string idProf;
         private DateTime fechaMatricula;
-        private DateTime fechaPago;
-
-        /// <summary>
-        /// Método que imprime un errorProvider en el comboBox pasado por parámetro 
-        /// y con el mensaje indicado en el parámetro
-        /// </summary>
-        /// <param name="text"> representa el comboBox al que se le dará foco para imprimir el mensaje</param>
-        /// <param name="mensaje"> representa el mensaje que se desea imprimir </param>
-        private void mensaje(ComboBox text, string mensaje)
-        {
-            errorProvider1.SetError(text, mensaje);
-            text.Focus();
-            return;
-        }
 
         /// <summary>
         /// Asigna un ticket o id a las facturas que se registran según la cantidad de datos de la lista, 
@@ -44,9 +27,9 @@ namespace Matricula.gui
         /// </summary>
         private void asignarIdFactura()
         {
-            //lista = log.getLista();
+            lista = log.getLista();
             string asiga = "F0";
-            int ticket = lista.Count;
+            int ticket = lista.Count + 1;
             txtIdFactura.Text = asiga + ticket.ToString();
         }
 
@@ -56,9 +39,9 @@ namespace Matricula.gui
         /// </summary>
         private void asignarComprobante()
         {
-            //lista = log.getLista();
+            lista = log.getLista();
             string asiga = "C0";
-            int ticket = lista.Count;
+            int ticket = lista.Count + 1;
             txtComprobante.Text = asiga + ticket.ToString();
         }
 
@@ -78,19 +61,12 @@ namespace Matricula.gui
                 {
                     cmbProfe.Items.Add(listaA[i].idProf);
                     cmbMateria.Items.Add(listaA[i].idMateria);
+                    cmbProfe.SelectedIndex = 0;
+                    cmbMateria.SelectedIndex = 0;
+                    cmbPeriodo.SelectedIndex = 0;
                 }
             }
 
-        }
-
-        /// <summary>
-        /// Carga el id del estudiante en la caja del textBox
-        /// que representa el estudiante que está matriculando
-        /// </summary>
-        /// <param name="id"></param>
-        private void cargarIdPersona(string id)
-        {
-            txtIdPersona.Text = id;
         }
 
         /// <summary>
@@ -99,47 +75,20 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-            if (idMateria != null)
+            if (log.permitirMatricula(txtIdPersona.Text, cmbMateria.Text) != -1)
             {
-                errorProvider1.SetError(cmbMateria, "");
-                if (log.permitirMatricula(txtIdPersona.Text, idMateria) != -1)
-                {
-                    mensaje(cmbMateria, "Ya se encuentra matriculado en este curso");
-                }
-                else
-                {
-                    errorProvider1.SetError(cmbMateria, "");
-                    if (idPeriodo != null)
-                    {
-                        errorProvider1.SetError(cmbPeriodo, "");
-
-                        if (idProf != null)
-                        {
-                            errorProvider1.SetError(cmbProfe, "");
-                            fechaMatricula = dateTimeMatricula.Value.Date;
-                            fechaPago = dateTimePago.Value.Date;
-                            log.agregar(txtIdFactura.Text, txtIdPersona.Text, idPeriodo, fechaMatricula, idMateria, idProf, estado, txtComprobante.Text, fechaPago);
-                            log.crearArchivo();
-                            this.Close();
-                        }
-                        else
-                        {
-                            mensaje(cmbProfe, "Debe seleccionar un id de profesor");
-                        }
-
-                    }
-                    else
-                    {
-                        mensaje(cmbPeriodo, "Debe seleccionar un periodo");
-                    }
-                }
-
+                errorProvider1.SetError(cmbMateria, "Ya se encuentra matriculado en este curso");
+                cmbMateria.Focus();
+                return;
             }
             else
             {
-                mensaje(cmbMateria, "Debe seleccionar una materia para matricular");
+                DateTime fechaPago = DateTime.Now;
+                fechaMatricula = dateTimeMatricula.Value.Date;
+                log.agregar(txtIdFactura.Text, txtIdPersona.Text, cmbPeriodo.Text, fechaMatricula, cmbMateria.Text, cmbProfe.Text, estado, txtComprobante.Text, fechaPago);
+                log.crearArchivo();
+                this.Close();
             }
-
         }
 
         public RealizaMatricula(string idPersona)
@@ -152,7 +101,7 @@ namespace Matricula.gui
             txtIdFactura.Enabled = false;
             txtIdPersona.Enabled = false;
             txtComprobante.Enabled = false;
-            cargarIdPersona(idPersona);
+            txtIdPersona.Text = idPersona;
             asignarIdFactura();
             asignarComprobante();
 
@@ -163,16 +112,6 @@ namespace Matricula.gui
             this.Close();
         }
 
-        private void cmbPeriodo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idPeriodo = cmbPeriodo.Text;
-        }
-
-        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idMateria = cmbMateria.Text;
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
@@ -180,7 +119,6 @@ namespace Matricula.gui
 
         private void cmbProfe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            idProf = cmbProfe.Text;
             cargarComboProfYMat(cmbProfe.Text);
         }
     }
