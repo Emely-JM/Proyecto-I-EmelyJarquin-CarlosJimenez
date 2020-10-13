@@ -33,9 +33,9 @@
             this.cursosAsignados = new System.Windows.Forms.ToolStripMenuItem();
             this.ListaEstudiantes = new System.Windows.Forms.ToolStripMenuItem();
             this.Notas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.salir = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItemContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,8 +54,8 @@
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cursosAsignados,
-            this.ListaEstudiantes,
             this.Notas,
+            this.ListaEstudiantes,
             this.toolStripMenuItemContrasena,
             this.salir});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -83,6 +83,13 @@
             this.Notas.Text = "Registrar notas";
             this.Notas.Click += new System.EventHandler(this.Notas_Click);
             // 
+            // toolStripMenuItemContrasena
+            // 
+            this.toolStripMenuItemContrasena.Name = "toolStripMenuItemContrasena";
+            this.toolStripMenuItemContrasena.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemContrasena.Text = "Cambiar contraseña";
+            this.toolStripMenuItemContrasena.Click += new System.EventHandler(this.toolStripMenuItemContrasena_Click);
+            // 
             // salir
             // 
             this.salir.Name = "salir";
@@ -98,13 +105,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(772, 398);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // toolStripMenuItemContrasena
-            // 
-            this.toolStripMenuItemContrasena.Name = "toolStripMenuItemContrasena";
-            this.toolStripMenuItemContrasena.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemContrasena.Text = "Cambiar contraseña";
-            this.toolStripMenuItemContrasena.Click += new System.EventHandler(this.toolStripMenuItemContrasena_Click);
             // 
             // MenuProfesor
             // 

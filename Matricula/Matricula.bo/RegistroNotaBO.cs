@@ -69,7 +69,7 @@ namespace Matricula.bo
         public float calculaNota(int proyectos, int laboratorios, int examenes, int pruebasCortas)
         {
             float resultado = 0;
-            resultado = (proyectos + laboratorios + examenes + pruebasCortas) / 4;
+            resultado = proyectos + laboratorios + examenes + pruebasCortas * 100/200;
             return resultado;
         }
 

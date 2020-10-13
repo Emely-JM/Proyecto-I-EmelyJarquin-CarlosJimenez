@@ -60,10 +60,11 @@
             // 
             // txtIdProf
             // 
+            this.txtIdProf.Enabled = false;
             this.txtIdProf.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProf.Location = new System.Drawing.Point(95, 12);
             this.txtIdProf.Name = "txtIdProf";
-            this.txtIdProf.Size = new System.Drawing.Size(93, 26);
+            this.txtIdProf.Size = new System.Drawing.Size(150, 26);
             this.txtIdProf.TabIndex = 2;
             // 
             // cmbCursos
@@ -80,7 +81,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(177, 138);
+            this.btnCancelar.Location = new System.Drawing.Point(190, 142);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(105, 36);
             this.btnCancelar.TabIndex = 5;
@@ -94,7 +95,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(66, 138);
+            this.btnAceptar.Location = new System.Drawing.Point(79, 142);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(105, 36);
             this.btnAceptar.TabIndex = 4;

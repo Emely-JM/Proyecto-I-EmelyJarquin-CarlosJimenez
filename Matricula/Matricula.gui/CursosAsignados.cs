@@ -41,6 +41,7 @@ namespace Matricula.gui
             InitializeComponent();
             lista = new List<Asignacion>();
             log = new AsignacionBO();
+            txtIdProf.Text = id;
             cargar(id);
         }
 

@@ -23,7 +23,6 @@ namespace Matricula.gui
         /// </summary>
         private void verDatos()
         {
-            lista = new List<Asignacion>();
             lista = log.getLista();
             tblTabla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
@@ -98,7 +97,17 @@ namespace Matricula.gui
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                id = int.Parse(this.tblTabla.CurrentRow.Cells[0].Value.ToString());
+                AsignacionMateria frm = new AsignacionMateria(id);
+                frm.ShowDialog();
+                verDatos();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

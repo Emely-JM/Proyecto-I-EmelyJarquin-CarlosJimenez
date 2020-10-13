@@ -59,18 +59,29 @@ namespace Matricula.bo
             }
         }
 
-        /// <summary>
-        /// Busca el id del profesor y id de la materia, si ya están ligados
-        /// retorna el indice
-        /// </summary>
-        /// <param name="idP"> id del profesor a buscar </param>
-        /// <param name="idM"> id de la materia a buscar </param>
-        /// <returns></returns>
-        public int buscarId(int id, string idP, string idM)
+        public bool BuscarId(int id)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if ( proceso[i].id == id && proceso[i].idProf.Equals(idP) && proceso[i].idMateria.Equals(idM))
+                if(proceso[i].id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Válida que no se asigne dos veces la misma materia a un profesor
+        /// </summary>
+        /// <param name="idProf"> id del profesor a buscar </param>
+        /// <param name="idMateria"> id de la materia a buscar </param>
+        /// <returns></returns>
+        public int permitirAsignacion(string idProf, string idMateria)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idProf.Equals(idProf) && proceso[i].idMateria.Equals(idMateria))
                 {
                     return i;
                 }

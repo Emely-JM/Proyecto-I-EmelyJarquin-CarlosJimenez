@@ -30,8 +30,10 @@ namespace Matricula.gui
             for (int i = 0; i < listaMatricula.Count; i++)
             {
                 if (listaMatricula[i].idPersona.Equals(txtIdEstudiante.Text) && listaMatricula[i].estado.Equals("Matriculado"))
+                {
                     cmbMateria.Items.Add(listaMatricula[i].idMateria);
-                cmbMateria.SelectedIndex = 0;
+                    cmbMateria.SelectedIndex = 0;
+                }
             }
         }
 
@@ -60,16 +62,16 @@ namespace Matricula.gui
                 if (log.permiteEvalucion(txtIdEstudiante.Text, cmbMateria.Text) != -1)
                 {
                     errorProvider1.SetError(cmbMateria, "Ya realizó la evaluación de esta materia");
-                    txtEstado.Text = "Aplicada";
                     cmbMateria.Focus();
                     return;
                 }
                 else
                 {
-                    txtEstado.Text = "Pendiente";
                     DateTime fecha = dateTimeEvaluacion.Value.Date;
                     log.agregar(txtIdEvaluacion.Text, txtDescripcion.Text, txtIdEstudiante.Text, cmbMateria.Text, txtEstado.Text, fecha);
                     log.crearArchivo();
+                    MessageBox.Show("Evaluación registrada","Evaluaciones",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    this.Close();
                 }
 
             }
@@ -81,6 +83,22 @@ namespace Matricula.gui
             }
 
         }
+
+        /// <summary>
+        /// Verifica si en la lista ya se realizó la evaluación del curso.
+        /// </summary>
+        private void asignarEstado()
+        {
+            if (log.permiteEvalucion(txtIdEstudiante.Text, cmbMateria.Text) != -1)
+            {
+                txtEstado.Text = "Aplicada";
+            }
+            else
+            {
+                txtEstado.Text = "Pendiente";
+            }
+        }
+
 
         /// <summary>
         /// Inicia los datos en el constructor
@@ -104,6 +122,7 @@ namespace Matricula.gui
             listaMatricula = new List<MatriculaEstudiante>();
             txtIdEstudiante.Text = idEstudiante;
             inicio();
+            asignarEstado();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

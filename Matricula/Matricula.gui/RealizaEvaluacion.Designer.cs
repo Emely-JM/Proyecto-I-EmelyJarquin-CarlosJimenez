@@ -140,7 +140,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(116, 118);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(676, 127);
+            this.txtDescripcion.Size = new System.Drawing.Size(664, 127);
             this.txtDescripcion.TabIndex = 11;
             // 
             // txtEstado

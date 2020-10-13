@@ -65,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(206, 22);
+            this.label2.Location = new System.Drawing.Point(263, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 1;
@@ -75,9 +75,9 @@
             // 
             this.cmbMaterias.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMaterias.FormattingEnabled = true;
-            this.cmbMaterias.Location = new System.Drawing.Point(285, 14);
+            this.cmbMaterias.Location = new System.Drawing.Point(342, 14);
             this.cmbMaterias.Name = "cmbMaterias";
-            this.cmbMaterias.Size = new System.Drawing.Size(127, 26);
+            this.cmbMaterias.Size = new System.Drawing.Size(222, 26);
             this.cmbMaterias.TabIndex = 2;
             // 
             // txtIdEstudiante
@@ -86,7 +86,7 @@
             this.txtIdEstudiante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdEstudiante.Location = new System.Drawing.Point(120, 14);
             this.txtIdEstudiante.Name = "txtIdEstudiante";
-            this.txtIdEstudiante.Size = new System.Drawing.Size(80, 26);
+            this.txtIdEstudiante.Size = new System.Drawing.Size(137, 26);
             this.txtIdEstudiante.TabIndex = 3;
             // 
             // panel1

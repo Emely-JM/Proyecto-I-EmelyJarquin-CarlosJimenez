@@ -123,7 +123,7 @@ namespace Matricula.gui
 
                 if (u != null && isTeacher(u))
                 {
-                    ManuUsuario frm = new ManuUsuario(u);
+                    MenuProfesor frm = new MenuProfesor(u);
                     frm.ShowDialog();
                     txtUsuTeachers.Text = "";
                     txtPassTeachers.Text = "";
@@ -156,7 +156,7 @@ namespace Matricula.gui
         {
             foreach (Persona persona in pbo.getLista())
             {
-                if (persona.idPersona.Equals(u.idPersona) && persona.tipoPersona.Equals("Estudiante"))
+                if (persona.cedula.Equals(u.idPersona) && persona.tipoPersona.Equals("Estudiante"))
                 {
                     return true;
                 }
@@ -177,7 +177,7 @@ namespace Matricula.gui
         {
             foreach (Persona persona in pbo.getLista())
             {
-                if (persona.idPersona.Equals(u.idPersona) && persona.tipoPersona.Equals("Profesor"))
+                if (persona.cedula.Equals(u.idPersona) && persona.tipoPersona.Equals("Profesor"))
                 {
                     return true;
                 }
@@ -193,6 +193,12 @@ namespace Matricula.gui
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
             encripta = new Encripta();
+            txtUsuAdmin.Text = "Admin";
+            txtPassAdmin.Text = "Admin123*";
+            txtUsuStuden.Text = "EJM";
+            txtPassStuden.Text = "admin123*";
+            txtUsuTeachers.Text = "AMA";
+            txtPassTeachers.Text = "admin123*";
         }
 
         private void btnAceptarAdmin_Click(object sender, EventArgs e)
@@ -226,6 +232,12 @@ namespace Matricula.gui
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            FrmEdicionUsuario frm = new FrmEdicionUsuario();
+            frm.ShowDialog();
+        }
+
+        private void btnRegistroProf_Click(object sender, EventArgs e)
         {
             FrmEdicionUsuario frm = new FrmEdicionUsuario();
             frm.ShowDialog();

@@ -48,6 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnRegistroProf = new System.Windows.Forms.Button();
             this.btnCancelarTeachers = new System.Windows.Forms.Button();
             this.txtAceparTeachers = new System.Windows.Forms.Button();
             this.txtPassTeachers = new System.Windows.Forms.TextBox();
@@ -96,15 +97,13 @@
             // 
             // btnCancelarAdmin
             // 
-            this.btnCancelarAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAdmin.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarAdmin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.btnCancelarAdmin.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
-            this.btnCancelarAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarAdmin.Location = new System.Drawing.Point(285, 159);
+            this.btnCancelarAdmin.Location = new System.Drawing.Point(10, 184);
             this.btnCancelarAdmin.Name = "btnCancelarAdmin";
-            this.btnCancelarAdmin.Size = new System.Drawing.Size(104, 35);
+            this.btnCancelarAdmin.Size = new System.Drawing.Size(94, 24);
             this.btnCancelarAdmin.TabIndex = 6;
-            this.btnCancelarAdmin.Text = "Cancelar";
+            this.btnCancelarAdmin.Text = "Cerrar sesión";
             this.btnCancelarAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarAdmin.UseVisualStyleBackColor = true;
             this.btnCancelarAdmin.Click += new System.EventHandler(this.btnCancelarAdmin_Click);
@@ -115,7 +114,7 @@
             this.btnAceptarAdmin.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnAceptarAdmin.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptarAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptarAdmin.Location = new System.Drawing.Point(179, 159);
+            this.btnAceptarAdmin.Location = new System.Drawing.Point(237, 148);
             this.btnAceptarAdmin.Name = "btnAceptarAdmin";
             this.btnAceptarAdmin.Size = new System.Drawing.Size(100, 35);
             this.btnAceptarAdmin.TabIndex = 5;
@@ -196,9 +195,10 @@
             // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(10, 13);
+            this.btnRegistrarse.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarse.Location = new System.Drawing.Point(110, 184);
             this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrarse.Size = new System.Drawing.Size(94, 24);
             this.btnRegistrarse.TabIndex = 13;
             this.btnRegistrarse.Text = "Registrarse";
             this.btnRegistrarse.UseVisualStyleBackColor = true;
@@ -206,15 +206,13 @@
             // 
             // btnCancelarStuden
             // 
-            this.btnCancelarStuden.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarStuden.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarStuden.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.btnCancelarStuden.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
-            this.btnCancelarStuden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarStuden.Location = new System.Drawing.Point(282, 160);
+            this.btnCancelarStuden.Location = new System.Drawing.Point(10, 184);
             this.btnCancelarStuden.Name = "btnCancelarStuden";
-            this.btnCancelarStuden.Size = new System.Drawing.Size(104, 35);
+            this.btnCancelarStuden.Size = new System.Drawing.Size(94, 24);
             this.btnCancelarStuden.TabIndex = 12;
-            this.btnCancelarStuden.Text = "Cancelar";
+            this.btnCancelarStuden.Text = "Cerrar sesión";
             this.btnCancelarStuden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarStuden.UseVisualStyleBackColor = true;
             this.btnCancelarStuden.Click += new System.EventHandler(this.btnCancelarStuden_Click);
@@ -225,7 +223,7 @@
             this.btnAceptarStuden.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnAceptarStuden.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptarStuden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptarStuden.Location = new System.Drawing.Point(176, 160);
+            this.btnAceptarStuden.Location = new System.Drawing.Point(226, 149);
             this.btnAceptarStuden.Name = "btnAceptarStuden";
             this.btnAceptarStuden.Size = new System.Drawing.Size(100, 35);
             this.btnAceptarStuden.TabIndex = 11;
@@ -288,6 +286,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnRegistroProf);
             this.tabPage3.Controls.Add(this.btnCancelarTeachers);
             this.tabPage3.Controls.Add(this.txtAceparTeachers);
             this.tabPage3.Controls.Add(this.txtPassTeachers);
@@ -303,17 +302,26 @@
             this.tabPage3.Text = "Teachers";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnRegistroProf
+            // 
+            this.btnRegistroProf.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistroProf.Location = new System.Drawing.Point(110, 184);
+            this.btnRegistroProf.Name = "btnRegistroProf";
+            this.btnRegistroProf.Size = new System.Drawing.Size(94, 24);
+            this.btnRegistroProf.TabIndex = 19;
+            this.btnRegistroProf.Text = "Registrarse";
+            this.btnRegistroProf.UseVisualStyleBackColor = true;
+            this.btnRegistroProf.Click += new System.EventHandler(this.btnRegistroProf_Click);
+            // 
             // btnCancelarTeachers
             // 
-            this.btnCancelarTeachers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarTeachers.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarTeachers.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.btnCancelarTeachers.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
-            this.btnCancelarTeachers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarTeachers.Location = new System.Drawing.Point(283, 160);
+            this.btnCancelarTeachers.Location = new System.Drawing.Point(10, 184);
             this.btnCancelarTeachers.Name = "btnCancelarTeachers";
-            this.btnCancelarTeachers.Size = new System.Drawing.Size(104, 35);
+            this.btnCancelarTeachers.Size = new System.Drawing.Size(94, 24);
             this.btnCancelarTeachers.TabIndex = 18;
-            this.btnCancelarTeachers.Text = "Cancelar";
+            this.btnCancelarTeachers.Text = "Cerrar sesión";
             this.btnCancelarTeachers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarTeachers.UseVisualStyleBackColor = true;
             this.btnCancelarTeachers.Click += new System.EventHandler(this.btnCancelarTeachers_Click);
@@ -324,7 +332,7 @@
             this.txtAceparTeachers.ForeColor = System.Drawing.SystemColors.MenuText;
             this.txtAceparTeachers.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.txtAceparTeachers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtAceparTeachers.Location = new System.Drawing.Point(177, 160);
+            this.txtAceparTeachers.Location = new System.Drawing.Point(222, 149);
             this.txtAceparTeachers.Name = "txtAceparTeachers";
             this.txtAceparTeachers.Size = new System.Drawing.Size(100, 35);
             this.txtAceparTeachers.TabIndex = 17;
@@ -444,5 +452,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnRegistrarse;
+        private System.Windows.Forms.Button btnRegistroProf;
     }
 }

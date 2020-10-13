@@ -15,8 +15,6 @@ namespace Matricula.gui
     public partial class AsignacionMateria : Form
     {
         private int id;
-        private string idProfesor;
-        private string idMateria;
         private AsignacionBO log;
         private List<Asignacion> lista;
         private PersonaBO logU;
@@ -59,16 +57,20 @@ namespace Matricula.gui
         /// <summary>
         /// Selecciona los datos de los combos según el id
         /// </summary>
-        private void buscar(int id)
+        private int buscar(int id)
         {
+            lista = log.getLista();
             for (int i = 0; i < lista.Count; i++)
             {
                 if (lista[i].id == id)
                 {
+                    txtId.Text = lista[i].id.ToString();
                     cmbProfesor.Text = lista[i].idProf;
                     cmbMateria.Text = lista[i].idMateria;
+                    return i;
                 }
             }
+            return -1;
         }
 
         /// <summary>
@@ -76,6 +78,7 @@ namespace Matricula.gui
         /// </summary>
         private void asignarID()
         {
+            lista = log.getLista();
             int asigna = 0;
             int ticket = lista.Count + 1;
             txtId.Text = asigna.ToString() + ticket;
@@ -87,9 +90,43 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-            log.agregar(int.Parse(txtId.Text), cmbProfesor.Text, cmbMateria.Text);
+            if (log.BuscarId(int.Parse(txtId.Text)) != false)
+            {
+                log.modificar(int.Parse(txtId.Text), cmbProfesor.Text, cmbMateria.Text);
+            }
+            else
+            {
+                if (log.permitirAsignacion(cmbProfesor.Text, cmbMateria.Text) != -1)
+                {
+                    errorProvider1.SetError(cmbMateria, "Esta matería ya ha sido asignada al profesor indicado");
+                    cmbMateria.Focus();
+                    return;
+                }
+                else
+                {
+                    log.agregar(int.Parse(txtId.Text), cmbProfesor.Text, cmbMateria.Text);
+                }
+            }
             log.crearArchivo();
             this.Close();
+
+        }
+
+        /// <summary>
+        /// Carga el nombre del profesor según el id seleccionado del combo
+        /// </summary>
+        /// <param name="id"> id del profesor a buscar </param>
+        private void cargarNombreProf(string id)
+        {
+            listaU = logU.getLista();
+            txtNombreProf.Clear();
+            for (int x = 0; x < listaU.Count; x++)
+            {
+                if (listaU[x].cedula.Equals(id))
+                {
+                    txtNombreProf.Text = listaU[x].nombre + " " + listaU[x].apellido1 + " " + listaU[x].apellido2;
+                }
+            }
         }
 
         public AsignacionMateria()
@@ -119,9 +156,7 @@ namespace Matricula.gui
             listaM = new List<Materias>();
             llenarComboProfesor();
             llenarComboMateria();
-            id = idP;
-            buscar(id);
-
+            buscar(idP);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -132,6 +167,11 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+        }
+
+        private void cmbProfesor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarNombreProf(cmbProfesor.Text);
         }
     }
 }

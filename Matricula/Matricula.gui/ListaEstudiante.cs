@@ -14,27 +14,27 @@ namespace Matricula.gui
 {
     public partial class ListaEstudiante : Form
     {
-        private string idP;
+        
         private AsignacionBO log;
         private List<Asignacion> lista;
-        private MatriculaEstudianteBO logE;
-        private List<MatriculaEstudiante> listaE;
-        private PersonaBO logP;
-        private List<Persona> listaP;
-        private RegistroNotaBO logN;
-        private List<RegistroNota> listaN;
+        private MatriculaEstudianteBO logMatricula;
+        private List<MatriculaEstudiante> listMatricula;
+        private PersonaBO logPersona;
+        private List<Persona> listaPersona;
+        private RegistroNotaBO logNota;
+        private List<RegistroNota> listaNota;
 
         /// <summary>
         /// Carga el combo con las materias del id del profesor pasado por parámetro
         /// </summary>
         /// <param name="id"></param>
-        private void cargarComboIdMaterias(string id)
+        private void cargarComboIdMaterias()
         {
             lista = log.getLista();
             cmbMateria.Items.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
-                if (lista[i].idProf.Equals(id))
+                if (lista[i].idProf.Equals(txtIdProf.Text))
                 {
                     cmbMateria.Items.Add(lista[i].idMateria);
                     cmbMateria.SelectedIndex = 0;
@@ -51,24 +51,24 @@ namespace Matricula.gui
         /// <param name="idMateria"> id de la materia a buscar</param>
         private void cargarEstudiantes(string idMateria)
         {
-            listaE = logE.getLista();
-            listaP = logP.getLista();
-            listaN = logN.getLista();
+            listMatricula = logMatricula.getLista();
+            listaPersona = logPersona.getLista();
+            listaNota = logNota.getLista();
             cmbEstudiante.Items.Clear();
-            for (int i = 0; i < listaE.Count; i++)
-            {
-                if (listaE[i].idProfesor.Equals(idP) && listaE[i].idMateria.Equals(idMateria))
-                {
-                    for (int x = 0; x < listaP.Count; x++)
-                    {
-                        if (listaP[i].idPersona.Equals(listaE[i].idPersona)){
 
-                            for (int c = 0; c < listaN.Count; c++)
+            for (int i = 0; i < listMatricula.Count; i++)
+            {
+                for (int x = 0; x < listaPersona.Count; x++)
+                {
+                    for (int c = 0; c < listaNota.Count; c++)
+                    {
+                        if (listMatricula[i].idProfesor.Equals(txtIdProf.Text) && listMatricula[i].idMateria.Equals(idMateria))
+                        {
+                            if (listaPersona[x].cedula.Equals(listMatricula[i].idPersona))
                             {
-                                if (listaN[i].idEstudiante.Equals(listaP[i].idPersona))
+                                if (listaNota[c].idEstudiante.Equals(listaPersona[x].cedula))
                                 {
-                                    cmbMateria.Items.Add(listaP[i].nombre + " " + listaP[i].apellido1 + " " + listaP[i].apellido2 + " " + listaN[i].nota);
-                                    cmbEstudiante.SelectedIndex = 0;
+                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + " " + listaNota[c].nota);
                                 }
                             }
                         }
@@ -82,14 +82,14 @@ namespace Matricula.gui
             InitializeComponent();
             lista = new List<Asignacion>();
             log = new AsignacionBO();
-            logE = new MatriculaEstudianteBO();
-            logP = new PersonaBO();
-            listaE = new List<MatriculaEstudiante>();
-            listaP = new List<Persona>();
-            logN = new RegistroNotaBO();
-            listaN = new List<RegistroNota>();
-            idP = id;
-            cargarComboIdMaterias(id);
+            logMatricula = new MatriculaEstudianteBO();
+            logPersona = new PersonaBO();
+            listMatricula = new List<MatriculaEstudiante>();
+            listaPersona = new List<Persona>();
+            logNota = new RegistroNotaBO();
+            listaNota = new List<RegistroNota>();
+            txtIdProf.Text = id;
+            cargarComboIdMaterias();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace Matricula.gui
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarEstudiantes(cmbMateria.Text);
+           cargarEstudiantes(cmbMateria.Text);
         }
     }
 }
