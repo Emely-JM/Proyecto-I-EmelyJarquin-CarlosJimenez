@@ -18,6 +18,8 @@ namespace Matricula.gui
         private List<MatriculaEstudiante> lista;
         private AsignacionBO logA;
         private List<Asignacion> listaA;
+        private PersonaBO logP;
+        private List<Persona> listaP;
         private string estado = "Prematricula";
         private DateTime fechaMatricula;
 
@@ -46,24 +48,51 @@ namespace Matricula.gui
         }
 
         /// <summary>
-        /// Carga los combos de id de materia y profesores
-        /// según el id del profesor
+        /// Carga el combo del profesor con los datos del id y nombre completo
         /// </summary>
-        /// <param name="idProf"></param>
-        private void cargarComboProfYMat(string idProf)
+        private void cargarComboProf()
         {
             listaA = logA.getLista();
+            listaP = logP.getLista();
             cmbProfe.Items.Clear();
+            for (int i = 0; i < listaA.Count; i++)
+            {
+                cmbProfe.Items.Add(listaA[i].idProf);
+                cmbProfe.SelectedIndex = 0;
+            }
+        }
+
+        /// <summary>
+        /// Carga las meterias asignadas a un profesor seleccionado
+        /// </summary>
+        /// <param name="idProfesor"> id del profesor a buscar </param>
+        private void cargarComboMateria(string idProfesor)
+        {
+            listaA = logA.getLista();
             cmbMateria.Items.Clear();
             for (int i = 0; i < listaA.Count; i++)
             {
-                if (listaA[i].idProf.Equals(idProf))
+                if (listaA[i].idProf.Equals(idProfesor))
                 {
-                    cmbProfe.Items.Add(listaA[i].idProf);
                     cmbMateria.Items.Add(listaA[i].idMateria);
-                    cmbProfe.SelectedIndex = 0;
-                    cmbMateria.SelectedIndex = 0;
-                    cmbPeriodo.SelectedIndex = 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Carga el nombre del profesor según el id del combo seleccionado
+        /// </summary>
+        /// <param name="id"> id a buscar </param>
+        private void cargarNombreProf(string id)
+        {
+            listaA = logA.getLista();
+            listaP = logP.getLista();
+            txtProfesor.Clear();
+            for (int x = 0; x < listaP.Count; x++)
+            {
+                if (listaP[x].cedula.Equals(id))
+                {
+                    txtProfesor.Text = listaP[x].nombre + " " + listaP[x].apellido1 + " " + listaP[x].apellido2;
                 }
             }
 
@@ -83,11 +112,20 @@ namespace Matricula.gui
             }
             else
             {
-                DateTime fechaPago = DateTime.Now;
-                fechaMatricula = dateTimeMatricula.Value.Date;
-                log.agregar(txtIdFactura.Text, txtIdPersona.Text, cmbPeriodo.Text, fechaMatricula, cmbMateria.Text, cmbProfe.Text, estado, txtComprobante.Text, fechaPago);
-                log.crearArchivo();
-                this.Close();
+                if (cmbMateria.Text.Equals(""))
+                {
+                    errorProvider1.SetError(cmbMateria, "Debe seleccionar una materia para matricular");
+                    cmbMateria.Focus();
+                    return;
+                }
+                else
+                {
+                    DateTime fechaPago = DateTime.Now;
+                    fechaMatricula = dateTimeMatricula.Value.Date;
+                    log.agregar(txtIdFactura.Text, txtIdPersona.Text, cmbPeriodo.Text, fechaMatricula, cmbMateria.Text, cmbProfe.Text, estado, txtComprobante.Text, fechaPago);
+                    log.crearArchivo();
+                    this.Close();
+                }
             }
         }
 
@@ -98,12 +136,17 @@ namespace Matricula.gui
             lista = new List<MatriculaEstudiante>();
             logA = new AsignacionBO();
             listaA = new List<Asignacion>();
+            logP = new PersonaBO();
+            listaP = new List<Persona>();
             txtIdFactura.Enabled = false;
             txtIdPersona.Enabled = false;
             txtComprobante.Enabled = false;
+            txtProfesor.Enabled = false;
             txtIdPersona.Text = idPersona;
             asignarIdFactura();
             asignarComprobante();
+            cargarComboProf();
+            cmbPeriodo.SelectedIndex = 0;
 
         }
 
@@ -119,7 +162,8 @@ namespace Matricula.gui
 
         private void cmbProfe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarComboProfYMat(cmbProfe.Text);
+            cargarComboMateria(cmbProfe.Text);
+            cargarNombreProf(cmbProfe.Text);
         }
     }
 }

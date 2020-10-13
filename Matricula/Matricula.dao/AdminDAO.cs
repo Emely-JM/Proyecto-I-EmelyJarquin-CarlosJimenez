@@ -47,6 +47,11 @@ namespace Matricula.dao
             String line;
             try
             {
+                if (!File.Exists(nombreArchivo))//Sino existe lo crea
+                {
+                    StreamWriter sw = new StreamWriter(nombreArchivo);
+                    sw.Close();
+                }
                 //Pase el nombre del archivo al constructor StreamWriter
                 StreamReader sr = new StreamReader(nombreArchivo);
 

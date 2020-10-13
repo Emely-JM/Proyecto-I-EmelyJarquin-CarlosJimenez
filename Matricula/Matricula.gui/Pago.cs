@@ -14,39 +14,41 @@ namespace Matricula.gui
 {
     public partial class Pago : Form
     {
-        private string idEstudiante;
         double sumaMaterias = 0;
         double costo = 0;
-        MateriaBO logM;
-        List<Materias> listaM;
-        MatriculaEstudianteBO logMat;
-        List<MatriculaEstudiante> listaMat;
+        MateriaBO logMateria;
+        List<Materias> listaMateria;
+        MatriculaEstudianteBO logMatricula;
+        List<MatriculaEstudiante> listaMatricula;
         ValidaDatos validar;
 
         /// <summary>
         /// Carga las materias ligadas al id del usuario pasado en el contructor
         /// siempre que se encuentren en prematricula
         /// </summary>
-        private void cargarCombo()
+        private void cargarCombo(string id)
         {
-            listaMat = logMat.getLista();
-            listaM = logM.getLista();
+            listaMatricula = logMatricula.getLista();
+            listaMateria = logMateria.getLista();
+
             cmbMaterias.Items.Clear();
-            for (int i = 0; i < listaMat.Count; i++)
+            for (int i = 0; i < listaMatricula.Count; i++)
             {
-                if (listaMat[i].idPersona.Equals(idEstudiante) && listaMat[i].estado.Equals("Prematricula"))
+                for (int x = 0; x < listaMateria.Count; x++)
                 {
-                    for (int x = 0; x < listaM.Count; x++)
+                    if (listaMatricula[i].idPersona.Equals(id) && listaMatricula[i].estado.Equals("Prematricula"))
                     {
-                        if (listaM[i].idMateria.Equals(listaMat[i].idMateria))
+
+                        if (listaMateria[x].idMateria.Equals(listaMatricula[i].idMateria))
                         {
-                            sumaMaterias += listaM[i].precio;
-                            costo += listaM[i].costo;
-                            cmbMaterias.Items.Add(listaMat[i].idMateria + " " + listaM[i].nombre);
+                            sumaMaterias += listaMateria[x].precio;
+                            costo += listaMateria[x].costo;
+                            cmbMaterias.Items.Add(listaMatricula[i].idMateria + " " + listaMateria[x].nombre);
                             cmbMaterias.SelectedIndex = 0;
                         }
-                    }
 
+
+                    }
                 }
             }
         }
@@ -76,8 +78,9 @@ namespace Matricula.gui
                 if (txtTarjeta.Text.Length == 4)
                 {
                     errorProvider1.SetError(txtTarjeta, "");
-                    logMat.pagoRealizado(idEstudiante, fechaActual);
-                    logMat.crearArchivo();
+                    logMatricula.pagoRealizado(txtIdEstudiante.Text, fechaActual);
+                    logMatricula.crearArchivo();
+                    MessageBox.Show("Transacción exitosa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 errorProvider1.SetError(txtTarjeta, "Debe ingresar solamente los últimos cuatro digitos de la tarjeta");
@@ -86,7 +89,7 @@ namespace Matricula.gui
             }
             else
             {
-                errorProvider1.SetError(txtTarjeta,"Debe ingresar el número de tarjeta");
+                errorProvider1.SetError(txtTarjeta, "Debe ingresar el número de tarjeta");
                 txtTarjeta.Focus();
                 return;
             }
@@ -95,13 +98,12 @@ namespace Matricula.gui
         public Pago(string u)
         {
             InitializeComponent();
-            idEstudiante = u;
             validar = new ValidaDatos();
-            logM = new MateriaBO();
-            listaM = new List<Materias>();
-            logMat = new MatriculaEstudianteBO();
-            listaMat = new List<MatriculaEstudiante>();
-            cargarCombo();
+            logMateria = new MateriaBO();
+            listaMateria = new List<Materias>();
+            logMatricula = new MatriculaEstudianteBO();
+            listaMatricula = new List<MatriculaEstudiante>();
+            cargarCombo(u);
             txtIdEstudiante.Text = u;
             txtCostoMateria.Text = sumaMaterias.ToString();
             txtCostosAsociados.Text = costo.ToString();

@@ -41,10 +41,10 @@ namespace Matricula.gui
             InitializeComponent();
             txtNota.Enabled = false;
             txtEstado.Enabled = false;
-            idEstud = idEstudiante;
-            cargarCombo();
             log = new RegistroNotaBO();
             lista = new List<RegistroNota>();
+            idEstud = idEstudiante;
+            cargarCombo();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -66,12 +66,23 @@ namespace Matricula.gui
             DialogResult oDlgRes;
             try
             {
-                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia de sus datos?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (oDlgRes == DialogResult.Yes)
+                if (cmbMaterias.Text != "")
                 {
-                    logMat.eliminar(BuscarFact(idEliminar));
-                    logMat.crearArchivo();
+
+                    oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia de sus datos?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (oDlgRes == DialogResult.Yes)
+                    {
+                        logMat.eliminar(BuscarFact(idEliminar));
+                        logMat.crearArchivo();
+                        MessageBox.Show("Ha eliminado/desertado esta materia", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay materías que eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
+                
                 }
             }
             catch (Exception ex)

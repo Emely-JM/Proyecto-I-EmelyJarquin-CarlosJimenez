@@ -77,7 +77,7 @@
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(111, 6);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(82, 26);
+            this.txtId.Size = new System.Drawing.Size(156, 26);
             this.txtId.TabIndex = 3;
             // 
             // button2

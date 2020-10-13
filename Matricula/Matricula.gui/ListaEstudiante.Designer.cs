@@ -72,10 +72,11 @@
             // 
             // txtIdProf
             // 
+            this.txtIdProf.Enabled = false;
             this.txtIdProf.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProf.Location = new System.Drawing.Point(104, 17);
             this.txtIdProf.Name = "txtIdProf";
-            this.txtIdProf.Size = new System.Drawing.Size(141, 26);
+            this.txtIdProf.Size = new System.Drawing.Size(156, 26);
             this.txtIdProf.TabIndex = 3;
             // 
             // cmbMateria
