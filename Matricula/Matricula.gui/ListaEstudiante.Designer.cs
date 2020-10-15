@@ -64,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 59);
+            this.label3.Location = new System.Drawing.Point(3, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 18);
             this.label3.TabIndex = 2;
@@ -93,9 +93,9 @@
             // 
             this.cmbEstudiante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(161, 51);
+            this.cmbEstudiante.Location = new System.Drawing.Point(161, 54);
             this.cmbEstudiante.Name = "cmbEstudiante";
-            this.cmbEstudiante.Size = new System.Drawing.Size(274, 26);
+            this.cmbEstudiante.Size = new System.Drawing.Size(534, 26);
             this.cmbEstudiante.TabIndex = 5;
             // 
             // btnCancelar
@@ -103,7 +103,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(249, 182);
+            this.btnCancelar.Location = new System.Drawing.Point(359, 178);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 35);
             this.btnCancelar.TabIndex = 7;
@@ -117,7 +117,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(130, 182);
+            this.btnAceptar.Location = new System.Drawing.Point(240, 178);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(104, 35);
             this.btnAceptar.TabIndex = 6;
@@ -135,14 +135,14 @@
             this.panel1.Controls.Add(this.cmbEstudiante);
             this.panel1.Location = new System.Drawing.Point(15, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 105);
+            this.panel1.Size = new System.Drawing.Size(702, 104);
             this.panel1.TabIndex = 8;
             // 
             // ListaEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 229);
+            this.ClientSize = new System.Drawing.Size(729, 228);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

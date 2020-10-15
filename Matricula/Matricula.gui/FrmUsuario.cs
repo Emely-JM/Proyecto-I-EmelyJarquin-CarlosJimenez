@@ -37,7 +37,7 @@ namespace Matricula.gui
                 {
                     foreach (Persona p in pbo.getLista())
                     {
-                        if (u.idPersona.Equals(p.idPersona))
+                        if (u.idPersona.Equals(p.cedula))
                         {
                             string nombre = p.nombre + " " + p.apellido1
                                 + " " + p.apellido2;

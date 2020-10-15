@@ -54,6 +54,7 @@ namespace Matricula.gui
             listMatricula = logMatricula.getLista();
             listaPersona = logPersona.getLista();
             listaNota = logNota.getLista();
+            cmbEstudiante.Text = "";
             cmbEstudiante.Items.Clear();
 
             for (int i = 0; i < listMatricula.Count; i++)
@@ -62,13 +63,14 @@ namespace Matricula.gui
                 {
                     for (int c = 0; c < listaNota.Count; c++)
                     {
-                        if (listMatricula[i].idProfesor.Equals(txtIdProf.Text) && listMatricula[i].idMateria.Equals(idMateria))
+                        if (listMatricula[i].idProfesor.Equals(txtIdProf.Text) && listMatricula[i].idMateria.Equals(idMateria) && listMatricula[i].estado.Equals("Matriculado"))
                         {
                             if (listaPersona[x].cedula.Equals(listMatricula[i].idPersona))
                             {
                                 if (listaNota[c].idEstudiante.Equals(listaPersona[x].cedula))
                                 {
-                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + " " + listaNota[c].nota);
+                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + "-" + listaNota[c].estado + "(" + listaNota[c].nota + ")");
+                                    cmbEstudiante.SelectedIndex = 0;
                                 }
                             }
                         }
@@ -104,7 +106,8 @@ namespace Matricula.gui
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-           cargarEstudiantes(cmbMateria.Text);
+            
+            cargarEstudiantes(cmbMateria.Text);
         }
     }
 }

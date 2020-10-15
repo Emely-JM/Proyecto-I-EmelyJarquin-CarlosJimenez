@@ -18,6 +18,8 @@ namespace Matricula.gui
         private RegistroNotaBO log;
         private MatriculaEstudianteBO logE;
         private List<MatriculaEstudiante> listaE;
+        private AsignacionBO logA;
+        private List<Asignacion> listaA;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -35,17 +37,36 @@ namespace Matricula.gui
         /// <summary>
         /// Carga los combos con los datos de la matricula.
         /// </summary>
-        private void cargarCombo()
+        private void cargarCombo(string id)
+        {
+            listaA = logA.getLista();
+            for (int i = 0; i < listaA.Count; i++)
+            {
+                if (listaA[i].idProf.Equals(id))
+                {
+                    cmbMateria.Items.Add(listaA[i].idMateria);
+                    cmbMateria.SelectedIndex = 0;
+                    cmbPeriodo.SelectedIndex = 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Carga el combos de los estudiantes según la materia seleccionada
+        /// </summary>
+        /// <param name="idMateria"></param>
+        public void cargarComboEstudiantes(string idMateria)
         {
             listaE = logE.getLista();
             cmbEstudiante.Items.Clear();
+            cmbEstudiante.Text = "";
             for (int i = 0; i < listaE.Count; i++)
             {
-                cmbEstudiante.Items.Add(listaE[i].idPersona);
-                cmbMateria.Items.Add(listaE[i].idMateria);
-                cmbMateria.SelectedIndex = 0;
-                cmbEstudiante.SelectedIndex = 0;
-                cmbPeriodo.SelectedIndex = 0;
+                if (listaE[i].estado.Equals("Matriculado") && listaE[i].idMateria.Equals(idMateria))
+                {
+                    cmbEstudiante.Items.Add(listaE[i].idPersona);
+                    cmbEstudiante.SelectedIndex = 0;
+                }
             }
 
         }
@@ -136,14 +157,16 @@ namespace Matricula.gui
 
         }
 
-        public RegistraNota()
+        public RegistraNota(string id)
         {
             InitializeComponent();
             log = new RegistroNotaBO();
             logE = new MatriculaEstudianteBO();
             validar = new ValidaDatos();
             listaE = new List<MatriculaEstudiante>();
-            cargarCombo();
+            logA = new AsignacionBO();
+            listaA = new List<Asignacion>();
+            cargarCombo(id);
         }
 
         private void txtProyecto_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,6 +197,11 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+        }
+
+        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarComboEstudiantes(cmbMateria.Text);
         }
     }
 }

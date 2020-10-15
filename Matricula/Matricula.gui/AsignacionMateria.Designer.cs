@@ -41,9 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtNombreProf = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtNombreProf = new System.Windows.Forms.TextBox();
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -156,7 +156,7 @@
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(33, 10);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(67, 26);
+            this.txtId.Size = new System.Drawing.Size(164, 26);
             this.txtId.TabIndex = 8;
             // 
             // panel2
@@ -175,9 +175,15 @@
             this.panel2.Size = new System.Drawing.Size(346, 191);
             this.panel2.TabIndex = 9;
             // 
-            // errorProvider2
+            // label5
             // 
-            this.errorProvider2.ContainerControl = this;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(4, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 18);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Nombre del prof:";
             // 
             // txtNombreProf
             // 
@@ -188,15 +194,9 @@
             this.txtNombreProf.Size = new System.Drawing.Size(200, 26);
             this.txtNombreProf.TabIndex = 9;
             // 
-            // label5
+            // errorProvider2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 18);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Nombre del prof:";
+            this.errorProvider2.ContainerControl = this;
             // 
             // AsignacionMateria
             // 

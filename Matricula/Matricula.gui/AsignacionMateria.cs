@@ -49,8 +49,11 @@ namespace Matricula.gui
             cmbMateria.Items.Clear();
             for (int i = 0; i < listaM.Count; i++)
             {
-                cmbMateria.Items.Add(listaM[i].idMateria);
-                cmbMateria.SelectedIndex = 0;
+                if(listaM[i].estado == true)
+                {
+                    cmbMateria.Items.Add(listaM[i].idMateria);
+                    cmbMateria.SelectedIndex = 0;
+                }
             }
         }
 

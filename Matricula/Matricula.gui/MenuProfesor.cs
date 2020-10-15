@@ -37,7 +37,7 @@ namespace Matricula.gui
 
         private void Notas_Click(object sender, EventArgs e)
         {
-            RegistraNota frm = new RegistraNota();
+            RegistraNota frm = new RegistraNota(usu);
             frm.ShowDialog();
         }
 

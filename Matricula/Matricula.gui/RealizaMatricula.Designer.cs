@@ -246,7 +246,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(15, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(781, 125);
+            this.panel2.Size = new System.Drawing.Size(799, 125);
             this.panel2.TabIndex = 22;
             // 
             // txtProfesor
@@ -276,7 +276,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 274);
+            this.ClientSize = new System.Drawing.Size(826, 274);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

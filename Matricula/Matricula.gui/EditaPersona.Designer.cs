@@ -162,11 +162,11 @@
             // 
             this.dateTimeNacimiento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeNacimiento.Location = new System.Drawing.Point(174, 101);
-            this.dateTimeNacimiento.MaxDate = new System.DateTime(2020, 10, 2, 0, 0, 0, 0);
+            this.dateTimeNacimiento.MaxDate = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
             this.dateTimeNacimiento.Name = "dateTimeNacimiento";
             this.dateTimeNacimiento.Size = new System.Drawing.Size(256, 26);
             this.dateTimeNacimiento.TabIndex = 48;
-            this.dateTimeNacimiento.Value = new System.DateTime(2020, 10, 2, 0, 0, 0, 0);
+            this.dateTimeNacimiento.Value = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
             // 
             // label3
             // 

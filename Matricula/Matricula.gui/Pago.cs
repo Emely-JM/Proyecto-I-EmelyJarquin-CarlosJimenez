@@ -43,10 +43,9 @@ namespace Matricula.gui
                         {
                             sumaMaterias += listaMateria[x].precio;
                             costo += listaMateria[x].costo;
-                            cmbMaterias.Items.Add(listaMatricula[i].idMateria + " " + listaMateria[x].nombre);
+                            cmbMaterias.Items.Add(listaMatricula[i].idMateria + " - " + listaMateria[x].nombre);
                             cmbMaterias.SelectedIndex = 0;
                         }
-
 
                     }
                 }
@@ -80,7 +79,7 @@ namespace Matricula.gui
                     errorProvider1.SetError(txtTarjeta, "");
                     logMatricula.pagoRealizado(txtIdEstudiante.Text, fechaActual);
                     logMatricula.crearArchivo();
-                    MessageBox.Show("Transacción exitosa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Transacción exitosa", "Transacción", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 errorProvider1.SetError(txtTarjeta, "Debe ingresar solamente los últimos cuatro digitos de la tarjeta");

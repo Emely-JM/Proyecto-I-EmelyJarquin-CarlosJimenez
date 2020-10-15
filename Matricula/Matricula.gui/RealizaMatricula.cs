@@ -53,8 +53,8 @@ namespace Matricula.gui
         private void cargarComboProf()
         {
             listaA = logA.getLista();
-            listaP = logP.getLista();
             cmbProfe.Items.Clear();
+            cmbProfe.Text = "";
             for (int i = 0; i < listaA.Count; i++)
             {
                 cmbProfe.Items.Add(listaA[i].idProf);
@@ -70,11 +70,13 @@ namespace Matricula.gui
         {
             listaA = logA.getLista();
             cmbMateria.Items.Clear();
+            cmbMateria.Text = "";
             for (int i = 0; i < listaA.Count; i++)
             {
                 if (listaA[i].idProf.Equals(idProfesor))
                 {
                     cmbMateria.Items.Add(listaA[i].idMateria);
+                    cmbMateria.SelectedIndex = 0;
                 }
             }
         }

@@ -49,12 +49,12 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -129,6 +129,7 @@
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(143, 26);
             this.cmbMateria.TabIndex = 9;
+            this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
             // 
             // txtEstado
             // 
@@ -276,45 +277,15 @@
             this.panel2.Size = new System.Drawing.Size(774, 72);
             this.panel2.TabIndex = 26;
             // 
-            // label1
+            // txtTotal
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 18);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Proyectos:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(151, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 18);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Laboratorios:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(318, 33);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 18);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Examenes:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(470, 33);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 18);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Pruebas cortas:";
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(702, 25);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(56, 26);
+            this.txtTotal.TabIndex = 30;
+            this.txtTotal.Text = " ";
             // 
             // label16
             // 
@@ -326,15 +297,45 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Pts obtenidos:";
             // 
-            // txtTotal
+            // label14
             // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(702, 25);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(56, 26);
-            this.txtTotal.TabIndex = 30;
-            this.txtTotal.Text = " ";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(470, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 18);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Pruebas cortas:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(318, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 18);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Examenes:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(151, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(101, 18);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Laboratorios:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 18);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Proyectos:";
             // 
             // RegistraNota
             // 

@@ -53,13 +53,11 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-
-            if (buscar(txtCedula.Text) != false)
+            if (log.BuscarId(txtIdPersona.Text) != false)
             {
                 FechaNac = dateTimeNacimiento.Value.Date;
                 FechaIngreso = dateTimeIngreso.Value.Date;
-                cedula = int.Parse(txtCedula.Text);
-                log.modificar(txtIdPersona.Text,txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                log.modificar(txtIdPersona.Text,txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
                              char.Parse(cmbSexo.Text), FechaNac, cmbNivelAcademico.Text, FechaIngreso, txtUsuarioRegistro.Text, cmbTipoPersona.Text, cmbNacionalidad.Text, chkEstado.Checked);
                 log.crearArchivo();
                 this.Close();
@@ -146,22 +144,6 @@ namespace Matricula.gui
             }
         }
 
-        /// <summary>
-        /// Busca el valor del id, si lo encuentra entonces edita y sino agrega
-        /// </summary>
-        /// <param name="cedula"> dato a buscar </param>
-        /// <returns></returns>
-        private bool buscar(string cedula)
-        {
-            bool busca = false;
-            if (log.buscarCedula(cedula) != -1)
-            {
-                busca = true;
-            }
-            return busca;
-
-        }
-
         public EditaPersona(string u)
         {
             InitializeComponent();
@@ -169,6 +151,7 @@ namespace Matricula.gui
             lblTitulo.Text = "Persona - Agregar";
             log = new PersonaBO();
             validar = new ValidaDatos();
+            lista = new List<Persona>();
             cmbTipoPersona.SelectedIndex = 0;
             cmbSexo.SelectedIndex = 0;
             cmbNivelAcademico.SelectedIndex = 0;
@@ -186,6 +169,7 @@ namespace Matricula.gui
             lblTitulo.Text = "Persona - Editar";
             log = new PersonaBO();
             validar = new ValidaDatos();
+            lista = new List<Persona>();
             txtIdPersona.Enabled = false;
             txtUsuarioRegistro.Enabled = false;
             chkEstado.Visible = true;

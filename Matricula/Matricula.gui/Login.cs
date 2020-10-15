@@ -195,10 +195,6 @@ namespace Matricula.gui
             encripta = new Encripta();
             txtUsuAdmin.Text = "Admin";
             txtPassAdmin.Text = "Admin123*";
-            txtUsuStuden.Text = "EJM";
-            txtPassStuden.Text = "admin123*";
-            txtUsuTeachers.Text = "AMA";
-            txtPassTeachers.Text = "admin123*";
         }
 
         private void btnAceptarAdmin_Click(object sender, EventArgs e)
