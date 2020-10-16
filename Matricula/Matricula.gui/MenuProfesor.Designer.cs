@@ -31,8 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosAsignados = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListaEstudiantes = new System.Windows.Forms.ToolStripMenuItem();
             this.Notas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListaEstudiantes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.salir = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,19 +69,19 @@
             this.cursosAsignados.Text = "Cursos asignados";
             this.cursosAsignados.Click += new System.EventHandler(this.cursosAsignados_Click);
             // 
-            // ListaEstudiantes
-            // 
-            this.ListaEstudiantes.Name = "ListaEstudiantes";
-            this.ListaEstudiantes.Size = new System.Drawing.Size(180, 22);
-            this.ListaEstudiantes.Text = "Lista de estudiantes";
-            this.ListaEstudiantes.Click += new System.EventHandler(this.ListaEstudiantes_Click);
-            // 
             // Notas
             // 
             this.Notas.Name = "Notas";
             this.Notas.Size = new System.Drawing.Size(180, 22);
             this.Notas.Text = "Registrar notas";
             this.Notas.Click += new System.EventHandler(this.Notas_Click);
+            // 
+            // ListaEstudiantes
+            // 
+            this.ListaEstudiantes.Name = "ListaEstudiantes";
+            this.ListaEstudiantes.Size = new System.Drawing.Size(180, 22);
+            this.ListaEstudiantes.Text = "Lista de estudiantes";
+            this.ListaEstudiantes.Click += new System.EventHandler(this.ListaEstudiantes_Click);
             // 
             // toolStripMenuItemContrasena
             // 
@@ -114,9 +114,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MenuProfesor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú de profesores";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuProfesor_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

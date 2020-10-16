@@ -16,8 +16,9 @@ namespace Matricula.gui
     {
         private string id;
         private string idEliminar;
-        MatriculaEstudianteBO logMat;
-        List<MatriculaEstudiante> listaMat;
+        private MatriculaEstudianteBO logMat;
+        private List<MatriculaEstudiante> listaMat;
+        private Form parent;
 
         /// <summary>
         /// Carga las materias ligadas al id del usuario pasado en el contructor
@@ -91,9 +92,10 @@ namespace Matricula.gui
             }
         }
 
-        public EliminaPrematricula(string idP)
+        public EliminaPrematricula(Form parent,string idP)
         {
             InitializeComponent();
+            this.parent = parent;
             logMat = new MatriculaEstudianteBO();
             listaMat = new List<MatriculaEstudiante>();
             id = idP;
@@ -114,6 +116,14 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+        }
+
+        private void EliminaPrematricula_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

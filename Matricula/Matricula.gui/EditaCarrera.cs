@@ -17,11 +17,11 @@ namespace Matricula.gui
         CarreraBO log;
         ValidaDatos validar;
         List<Carrera> lista;
-
         private string Id;
         private int creditos;
         private DateTime apertura;
         private DateTime cierre;
+        private Form parent;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -143,18 +143,20 @@ namespace Matricula.gui
         }
 
 
-        public EditaCarrera()
+        public EditaCarrera(Form parent)
         {
             InitializeComponent();
+            this.parent = parent;
             log = new CarreraBO();
             validar = new ValidaDatos();
             lblTitulo.Text = "Carrera - Agregar";
             cmbEstado.SelectedIndex = 0;
         }
 
-        public EditaCarrera(string id)
+        public EditaCarrera(Form parent,string id)
         {
             InitializeComponent();
+            this.parent = parent;
             Id = id;
             log = new CarreraBO();
             validar = new ValidaDatos();
@@ -173,11 +175,6 @@ namespace Matricula.gui
             validar.soloNumeros(e);
         }
 
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -186,6 +183,14 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+        }
+
+        private void EditaCarrera_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

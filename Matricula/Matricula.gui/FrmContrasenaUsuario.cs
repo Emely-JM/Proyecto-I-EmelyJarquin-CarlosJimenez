@@ -16,12 +16,14 @@ namespace Matricula.gui
     {
         private Usuario u;
         private UsuarioBO ubo;
+        private Form parent;
 
         private List<string> expiraContrasena = new List<string> { "30 días", "60 días", "90 días" };
 
-        public FrmContrasenaUsuario(Usuario u)
+        public FrmContrasenaUsuario(Form parent,Usuario u)
         {
             InitializeComponent();
+            this.parent = parent;
             this.u = u;
             ubo = new UsuarioBO();
             cmbExpiraContrasena.DataSource = expiraContrasena;
@@ -56,7 +58,15 @@ namespace Matricula.gui
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Dispose();
+            this.Close();
+        }
+
+        private void FrmContrasenaUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

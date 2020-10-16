@@ -14,13 +14,14 @@ namespace Matricula.gui
 {
     public partial class Pago : Form
     {
-        double sumaMaterias = 0;
-        double costo = 0;
-        MateriaBO logMateria;
-        List<Materias> listaMateria;
-        MatriculaEstudianteBO logMatricula;
-        List<MatriculaEstudiante> listaMatricula;
-        ValidaDatos validar;
+        private double sumaMaterias = 0;
+        private double costo = 0;
+        private MateriaBO logMateria;
+        private List<Materias> listaMateria;
+        private MatriculaEstudianteBO logMatricula;
+        private List<MatriculaEstudiante> listaMatricula;
+        private ValidaDatos validar;
+        private Form parent;
 
         /// <summary>
         /// Carga las materias ligadas al id del usuario pasado en el contructor
@@ -76,11 +77,21 @@ namespace Matricula.gui
                 errorProvider1.SetError(txtTarjeta, "");
                 if (txtTarjeta.Text.Length == 4)
                 {
-                    errorProvider1.SetError(txtTarjeta, "");
-                    logMatricula.pagoRealizado(txtIdEstudiante.Text, fechaActual);
-                    logMatricula.crearArchivo();
-                    MessageBox.Show("Transacción exitosa", "Transacción", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+
+                    if (!cmbMaterias.Text.Equals(""))
+                    {
+                        errorProvider1.SetError(txtTarjeta, "");
+                        logMatricula.pagoRealizado(txtIdEstudiante.Text, fechaActual);
+                        logMatricula.crearArchivo();
+                        MessageBox.Show("Transacción exitosa", "Transacción", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(cmbMaterias, "No hay materias pendientes de pago");
+                        cmbMaterias.Focus();
+                        return;
+                    }
                 }
                 errorProvider1.SetError(txtTarjeta, "Debe ingresar solamente los últimos cuatro digitos de la tarjeta");
                 txtTarjeta.Focus();
@@ -94,9 +105,10 @@ namespace Matricula.gui
             }
         }
 
-        public Pago(string u)
+        public Pago(Form parent,string u)
         {
             InitializeComponent();
+            this.parent = parent;
             validar = new ValidaDatos();
             logMateria = new MateriaBO();
             listaMateria = new List<Materias>();
@@ -123,6 +135,14 @@ namespace Matricula.gui
         private void txtTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.soloNumeros(e);
+        }
+
+        private void Pago_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

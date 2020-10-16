@@ -17,6 +17,7 @@ namespace Matricula.gui
 
         private AsignacionBO log;
         private List<Asignacion> lista;
+        private Form parent;
 
         /// <summary>
         /// Carga el combo con las materias del id del profesor pasado por parámetro
@@ -36,9 +37,10 @@ namespace Matricula.gui
             }
         }
 
-        public CursosAsignados(string id)
+        public CursosAsignados(Form parent,string id)
         {
             InitializeComponent();
+            this.parent = parent;
             lista = new List<Asignacion>();
             log = new AsignacionBO();
             txtIdProf.Text = id;
@@ -53,6 +55,14 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CursosAsignados_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

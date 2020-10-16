@@ -56,15 +56,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlTitulo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -99,7 +99,7 @@
             // 
             this.txtIdPersona.Enabled = false;
             this.txtIdPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdPersona.Location = new System.Drawing.Point(357, 70);
+            this.txtIdPersona.Location = new System.Drawing.Point(106, 70);
             this.txtIdPersona.Name = "txtIdPersona";
             this.txtIdPersona.Size = new System.Drawing.Size(97, 26);
             this.txtIdPersona.TabIndex = 50;
@@ -126,7 +126,7 @@
             // txtUsuarioRegistro
             // 
             this.txtUsuarioRegistro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioRegistro.Location = new System.Drawing.Point(105, 70);
+            this.txtUsuarioRegistro.Location = new System.Drawing.Point(357, 70);
             this.txtUsuarioRegistro.Name = "txtUsuarioRegistro";
             this.txtUsuarioRegistro.Size = new System.Drawing.Size(98, 26);
             this.txtUsuarioRegistro.TabIndex = 55;
@@ -343,23 +343,14 @@
             this.label7.TabIndex = 35;
             this.label7.Text = "Sexo:";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(726, 56);
-            this.panel1.TabIndex = 29;
-            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTitulo.Location = new System.Drawing.Point(223, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(237, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(161, 40);
+            this.lblTitulo.Size = new System.Drawing.Size(138, 32);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Personas";
             // 
@@ -411,11 +402,21 @@
             this.panel3.Size = new System.Drawing.Size(687, 102);
             this.panel3.TabIndex = 60;
             // 
+            // pnlTitulo
+            // 
+            this.pnlTitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlTitulo.Controls.Add(this.lblTitulo);
+            this.pnlTitulo.Location = new System.Drawing.Point(1, 0);
+            this.pnlTitulo.Name = "pnlTitulo";
+            this.pnlTitulo.Size = new System.Drawing.Size(726, 50);
+            this.pnlTitulo.TabIndex = 61;
+            // 
             // EditaPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 468);
+            this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelar);
@@ -424,17 +425,17 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsuarioRegistro);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "EditaPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditaPersona_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.pnlTitulo.ResumeLayout(false);
+            this.pnlTitulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,10 +470,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.CheckBox chkEstado;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlTitulo;
     }
 }

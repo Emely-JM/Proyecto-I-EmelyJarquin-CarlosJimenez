@@ -117,6 +117,7 @@
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(119, 26);
             this.cmbMateria.TabIndex = 8;
+            this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
             // 
             // dateTimeEvaluacion
             // 
@@ -223,6 +224,7 @@
             this.Name = "RealizaEvaluacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluación de cursos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RealizaEvaluacion_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

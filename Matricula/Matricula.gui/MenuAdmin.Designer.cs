@@ -29,46 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnEvaluaciones = new System.Windows.Forms.Button();
             this.btnCRUDUsuarios = new System.Windows.Forms.Button();
             this.btnAsignacion = new System.Windows.Forms.Button();
             this.btnCRUDPersonas = new System.Windows.Forms.Button();
             this.btnCRUDMateria = new System.Windows.Forms.Button();
             this.btnCRUDCarreras = new System.Windows.Forms.Button();
             this.btnCRUDAdmin = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pnlTitulo = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(785, 58);
-            this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(263, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "MENÚ PRINCIPAL";
             // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
             // 
+            // btnEvaluaciones
+            // 
+            this.btnEvaluaciones.Image = global::Matricula.gui.Properties.Resources.icons8_pass_fail_125px;
+            this.btnEvaluaciones.Location = new System.Drawing.Point(720, 78);
+            this.btnEvaluaciones.Name = "btnEvaluaciones";
+            this.btnEvaluaciones.Size = new System.Drawing.Size(219, 291);
+            this.btnEvaluaciones.TabIndex = 7;
+            this.btnEvaluaciones.UseVisualStyleBackColor = true;
+            this.btnEvaluaciones.Click += new System.EventHandler(this.btnEvaluaciones_Click);
+            // 
             // btnCRUDUsuarios
             // 
             this.btnCRUDUsuarios.Image = global::Matricula.gui.Properties.Resources.icons8_group_125px;
-            this.btnCRUDUsuarios.Location = new System.Drawing.Point(513, 231);
+            this.btnCRUDUsuarios.Location = new System.Drawing.Point(484, 231);
             this.btnCRUDUsuarios.Name = "btnCRUDUsuarios";
             this.btnCRUDUsuarios.Size = new System.Drawing.Size(219, 138);
             this.btnCRUDUsuarios.TabIndex = 6;
@@ -78,7 +69,7 @@
             // btnAsignacion
             // 
             this.btnAsignacion.Image = global::Matricula.gui.Properties.Resources.icons8_assignment_return_125px;
-            this.btnAsignacion.Location = new System.Drawing.Point(513, 78);
+            this.btnAsignacion.Location = new System.Drawing.Point(484, 78);
             this.btnAsignacion.Name = "btnAsignacion";
             this.btnAsignacion.Size = new System.Drawing.Size(219, 138);
             this.btnAsignacion.TabIndex = 5;
@@ -88,7 +79,7 @@
             // btnCRUDPersonas
             // 
             this.btnCRUDPersonas.Image = global::Matricula.gui.Properties.Resources.icons8_user_groups_125px;
-            this.btnCRUDPersonas.Location = new System.Drawing.Point(278, 231);
+            this.btnCRUDPersonas.Location = new System.Drawing.Point(249, 231);
             this.btnCRUDPersonas.Name = "btnCRUDPersonas";
             this.btnCRUDPersonas.Size = new System.Drawing.Size(219, 138);
             this.btnCRUDPersonas.TabIndex = 4;
@@ -98,7 +89,7 @@
             // btnCRUDMateria
             // 
             this.btnCRUDMateria.Image = global::Matricula.gui.Properties.Resources.icons8_course_assign_125px;
-            this.btnCRUDMateria.Location = new System.Drawing.Point(46, 231);
+            this.btnCRUDMateria.Location = new System.Drawing.Point(17, 231);
             this.btnCRUDMateria.Name = "btnCRUDMateria";
             this.btnCRUDMateria.Size = new System.Drawing.Size(219, 138);
             this.btnCRUDMateria.TabIndex = 3;
@@ -108,7 +99,7 @@
             // btnCRUDCarreras
             // 
             this.btnCRUDCarreras.Image = global::Matricula.gui.Properties.Resources.icons8_mortarboard_125px;
-            this.btnCRUDCarreras.Location = new System.Drawing.Point(278, 78);
+            this.btnCRUDCarreras.Location = new System.Drawing.Point(249, 78);
             this.btnCRUDCarreras.Name = "btnCRUDCarreras";
             this.btnCRUDCarreras.Size = new System.Drawing.Size(219, 138);
             this.btnCRUDCarreras.TabIndex = 2;
@@ -119,38 +110,58 @@
             // 
             this.btnCRUDAdmin.AccessibleDescription = "";
             this.btnCRUDAdmin.Image = global::Matricula.gui.Properties.Resources.icons8_business_group_125px_1;
-            this.btnCRUDAdmin.Location = new System.Drawing.Point(46, 78);
+            this.btnCRUDAdmin.Location = new System.Drawing.Point(17, 78);
             this.btnCRUDAdmin.Name = "btnCRUDAdmin";
             this.btnCRUDAdmin.Size = new System.Drawing.Size(219, 138);
             this.btnCRUDAdmin.TabIndex = 1;
             this.btnCRUDAdmin.UseVisualStyleBackColor = true;
             this.btnCRUDAdmin.Click += new System.EventHandler(this.btnCRUDAdmin_Click);
             // 
+            // pnlTitulo
+            // 
+            this.pnlTitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlTitulo.Controls.Add(this.lblTitulo);
+            this.pnlTitulo.Location = new System.Drawing.Point(1, 0);
+            this.pnlTitulo.Name = "pnlTitulo";
+            this.pnlTitulo.Size = new System.Drawing.Size(949, 52);
+            this.pnlTitulo.TabIndex = 8;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitulo.Location = new System.Drawing.Point(353, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(248, 32);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "MENÚ PRINCIPAL";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 395);
+            this.ClientSize = new System.Drawing.Size(951, 395);
+            this.Controls.Add(this.pnlTitulo);
+            this.Controls.Add(this.btnEvaluaciones);
             this.Controls.Add(this.btnCRUDUsuarios);
             this.Controls.Add(this.btnAsignacion);
             this.Controls.Add(this.btnCRUDPersonas);
             this.Controls.Add(this.btnCRUDMateria);
             this.Controls.Add(this.btnCRUDCarreras);
             this.Controls.Add(this.btnCRUDAdmin);
-            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "MenuAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuAdmin_FormClosing);
+            this.pnlTitulo.ResumeLayout(false);
+            this.pnlTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCRUDAdmin;
         private System.Windows.Forms.Button btnCRUDCarreras;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -158,5 +169,8 @@
         private System.Windows.Forms.Button btnCRUDPersonas;
         private System.Windows.Forms.Button btnAsignacion;
         private System.Windows.Forms.Button btnCRUDUsuarios;
+        private System.Windows.Forms.Button btnEvaluaciones;
+        private System.Windows.Forms.Panel pnlTitulo;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

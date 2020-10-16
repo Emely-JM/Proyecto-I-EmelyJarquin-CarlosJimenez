@@ -36,9 +36,9 @@
             this.eliminarPrematriculaDeMateriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEvaluacion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNotas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItemContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -57,8 +57,8 @@
             // 
             this.manúToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemMatricula,
-            this.pagosPendientes,
             this.eliminarPrematriculaDeMateriaToolStripMenuItem,
+            this.pagosPendientes,
             this.toolStripMenuItemEvaluacion,
             this.toolStripMenuItemNotas,
             this.toolStripMenuItemContrasena,
@@ -102,6 +102,13 @@
             this.toolStripMenuItemNotas.Text = "Notas";
             this.toolStripMenuItemNotas.Click += new System.EventHandler(this.toolStripMenuItemNotas_Click);
             // 
+            // toolStripMenuItemContrasena
+            // 
+            this.toolStripMenuItemContrasena.Name = "toolStripMenuItemContrasena";
+            this.toolStripMenuItemContrasena.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItemContrasena.Text = "Cambiar contraseña";
+            this.toolStripMenuItemContrasena.Click += new System.EventHandler(this.toolStripMenuItemContrasena_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -118,13 +125,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // toolStripMenuItemContrasena
-            // 
-            this.toolStripMenuItemContrasena.Name = "toolStripMenuItemContrasena";
-            this.toolStripMenuItemContrasena.Size = new System.Drawing.Size(213, 22);
-            this.toolStripMenuItemContrasena.Text = "Cambiar contraseña";
-            this.toolStripMenuItemContrasena.Click += new System.EventHandler(this.toolStripMenuItemContrasena_Click);
-            // 
             // ManuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,9 +132,11 @@
             this.ClientSize = new System.Drawing.Size(532, 332);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "ManuUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManuUsuario_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

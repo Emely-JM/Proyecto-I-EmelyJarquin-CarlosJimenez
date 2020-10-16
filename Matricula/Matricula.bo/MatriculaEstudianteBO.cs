@@ -31,9 +31,9 @@ namespace Matricula.bo
         /// <param name="estado"> estado de la matricula </param>
         /// <param name="comprobante"> comprobante de la matricula </param>
         /// <param name="fechaPago"> fecha del pago </param>
-        public void agregar(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula,string idMateria,string idProf, string estado, string comprobante, DateTime fechaPago)
+        public void agregar(string idFactura, string idPersona, string idPeriodo, DateTime fechaMatricula, string idMateria, string idProf, string estado, string comprobante, DateTime fechaPago)
         {
-            proceso.Add(new MatriculaEstudiante(idFactura,idPersona,idPeriodo,fechaMatricula,idMateria,idProf,estado,comprobante,fechaPago));
+            proceso.Add(new MatriculaEstudiante(idFactura, idPersona, idPeriodo, fechaMatricula, idMateria, idProf, estado, comprobante, fechaPago));
         }
 
         /// <summary>
@@ -44,15 +44,17 @@ namespace Matricula.bo
         /// <param name="idPersona"> id de la persona que matricula </param>
         /// <param name="idMateria"> id de la materia que se desea matricular </param>
         /// <returns> retorna el indice si encuentra el id de la materia  o un -1 si no hay registros </returns>
-        public int permitirMatricula(string idPersona,string idMateria)
+        public int permitirMatricula(string idPeriodo, string idPersona, string idMateria)
         {
-            for(int i = 0; i < proceso.Count; i++)
+            for (int i = 0; i < proceso.Count; i++)
             {
-                if (proceso[i].idPersona.Equals(idPersona))
-                {
-                    if (proceso[i].idMateria.Equals(idMateria))
+                if (proceso[i].idPeriodo.Equals(idPeriodo)){
+                    if (proceso[i].idPersona.Equals(idPersona))
                     {
-                        return i;
+                        if (proceso[i].idMateria.Equals(idMateria))
+                        {
+                            return i;
+                        }
                     }
                 }
             }

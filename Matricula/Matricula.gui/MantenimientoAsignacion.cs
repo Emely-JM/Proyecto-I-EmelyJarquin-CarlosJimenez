@@ -14,9 +14,10 @@ namespace Matricula.gui
 {
     public partial class MantenimientoAsignacion : Form
     {
-        AsignacionBO log;
-        List<Asignacion> lista;
-        int id = 0;
+        private AsignacionBO log;
+        private List<Asignacion> lista;
+        private int id = 0;
+        private Form parent;
 
         /// <summary>
         /// Muestra los datos de la lista en la tabla
@@ -43,9 +44,10 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoAsignacion(bool admin)
+        public MantenimientoAsignacion(Form parent,bool admin)
         {
             InitializeComponent();
+            this.parent = parent;
             adminPermisos(admin);
             log = new AsignacionBO();
             lista = new List<Asignacion>();
@@ -58,8 +60,9 @@ namespace Matricula.gui
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AsignacionMateria frm = new AsignacionMateria();
-            frm.ShowDialog();
+            AsignacionMateria frm = new AsignacionMateria(this);
+            frm.Show();
+            this.Visible = false;
             verDatos();
         }
 
@@ -100,13 +103,22 @@ namespace Matricula.gui
             try
             {
                 id = int.Parse(this.tblTabla.CurrentRow.Cells[0].Value.ToString());
-                AsignacionMateria frm = new AsignacionMateria(id);
-                frm.ShowDialog();
+                AsignacionMateria frm = new AsignacionMateria(this,id);
+                frm.Show();
+                this.Visible = false;
                 verDatos();
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MantenimientoAsignacion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
             }
         }
     }

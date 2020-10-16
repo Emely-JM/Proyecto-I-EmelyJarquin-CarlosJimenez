@@ -132,10 +132,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAceptar);
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EliminaPrematricula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar prematricula/desertar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EliminaPrematricula_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

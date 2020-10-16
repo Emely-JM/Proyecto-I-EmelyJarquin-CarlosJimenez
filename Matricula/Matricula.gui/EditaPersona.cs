@@ -16,12 +16,12 @@ namespace Matricula.gui
     {
 
         private PersonaBO log;
-        List<Persona> lista;
-
+        private List<Persona> lista;
         private ValidaDatos validar;
         private DateTime FechaNac;
         private DateTime FechaIngreso;
         private int cedula;
+        private Form parent;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -57,7 +57,7 @@ namespace Matricula.gui
             {
                 FechaNac = dateTimeNacimiento.Value.Date;
                 FechaIngreso = dateTimeIngreso.Value.Date;
-                log.modificar(txtIdPersona.Text,txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                log.modificar(txtIdPersona.Text, txtCedula.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
                              char.Parse(cmbSexo.Text), FechaNac, cmbNivelAcademico.Text, FechaIngreso, txtUsuarioRegistro.Text, cmbTipoPersona.Text, cmbNacionalidad.Text, chkEstado.Checked);
                 log.crearArchivo();
                 this.Close();
@@ -144,9 +144,10 @@ namespace Matricula.gui
             }
         }
 
-        public EditaPersona(string u)
+        public EditaPersona(Form parent, string u)
         {
             InitializeComponent();
+            this.parent = parent;
             txtUsuarioRegistro.Text = u;
             lblTitulo.Text = "Persona - Agregar";
             log = new PersonaBO();
@@ -163,9 +164,10 @@ namespace Matricula.gui
             asignarId();
         }
 
-        public EditaPersona(string u, string idB)
+        public EditaPersona(Form parent,string u, string idB)
         {
             InitializeComponent();
+            this.parent = parent;
             lblTitulo.Text = "Persona - Editar";
             log = new PersonaBO();
             validar = new ValidaDatos();
@@ -199,6 +201,14 @@ namespace Matricula.gui
         private void txtSegundoApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.soloLetras(e);
+        }
+
+        private void EditaPersona_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

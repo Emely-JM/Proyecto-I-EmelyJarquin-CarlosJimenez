@@ -290,6 +290,7 @@
             this.Name = "RealizaMatricula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Realizar matricula";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RealizaMatricula_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
