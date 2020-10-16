@@ -23,6 +23,7 @@ namespace Matricula.gui
         private int creditos;
         private double precio;
         private double costo;
+        private Form parent;
 
         /// <summary>
         /// Llena el comboBox con los datos de id de carrera de la lista perteneciente a las carreras
@@ -181,9 +182,10 @@ namespace Matricula.gui
         }
 
 
-        public EditaMateria()
+        public EditaMateria(Form parent)
         {
             InitializeComponent();
+            this.parent = parent;
             lblTitulo.Text = "Materia - Agregar";
             log = new MateriaBO();
             validar = new ValidaDatos();
@@ -194,9 +196,10 @@ namespace Matricula.gui
             chkActivo.Checked = true;
         }
 
-        public EditaMateria(string idMateria)
+        public EditaMateria(Form parent, string idMateria)
         {
             InitializeComponent();
+            this.parent = parent;
             lblTitulo.Text = "Materia - Editar";
             log = new MateriaBO();
             validar = new ValidaDatos();
@@ -237,6 +240,14 @@ namespace Matricula.gui
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditaMateria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

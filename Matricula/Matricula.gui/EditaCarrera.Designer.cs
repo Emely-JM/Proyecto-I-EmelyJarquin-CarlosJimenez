@@ -41,15 +41,15 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCreditos = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.pnlTitulo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -93,7 +93,6 @@
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(103, 26);
             this.cmbEstado.TabIndex = 3;
-            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -177,23 +176,14 @@
             this.txtCreditos.TabIndex = 11;
             this.txtCreditos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreditos_KeyPress);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 50);
-            this.panel1.TabIndex = 14;
-            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTitulo.Location = new System.Drawing.Point(138, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(141, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(114, 33);
+            this.lblTitulo.Size = new System.Drawing.Size(113, 32);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Carrera";
             // 
@@ -202,7 +192,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(271, 271);
+            this.btnCancelar.Location = new System.Drawing.Point(255, 272);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 33);
             this.btnCancelar.TabIndex = 13;
@@ -216,7 +206,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(145, 271);
+            this.btnAceptar.Location = new System.Drawing.Point(129, 272);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(106, 33);
             this.btnAceptar.TabIndex = 12;
@@ -249,23 +239,33 @@
             this.panel2.Size = new System.Drawing.Size(497, 187);
             this.panel2.TabIndex = 15;
             // 
+            // pnlTitulo
+            // 
+            this.pnlTitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlTitulo.Controls.Add(this.lblTitulo);
+            this.pnlTitulo.Location = new System.Drawing.Point(1, 0);
+            this.pnlTitulo.Name = "pnlTitulo";
+            this.pnlTitulo.Size = new System.Drawing.Size(521, 50);
+            this.pnlTitulo.TabIndex = 16;
+            // 
             // EditaCarrera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 318);
+            this.ClientSize = new System.Drawing.Size(523, 317);
+            this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.MaximizeBox = false;
             this.Name = "EditaCarrera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditaCarrera_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnlTitulo.ResumeLayout(false);
+            this.pnlTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -286,9 +286,9 @@
         private System.Windows.Forms.TextBox txtCreditos;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlTitulo;
     }
 }

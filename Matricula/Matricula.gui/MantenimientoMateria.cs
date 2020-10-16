@@ -15,10 +15,11 @@ namespace Matricula.gui
 {
     public partial class MantenimientoMateria : Form
     {
-        Elimina eliminar;
-        MateriaBO log;
-        List<Materias> lista;
-        string id;
+        private Elimina eliminar;
+        private MateriaBO log;
+        private List<Materias> lista;
+        private string id;
+        private Form parent;
 
         /// <summary>
         /// Resetea la tabla y recorre la lista para ingresar los datos en las celdas de la tabla
@@ -45,9 +46,10 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoMateria(bool admin)
+        public MantenimientoMateria(Form parent,bool admin)
         {
             InitializeComponent();
+            this.parent = parent;
             log = new MateriaBO();
             lista = new List<Materias>();
             adminPermisos(admin);
@@ -61,8 +63,9 @@ namespace Matricula.gui
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            EditaMateria frm = new EditaMateria();
-            frm.ShowDialog();
+            EditaMateria frm = new EditaMateria(this);
+            frm.Show();
+            this.Visible = false;
             verDatos();
         }
 
@@ -110,8 +113,9 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaMateria frm = new EditaMateria(id);
-                frm.ShowDialog();
+                EditaMateria frm = new EditaMateria(this,id);
+                frm.Show();
+                this.Visible = false;
                 verDatos();
             }
             catch (Exception ex)
@@ -165,6 +169,14 @@ namespace Matricula.gui
             catch (Exception ex)
             {
                 MessageBox.Show("Debe seleccionar una fila " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MantenimientoMateria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
             }
         }
     }

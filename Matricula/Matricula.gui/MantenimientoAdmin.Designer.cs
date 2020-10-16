@@ -29,8 +29,6 @@ namespace Matricula.gui
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tblTabla = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,29 +43,11 @@ namespace Matricula.gui
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnVerDatos = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pnlTitulo = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).BeginInit();
+            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(793, 56);
-            this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(132, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(540, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mantenimiento de Administradores";
             // 
             // tblTabla
             // 
@@ -80,7 +60,7 @@ namespace Matricula.gui
             this.Column3,
             this.Column4,
             this.Column5});
-            this.tblTabla.Location = new System.Drawing.Point(16, 144);
+            this.tblTabla.Location = new System.Drawing.Point(16, 118);
             this.tblTabla.Name = "tblTabla";
             this.tblTabla.ReadOnly = true;
             this.tblTabla.Size = new System.Drawing.Size(764, 363);
@@ -129,17 +109,17 @@ namespace Matricula.gui
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 93);
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 22);
+            this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "Usuario:";
             // 
             // txtFiltro
             // 
             this.txtFiltro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.Location = new System.Drawing.Point(97, 79);
+            this.txtFiltro.Location = new System.Drawing.Point(84, 67);
             this.txtFiltro.Multiline = true;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(292, 36);
@@ -149,7 +129,7 @@ namespace Matricula.gui
             // btnPass
             // 
             this.btnPass.Image = global::Matricula.gui.Properties.Resources.icons8_password_25px_1;
-            this.btnPass.Location = new System.Drawing.Point(732, 79);
+            this.btnPass.Location = new System.Drawing.Point(735, 67);
             this.btnPass.Name = "btnPass";
             this.btnPass.Size = new System.Drawing.Size(48, 36);
             this.btnPass.TabIndex = 9;
@@ -159,7 +139,7 @@ namespace Matricula.gui
             // btnActivaDes
             // 
             this.btnActivaDes.Image = global::Matricula.gui.Properties.Resources.icons8_shutdown_25px;
-            this.btnActivaDes.Location = new System.Drawing.Point(678, 79);
+            this.btnActivaDes.Location = new System.Drawing.Point(681, 67);
             this.btnActivaDes.Name = "btnActivaDes";
             this.btnActivaDes.Size = new System.Drawing.Size(48, 36);
             this.btnActivaDes.TabIndex = 8;
@@ -169,7 +149,7 @@ namespace Matricula.gui
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
-            this.btnEliminar.Location = new System.Drawing.Point(624, 79);
+            this.btnEliminar.Location = new System.Drawing.Point(627, 67);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(48, 36);
             this.btnEliminar.TabIndex = 7;
@@ -179,7 +159,7 @@ namespace Matricula.gui
             // btnEditar
             // 
             this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(570, 79);
+            this.btnEditar.Location = new System.Drawing.Point(573, 67);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(48, 36);
             this.btnEditar.TabIndex = 6;
@@ -189,7 +169,7 @@ namespace Matricula.gui
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(516, 79);
+            this.btnAgregar.Location = new System.Drawing.Point(519, 67);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(48, 36);
             this.btnAgregar.TabIndex = 5;
@@ -199,18 +179,40 @@ namespace Matricula.gui
             // btnVerDatos
             // 
             this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnVerDatos.Location = new System.Drawing.Point(395, 79);
+            this.btnVerDatos.Location = new System.Drawing.Point(382, 67);
             this.btnVerDatos.Name = "btnVerDatos";
             this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
             this.btnVerDatos.TabIndex = 4;
             this.btnVerDatos.UseVisualStyleBackColor = true;
             this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
             // 
+            // pnlTitulo
+            // 
+            this.pnlTitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlTitulo.Controls.Add(this.lblTitulo);
+            this.pnlTitulo.Location = new System.Drawing.Point(1, 1);
+            this.pnlTitulo.Name = "pnlTitulo";
+            this.pnlTitulo.Size = new System.Drawing.Size(790, 50);
+            this.pnlTitulo.TabIndex = 10;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitulo.Location = new System.Drawing.Point(176, 8);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(473, 32);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "Mantenimiento de administradores";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MantenimientoAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 519);
+            this.ClientSize = new System.Drawing.Size(792, 496);
+            this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.btnPass);
             this.Controls.Add(this.btnActivaDes);
             this.Controls.Add(this.btnEliminar);
@@ -220,22 +222,19 @@ namespace Matricula.gui
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tblTabla);
-            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "MantenimientoAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MantenimientoAdmin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).EndInit();
+            this.pnlTitulo.ResumeLayout(false);
+            this.pnlTitulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView tblTabla;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFiltro;
@@ -250,5 +249,7 @@ namespace Matricula.gui
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
+        private System.Windows.Forms.Panel pnlTitulo;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

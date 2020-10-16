@@ -23,6 +23,7 @@ namespace Matricula.gui
         private List<Persona> listaPersona;
         private RegistroNotaBO logNota;
         private List<RegistroNota> listaNota;
+        private Form parent;
 
         /// <summary>
         /// Carga el combo con las materias del id del profesor pasado por parámetro
@@ -49,26 +50,30 @@ namespace Matricula.gui
         /// en el combo
         /// </summary>
         /// <param name="idMateria"> id de la materia a buscar</param>
-        private void cargarEstudiantes(string idMateria)
+        private void cargarEstudiantes(string idPeriodo)
         {
             listMatricula = logMatricula.getLista();
             listaPersona = logPersona.getLista();
             listaNota = logNota.getLista();
+            cmbEstudiante.Text = "";
             cmbEstudiante.Items.Clear();
-
             for (int i = 0; i < listMatricula.Count; i++)
             {
                 for (int x = 0; x < listaPersona.Count; x++)
                 {
                     for (int c = 0; c < listaNota.Count; c++)
                     {
-                        if (listMatricula[i].idProfesor.Equals(txtIdProf.Text) && listMatricula[i].idMateria.Equals(idMateria))
+                        if (listMatricula[i].idProfesor.Equals(txtIdProf.Text) &&
+                            listMatricula[i].idMateria.Equals(cmbMateria.Text) && 
+                            listMatricula[i].estado.Equals("Matriculado"))
                         {
                             if (listaPersona[x].cedula.Equals(listMatricula[i].idPersona))
                             {
-                                if (listaNota[c].idEstudiante.Equals(listaPersona[x].cedula))
+                                if (listaNota[c].idEstudiante.Equals(listaPersona[x].cedula) && listaNota[c].idPeriodo.Equals(idPeriodo))
                                 {
-                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + " " + listaNota[c].nota);
+                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + "-" + listaNota[c].estado + "(" + listaNota[c].nota + ")");
+                                    cmbEstudiante.SelectedIndex = 0;
+
                                 }
                             }
                         }
@@ -77,9 +82,10 @@ namespace Matricula.gui
             }
         }
 
-        public ListaEstudiante(string id)
+        public ListaEstudiante(Form parent,string id)
         {
             InitializeComponent();
+            this.parent = parent;
             lista = new List<Asignacion>();
             log = new AsignacionBO();
             logMatricula = new MatriculaEstudianteBO();
@@ -102,9 +108,17 @@ namespace Matricula.gui
             this.Close();
         }
 
-        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbCuatrimestre_SelectedIndexChanged(object sender, EventArgs e)
         {
-           cargarEstudiantes(cmbMateria.Text);
+            cargarEstudiantes(cmbCuatrimestre.Text);
+        }
+
+        private void ListaEstudiante_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

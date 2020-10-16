@@ -16,10 +16,12 @@ namespace Matricula.gui
     {
         private UsuarioBO ubo;
         private PersonaBO pbo;
+        private Form parent;
 
-        public FrmUsuario()
+        public FrmUsuario(Form parent)
         {
             InitializeComponent();
+            this.parent = parent;
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
             tabla.Columns[0].ValueType = typeof(object);
@@ -37,7 +39,7 @@ namespace Matricula.gui
                 {
                     foreach (Persona p in pbo.getLista())
                     {
-                        if (u.idPersona.Equals(p.idPersona))
+                        if (u.idPersona.Equals(p.cedula))
                         {
                             string nombre = p.nombre + " " + p.apellido1
                                 + " " + p.apellido2;
@@ -106,7 +108,7 @@ namespace Matricula.gui
             try
             {
                 Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
-                FrmContrasenaUsuario frm = new FrmContrasenaUsuario(u);
+                FrmContrasenaUsuario frm = new FrmContrasenaUsuario(this,u);
                 frm.ShowDialog();
                 cargarTabla();
             }
@@ -118,7 +120,10 @@ namespace Matricula.gui
 
         private void FrmUsuario_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Dispose();
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

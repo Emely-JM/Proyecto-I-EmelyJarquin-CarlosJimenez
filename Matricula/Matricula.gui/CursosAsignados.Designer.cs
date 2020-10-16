@@ -128,6 +128,7 @@
             this.Name = "CursosAsignados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos asignados";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CursosAsignados_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

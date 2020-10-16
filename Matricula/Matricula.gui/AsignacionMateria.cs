@@ -21,7 +21,7 @@ namespace Matricula.gui
         private List<Persona> listaU;
         private MateriaBO logM;
         private List<Materias> listaM;
-
+        private Form parent;
 
         /// <summary>
         /// Llena el combo con el id de los usuarios que sean de tipo profesor
@@ -49,8 +49,11 @@ namespace Matricula.gui
             cmbMateria.Items.Clear();
             for (int i = 0; i < listaM.Count; i++)
             {
-                cmbMateria.Items.Add(listaM[i].idMateria);
-                cmbMateria.SelectedIndex = 0;
+                if(listaM[i].estado == true)
+                {
+                    cmbMateria.Items.Add(listaM[i].idMateria);
+                    cmbMateria.SelectedIndex = 0;
+                }
             }
         }
 
@@ -129,9 +132,10 @@ namespace Matricula.gui
             }
         }
 
-        public AsignacionMateria()
+        public AsignacionMateria(Form parent)
         {
             InitializeComponent();
+            this.parent = parent;
             txtId.Enabled = false;
             log = new AsignacionBO();
             logU = new PersonaBO();
@@ -144,9 +148,10 @@ namespace Matricula.gui
             asignarID();
         }
 
-        public AsignacionMateria(int idP)
+        public AsignacionMateria(Form parent, int idP)
         {
             InitializeComponent();
+            this.parent = parent;
             txtId.Enabled = false;
             log = new AsignacionBO();
             logU = new PersonaBO();
@@ -172,6 +177,14 @@ namespace Matricula.gui
         private void cmbProfesor_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarNombreProf(cmbProfesor.Text);
+        }
+
+        private void AsignacionMateria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

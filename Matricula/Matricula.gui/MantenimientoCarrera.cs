@@ -15,10 +15,11 @@ namespace Matricula.gui
 {
     public partial class MantenimientoCarrera : Form
     {
-        Elimina elimina;
-        CarreraBO log;
-        List<Carrera> lista;
-        string id = "";
+        private Elimina elimina;
+        private CarreraBO log;
+        private List<Carrera> lista;
+        private string id = "";
+        private Form parent;
 
         /// <summary>
         /// Ingresa los datos de la lista a la tabla
@@ -45,11 +46,12 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoCarrera(bool admin)
+        public MantenimientoCarrera(Form parent,bool admin)
         {
             InitializeComponent();
             log = new CarreraBO();
             lista = new List<Carrera>();
+            this.parent = parent;
             adminPermisos(admin);
             elimina = new Elimina();
         }
@@ -61,8 +63,9 @@ namespace Matricula.gui
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            EditaCarrera frm = new EditaCarrera();
-            frm.ShowDialog();
+            EditaCarrera frm = new EditaCarrera(this);
+            frm.Show();
+            this.Visible = false;
             verDatos();
         }
 
@@ -100,13 +103,9 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                //string nombre = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
-                //int creditos = int.Parse(this.tblTabla.CurrentRow.Cells[2].Value.ToString());
-                //string estado = this.tblTabla.CurrentRow.Cells[3].Value.ToString();
-                //DateTime apertura = DateTime.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
-                //DateTime cierre = DateTime.Parse(this.tblTabla.CurrentRow.Cells[5].Value.ToString());
-                EditaCarrera frm = new EditaCarrera(id);
-                frm.ShowDialog();
+                EditaCarrera frm = new EditaCarrera(this, id);
+                frm.Show();
+                this.Visible = false;
                 verDatos();
 
             }
@@ -124,6 +123,14 @@ namespace Matricula.gui
             for (int i = 0; i < filtrados.Count; i++)
             {
                 tblTabla.Rows.Add(filtrados[i].idCarrera, filtrados[i].nombre, filtrados[i].creditosTotales, filtrados[i].estado, filtrados[i].FechaApertura, filtrados[i].FechaCierrre);
+            }
+        }
+
+        private void MantenimientoCarrera_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
             }
         }
     }

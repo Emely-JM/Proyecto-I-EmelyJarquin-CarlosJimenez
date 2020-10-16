@@ -20,6 +20,7 @@ namespace Matricula.gui
         private PersonaBO log;
         private List<Persona> lista;
         private string id = "";
+        private Form parent;
 
         /// <summary>
         /// Otorga los permisos de administrador
@@ -47,13 +48,14 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoPersona(bool esadmin, string u)
+        public MantenimientoPersona(Form parent, bool esadmin, string u)
         {
             InitializeComponent();
+            this.parent = parent;
             adminPermisos(esadmin);
+            usu = u;
             log = new PersonaBO();
             lista = new List<Persona>();
-            usu = u;
             elimina = new Elimina();
         }
 
@@ -64,8 +66,9 @@ namespace Matricula.gui
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            EditaPersona frm = new EditaPersona(usu);
-            frm.ShowDialog();
+            EditaPersona frm = new EditaPersona(this,usu);
+            frm.Show();
+            this.Visible = false;
             verDatos();
         }
 
@@ -74,8 +77,9 @@ namespace Matricula.gui
             try
             {
                 id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaPersona frm = new EditaPersona(usu, id);
-                frm.ShowDialog();
+                EditaPersona frm = new EditaPersona(this,usu, id);
+                frm.Show();
+                this.Visible = false;
                 verDatos();
             }
             catch (Exception ex)
@@ -165,6 +169,14 @@ namespace Matricula.gui
             catch (Exception ex)
             {
                 MessageBox.Show("Debe seleccionar una fila " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MantenimientoPersona_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
             }
         }
     }

@@ -49,10 +49,11 @@ namespace Matricula.gui
                     string contrasena = encripta.Encriptar(txtPassAdmin.Text);
                     if (log.loguarse(txtUsuAdmin.Text, contrasena))
                     {
-                        MenuAdmin frm = new MenuAdmin(log.enviarU(), txtUsuAdmin.Text);
-                        frm.ShowDialog();
+                        MenuAdmin frm = new MenuAdmin(this,txtUsuAdmin.Text,log.enviarU());
+                        frm.Show();
                         txtUsuAdmin.Text = "";
                         txtPassAdmin.Text = "";
+                        this.Visible = false;
                     }
                     else
                     {
@@ -87,10 +88,11 @@ namespace Matricula.gui
 
                 if (u != null && isStudent(u))
                 {
-                    ManuUsuario frm = new ManuUsuario(u);
-                    frm.ShowDialog();
+                    ManuUsuario frm = new ManuUsuario(this,u);
+                    frm.Show();
                     txtUsuStuden.Text = "";
                     txtPassStuden.Text = "";
+                    this.Visible = false;
                 }
                 else
                 {
@@ -123,10 +125,11 @@ namespace Matricula.gui
 
                 if (u != null && isTeacher(u))
                 {
-                    MenuProfesor frm = new MenuProfesor(u);
-                    frm.ShowDialog();
+                    MenuProfesor frm = new MenuProfesor(this,u);
+                    frm.Show();
                     txtUsuTeachers.Text = "";
                     txtPassTeachers.Text = "";
+                    this.Visible = false;
                 }
                 else
                 {
@@ -195,10 +198,6 @@ namespace Matricula.gui
             encripta = new Encripta();
             txtUsuAdmin.Text = "Admin";
             txtPassAdmin.Text = "Admin123*";
-            txtUsuStuden.Text = "EJM";
-            txtPassStuden.Text = "admin123*";
-            txtUsuTeachers.Text = "AMA";
-            txtPassTeachers.Text = "admin123*";
         }
 
         private void btnAceptarAdmin_Click(object sender, EventArgs e)

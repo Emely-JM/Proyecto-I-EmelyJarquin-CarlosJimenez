@@ -16,11 +16,11 @@ namespace Matricula.gui
 {
     public partial class EditaAdmin : Form
     {
-        AdminBO log;
-        List<Admin> lista;
-        ValidaDatos validar;
-
-        string usuarioBuscar;
+        private AdminBO log;
+        private List<Admin> lista;
+        private ValidaDatos validar;
+        private Form parent;
+        private string usuarioBuscar;
 
         /// <summary>
         /// Método que imprime un errorProvider en el textBox pasado por parámetro 
@@ -165,9 +165,10 @@ namespace Matricula.gui
             }
         }
 
-        public EditaAdmin()
+        public EditaAdmin(Form parent)
         {
             InitializeComponent();
+            this.parent = parent;
             lblTitulo.Text = "Administrador - Agregar";
             log = new AdminBO();
             validar = new ValidaDatos();
@@ -176,9 +177,10 @@ namespace Matricula.gui
 
         }
 
-        public EditaAdmin(string usu)
+        public EditaAdmin(Form parent, string usu)
         {
             InitializeComponent();
+            this.parent = parent;
             lblTitulo.Text = "Administrador - Editar";
             log = new AdminBO();
             validar = new ValidaDatos();
@@ -208,6 +210,14 @@ namespace Matricula.gui
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.soloLetras(e);
+        }
+
+        private void EditaAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

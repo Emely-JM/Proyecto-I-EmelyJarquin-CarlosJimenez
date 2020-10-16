@@ -59,6 +59,11 @@ namespace Matricula.bo
             }
         }
 
+        /// <summary>
+        /// Busca el id de la asignación
+        /// </summary>
+        /// <param name="id"> id a buscar </param>
+        /// <returns> retorna el indice del elemento si lo encuentra</returns>
         public bool BuscarId(int id)
         {
             for (int i = 0; i < proceso.Count; i++)

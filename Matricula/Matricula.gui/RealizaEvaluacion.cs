@@ -19,6 +19,7 @@ namespace Matricula.gui
         private List<Evaluacion> lista;
         private MatriculaEstudianteBO logMatricula;
         private List<MatriculaEstudiante> listaMatricula;
+        private Form parent;
 
         /// <summary>
         /// Carga el combo con las materias en las que está matriculado el estudiante
@@ -68,7 +69,7 @@ namespace Matricula.gui
                 else
                 {
                     DateTime fecha = dateTimeEvaluacion.Value.Date;
-                    log.agregar(txtIdEvaluacion.Text, txtDescripcion.Text, txtIdEstudiante.Text, cmbMateria.Text, txtEstado.Text, fecha);
+                    log.agregar(txtIdEvaluacion.Text, txtDescripcion.Text, txtIdEstudiante.Text, cmbMateria.Text, "Aplicada", fecha);
                     log.crearArchivo();
                     MessageBox.Show("Evaluación registrada","Evaluaciones",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
@@ -89,6 +90,7 @@ namespace Matricula.gui
         /// </summary>
         private void asignarEstado()
         {
+            txtEstado.Text = "";
             if (log.permiteEvalucion(txtIdEstudiante.Text, cmbMateria.Text) != -1)
             {
                 txtEstado.Text = "Aplicada";
@@ -113,9 +115,10 @@ namespace Matricula.gui
             dateTimeEvaluacion.Enabled = false;
         }
 
-        public RealizaEvaluacion(string idEstudiante)
+        public RealizaEvaluacion(Form parent,string idEstudiante)
         {
             InitializeComponent();
+            this.parent = parent;
             log = new EvaluacionBO();
             lista = new List<Evaluacion>();
             logMatricula = new MatriculaEstudianteBO();
@@ -133,6 +136,19 @@ namespace Matricula.gui
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+        }
+
+        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            asignarEstado();
+        }
+
+        private void RealizaEvaluacion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

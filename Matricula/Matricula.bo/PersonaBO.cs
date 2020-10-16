@@ -77,14 +77,13 @@ namespace Matricula.bo
         /// <param name="tipoPersona"> nuevo valor para el tipo de persona </param>
         /// <param name="nacionalidad"> nuevo valor para la nacionalidad </param>
         /// <param name="estado"> nuevo valor para el estado </param>
-        public void modificar(string idBuscar, string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo,
+        public void modificar(string idPersona, string cedula, string nombre, string apellido1, string apellido2, char sexo,
             DateTime fechaNacimiento, string nivelAcademico, DateTime fechaIngreso, string usuarioRegistro, string tipoPersona, string nacionalidad, bool estado)
         {
             for (int i = 0; i < proceso.Count; i++)
             {
-                if (idBuscar.Equals(proceso[i].idPersona))
+                if (idPersona.Equals(proceso[i].idPersona))
                 {
-                    proceso[i].idPersona = idPersona;
                     proceso[i].cedula = cedula;
                     proceso[i].nombre = nombre;
                     proceso[i].apellido1 = apellido1;
@@ -117,6 +116,23 @@ namespace Matricula.bo
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Busca el id 
+        /// </summary>
+        /// <param name="id"> id a buscar </param>
+        /// <returns> retorna el indice del elemento si lo encuentra</returns>
+        public bool BuscarId(string id)
+        {
+            for (int i = 0; i < proceso.Count; i++)
+            {
+                if (proceso[i].idPersona == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>

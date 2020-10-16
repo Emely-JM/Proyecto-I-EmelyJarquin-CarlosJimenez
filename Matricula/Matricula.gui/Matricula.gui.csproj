@@ -123,6 +123,12 @@
     <Compile Include="FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="HistorialEvaluacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialEvaluacion.Designer.cs">
+      <DependentUpon>HistorialEvaluacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListaEstudiante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialEvaluacion.resx">
+      <DependentUpon>HistorialEvaluacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaEstudiante.resx">
       <DependentUpon>ListaEstudiante.cs</DependentUpon>
@@ -428,6 +437,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_group_125px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_pass_fail_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_pass_fail_125px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

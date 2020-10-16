@@ -22,6 +22,7 @@ namespace Matricula.gui
         private List<Persona> listaP;
         private string estado = "Prematricula";
         private DateTime fechaMatricula;
+        private Form parent;
 
         /// <summary>
         /// Asigna un ticket o id a las facturas que se registran según la cantidad de datos de la lista, 
@@ -53,8 +54,8 @@ namespace Matricula.gui
         private void cargarComboProf()
         {
             listaA = logA.getLista();
-            listaP = logP.getLista();
             cmbProfe.Items.Clear();
+            cmbProfe.Text = "";
             for (int i = 0; i < listaA.Count; i++)
             {
                 cmbProfe.Items.Add(listaA[i].idProf);
@@ -70,11 +71,13 @@ namespace Matricula.gui
         {
             listaA = logA.getLista();
             cmbMateria.Items.Clear();
+            cmbMateria.Text = "";
             for (int i = 0; i < listaA.Count; i++)
             {
                 if (listaA[i].idProf.Equals(idProfesor))
                 {
                     cmbMateria.Items.Add(listaA[i].idMateria);
+                    cmbMateria.SelectedIndex = 0;
                 }
             }
         }
@@ -104,7 +107,7 @@ namespace Matricula.gui
         /// </summary>
         private void aceptar()
         {
-            if (log.permitirMatricula(txtIdPersona.Text, cmbMateria.Text) != -1)
+            if (log.permitirMatricula(cmbPeriodo.Text,txtIdPersona.Text, cmbMateria.Text) != -1)
             {
                 errorProvider1.SetError(cmbMateria, "Ya se encuentra matriculado en este curso");
                 cmbMateria.Focus();
@@ -129,9 +132,10 @@ namespace Matricula.gui
             }
         }
 
-        public RealizaMatricula(string idPersona)
+        public RealizaMatricula(Form parent,string idPersona)
         {
             InitializeComponent();
+            this.parent = parent;
             log = new MatriculaEstudianteBO();
             lista = new List<MatriculaEstudiante>();
             logA = new AsignacionBO();
@@ -164,6 +168,14 @@ namespace Matricula.gui
         {
             cargarComboMateria(cmbProfe.Text);
             cargarNombreProf(cmbProfe.Text);
+        }
+
+        private void RealizaMatricula_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

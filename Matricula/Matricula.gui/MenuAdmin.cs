@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Matricula.entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,9 @@ namespace Matricula.gui
 {
     public partial class MenuAdmin : Form
     {
-        bool admin1;
-        string u;
+        private bool admin1;
+        private string usu;
+        private Form parent;
 
         /// <summary>
         /// Imprime mensajes sobre los botones con tooltip
@@ -26,50 +28,73 @@ namespace Matricula.gui
             this.toolTip1.SetToolTip(btnCRUDPersonas, "Mantenimiento de personas");
             this.toolTip1.SetToolTip(btnAsignacion, "Mantenimiento de asignaciones");
             this.toolTip1.SetToolTip(btnCRUDUsuarios, "Mantenimiento de Usuarios");
+            this.toolTip1.SetToolTip(btnEvaluaciones, "Historial de evaluaciones");
         }
 
-        public MenuAdmin(bool admin, string usu)
+        public MenuAdmin(Form parent, string u ,bool activo)
         {
             InitializeComponent();
             mensajes();
-            admin1 = admin;
-            u = usu;
+            this.parent = parent;
+            admin1 = activo;
+            usu = u;
         }
 
         private void btnCRUDAdmin_Click(object sender, EventArgs e)
         {
-            MantenimientoAdmin frm = new MantenimientoAdmin(admin1);
-            frm.ShowDialog();
+            MantenimientoAdmin frm = new MantenimientoAdmin(this,admin1);
+            frm.Show();
+            this.Visible = false;
         }
 
         private void btnCRUDCarreras_Click(object sender, EventArgs e)
         {
-            MantenimientoCarrera frm = new MantenimientoCarrera(admin1);
-            frm.ShowDialog();
+            MantenimientoCarrera frm = new MantenimientoCarrera(this,admin1);
+            frm.Show();
+            this.Visible = false;
         }
 
         private void btnCRUDMateria_Click(object sender, EventArgs e)
         {
-            MantenimientoMateria frm = new MantenimientoMateria(admin1);
-            frm.ShowDialog();
+            MantenimientoMateria frm = new MantenimientoMateria(this,admin1);
+            frm.Show();
+            this.Visible = false;
         }
 
         private void btnCRUDPersonas_Click(object sender, EventArgs e)
         {
-            MantenimientoPersona frm = new MantenimientoPersona(admin1, u);
-            frm.ShowDialog();
+            MantenimientoPersona frm = new MantenimientoPersona(this,admin1, usu);
+            frm.Show();
+            this.Visible = false;
         }
 
         private void btnAsignacion_Click(object sender, EventArgs e)
         {
-            MantenimientoAsignacion frm = new MantenimientoAsignacion(admin1);
-            frm.ShowDialog();
+            MantenimientoAsignacion frm = new MantenimientoAsignacion(this,admin1);
+            frm.Show();
+            this.Visible = false;
         }
 
         private void btnCRUDUsuarios_Click(object sender, EventArgs e)
         {
-            FrmUsuario frm = new FrmUsuario();
-            frm.ShowDialog();
+            FrmUsuario frm = new FrmUsuario(this);
+            frm.Show();
+            this.Visible = false;
+        }
+
+        private void btnEvaluaciones_Click(object sender, EventArgs e)
+        {
+            HistorialEvaluacion frm = new HistorialEvaluacion(this);
+            frm.Show();
+            this.Visible = false;
+        }
+
+        private void MenuAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
+            }
         }
     }
 }

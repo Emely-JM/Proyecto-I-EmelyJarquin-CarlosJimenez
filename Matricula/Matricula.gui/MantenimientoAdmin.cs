@@ -16,10 +16,11 @@ namespace Matricula.gui
 {
     public partial class MantenimientoAdmin : Form
     {
-        Elimina eliminar;
-        AdminBO log;
-        List<Admin> lista;
-        string usuario;
+        private Elimina eliminar;
+        private AdminBO log;
+        private List<Admin> lista;
+        private string usuario;
+        private Form parent;
 
         /// <summary>
         /// Ingresa los datos de la lista a la tabla
@@ -38,28 +39,30 @@ namespace Matricula.gui
         /// Otorga los permisos de administrador
         /// </summary>
         /// <param name="admin1"> representa si el empleado logueado es administrador o no </param>
-        private void adminPermisos(bool admin1)
+        private void adminPermisos(bool admin)
         {
-            if (admin1 != true)
+            if (admin != true)
             {
                 btnEliminar.Enabled = false;
                 btnPass.Enabled = false;
             }
         }
 
-        public MantenimientoAdmin(bool admin)
+        public MantenimientoAdmin(Form parent, bool admin)
         {
             InitializeComponent();
+            this.parent = parent;
+            adminPermisos(admin);
             log = new AdminBO();
             lista = new List<Admin>();
-            adminPermisos(admin);
             eliminar = new Elimina();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            EditaAdmin frm = new EditaAdmin();
-            frm.ShowDialog();
+            EditaAdmin frm = new EditaAdmin(this);
+            frm.Show();
+            this.Visible = false;
             verDatos();
         }
 
@@ -156,8 +159,9 @@ namespace Matricula.gui
             try
             {
                 usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaAdmin frm = new EditaAdmin(usuario);
-                frm.ShowDialog();
+                EditaAdmin frm = new EditaAdmin(this,usuario);
+                frm.Show();
+                this.Visible = false;
                 verDatos();
             }
             catch (Exception ex)
@@ -174,6 +178,14 @@ namespace Matricula.gui
             for (int i = 0; i < filtrados.Count; i++)
             {
                 tblTabla.Rows.Add(filtrados[i].usuario, filtrados[i].nombre, filtrados[i].correo, filtrados[i].admin, filtrados[i].activo);
+            }
+        }
+
+        private void MantenimientoAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (parent != null)
+            {
+                parent.Visible = true;
             }
         }
     }
