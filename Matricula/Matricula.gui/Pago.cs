@@ -61,8 +61,11 @@ namespace Matricula.gui
         private double totalPagar()
         {
             double total = 0;
-            double subTotal = sumaMaterias + costo;
-            total = subTotal + (subTotal * 0.13);
+            double sumaSinIva = 0;
+            double sumaConIva = 0;
+            sumaSinIva = sumaMaterias + costo;
+            sumaConIva = (sumaSinIva * 0.13) / 100;
+            total = sumaSinIva+sumaConIva;
             return total;
         }
 

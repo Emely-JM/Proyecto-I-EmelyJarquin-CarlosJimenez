@@ -127,6 +127,7 @@ namespace Matricula.gui
                     fechaMatricula = dateTimeMatricula.Value.Date;
                     log.agregar(txtIdFactura.Text, txtIdPersona.Text, cmbPeriodo.Text, fechaMatricula, cmbMateria.Text, cmbProfe.Text, estado, txtComprobante.Text, fechaPago);
                     log.crearArchivo();
+                    MessageBox.Show("Prematricula realizada, cancelar el pago para que la matricula sea completada","Matricula",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
                 }
             }
