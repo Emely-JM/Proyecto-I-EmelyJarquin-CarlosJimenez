@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnEvaluaciones = new System.Windows.Forms.Button();
             this.btnCRUDUsuarios = new System.Windows.Forms.Button();
@@ -151,9 +152,11 @@
             this.Controls.Add(this.btnCRUDMateria);
             this.Controls.Add(this.btnCRUDCarreras);
             this.Controls.Add(this.btnCRUDAdmin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MenuAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Matricula 0.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuAdmin_FormClosing);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
