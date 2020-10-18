@@ -39,6 +39,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCuatrimestre = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.chkNotas = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 98);
+            this.label3.Location = new System.Drawing.Point(5, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 18);
             this.label3.TabIndex = 2;
@@ -83,6 +84,7 @@
             // 
             // cmbMateria
             // 
+            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMateria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMateria.FormattingEnabled = true;
             this.cmbMateria.Location = new System.Drawing.Point(90, 11);
@@ -92,9 +94,10 @@
             // 
             // cmbEstudiante
             // 
+            this.cmbEstudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstudiante.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(161, 90);
+            this.cmbEstudiante.Location = new System.Drawing.Point(163, 120);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(520, 26);
             this.cmbEstudiante.TabIndex = 5;
@@ -104,7 +107,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(368, 207);
+            this.btnCancelar.Location = new System.Drawing.Point(365, 233);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 35);
             this.btnCancelar.TabIndex = 7;
@@ -118,7 +121,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(249, 207);
+            this.btnAceptar.Location = new System.Drawing.Point(246, 233);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(104, 35);
             this.btnAceptar.TabIndex = 6;
@@ -130,6 +133,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.chkNotas);
             this.panel1.Controls.Add(this.cmbCuatrimestre);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
@@ -138,11 +142,12 @@
             this.panel1.Controls.Add(this.cmbEstudiante);
             this.panel1.Location = new System.Drawing.Point(15, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 142);
+            this.panel1.Size = new System.Drawing.Size(690, 168);
             this.panel1.TabIndex = 8;
             // 
             // cmbCuatrimestre
             // 
+            this.cmbCuatrimestre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCuatrimestre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCuatrimestre.FormattingEnabled = true;
             this.cmbCuatrimestre.Items.AddRange(new object[] {
@@ -165,11 +170,22 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Cuatrimestre:";
             // 
+            // chkNotas
+            // 
+            this.chkNotas.AutoSize = true;
+            this.chkNotas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNotas.Location = new System.Drawing.Point(6, 92);
+            this.chkNotas.Name = "chkNotas";
+            this.chkNotas.Size = new System.Drawing.Size(206, 22);
+            this.chkNotas.TabIndex = 8;
+            this.chkNotas.Text = "Ver estudiantes con notas";
+            this.chkNotas.UseVisualStyleBackColor = true;
+            // 
             // ListaEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 256);
+            this.ClientSize = new System.Drawing.Size(716, 282);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -200,5 +216,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbCuatrimestre;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkNotas;
     }
 }

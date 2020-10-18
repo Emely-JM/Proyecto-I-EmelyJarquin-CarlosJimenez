@@ -69,6 +69,7 @@
             // 
             // cmbCursos
             // 
+            this.cmbCursos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCursos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCursos.FormattingEnabled = true;
             this.cmbCursos.Location = new System.Drawing.Point(148, 53);

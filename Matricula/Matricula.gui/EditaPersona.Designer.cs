@@ -189,6 +189,7 @@
             // 
             // cmbTipoPersona
             // 
+            this.cmbTipoPersona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoPersona.FormattingEnabled = true;
             this.cmbTipoPersona.Items.AddRange(new object[] {
@@ -211,6 +212,7 @@
             // 
             // cmbNacionalidad
             // 
+            this.cmbNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNacionalidad.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNacionalidad.FormattingEnabled = true;
             this.cmbNacionalidad.Items.AddRange(new object[] {
@@ -233,6 +235,7 @@
             // 
             // cmbNivelAcademico
             // 
+            this.cmbNivelAcademico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNivelAcademico.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNivelAcademico.FormattingEnabled = true;
             this.cmbNivelAcademico.Items.AddRange(new object[] {
@@ -259,6 +262,7 @@
             // 
             // cmbSexo
             // 
+            this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSexo.FormattingEnabled = true;
             this.cmbSexo.Items.AddRange(new object[] {

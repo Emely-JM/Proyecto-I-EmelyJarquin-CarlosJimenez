@@ -125,6 +125,7 @@
             // 
             // cmbPeriodo
             // 
+            this.cmbPeriodo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPeriodo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPeriodo.FormattingEnabled = true;
             this.cmbPeriodo.Items.AddRange(new object[] {
@@ -198,6 +199,7 @@
             // 
             // cmbMateria
             // 
+            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMateria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMateria.FormattingEnabled = true;
             this.cmbMateria.Items.AddRange(new object[] {
@@ -220,6 +222,7 @@
             // 
             // cmbProfe
             // 
+            this.cmbProfe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProfe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProfe.FormattingEnabled = true;
             this.cmbProfe.Items.AddRange(new object[] {

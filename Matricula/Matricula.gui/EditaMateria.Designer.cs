@@ -155,6 +155,7 @@
             // 
             // cmbCarrera
             // 
+            this.cmbCarrera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCarrera.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCarrera.FormattingEnabled = true;
             this.cmbCarrera.Location = new System.Drawing.Point(368, 11);

@@ -39,6 +39,7 @@ namespace Matricula.gui
                 {
                     cmbMateria.Items.Add(lista[i].idMateria);
                     cmbMateria.SelectedIndex = 0;
+                    cmbCuatrimestre.SelectedIndex = 0;
                 }
             }
         }
@@ -49,8 +50,8 @@ namespace Matricula.gui
         /// en la lista perteneciente a las personas y carga sus datos de nombre y apellidos
         /// en el combo
         /// </summary>
-        /// <param name="idMateria"> id de la materia a buscar</param>
-        private void cargarEstudiantes(string idPeriodo)
+        /// <param name="idPeiodo"> id del periodo a buscar</param>
+        private void cargarEstudiantes(string idPeriodo,bool pasa)
         {
             listMatricula = logMatricula.getLista();
             listaPersona = logPersona.getLista();
@@ -69,11 +70,19 @@ namespace Matricula.gui
                         {
                             if (listaPersona[x].cedula.Equals(listMatricula[i].idPersona))
                             {
-                                if (listaNota[c].idEstudiante.Equals(listaPersona[x].cedula) && listaNota[c].idPeriodo.Equals(idPeriodo))
+                                if (pasa == true)
                                 {
-                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + "-" + listaNota[c].estado + "(" + listaNota[c].nota + ")");
-                                    cmbEstudiante.SelectedIndex = 0;
+                                    if (listaNota[c].idEstudiante.Equals(listaPersona[x].cedula) && listaNota[c].idPeriodo.Equals(idPeriodo))
+                                    {
+                                        cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2 + "-" + listaNota[c].estado + "(" + listaNota[c].nota + ")");
+                                        cmbEstudiante.SelectedIndex = 0;
 
+                                    }
+                                }
+                                else
+                                {
+                                    cmbEstudiante.Items.Add(listaPersona[x].nombre + " " + listaPersona[x].apellido1 + " " + listaPersona[x].apellido2);
+                                    cmbEstudiante.SelectedIndex = 0;
                                 }
                             }
                         }
@@ -110,7 +119,8 @@ namespace Matricula.gui
 
         private void cmbCuatrimestre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarEstudiantes(cmbCuatrimestre.Text);
+            bool aceptaPasar = chkNotas.Checked;
+            cargarEstudiantes(cmbCuatrimestre.Text, aceptaPasar);
         }
 
         private void ListaEstudiante_FormClosing(object sender, FormClosingEventArgs e)

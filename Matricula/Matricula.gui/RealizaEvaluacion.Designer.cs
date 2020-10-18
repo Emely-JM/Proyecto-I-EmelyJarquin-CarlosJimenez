@@ -111,6 +111,7 @@
             // 
             // cmbMateria
             // 
+            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMateria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMateria.FormattingEnabled = true;
             this.cmbMateria.Location = new System.Drawing.Point(104, 15);
