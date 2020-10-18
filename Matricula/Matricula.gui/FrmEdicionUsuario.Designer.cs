@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEdicionUsuario));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
@@ -47,26 +49,28 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtConfirmarContrasena = new System.Windows.Forms.TextBox();
             this.lblConfirmarContrasena = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(814, 50);
+            this.panel1.Size = new System.Drawing.Size(838, 50);
             this.panel1.TabIndex = 0;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitulo.Location = new System.Drawing.Point(292, 12);
+            this.lblTitulo.Location = new System.Drawing.Point(288, 10);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(254, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(263, 32);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Edición de usuario";
             // 
@@ -81,11 +85,11 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
             this.btnCancelar.Image = global::Matricula.gui.Properties.Resources.icons8_cancel_25px;
-            this.btnCancelar.Location = new System.Drawing.Point(420, 389);
+            this.btnCancelar.Location = new System.Drawing.Point(434, 389);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(148, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(110, 40);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -104,11 +108,11 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F);
             this.btnAceptar.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
-            this.btnAceptar.Location = new System.Drawing.Point(264, 389);
+            this.btnAceptar.Location = new System.Drawing.Point(294, 389);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(150, 40);
+            this.btnAceptar.Size = new System.Drawing.Size(110, 40);
             this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -140,54 +144,55 @@
             this.txtBuscarPersona.Name = "txtBuscarPersona";
             this.txtBuscarPersona.Size = new System.Drawing.Size(250, 31);
             this.txtBuscarPersona.TabIndex = 14;
+            this.txtBuscarPersona.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarPersona_KeyPress);
             // 
             // lblBuscarPersona
             // 
             this.lblBuscarPersona.AutoSize = true;
-            this.lblBuscarPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPersona.Location = new System.Drawing.Point(121, 101);
+            this.lblBuscarPersona.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarPersona.Location = new System.Drawing.Point(166, 111);
             this.lblBuscarPersona.Name = "lblBuscarPersona";
-            this.lblBuscarPersona.Size = new System.Drawing.Size(169, 25);
+            this.lblBuscarPersona.Size = new System.Drawing.Size(122, 18);
             this.lblBuscarPersona.TabIndex = 15;
             this.lblBuscarPersona.Text = "Buscar persona:";
             // 
             // lblPersona
             // 
             this.lblPersona.AutoSize = true;
-            this.lblPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersona.Location = new System.Drawing.Point(196, 138);
+            this.lblPersona.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblPersona.Location = new System.Drawing.Point(221, 148);
             this.lblPersona.Name = "lblPersona";
-            this.lblPersona.Size = new System.Drawing.Size(92, 25);
+            this.lblPersona.Size = new System.Drawing.Size(67, 18);
             this.lblPersona.TabIndex = 16;
             this.lblPersona.Text = "Persona";
             // 
             // lblContrasena
             // 
             this.lblContrasena.AutoSize = true;
-            this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.Location = new System.Drawing.Point(159, 214);
+            this.lblContrasena.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblContrasena.Location = new System.Drawing.Point(195, 224);
             this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(129, 25);
+            this.lblContrasena.Size = new System.Drawing.Size(93, 18);
             this.lblContrasena.TabIndex = 18;
             this.lblContrasena.Text = "Contraseña:";
             // 
             // lblExpiraContrasena
             // 
             this.lblExpiraContrasena.AutoSize = true;
-            this.lblExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpiraContrasena.Location = new System.Drawing.Point(38, 288);
+            this.lblExpiraContrasena.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblExpiraContrasena.Location = new System.Drawing.Point(109, 300);
             this.lblExpiraContrasena.Name = "lblExpiraContrasena";
-            this.lblExpiraContrasena.Size = new System.Drawing.Size(250, 25);
+            this.lblExpiraContrasena.Size = new System.Drawing.Size(179, 18);
             this.lblExpiraContrasena.TabIndex = 19;
             this.lblExpiraContrasena.Text = "La contraseña expira en:";
             // 
             // lblActivo
             // 
             this.lblActivo.AutoSize = true;
-            this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivo.Location = new System.Drawing.Point(211, 327);
+            this.lblActivo.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblActivo.Location = new System.Drawing.Point(233, 330);
             this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(77, 25);
+            this.lblActivo.Size = new System.Drawing.Size(55, 18);
             this.lblActivo.TabIndex = 20;
             this.lblActivo.Text = "Activo:";
             // 
@@ -196,6 +201,10 @@
             this.cmbExpiraContrasena.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbExpiraContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbExpiraContrasena.FormattingEnabled = true;
+            this.cmbExpiraContrasena.Items.AddRange(new object[] {
+            "30 días",
+            "60 días",
+            "90 días"});
             this.cmbExpiraContrasena.Location = new System.Drawing.Point(294, 285);
             this.cmbExpiraContrasena.Name = "cmbExpiraContrasena";
             this.cmbExpiraContrasena.Size = new System.Drawing.Size(250, 33);
@@ -213,10 +222,10 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(202, 177);
+            this.lblCodigo.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblCodigo.Location = new System.Drawing.Point(224, 187);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(86, 25);
+            this.lblCodigo.Size = new System.Drawing.Size(64, 18);
             this.lblCodigo.TabIndex = 23;
             this.lblCodigo.Text = "Código:";
             // 
@@ -232,12 +241,16 @@
             // lblConfirmarContrasena
             // 
             this.lblConfirmarContrasena.AutoSize = true;
-            this.lblConfirmarContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmarContrasena.Location = new System.Drawing.Point(64, 251);
+            this.lblConfirmarContrasena.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblConfirmarContrasena.Location = new System.Drawing.Point(126, 261);
             this.lblConfirmarContrasena.Name = "lblConfirmarContrasena";
-            this.lblConfirmarContrasena.Size = new System.Drawing.Size(224, 25);
+            this.lblConfirmarContrasena.Size = new System.Drawing.Size(162, 18);
             this.lblConfirmarContrasena.TabIndex = 26;
             this.lblConfirmarContrasena.Text = "Confirmar contraseña:";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FrmEdicionUsuario
             // 
@@ -262,12 +275,14 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEdicionUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Matricula 0.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEdicionUsuario_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +309,6 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtConfirmarContrasena;
         private System.Windows.Forms.Label lblConfirmarContrasena;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

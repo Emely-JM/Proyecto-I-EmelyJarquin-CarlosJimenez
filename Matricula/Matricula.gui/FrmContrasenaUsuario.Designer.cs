@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContrasenaUsuario));
             this.lblContrasena = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.lblExpiraContrasena = new System.Windows.Forms.Label();
@@ -37,7 +39,9 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblContrasena
@@ -55,6 +59,7 @@
             this.txtContrasena.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.Location = new System.Drawing.Point(6, 33);
             this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(250, 26);
             this.txtContrasena.TabIndex = 0;
             // 
@@ -83,6 +88,7 @@
             this.txtConfirmarContrasena.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmarContrasena.Location = new System.Drawing.Point(6, 92);
             this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
+            this.txtConfirmarContrasena.PasswordChar = '*';
             this.txtConfirmarContrasena.Size = new System.Drawing.Size(250, 26);
             this.txtConfirmarContrasena.TabIndex = 3;
             // 
@@ -91,6 +97,10 @@
             this.cmbExpiraContrasena.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbExpiraContrasena.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbExpiraContrasena.FormattingEnabled = true;
+            this.cmbExpiraContrasena.Items.AddRange(new object[] {
+            "30 días",
+            "60 días",
+            "90 días"});
             this.cmbExpiraContrasena.Location = new System.Drawing.Point(6, 153);
             this.cmbExpiraContrasena.Name = "cmbExpiraContrasena";
             this.cmbExpiraContrasena.Size = new System.Drawing.Size(250, 26);
@@ -136,6 +146,10 @@
             this.panel1.Size = new System.Drawing.Size(274, 191);
             this.panel1.TabIndex = 7;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FrmContrasenaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,13 +158,15 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmContrasenaUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Matricula 0.1";
+            this.Text = "Cambio de contraseña";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmContrasenaUsuario_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,5 +182,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

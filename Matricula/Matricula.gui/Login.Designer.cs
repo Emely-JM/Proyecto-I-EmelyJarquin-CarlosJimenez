@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCancelarAdmin = new System.Windows.Forms.Button();
@@ -114,7 +115,7 @@
             this.btnAceptarAdmin.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnAceptarAdmin.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptarAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptarAdmin.Location = new System.Drawing.Point(237, 148);
+            this.btnAceptarAdmin.Location = new System.Drawing.Point(234, 148);
             this.btnAceptarAdmin.Name = "btnAceptarAdmin";
             this.btnAceptarAdmin.Size = new System.Drawing.Size(100, 35);
             this.btnAceptarAdmin.TabIndex = 5;
@@ -171,7 +172,7 @@
             this.pictureBox1.Image = global::Matricula.gui.Properties.Resources.LoginForm1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(410, 220);
+            this.pictureBox1.Size = new System.Drawing.Size(407, 218);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -223,7 +224,7 @@
             this.btnAceptarStuden.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnAceptarStuden.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.btnAceptarStuden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptarStuden.Location = new System.Drawing.Point(226, 149);
+            this.btnAceptarStuden.Location = new System.Drawing.Point(231, 149);
             this.btnAceptarStuden.Name = "btnAceptarStuden";
             this.btnAceptarStuden.Size = new System.Drawing.Size(100, 35);
             this.btnAceptarStuden.TabIndex = 11;
@@ -280,7 +281,7 @@
             this.pictureBox2.Image = global::Matricula.gui.Properties.Resources.LoginForm2;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(404, 217);
+            this.pictureBox2.Size = new System.Drawing.Size(411, 217);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -332,7 +333,7 @@
             this.txtAceparTeachers.ForeColor = System.Drawing.SystemColors.MenuText;
             this.txtAceparTeachers.Image = global::Matricula.gui.Properties.Resources.icons8_ok_25px;
             this.txtAceparTeachers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtAceparTeachers.Location = new System.Drawing.Point(222, 149);
+            this.txtAceparTeachers.Location = new System.Drawing.Point(232, 149);
             this.txtAceparTeachers.Name = "txtAceparTeachers";
             this.txtAceparTeachers.Size = new System.Drawing.Size(100, 35);
             this.txtAceparTeachers.TabIndex = 17;
@@ -404,6 +405,7 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(413, 241);
             this.Controls.Add(this.tabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

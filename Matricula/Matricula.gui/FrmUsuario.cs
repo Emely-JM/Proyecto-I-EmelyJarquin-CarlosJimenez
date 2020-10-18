@@ -17,6 +17,7 @@ namespace Matricula.gui
         private UsuarioBO ubo;
         private PersonaBO pbo;
         private Form parent;
+        private ValidaDatos validar;
 
         public FrmUsuario(Form parent)
         {
@@ -24,6 +25,7 @@ namespace Matricula.gui
             this.parent = parent;
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
+            validar = new ValidaDatos();
             tabla.Columns[0].ValueType = typeof(object);
         }
 
@@ -48,16 +50,16 @@ namespace Matricula.gui
                         }
                     }
                 }
-                txtBuscar.Clear();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(this, "Error al cargar la tabla");
+                MessageBox.Show("Error al cargar la tabla", "Error de la tabla", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            txtBuscar.Clear();
             cargarTabla();
         }
 
@@ -72,14 +74,26 @@ namespace Matricula.gui
         {
             try
             {
-                Usuario u = (Usuario) tabla.CurrentRow.Cells[0].Value;
-                FrmEdicionUsuario frm = new FrmEdicionUsuario(u);
-                frm.ShowDialog();
-                cargarTabla();
+                if (tabla.CurrentRow != null)
+                {
+                    Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
+                    FrmEdicionUsuario frm = new FrmEdicionUsuario(u);
+                    frm.ShowDialog();
+                    cargarTabla();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un usuario de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cargarTabla();
+                }
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
-                MessageBox.Show(this, "Error al intentar editar el usuario");
+                MessageBox.Show(ex.Message, "Error de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al intentar editar el usuario", "Error de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,18 +102,26 @@ namespace Matricula.gui
             DialogResult respuesta;
             try
             {
-                Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
-                respuesta = MessageBox.Show("¿Seguro de que desea eliminar este usuario?", "Eliminando un usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (respuesta == DialogResult.Yes)
+                if (tabla.CurrentRow != null)
                 {
-                    u.activo = false;
-                    ubo.guardar(u); 
+                    Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
+                    respuesta = MessageBox.Show("¿Seguro de que desea eliminar este usuario?", "Eliminando un usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        u.activo = false;
+                        ubo.guardar(u);
+                    }
+                    cargarTabla();
                 }
-                cargarTabla();
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un usuario de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cargarTabla();
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(this, "Error al intentar eliminar el usuario");
+                MessageBox.Show("Error al intentar eliminar el usuario", "Error de usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -107,14 +129,22 @@ namespace Matricula.gui
         {
             try
             {
-                Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
-                FrmContrasenaUsuario frm = new FrmContrasenaUsuario(this,u);
-                frm.ShowDialog();
-                cargarTabla();
+                if (tabla.CurrentRow != null)
+                {
+                    Usuario u = (Usuario)tabla.CurrentRow.Cells[0].Value;
+                    FrmContrasenaUsuario frm = new FrmContrasenaUsuario(this, u);
+                    frm.ShowDialog();
+                    cargarTabla();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un usuario de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cargarTabla();
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(this, "Error al intentar cambiar la contraseña");
+                MessageBox.Show("Error al intentar cambiar la contraseña", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -124,6 +154,16 @@ namespace Matricula.gui
             {
                 parent.Visible = true;
             }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.soloLetras(e);
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            cargarTabla();
         }
     }
 }

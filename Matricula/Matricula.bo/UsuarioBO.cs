@@ -23,12 +23,7 @@ namespace Matricula.bo
         /// Isntancia de la clase Usuario
         /// </param>
         public void guardar(Usuario u)
-        {
-            if (String.IsNullOrEmpty(u.codigo))
-            {
-                throw new ArgumentNullException("El código es requerido");
-            }
-
+        {   
             foreach (Usuario usuario in GetUsuarios(""))
             {
                 if (u.idPersona.Equals(usuario.idPersona) && u.id != usuario.id)
@@ -60,11 +55,8 @@ namespace Matricula.bo
         /// </param>
         public void cambiarContrasena(Usuario u)
         {
-            if (String.IsNullOrEmpty(u.contrasena))
-            {
-                throw new ArgumentNullException("La contraseña es requerida");
-            }
             u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
+            
             new UsuarioDAO().cambiarContrasena(u);
         }
 
@@ -101,15 +93,6 @@ namespace Matricula.bo
         /// </returns>
         public Usuario iniciarSesion(Usuario u)
         {
-            if (String.IsNullOrEmpty(u.codigo))
-            {
-                throw new ArgumentNullException("El usuario es requerido");
-            }
-            if (String.IsNullOrEmpty(u.contrasena))
-            {
-                throw new ArgumentNullException("La contraseña es requerida");
-            }
-
             u.contrasena = new Encripta().Encriptar(u.contrasena); //Encripta la contraseña
 
             return new UsuarioDAO().iniciarSesion(u);

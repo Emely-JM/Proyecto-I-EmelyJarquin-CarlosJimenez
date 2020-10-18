@@ -29,6 +29,7 @@ namespace Matricula.gui
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoAdmin));
             this.tblTabla = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -222,9 +223,11 @@ namespace Matricula.gui
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tblTabla);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MantenimientoAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Matricula 0.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MantenimientoAdmin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).EndInit();
             this.pnlTitulo.ResumeLayout(false);

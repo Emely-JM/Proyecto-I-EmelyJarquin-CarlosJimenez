@@ -54,9 +54,9 @@
             // 
             this.pnlTitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlTitulo.Controls.Add(this.lblTitulo);
-            this.pnlTitulo.Location = new System.Drawing.Point(12, 12);
+            this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(814, 50);
+            this.pnlTitulo.Size = new System.Drawing.Size(838, 50);
             this.pnlTitulo.TabIndex = 0;
             // 
             // lblTitulo
@@ -64,7 +64,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitulo.Location = new System.Drawing.Point(220, 12);
+            this.lblTitulo.Location = new System.Drawing.Point(232, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(375, 32);
             this.lblTitulo.TabIndex = 1;
@@ -74,18 +74,20 @@
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(104, 73);
+            this.txtBuscar.Location = new System.Drawing.Point(82, 73);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 31);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(12, 76);
+            this.lblCodigo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(12, 86);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(86, 25);
+            this.lblCodigo.Size = new System.Drawing.Size(64, 18);
             this.lblCodigo.TabIndex = 7;
             this.lblCodigo.Text = "Código:";
             // 
@@ -200,7 +202,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnBuscar.Location = new System.Drawing.Point(360, 68);
+            this.btnBuscar.Location = new System.Drawing.Point(338, 68);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 40);
             this.btnBuscar.TabIndex = 2;

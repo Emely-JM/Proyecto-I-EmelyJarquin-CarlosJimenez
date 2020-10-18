@@ -17,9 +17,9 @@ namespace Matricula.gui
         private Usuario u;
         private UsuarioBO ubo;
         private PersonaBO pbo;
+        private ValidaDatos validar;
 
         private string idPersona;
-        private List<string> expiraContrasena = new List<string> { "30 días", "60 días", "90 días" };
 
         /// <summary>
         /// Inicializa la ventana para agregar un usuario nuevo
@@ -33,9 +33,9 @@ namespace Matricula.gui
             u = new Usuario();
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
+            validar = new ValidaDatos();
             idPersona = "";
             cargarDatos();
-            cmbExpiraContrasena.DataSource = expiraContrasena;
             cmbExpiraContrasena.SelectedIndex = 0;
         }
 
@@ -54,10 +54,23 @@ namespace Matricula.gui
             this.u = u;
             ubo = new UsuarioBO();
             pbo = new PersonaBO();
+            validar = new ValidaDatos();
             idPersona = u.idPersona;
             cargarDatos();
-            cmbExpiraContrasena.DataSource = expiraContrasena;
             cmbExpiraContrasena.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Método que imprime un errorProvider en el textBox pasado por parámetro 
+        /// y con el mensaje indicado en el parámetro
+        /// </summary>
+        /// <param name="text"> representa el textBox al que se le dará foco para imprimir el mensaje</param>
+        /// <param name="mensaje"> representa el mensaje que se desea imprimir </param>
+        private void mensaje(TextBox text, string mensaje)
+        {
+            errorProvider.SetError(text, mensaje);
+            text.Focus();
+            return;
         }
 
         /// <summary>
@@ -87,7 +100,7 @@ namespace Matricula.gui
             }
             catch (Exception)
             {
-                MessageBox.Show(this, "Error al cargar la tabla");
+                MessageBox.Show("Error al cargar los datos del usuario", "Datos del usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -217,34 +230,38 @@ namespace Matricula.gui
         {
             try
             {
-                if (txtContrasena.Text.Equals(txtConfirmarContrasena.Text))
+                if (!String.IsNullOrEmpty(txtCodigo.Text))
                 {
-                    u.codigo = txtCodigo.Text;
-                    u.idPersona = idPersona;
-                    u.contrasena = txtContrasena.Text;
-                    u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0, 2)));
-                    u.activo = chkActivo.Checked;
-                    ubo.guardar(u);
-                    Dispose();
+                    errorProvider.SetError(txtCodigo, "");
+                    if (txtContrasena.Text.Equals(txtConfirmarContrasena.Text))
+                    {
+                        u.codigo = txtCodigo.Text;
+                        u.idPersona = idPersona;
+                        u.contrasena = txtContrasena.Text;
+                        u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0, 2)));
+                        u.activo = chkActivo.Checked;
+                        ubo.guardar(u);
+                        Dispose();
+                    }
+                    else
+                    {
+                        txtContrasena.Clear();
+                        txtConfirmarContrasena.Clear();
+                        MessageBox.Show("Las contraseñas ingresadas no coinciden", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    txtContrasena.Clear();
-                    txtConfirmarContrasena.Clear();
-                    MessageBox.Show(this, "Las contraseñas ingresadas no coinciden");
+                    mensaje(txtCodigo, "El código es requerido");
                 }
-            }
-            catch (ArgumentNullException ex)
-            {
-                MessageBox.Show(this, ex.Message);
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show(this, ex.Message);
+                MessageBox.Show(ex.Message, "Error de edición de usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message);
+                MessageBox.Show(ex.Message, "Error de edición de usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }   
         }
 
@@ -258,5 +275,9 @@ namespace Matricula.gui
             Dispose();
         }
 
+        private void txtBuscarPersona_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.soloNumeros(e);
+        }
     }
 }

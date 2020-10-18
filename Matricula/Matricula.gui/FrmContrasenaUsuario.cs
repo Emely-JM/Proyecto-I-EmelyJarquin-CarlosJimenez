@@ -18,41 +18,63 @@ namespace Matricula.gui
         private UsuarioBO ubo;
         private Form parent;
 
-        private List<string> expiraContrasena = new List<string> { "30 días", "60 días", "90 días" };
-
         public FrmContrasenaUsuario(Form parent,Usuario u)
         {
             InitializeComponent();
             this.parent = parent;
             this.u = u;
             ubo = new UsuarioBO();
-            cmbExpiraContrasena.DataSource = expiraContrasena;
             cmbExpiraContrasena.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Método que imprime un errorProvider en el textBox pasado por parámetro 
+        /// y con el mensaje indicado en el parámetro
+        /// </summary>
+        /// <param name="text"> representa el textBox al que se le dará foco para imprimir el mensaje</param>
+        /// <param name="mensaje"> representa el mensaje que se desea imprimir </param>
+        private void mensaje(TextBox text, string mensaje)
+        {
+            errorProvider.SetError(text, mensaje);
+            text.Focus();
+            return;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtContrasena.Text.Equals(txtConfirmarContrasena.Text))
+                if (!String.IsNullOrEmpty(txtContrasena.Text))
                 {
-                    u.contrasena = txtContrasena.Text;
-                    u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0, 2)));
-                    ubo.cambiarContrasena(u);
-                    Dispose();
+                    errorProvider.SetError(txtContrasena, "");
+                    if (!String.IsNullOrEmpty(txtConfirmarContrasena.Text))
+                    {
+                        errorProvider.SetError(txtConfirmarContrasena, "");
+                        if (txtContrasena.Text.Equals(txtConfirmarContrasena.Text))
+                        {
+                            u.contrasena = txtContrasena.Text;
+                            u.fechaExpiraContrasena = DateTime.Now.AddDays(int.Parse(cmbExpiraContrasena.SelectedItem.ToString().Substring(0, 2)));
+                            ubo.cambiarContrasena(u);
+                            Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Las contraseñas ingresadas no coinciden", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        mensaje(txtConfirmarContrasena, "La contraseña es requerida");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(this, "Las contraseñas ingresadas no coinciden");
+                    mensaje(txtContrasena, "La contraseña es requerida");
                 }
-            }
-            catch (ArgumentNullException ex)
-            {
-                MessageBox.Show(this, ex.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message);
+                MessageBox.Show(ex.Message, "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

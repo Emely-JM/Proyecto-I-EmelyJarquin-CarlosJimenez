@@ -80,32 +80,44 @@ namespace Matricula.gui
         {
             try
             {
-                Usuario u = new Usuario();
-                u.codigo = txtUsuStuden.Text.ToUpper();
-                u.contrasena = txtPassStuden.Text;
-
-                u = ubo.iniciarSesion(u);
-
-                if (u != null && isStudent(u))
+                if (!String.IsNullOrEmpty(txtUsuStuden.Text))
                 {
-                    ManuUsuario frm = new ManuUsuario(this,u);
-                    frm.Show();
-                    txtUsuStuden.Text = "";
-                    txtPassStuden.Text = "";
-                    this.Visible = false;
+                    errorProvider1.SetError(txtUsuStuden, "");
+                    if (!String.IsNullOrEmpty(txtPassStuden.Text))
+                    {
+                        errorProvider1.SetError(txtPassStuden, "");
+                        Usuario u = new Usuario();
+                        u.codigo = txtUsuStuden.Text.ToUpper();
+                        u.contrasena = txtPassStuden.Text;
+
+                        u = ubo.iniciarSesion(u);
+
+                        if (u != null && isStudent(u))
+                        {
+                            ManuUsuario frm = new ManuUsuario(this, u);
+                            frm.Show();
+                            txtUsuStuden.Text = "";
+                            txtPassStuden.Text = "";
+                            this.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        mensaje(txtPassStuden, "La contraseña es requerida");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(this, "Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mensaje(txtUsuStuden, "El usuario es requerido");
                 }
-            }
-            catch (ArgumentNullException e)
-            {
-                MessageBox.Show(this, e.Message);
             }
             catch (Exception e)
             {
-                MessageBox.Show(this, e.Message);
+                MessageBox.Show(e.Message, "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -117,32 +129,44 @@ namespace Matricula.gui
         {
             try
             {
-                Usuario u = new Usuario();
-                u.codigo = txtUsuTeachers.Text.ToUpper();
-                u.contrasena = txtPassTeachers.Text;
-
-                u = ubo.iniciarSesion(u);
-
-                if (u != null && isTeacher(u))
+                if (!String.IsNullOrEmpty(txtUsuTeachers.Text))
                 {
-                    MenuProfesor frm = new MenuProfesor(this,u);
-                    frm.Show();
-                    txtUsuTeachers.Text = "";
-                    txtPassTeachers.Text = "";
-                    this.Visible = false;
+                    errorProvider1.SetError(txtUsuTeachers, "");
+                    if (!String.IsNullOrEmpty(txtPassTeachers.Text))
+                    {
+                        errorProvider1.SetError(txtPassTeachers, "");
+                        Usuario u = new Usuario();
+                        u.codigo = txtUsuTeachers.Text.ToUpper();
+                        u.contrasena = txtPassTeachers.Text;
+
+                        u = ubo.iniciarSesion(u);
+
+                        if (u != null && isTeacher(u))
+                        {
+                            MenuProfesor frm = new MenuProfesor(this, u);
+                            frm.Show();
+                            txtUsuTeachers.Text = "";
+                            txtPassTeachers.Text = "";
+                            this.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        mensaje(txtPassTeachers, "La contraseña es requerida");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(this, "Credenciales inválidos", "Error de credenciales", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mensaje(txtUsuTeachers, "El usuario es requerido");
                 }
-            }
-            catch (ArgumentNullException e)
-            {
-                MessageBox.Show(this, e.Message);
             }
             catch (Exception e)
             {
-                MessageBox.Show(this, e.Message);
+                MessageBox.Show(e.Message, "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

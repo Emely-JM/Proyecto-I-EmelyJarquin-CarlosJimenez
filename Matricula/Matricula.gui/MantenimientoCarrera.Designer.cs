@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoCarrera));
             this.tblTabla = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -206,9 +207,11 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tblTabla);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MantenimientoCarrera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Matricula 0.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MantenimientoCarrera_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.tblTabla)).EndInit();
             this.pnlTitulo.ResumeLayout(false);
