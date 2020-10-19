@@ -9,6 +9,10 @@ namespace Matricula.gui
 {
     public class ValidaDatos
     {
+        /// <summary>
+        /// Válida que solo se permiten letras en el evento keyPress de cada textBox
+        /// </summary>
+        /// <param name="e"> evento keyPress del textBox </param>
         public void soloLetras(KeyPressEventArgs e)
         {
             try
@@ -37,6 +41,10 @@ namespace Matricula.gui
             }
         }
 
+        /// <summary>
+        /// Válida que solo se permiten números enteros en el evento keyPress de cada textBox
+        /// </summary>
+        /// <param name="e">evento keyPress del textBox</param>
         public void soloNumeros(KeyPressEventArgs e)
         {
             try

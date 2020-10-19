@@ -46,7 +46,7 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoMateria(Form parent,bool admin)
+        public MantenimientoMateria(Form parent, bool admin)
         {
             InitializeComponent();
             this.parent = parent;
@@ -74,37 +74,44 @@ namespace Matricula.gui
             DialogResult oDlgRes;
             try
             {
-                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[6].Value.ToString());
-                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (oDlgRes == DialogResult.Yes)
+                if (tblTabla.CurrentRow != null)
                 {
-                    if (eliminar.eliminarMateria(id) != -1)
+                    id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[6].Value.ToString());
+                    oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta materia?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (oDlgRes == DialogResult.Yes)
                     {
-                        MessageBox.Show("No se puede eliminar esta materia ya que tiene matriculas ligadas, debe eliminar las matriculas para eliminar la materia. En su lugar, se procederá a " +
-                            "desactivar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (activo == true)
+                        if (eliminar.eliminarMateria(id) != -1)
                         {
-                            log.modificaEstado(id, false);
+                            MessageBox.Show("No se puede eliminar esta materia ya que tiene matriculas ligadas, debe eliminar las matriculas para eliminar la materia. En su lugar, se procederá a " +
+                                "desactivar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (activo == true)
+                            {
+                                log.modificaEstado(id, false);
+                            }
+                            else
+                            {
+                                log.modificaEstado(id, true);
+
+                            }
                         }
                         else
                         {
-                            log.modificaEstado(id, true);
-
+                            log.eliminar(id);
                         }
+                        log.crearArchivo();
+                        verDatos();
                     }
-                    else
-                    {
-                        log.eliminar(id);
-                    }
-                    log.crearArchivo();
-                    verDatos();
                 }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 
@@ -112,15 +119,24 @@ namespace Matricula.gui
         {
             try
             {
-                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaMateria frm = new EditaMateria(this,id);
-                frm.Show();
-                this.Visible = false;
-                verDatos();
+                if (tblTabla.CurrentRow != null)
+                {
+                    id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    EditaMateria frm = new EditaMateria(this, id);
+                    frm.Show();
+                    this.Visible = false;
+                    verDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 

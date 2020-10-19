@@ -46,7 +46,7 @@ namespace Matricula.gui
             }
         }
 
-        public MantenimientoCarrera(Form parent,bool admin)
+        public MantenimientoCarrera(Form parent, bool admin)
         {
             InitializeComponent();
             log = new CarreraBO();
@@ -74,27 +74,34 @@ namespace Matricula.gui
             DialogResult oDlgRes;
             try
             {
-                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta carrera?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (oDlgRes == DialogResult.Yes)
+                if (tblTabla.CurrentRow != null)
                 {
-                    if(elimina.eliminarCarrera(id) != -1)
+                    id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta carrera?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (oDlgRes == DialogResult.Yes)
                     {
-                        MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar dicha materia para poder eliminar la carrera. En su lugar, se procederá a cerrar la carrera","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        log.modificaEstado(id);
+                        if (elimina.eliminarCarrera(id) != -1)
+                        {
+                            MessageBox.Show("No puede eliminar esta carrera, ya que está ligada a una materia, debe eliminar dicha materia para poder eliminar la carrera. En su lugar, se procederá a cerrar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            log.modificaEstado(id);
+                        }
+                        else
+                        {
+                            log.eliminar(id);
+                        }
+                        log.crearArchivo();
+                        verDatos();
                     }
-                    else
-                    {
-                        log.eliminar(id);
-                    }
-                    log.crearArchivo();
-                    verDatos();
                 }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 
@@ -102,16 +109,24 @@ namespace Matricula.gui
         {
             try
             {
-                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaCarrera frm = new EditaCarrera(this, id);
-                frm.Show();
-                this.Visible = false;
-                verDatos();
+                if (tblTabla.CurrentRow != null)
+                {
+                    id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    EditaCarrera frm = new EditaCarrera(this, id);
+                    frm.Show();
+                    this.Visible = false;
+                    verDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 

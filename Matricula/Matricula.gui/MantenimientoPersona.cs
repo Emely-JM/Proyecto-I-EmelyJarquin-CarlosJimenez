@@ -66,7 +66,7 @@ namespace Matricula.gui
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            EditaPersona frm = new EditaPersona(this,usu);
+            EditaPersona frm = new EditaPersona(this, usu);
             frm.Show();
             this.Visible = false;
             verDatos();
@@ -76,15 +76,24 @@ namespace Matricula.gui
         {
             try
             {
-                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaPersona frm = new EditaPersona(this,usu, id);
-                frm.Show();
-                this.Visible = false;
-                verDatos();
+                if (tblTabla.CurrentRow != null)
+                {
+                    id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    EditaPersona frm = new EditaPersona(this, usu, id);
+                    frm.Show();
+                    this.Visible = false;
+                    verDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 
@@ -93,36 +102,42 @@ namespace Matricula.gui
             DialogResult oDlgRes;
             try
             {
-                id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                string cedula = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
-                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[8].Value.ToString());
-                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta persona?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (oDlgRes == DialogResult.Yes)
+                if (tblTabla.CurrentRow != null)
                 {
-                    if (elimina.eliminarPersona(cedula) != -1)
+                    id = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    string cedula = this.tblTabla.CurrentRow.Cells[1].Value.ToString();
+                    bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[8].Value.ToString());
+                    oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar esta persona?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (oDlgRes == DialogResult.Yes)
                     {
-                        MessageBox.Show("No se puede eliminar a esta persona, ya que hay datos ligados, debe eliminar dichos datos para lograr eliminar, en su lugar se desactivará", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (activo == true)
+                        if (elimina.eliminarPersona(cedula) != -1)
                         {
-                            log.activaDesactiva(id, false);
+                            MessageBox.Show("No se puede eliminar a esta persona, ya que hay datos ligados, debe eliminar dichos datos para lograr eliminar, en su lugar se desactivará", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (activo == true)
+                            {
+                                log.activaDesactiva(id, false);
+                            }
+                            else
+                            {
+                                log.activaDesactiva(id, true);
+                            }
                         }
                         else
                         {
-                            log.activaDesactiva(id, true);
+                            log.eliminar(id);
                         }
+                        log.crearArchivo();
+                        verDatos();
                     }
-                    else
-                    {
-                        log.eliminar(id);
-                    }
-                    log.crearArchivo();
-                    verDatos();
                 }
-
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 

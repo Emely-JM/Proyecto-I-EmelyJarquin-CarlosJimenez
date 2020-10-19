@@ -130,9 +130,9 @@ namespace Matricula.gui
             // btnPass
             // 
             this.btnPass.Image = global::Matricula.gui.Properties.Resources.icons8_password_25px_1;
-            this.btnPass.Location = new System.Drawing.Point(735, 67);
+            this.btnPass.Location = new System.Drawing.Point(740, 63);
             this.btnPass.Name = "btnPass";
-            this.btnPass.Size = new System.Drawing.Size(48, 36);
+            this.btnPass.Size = new System.Drawing.Size(40, 40);
             this.btnPass.TabIndex = 9;
             this.btnPass.UseVisualStyleBackColor = true;
             this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
@@ -140,9 +140,9 @@ namespace Matricula.gui
             // btnActivaDes
             // 
             this.btnActivaDes.Image = global::Matricula.gui.Properties.Resources.icons8_shutdown_25px;
-            this.btnActivaDes.Location = new System.Drawing.Point(681, 67);
+            this.btnActivaDes.Location = new System.Drawing.Point(694, 63);
             this.btnActivaDes.Name = "btnActivaDes";
-            this.btnActivaDes.Size = new System.Drawing.Size(48, 36);
+            this.btnActivaDes.Size = new System.Drawing.Size(40, 40);
             this.btnActivaDes.TabIndex = 8;
             this.btnActivaDes.UseVisualStyleBackColor = true;
             this.btnActivaDes.Click += new System.EventHandler(this.btnActivaDes_Click);
@@ -150,9 +150,9 @@ namespace Matricula.gui
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
-            this.btnEliminar.Location = new System.Drawing.Point(627, 67);
+            this.btnEliminar.Location = new System.Drawing.Point(648, 63);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(48, 36);
+            this.btnEliminar.Size = new System.Drawing.Size(40, 40);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -160,9 +160,9 @@ namespace Matricula.gui
             // btnEditar
             // 
             this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(573, 67);
+            this.btnEditar.Location = new System.Drawing.Point(602, 63);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(48, 36);
+            this.btnEditar.Size = new System.Drawing.Size(40, 40);
             this.btnEditar.TabIndex = 6;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -170,9 +170,9 @@ namespace Matricula.gui
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(519, 67);
+            this.btnAgregar.Location = new System.Drawing.Point(556, 63);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(48, 36);
+            this.btnAgregar.Size = new System.Drawing.Size(40, 40);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -180,9 +180,9 @@ namespace Matricula.gui
             // btnVerDatos
             // 
             this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnVerDatos.Location = new System.Drawing.Point(382, 67);
+            this.btnVerDatos.Location = new System.Drawing.Point(382, 63);
             this.btnVerDatos.Name = "btnVerDatos";
-            this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
+            this.btnVerDatos.Size = new System.Drawing.Size(40, 40);
             this.btnVerDatos.TabIndex = 4;
             this.btnVerDatos.UseVisualStyleBackColor = true;
             this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);

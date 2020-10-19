@@ -71,18 +71,27 @@ namespace Matricula.gui
             DialogResult oDlgRes;
             try
             {
-                usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar este usuario?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (oDlgRes == DialogResult.Yes)
+                if (tblTabla.CurrentRow != null)
                 {
-                    log.eliminar(usuario);
-                    log.crearArchivo();
-                    verDatos();
+                    usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    oDlgRes = MessageBox.Show("¿Seguro de que desea eliminar este usuario " + usuario + "?", "Eliminación de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (oDlgRes == DialogResult.Yes)
+                    {
+                        log.eliminar(usuario);
+                        log.crearArchivo();
+                        verDatos();
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 
@@ -90,33 +99,42 @@ namespace Matricula.gui
         {
             try
             {
-                usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
-                if (activo == true)
+                if (tblTabla.CurrentRow != null)
                 {
-                    DialogResult result = MessageBox.Show("¿Está seguro de desactivar al usuario: " + usuario + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    bool activo = bool.Parse(this.tblTabla.CurrentRow.Cells[4].Value.ToString());
+                    if (activo == true)
                     {
-                        log.activaDesactiva(usuario, false);
-                        MessageBox.Show("Desactivado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("¿Está seguro de desactivar al usuario: " + usuario + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            log.activaDesactiva(usuario, false);
+                            MessageBox.Show("Desactivado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Está seguro de activar al usuario: " + usuario + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            log.activaDesactiva(usuario, true);
+                            MessageBox.Show("Activado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    log.crearArchivo();
+                    verDatos();
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("¿Está seguro de activar al usuario: " + usuario + "?", "Activar y desactivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        log.activaDesactiva(usuario, true);
-                        MessageBox.Show("Activado", "Activar y desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
-                log.crearArchivo();
-                verDatos();
+
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 
@@ -124,28 +142,28 @@ namespace Matricula.gui
         {
             try
             {
-                usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                if (usuario != null)
+                if (tblTabla.CurrentRow != null)
                 {
+                    usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
                     NuevaContrasena frm = new NuevaContrasena();
                     frm.ShowDialog();
                     if (frm.isAceptar())
                     {
                         log.modificarContrasena(usuario, frm.aceptarButton());
-                        MessageBox.Show("Contraseña cambiada","Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Contraseña cambiada", "Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     log.crearArchivo();
                     verDatos();
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar una fila", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 
@@ -158,15 +176,23 @@ namespace Matricula.gui
         {
             try
             {
-                usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
-                EditaAdmin frm = new EditaAdmin(this,usuario);
-                frm.Show();
-                this.Visible = false;
-                verDatos();
+                if (tblTabla.CurrentRow != null)
+                {
+                    usuario = this.tblTabla.CurrentRow.Cells[0].Value.ToString();
+                    EditaAdmin frm = new EditaAdmin(this, usuario);
+                    frm.Show();
+                    this.Visible = false;
+                    verDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una fila de la tabla", "Error de selección", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: ", ex.Message);
             }
         }
 

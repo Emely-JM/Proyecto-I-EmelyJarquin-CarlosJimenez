@@ -126,19 +126,19 @@
             // txtFiltro
             // 
             this.txtFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.Location = new System.Drawing.Point(101, 61);
+            this.txtFiltro.Location = new System.Drawing.Point(101, 66);
             this.txtFiltro.Multiline = true;
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(292, 36);
+            this.txtFiltro.Size = new System.Drawing.Size(292, 31);
             this.txtFiltro.TabIndex = 3;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnVerDatos
             // 
             this.btnVerDatos.Image = global::Matricula.gui.Properties.Resources.icons8_search_25px_1;
-            this.btnVerDatos.Location = new System.Drawing.Point(399, 61);
+            this.btnVerDatos.Location = new System.Drawing.Point(399, 57);
             this.btnVerDatos.Name = "btnVerDatos";
-            this.btnVerDatos.Size = new System.Drawing.Size(48, 36);
+            this.btnVerDatos.Size = new System.Drawing.Size(40, 40);
             this.btnVerDatos.TabIndex = 4;
             this.btnVerDatos.UseVisualStyleBackColor = true;
             this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
@@ -146,9 +146,9 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Matricula.gui.Properties.Resources.icons8_plus_25px_1;
-            this.btnAgregar.Location = new System.Drawing.Point(560, 61);
+            this.btnAgregar.Location = new System.Drawing.Point(582, 60);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(48, 36);
+            this.btnAgregar.Size = new System.Drawing.Size(40, 40);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -156,9 +156,9 @@
             // btnEditar
             // 
             this.btnEditar.Image = global::Matricula.gui.Properties.Resources.icons8_edit_25px_1;
-            this.btnEditar.Location = new System.Drawing.Point(614, 61);
+            this.btnEditar.Location = new System.Drawing.Point(628, 60);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(48, 36);
+            this.btnEditar.Size = new System.Drawing.Size(40, 40);
             this.btnEditar.TabIndex = 6;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -166,9 +166,9 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Matricula.gui.Properties.Resources.icons8_minus_25px_1;
-            this.btnEliminar.Location = new System.Drawing.Point(668, 61);
+            this.btnEliminar.Location = new System.Drawing.Point(674, 60);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(48, 36);
+            this.btnEliminar.Size = new System.Drawing.Size(40, 40);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
